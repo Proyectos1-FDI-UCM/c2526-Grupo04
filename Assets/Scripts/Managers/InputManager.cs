@@ -154,6 +154,15 @@ public class InputManager : MonoBehaviour
     public Vector2 MovementVector { get; private set; }
 
     /// <summary>
+    /// Propiedad para acceder a la dirección de apuntado del jugador
+    /// Según está configurado el InputActionController,
+    /// es un vector normalizado 
+    /// </summary>
+
+    public Vector2 AimVector { get; private set; }
+
+
+    /// <summary>
     /// Método para saber si el botón de disparo (Fire) está pulsado
     /// Devolverá true en todos los frames en los que se mantenga pulsado
     /// <returns>True, si el botón está pulsado</returns>
@@ -208,6 +217,11 @@ public class InputManager : MonoBehaviour
         movement.performed += OnMove;
         movement.canceled += OnMove;
 
+        InputAction aim = _theController.Player.Aim;
+
+        aim.performed += OnAim;
+        aim.canceled += OnAim;
+
         // Para el disparo solo cacheamos la acción de disparo.
         // El estado lo consultaremos a través de los métodos públicos que 
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
@@ -223,6 +237,29 @@ public class InputManager : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         MovementVector = context.ReadValue<Vector2>();
+    }
+
+    private void OnAim(InputAction.CallbackContext context)
+    {
+        float _screenX = 800, _screenY = 450;
+
+        Debug.Log(context.action.activeControl.device.name);
+        
+        if (context.action.activeControl.device.name.Equals("Mouse"))
+        {
+            AimVector = new Vector2(context.ReadValue<Vector2>().x - _screenX, context.ReadValue<Vector2>().y - _screenY).normalized;
+        }
+        else
+        {
+            AimVector = context.ReadValue<Vector2>();
+        }
+        /// <summary>
+        ///Si se usa el ratón se lee la posición del ratón 
+        ///[(0,0) abajo a la izquierda y (1600, 900) arriba a la derecha] 
+        ///y se calcula la dirección asumiendo que el jugador está en el centro
+        ///</summary>
+
+
     }
 
     #endregion
