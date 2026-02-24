@@ -41,7 +41,8 @@ public class InputManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
+    [SerializeField] Transform CameraTransform;
+    [SerializeField] Transform PlayerTransform;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -243,16 +244,7 @@ public class InputManager : MonoBehaviour
     {
         float _screenX = 800, _screenY = 450;
 
-        Debug.Log(context.action.activeControl.device.name);
-        
-        if (context.action.activeControl.device.name.Equals("Mouse"))
-        {
-            AimVector = new Vector2(context.ReadValue<Vector2>().x - _screenX, context.ReadValue<Vector2>().y - _screenY).normalized;
-        }
-        else
-        {
-            AimVector = context.ReadValue<Vector2>();
-        }
+        AimVector = context.ReadValue<Vector2>();
         /// <summary>
         ///Si se usa el ratón se lee la posición del ratón 
         ///[(0,0) abajo a la izquierda y (1600, 900) arriba a la derecha] 

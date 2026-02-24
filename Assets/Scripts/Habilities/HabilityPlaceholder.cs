@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -13,7 +14,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class WeaponAttack : MonoBehaviour
+public class HabilityPlaceholder : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,8 +23,7 @@ public class WeaponAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Tooltip("Ataques por segundo")]
-    [SerializeField] private float AttackFrecuency;
+    [SerializeField] private float Duration;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -35,9 +35,7 @@ public class WeaponAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private BoxCollider2D _hitbox;
-    private SpriteRenderer _debug;
-    private float _lastAttackTime;
+    private float _spawnTime;
 
     #endregion
 
@@ -52,44 +50,31 @@ public class WeaponAttack : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Awake()
+
+    private void Awake()
     {
-        _hitbox = GetComponent<BoxCollider2D>();
-        _debug = GetComponent<SpriteRenderer>();
+        _spawnTime = Time.time;
     }
 
     void Start()
     {
-        _hitbox.enabled = false;
-        _lastAttackTime = Time.time;
+        transform.Translate(Vector3.up);
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
-        float latency = 1 / AttackFrecuency;
-
-        if (_lastAttackTime + latency < Time.time)
+        if (_spawnTime + Duration < Time.time)
         {
-            _hitbox.enabled = true;
-            _debug.color = Color.red;
-            _lastAttackTime = Time.time;
+            Destroy(this.gameObject);
         }
-        else if (_lastAttackTime != Time.time)
-        {
-            _hitbox.enabled = false;
-            _debug.color = Color.blue;
-        }
-        
-
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        Debug.Log("Pegar");
+        transform.Translate(Vector3.up*(0.1f));
     }
     #endregion
 
@@ -112,5 +97,5 @@ public class WeaponAttack : MonoBehaviour
 
     #endregion
 
-} // class WeaponAttack 
+} // class HabilityPlaceholder 
 // namespace

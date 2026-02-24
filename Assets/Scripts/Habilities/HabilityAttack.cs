@@ -13,8 +13,10 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class WeaponAttack : MonoBehaviour
+public class HabilityAttack : MonoBehaviour
 {
+    enum Buttons {Hability1, Hability2, Hability3};
+
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
@@ -22,8 +24,10 @@ public class WeaponAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Tooltip("Ataques por segundo")]
-    [SerializeField] private float AttackFrecuency;
+    [Tooltip("Coste de magia")]
+    [SerializeField] private int Cost;
+    [SerializeField] private GameObject HabilityPrefab;
+    [SerializeField] private Buttons Button;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -35,8 +39,7 @@ public class WeaponAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private BoxCollider2D _hitbox;
-    private SpriteRenderer _debug;
+    
     private float _lastAttackTime;
 
     #endregion
@@ -52,44 +55,32 @@ public class WeaponAttack : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Awake()
+    private void Awake()
     {
-        _hitbox = GetComponent<BoxCollider2D>();
-        _debug = GetComponent<SpriteRenderer>();
+       
     }
 
     void Start()
     {
-        _hitbox.enabled = false;
-        _lastAttackTime = Time.time;
+        
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
-        float latency = 1 / AttackFrecuency;
+        bool pulsado = false;
 
-        if (_lastAttackTime + latency < Time.time)
+        if (Button == Buttons.Hability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
+        
+        if (pulsado)
         {
-            _hitbox.enabled = true;
-            _debug.color = Color.red;
-            _lastAttackTime = Time.time;
-        }
-        else if (_lastAttackTime != Time.time)
-        {
-            _hitbox.enabled = false;
-            _debug.color = Color.blue;
+            GameObject _hability = GameObject.Instantiate(HabilityPrefab);
+            _hability.transform.rotation = transform.rotation;
+            _hability.transform.position = transform.position;
         }
         
-
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Pegar");
     }
     #endregion
 
@@ -102,7 +93,7 @@ public class WeaponAttack : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -110,7 +101,7 @@ public class WeaponAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class WeaponAttack 
+} // class HabilityAttack 
 // namespace

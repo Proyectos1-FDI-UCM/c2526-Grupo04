@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class WeaponAim : MonoBehaviour
+public class Aim : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,7 +23,7 @@ public class WeaponAim : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private Transform PlayerTransfrom;
+    [SerializeField] private Transform PlayerTransform;
 
 
     #endregion
@@ -57,9 +57,9 @@ public class WeaponAim : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
-        transform.position = PlayerTransfrom.position;
+        transform.position = PlayerTransform.position;
 
         Vector2 aim = InputManager.Instance.AimVector;
 
