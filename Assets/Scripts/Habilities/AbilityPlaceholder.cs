@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -13,10 +14,8 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class HabilityAttack : MonoBehaviour
+public class AbilityPlaceholder : MonoBehaviour
 {
-    enum Buttons {Hability1, Hability2, Hability3};
-
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
@@ -24,10 +23,7 @@ public class HabilityAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Tooltip("Coste de magia")]
-    [SerializeField] private int Cost;
-    [SerializeField] private GameObject HabilityPrefab;
-    [SerializeField] private Buttons Button;
+    [SerializeField] private float Duration;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,8 +35,7 @@ public class HabilityAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    
-    private float _lastAttackTime;
+    private float _spawnTime;
 
     #endregion
 
@@ -55,14 +50,15 @@ public class HabilityAttack : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
+
     private void Awake()
     {
-       
+        _spawnTime = Time.time;
     }
 
     void Start()
     {
-        
+        transform.Translate(Vector3.up);
     }
 
     /// <summary>
@@ -70,17 +66,15 @@ public class HabilityAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        bool pulsado = false;
-
-        if (Button == Buttons.Hability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
-        
-        if (pulsado)
+        if (_spawnTime + Duration < Time.time)
         {
-            GameObject _hability = GameObject.Instantiate(HabilityPrefab);
-            _hability.transform.rotation = transform.rotation;
-            _hability.transform.position = transform.position;
+            Destroy(this.gameObject);
         }
-        
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(Vector3.up*(0.1f));
     }
     #endregion
 
@@ -93,7 +87,7 @@ public class HabilityAttack : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -101,7 +95,7 @@ public class HabilityAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
-} // class HabilityAttack 
+} // class HabilityPlaceholder 
 // namespace

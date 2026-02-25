@@ -5,7 +5,6 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
-using System.Runtime.CompilerServices;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -14,8 +13,10 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class HabilityPlaceholder : MonoBehaviour
+public class AbilityAttack : MonoBehaviour
 {
+   
+
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
@@ -23,7 +24,10 @@ public class HabilityPlaceholder : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] private float Duration;
+    [Tooltip("Coste de magia")]
+    [SerializeField] private int Cost;
+    [SerializeField] private GameObject AbilityPrefab;
+    [SerializeField] private Buttons Button;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -34,8 +38,9 @@ public class HabilityPlaceholder : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private enum Buttons { Ability1, Ability2, Ability3 };
 
-    private float _spawnTime;
+    private float _lastAttackTime;
 
     #endregion
 
@@ -50,15 +55,14 @@ public class HabilityPlaceholder : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-
     private void Awake()
     {
-        _spawnTime = Time.time;
+       
     }
 
     void Start()
     {
-        transform.Translate(Vector3.up);
+        
     }
 
     /// <summary>
@@ -66,15 +70,17 @@ public class HabilityPlaceholder : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_spawnTime + Duration < Time.time)
-        {
-            Destroy(this.gameObject);
-        }
-    }
+        bool pulsado = false;
 
-    private void FixedUpdate()
-    {
-        transform.Translate(Vector3.up*(0.1f));
+        if (Button == Buttons.Ability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
+        
+        if (pulsado)
+        {
+            GameObject _ability = GameObject.Instantiate(AbilityPrefab);
+            _ability.transform.rotation = transform.rotation;
+            _ability.transform.position = transform.position;
+        }
+        
     }
     #endregion
 
@@ -87,7 +93,7 @@ public class HabilityPlaceholder : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -95,7 +101,7 @@ public class HabilityPlaceholder : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class HabilityPlaceholder 
+} // class HabilityAttack 
 // namespace

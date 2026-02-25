@@ -41,8 +41,8 @@ public class InputManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] Transform CameraTransform;
-    [SerializeField] Transform PlayerTransform;
+    [Header("Elegir solo antes de ejecución y no cambiar durante ella")]
+    [SerializeField] Devices Device;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -60,13 +60,20 @@ public class InputManager : MonoBehaviour
     /// la carpeta Settings
     /// </summary>
     private InputSystem_Actions _theController;
-    
+
+
+    // Variable para el mapa de acciones
+    private InputActionMap _activeMap;
+
     /// <summary>
     /// Acción para Fire. Si tenemos más botones tendremos que crear más
     /// acciones como esta (y crear los métodos que necesitemos para
     /// conocer el estado del botón)
     /// </summary>
     private InputAction _fire;
+
+    private enum Devices {Controller, Keyboard}
+
 
     #endregion
 
@@ -209,16 +216,34 @@ public class InputManager : MonoBehaviour
     {
         // Creamos el controlador del input y activamos los controles del jugador
         _theController = new InputSystem_Actions();
-        _theController.Player.Enable();
+
+        _theController.PlayerKeyboard.Enable();
+
+        
+
+        switch (Device)
+        {
+            case Devices.Keyboard:
+                _activeMap = _theController.PlayerKeyboard.Get();
+                break;
+            case Devices.Controller:
+                _activeMap = _theController.PlayerController.Get();
+                break;
+        }
+
+        _activeMap.Enable();
+
 
         // Cacheamos la acción de movimiento
-        InputAction movement = _theController.Player.Move;
+
+        InputAction movement = _activeMap.FindAction("Move");
+
         // Para el movimiento, actualizamos el vector de movimiento usando
         // el método OnMove
         movement.performed += OnMove;
         movement.canceled += OnMove;
 
-        InputAction aim = _theController.Player.Aim;
+        InputAction aim = _activeMap.FindAction("Aim");
 
         aim.performed += OnAim;
         aim.canceled += OnAim;
@@ -227,7 +252,7 @@ public class InputManager : MonoBehaviour
         // El estado lo consultaremos a través de los métodos públicos que 
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
         // y FireWasReleasedThisFrame)
-        _fire = _theController.Player.Fire;
+        _fire = _activeMap.FindAction("Fire");
     }
 
     /// <summary>
@@ -245,6 +270,16 @@ public class InputManager : MonoBehaviour
         float _screenX = 800, _screenY = 450;
 
         AimVector = context.ReadValue<Vector2>();
+
+        switch (Device)
+        {
+            case Devices.Controller:
+                AimVector = context.ReadValue<Vector2>();
+                break;
+            case Devices.Keyboard:
+                AimVector = new Vector2 ( context.ReadValue<Vector2>().x - _screenX , context.ReadValue<Vector2>().y - _screenY);
+                break;
+        }
         /// <summary>
         ///Si se usa el ratón se lee la posición del ratón 
         ///[(0,0) abajo a la izquierda y (1600, 900) arriba a la derecha] 
