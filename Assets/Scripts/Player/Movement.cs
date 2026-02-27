@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private Rigidbody2D _rb;
 
     #endregion
 
@@ -44,10 +43,6 @@ public class Movement : MonoBehaviour
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
@@ -60,7 +55,7 @@ public class Movement : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
         Vector2 movement = InputManager.Instance.MovementVector;
         movement = SnapTo8Directions(movement);
