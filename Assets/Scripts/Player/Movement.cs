@@ -55,7 +55,6 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _rb.linearVelocity = Vector2.zero;
     }
 
     /// <summary>
@@ -65,7 +64,8 @@ public class Movement : MonoBehaviour
     {
         Vector2 movement = InputManager.Instance.MovementVector;
         movement = SnapTo8Directions(movement);
-        _rb.linearVelocity = movement * Velocity;
+        //_rb.linearVelocity = movement * Velocity;
+        transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
 
         if (movement != Vector2.zero)
         {
