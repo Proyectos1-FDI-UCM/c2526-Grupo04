@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3550760798964533510, guid: 3eeeaccf46f684f6da400b898bbc2f73, type: 3}
+      propertyPath: Device
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7775909251169774736, guid: 3eeeaccf46f684f6da400b898bbc2f73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

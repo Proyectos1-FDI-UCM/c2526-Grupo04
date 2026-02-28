@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Rodrigo Ceña Álvarez
+// Responsable de la creación de este archivo
 // Nombre del juego
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
@@ -13,8 +13,10 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Movement : MonoBehaviour
+public class AbilityAttack : MonoBehaviour
 {
+   
+
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
@@ -22,8 +24,10 @@ public class Movement : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] private float Velocity;
-
+    [Tooltip("Coste de magia")]
+    [SerializeField] private int Cost;
+    [SerializeField] private GameObject AbilityPrefab;
+    [SerializeField] private Buttons Button;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -34,6 +38,9 @@ public class Movement : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private enum Buttons { Ability1, Ability2, Ability3 };
+
+    private float _lastAttackTime;
 
     #endregion
 
@@ -48,8 +55,14 @@ public class Movement : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
+    private void Awake()
+    {
+       
+    }
+
     void Start()
     {
+        
     }
 
     /// <summary>
@@ -57,20 +70,17 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Vector2 movement = InputManager.Instance.MovementVector;
-        movement = SnapTo8Directions(movement);
-        //_rb.linearVelocity = movement * Velocity;
-        transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
+        bool pulsado = false;
 
-        if (movement != Vector2.zero)
+        if (Button == Buttons.Ability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
+        
+        if (pulsado)
         {
-            // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
-            //  (pues el triángulo apunta hacia arriba la punta)
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
-
-            // Una vez tenemos el ángulo, rotamos el player a esa dirección
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            GameObject _ability = GameObject.Instantiate(AbilityPrefab);
+            _ability.transform.rotation = transform.rotation;
+            _ability.transform.position = transform.position;
         }
+        
     }
     #endregion
 
@@ -83,30 +93,15 @@ public class Movement : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private Vector2 SnapTo8Directions(Vector2 input)
-    {
-        if (input.magnitude < 0.1f) return Vector2.zero;
 
-        // Cálculo del ángulo en radianes y lo pasamos a grados
-        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+    #endregion   
 
-        // Redondeamos al múltiplo de 45 más cercano (para las 8 direcciones)
-        angle = Mathf.Round(angle / 45f) * 45f;
-
-        // Lo pasamos de vuelta a radianes
-        float rad = angle * Mathf.Deg2Rad;
-
-        // Creamos un vector de dirección normalizado a partir del ángulo
-        return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-    }
-    #endregion
-
-} // class Movement 
+} // class HabilityAttack 
 // namespace

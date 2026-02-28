@@ -13,10 +13,8 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class HabilityAttack : MonoBehaviour
+public class Camera : MonoBehaviour
 {
-    enum Buttons {Hability1, Hability2, Hability3};
-
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
@@ -24,10 +22,8 @@ public class HabilityAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Tooltip("Coste de magia")]
-    [SerializeField] private int Cost;
-    [SerializeField] private GameObject HabilityPrefab;
-    [SerializeField] private Buttons Button;
+
+    [SerializeField] private Transform Player; // Jugador aqui
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -38,9 +34,6 @@ public class HabilityAttack : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
-    
-    private float _lastAttackTime;
 
     #endregion
 
@@ -55,14 +48,9 @@ public class HabilityAttack : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    private void Awake()
-    {
-       
-    }
-
     void Start()
     {
-        
+
     }
 
     /// <summary>
@@ -70,17 +58,18 @@ public class HabilityAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        bool pulsado = false;
 
-        if (Button == Buttons.Hability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
-        
-        if (pulsado)
-        {
-            GameObject _hability = GameObject.Instantiate(HabilityPrefab);
-            _hability.transform.rotation = transform.rotation;
-            _hability.transform.position = transform.position;
-        }
-        
+    }
+
+    private void LateUpdate()
+    {
+        if (Player == null) return;
+
+        // Calculamos la posición destino
+        Vector3 des_pos = new Vector3(Player.position.x, Player.position.y, transform.position.z);
+
+        // Aplicamos la posición
+        transform.position = des_pos;
     }
     #endregion
 
@@ -93,7 +82,7 @@ public class HabilityAttack : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -101,7 +90,7 @@ public class HabilityAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+    #endregion
 
-} // class HabilityAttack 
+} // class Camera 
 // namespace
