@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 1001369722}
   - component: {fileID: 1001369721}
   m_Layer: 0
-  m_Name: MagicManager
+  m_Name: Jugador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,8 +456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoTotalRecarga: 6
-  coste: 20
+  coste: 10
   tanqueMagia: {fileID: 427561419}
+  magiaMax: 0
 --- !u!4 &1001369722
 Transform:
   m_ObjectHideFlags: 0

@@ -178,6 +178,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f9051871-f068-4ce2-b30d-88f5627285cb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""be876f6c-562e-4385-b8cb-4dc598b8f357"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
