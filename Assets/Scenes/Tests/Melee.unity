@@ -975,6 +975,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1961932365673630015, guid: 41d549b2bc3dd1245913c9ce76fb0779, type: 3}
+      propertyPath: KnockbackForce
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2420980510147085542, guid: 41d549b2bc3dd1245913c9ce76fb0779, type: 3}
       propertyPath: m_Name
       value: Fighter

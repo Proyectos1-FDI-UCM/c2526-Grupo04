@@ -1,10 +1,12 @@
 //---------------------------------------------------------
-// Contiene las estadísticas del jugador
+// Breve descripción del contenido del archivo
 // Javier Hoyos Giunta
 // MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using Mono.Cecil;
+using System;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -13,7 +15,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class PlayerStats : MonoBehaviour
+public class Potenciadores : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,12 +24,11 @@ public class PlayerStats : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] float vida;
-    [SerializeField] float dmg;
-    [SerializeField] float magia;
 
+    enum Potenciador {Vida, Daño, Magia}
+    [SerializeField] Potenciador tipoPotenciador;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -36,6 +37,9 @@ public class PlayerStats : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
+    private GameObject _player;
+    private PlayerStats _playerStats;
 
     #endregion
     
@@ -52,7 +56,12 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        // Como el jugador es un singleton, va a ser el unico elemento con comp. PlayerStats, por lo que lo buscamos por componente
+        _playerStats = GameObject.FindAnyObjectByType<PlayerStats>();
+        if (_playerStats == null)
+        {
+            Console.WriteLine("No se ha encontrado ningún elemento con componente PlayerStats");
+        }
     }
 
     /// <summary>
@@ -72,23 +81,31 @@ public class PlayerStats : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void VidaUpload()
+    // El método Potencia() llama a uno de los métodos de potenciación en función del tipo de potenciador que es
+    public void Potencia()
     {
-        vida += 1;
-    }
+        switch (tipoPotenciador)
+        {
+            case Potenciador.Vida:
+                PotenciaV();
+                break;
 
-    public void DmgUpload()
-    {
-        dmg += 1;
-    }
+            case Potenciador.Daño:
+                PotenciaD();
+                break;
 
-    public void MagiaUpload()
-    {
-        magia += 1;
+            case Potenciador.Magia:
+                PotenciaM();
+                break;
+
+            default:
+                Console.WriteLine("No se ha asignado un tipo al potenciador (vida, daño o magia)");
+                break;
+        }
     }
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -96,7 +113,21 @@ public class PlayerStats : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    private void PotenciaV()
+    {
+        _playerStats.VidaUpload();
+    }
 
-} // class PlayerStats 
+    private void PotenciaD()
+    {
+        _playerStats.DmgUpload();
+    }
+
+    private void PotenciaM()
+    {
+        _playerStats.MagiaUpload();
+    }
+    #endregion   
+
+} // class Potenciadores 
 // namespace
