@@ -43,6 +43,8 @@ public class EnemyStateMachine : MonoBehaviour
     protected Vector2 _playerPosition;
     protected Vector2 _dir;
 
+    private float minX, maxX, minY, maxY;
+
     // Temporizador para actualizar la dirección cada cierto tiempo
     protected float _dirTimer = 0f;
 
@@ -70,6 +72,8 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     void Start()
     {
+        LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
+
         _currentState = State.Chasing;
         _player = FindFirstObjectByType<Movement>().gameObject;
         _rb = GetComponent<Rigidbody2D>();
@@ -174,6 +178,13 @@ public class EnemyStateMachine : MonoBehaviour
     {
         SetDir();
         transform.position += (Vector3)(_dir * MovementSpeed * Time.deltaTime);
+
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+        transform.position = pos;
 
         // Calculamos la dirección hacia el player
         Vector3 direction = (_player.transform.position - transform.position).normalized;

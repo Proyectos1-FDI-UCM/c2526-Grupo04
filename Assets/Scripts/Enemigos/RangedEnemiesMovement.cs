@@ -43,7 +43,7 @@ public class RangedEnemiesMovement : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    private float minX, maxX, minY, maxY;
     protected enum State
     {
         Chasing,
@@ -70,6 +70,8 @@ public class RangedEnemiesMovement : MonoBehaviour
     void Start()
     {
         _currentState = State.Chasing;
+        LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
+
     }
 
     /// <summary>
@@ -94,6 +96,13 @@ public class RangedEnemiesMovement : MonoBehaviour
                     {
                         //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
                         transform.position += direction * Speed * Time.deltaTime;
+
+                        Vector3 pos = transform.position;
+
+                        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+                        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+                        transform.position = pos;
                     }
                     break;
 
