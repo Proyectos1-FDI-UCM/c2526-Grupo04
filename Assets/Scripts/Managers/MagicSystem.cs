@@ -17,42 +17,45 @@ public class SistemaMagia : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     [SerializeField]
-    private float tiempoTotalRecarga; // tiempo que tarda en rellenar el tanque al completo
+    private float TotalReloadTime; // tiempo que tarda en rellenar el tanque al completo
 
     [SerializeField]
-    private float coste; //coste del ataque
+    private float cost; //coste del ataque (provisional)
 
     [SerializeField]
-    private TMPro.TextMeshProUGUI tanqueMagia; //texto que se muestra en pantalla
+    private TMPro.TextMeshProUGUI MagicTank; //texto que se muestra en pantalla
 
     [SerializeField]
-    private float magiaMax; //capacidad máxima de magia
+    private float MaxMagic; //capacidad máxima de magia
 
     // ---- ATRIBUTOS PRIVADOS ----
-    private float magiaActual; //cantidad de magia actual
-    private float tiempoActualRecarga; //tiempo que tarda en recargar la magia en el momento actual
+    private PlayerStats playerStats;
+    private float NowMagic; //cantidad de magia actual
+    private float NowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     void Start()
     {
-        magiaActual = 0f; //establecemos valores iniciales
-        magiaMax = 100;
-        tiempoActualRecarga = tiempoTotalRecarga;
+        // inicializa playerstats como las stats del jugador (que tiene este componente)
+        playerStats = gameObject.GetComponent<PlayerStats>();
+        NowMagic = 0f; //establecemos valores iniciales
+        MaxMagic = playerStats.MaxMagic; // la stat magia máxima del jugador
+        NowReloadTime = TotalReloadTime;
     }
 
     void Update()
     { 
-        if (magiaActual < magiaMax) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
+        if (NowMagic < MaxMagic) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
         {
-            tiempoActualRecarga = (magiaMax - magiaActual) * tiempoTotalRecarga / magiaMax;
-            magiaActual += (Time.deltaTime * (magiaMax - magiaActual)) / tiempoActualRecarga;
-            magiaActual = Mathf.Clamp(magiaActual, 0, magiaMax);            
+            NowReloadTime = (MaxMagic - NowMagic) * TotalReloadTime / MaxMagic;
+            NowMagic += (Time.deltaTime * (MaxMagic - NowMagic)) / NowReloadTime;
+            NowMagic = Mathf.Clamp(NowMagic, 0, MaxMagic);            
             
         }
 
-        if (InputManager.Instance.FireWasPressedThisFrame() && magiaActual > coste) //gasto de magia al atacar, comprobando que el botón de ataque se ha pulsado y que hay suficiente magia para gastar
+        if (InputManager.Instance.FireWasPressedThisFrame() && NowMagic > cost) //gasto de magia al atacar, comprobando que el botón de ataque se ha pulsado y que hay suficiente magia para gastar
         {
-            magiaActual -= coste;
+            NowMagic -= cost;
         }
 
         UpdateGUI();
@@ -60,7 +63,7 @@ public class SistemaMagia : MonoBehaviour
 
     void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
     {
-        tanqueMagia.text = magiaActual.ToString("F2") + " / " + magiaMax;
+        MagicTank.text = NowMagic.ToString("F2") + " / " + MaxMagic;
     }
 
     // ---- MÉTODOS PÚBLICOS ----
