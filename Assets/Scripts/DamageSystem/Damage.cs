@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Contiene las estadísticas del jugador
-// Javier Hoyos Giunta
-// MMDM
+// Breve descripción del contenido del archivo
+// Responsable de la creación de este archivo
+// Nombre del juego
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class PlayerStats : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,9 +22,8 @@ public class PlayerStats : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] float MaxHealth = 1;
-    [SerializeField] float Dmg = 1;
-    [SerializeField] float MaxMagic = 1;
+
+    [SerializeField] float Multiplicador = 1;
 
     #endregion
     
@@ -72,23 +71,8 @@ public class PlayerStats : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void MaxHealthUpload()
-    {
-        MaxHealth += 1;
-    }
-
-    public void DmgUpload()
-    {
-        Dmg += 1;
-    }
-
-    public void MaxMagicUpload()
-    {
-        MaxMagic += 1;
-    }
-
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -96,7 +80,7 @@ public class PlayerStats : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class PlayerStats 
+} // class Damage 
 // namespace

@@ -115,7 +115,7 @@ public class Potenciadores : MonoBehaviour
 
     private void PotenciaV()
     {
-        _playerStats.VidaUpload();
+        _playerStats.MaxHealthUpload();
     }
 
     private void PotenciaD()
@@ -125,7 +125,7 @@ public class Potenciadores : MonoBehaviour
 
     private void PotenciaM()
     {
-        _playerStats.MagiaUpload();
+        _playerStats.MaxMagicUpload();
     }
     #endregion   
 
