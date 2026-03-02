@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -22,9 +23,9 @@ public class PlayerStats : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] public float MaxHealth = 1;
-    [SerializeField] public float Dmg = 1;
-    [SerializeField] public float MaxMagic = 1;
+    [SerializeField] float MaxHealth = 1;
+    [SerializeField] float Dmg = 1;
+    [SerializeField] float MaxMagic = 1;
 
     #endregion
 
@@ -36,6 +37,9 @@ public class PlayerStats : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    private Health _health;
+    private Damage _damage;
+    private MagicSystem _magicSystem;
 
     #endregion
     
@@ -52,7 +56,9 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        _health = gameObject.GetComponent<Health>();  
+        _damage = gameObject.GetComponent<Damage>();
+        _magicSystem = gameObject.GetComponent<MagicSystem>();
     }
 
     /// <summary>
@@ -72,6 +78,21 @@ public class PlayerStats : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    public float GetMaxHealth()
+    {
+        return MaxHealth;
+    }
+
+    public float GetDmg()
+    {
+        return Dmg;
+    }
+
+    public float GetMaxMagic()
+    {
+        return MaxMagic;
+    }
+
     public void MaxHealthUpload()
     {
         MaxHealth += 1;
@@ -85,6 +106,7 @@ public class PlayerStats : MonoBehaviour
     public void MaxMagicUpload()
     {
         MaxMagic += 1;
+        _magicSystem.UpdateMaxMagic();
     }
 
     #endregion

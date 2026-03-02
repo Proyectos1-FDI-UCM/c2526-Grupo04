@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class SistemaMagia : MonoBehaviour
+public class MagicSystem : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     [SerializeField]
@@ -29,7 +29,7 @@ public class SistemaMagia : MonoBehaviour
     private float MaxMagic; //capacidad máxima de magia
 
     // ---- ATRIBUTOS PRIVADOS ----
-    private PlayerStats playerStats;
+    private PlayerStats _playerStats;
     private float NowMagic; //cantidad de magia actual
     private float NowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     
@@ -37,9 +37,9 @@ public class SistemaMagia : MonoBehaviour
     void Start()
     {
         // inicializa playerstats como las stats del jugador (que tiene este componente)
-        playerStats = gameObject.GetComponent<PlayerStats>();
+        _playerStats = gameObject.GetComponent<PlayerStats>();
         NowMagic = 0f; //establecemos valores iniciales
-        MaxMagic = playerStats.MaxMagic; // la stat magia máxima del jugador
+        MaxMagic = _playerStats.GetMaxMagic(); // la stat magia máxima del jugador
         NowReloadTime = TotalReloadTime;
     }
 
@@ -61,10 +61,7 @@ public class SistemaMagia : MonoBehaviour
         UpdateGUI();
     }
 
-    void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
-    {
-        MagicTank.text = NowMagic.ToString("F2") + " / " + MaxMagic;
-    }
+
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
@@ -74,14 +71,24 @@ public class SistemaMagia : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    public void UpdateMaxMagic()
+    {
+        MaxMagic = _playerStats.GetMaxMagic();
+    }
+
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+    private void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
+    {
+        MagicTank.text = NowMagic.ToString("F2") + " / " + MaxMagic;
+    }
 
     #endregion   
 
