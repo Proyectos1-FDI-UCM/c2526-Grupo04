@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: -422055129611937821}
   - component: {fileID: -1724316360020513461}
   - component: {fileID: 8488072362049856130}
-  - component: {fileID: 1924185627803625894}
+  - component: {fileID: -8176097461598580103}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -238,39 +238,19 @@ MonoBehaviour:
   MaxHealth: 1
   Dmg: 1
   MaxMagic: 1
---- !u!58 &1924185627803625894
-CircleCollider2D:
+--- !u!114 &-8176097461598580103
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8036905124635201462}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192659fdc8a0c894383e3a5d6810b666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalReloadTime: 0
+  cost: 0
+  MagicTank: {fileID: 0}
+  MaxMagic: 0
