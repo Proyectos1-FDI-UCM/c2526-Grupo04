@@ -69,12 +69,12 @@ public class Damage : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null) health.LoseHealth(TotalDamage);
+        if (health != null && gameObject.layer != collision.gameObject.layer) health.LoseHealth(TotalDamage);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null) health.LoseHealth(TotalDamage);
+        if (health != null && gameObject.layer != collision.gameObject.layer) health.LoseHealth(TotalDamage);
     }
 
     // ---- MÉTODOS PÚBLICOS ----
