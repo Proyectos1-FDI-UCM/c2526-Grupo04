@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1961932365673630015}
   - component: {fileID: 5294595331068180978}
   - component: {fileID: 1966514247875632237}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

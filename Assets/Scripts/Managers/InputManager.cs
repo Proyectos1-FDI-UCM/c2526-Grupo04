@@ -217,9 +217,6 @@ public class InputManager : MonoBehaviour
         // Creamos el controlador del input y activamos los controles del jugador
         _theController = new InputSystem_Actions();
 
-        _theController.PlayerKeyboard.Enable();
-
-        
 
         switch (Device)
         {

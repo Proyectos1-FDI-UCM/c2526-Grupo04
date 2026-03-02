@@ -41,6 +41,7 @@ public class AbilityAttack : MonoBehaviour
     private enum Buttons { Ability1, Ability2, Ability3 };
 
     private float _lastAttackTime;
+    private MagicSystem magicSystem;
 
     #endregion
 
@@ -57,12 +58,12 @@ public class AbilityAttack : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-       
+        
     }
 
     void Start()
     {
-        
+        magicSystem = LevelManager.Instance.GetPlayer().GetComponent<MagicSystem>();
     }
 
     /// <summary>
@@ -74,7 +75,7 @@ public class AbilityAttack : MonoBehaviour
 
         if (Button == Buttons.Ability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
         
-        if (pulsado)
+        if (pulsado && magicSystem.UseMagic(Cost))
         {
             GameObject _ability = GameObject.Instantiate(AbilityPrefab);
             _ability.transform.rotation = transform.rotation;

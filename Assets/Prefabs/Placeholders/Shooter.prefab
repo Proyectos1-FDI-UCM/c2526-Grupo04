@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6790223917273143810}
   - component: {fileID: 8833900089195137924}
   - component: {fileID: 6467069275843345262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,10 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b8e9a00969f2540aed3e558f2eb2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 0}
   MaxDistance: 0
   Speed: 0
   KnockbackSpeed: 0
+  KnockbackDuration: 0
 --- !u!114 &8833900089195137924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c017248095561634b995d963e80ce24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 0}
   Projectile: {fileID: 7614014493205396280, guid: e33792cef685a1f48879174f6a5f7d50, type: 3}
   AttackSpeed: 0
 --- !u!58 &6467069275843345262

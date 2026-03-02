@@ -80,7 +80,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    
+    public GameObject GetPlayer()
+    {
+        return Player;
+    }
     
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y

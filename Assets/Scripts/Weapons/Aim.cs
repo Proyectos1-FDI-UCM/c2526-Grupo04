@@ -23,7 +23,7 @@ public class Aim : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private Transform PlayerTransform;
+
 
 
     #endregion
@@ -37,7 +37,7 @@ public class Aim : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-
+    private Transform _playerTransform;
 
 
     #endregion
@@ -53,13 +53,17 @@ public class Aim : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
+    private void Start()
+    {
+        _playerTransform = LevelManager.Instance.GetPlayer().transform;
+    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        transform.position = PlayerTransform.position;
+        transform.position = _playerTransform.position;
 
         Vector2 aim = InputManager.Instance.AimVector;
 

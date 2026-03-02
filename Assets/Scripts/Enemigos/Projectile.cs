@@ -74,6 +74,12 @@ public class Projectile : MonoBehaviour
             transform.position += _direction * ProjectileSpeed * Time.deltaTime;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+    }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
