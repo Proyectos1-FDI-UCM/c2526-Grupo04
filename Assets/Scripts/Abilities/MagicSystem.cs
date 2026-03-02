@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class MagicSystem : MonoBehaviour
+public class SistemaMagia : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     [SerializeField]
@@ -26,36 +26,40 @@ public class MagicSystem : MonoBehaviour
     private float MaxMagic; //capacidad máxima de magia
 
     // ---- ATRIBUTOS PRIVADOS ----
-    private PlayerStats _playerStats;
-    private AbilityAttack _abilityAttack;
-    private float NowMagic; //cantidad de magia actual
-    private float NowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
+    private PlayerStats playerStats;
+    private AbilityAttack abilityAttack;
+    private float nowMagic; //cantidad de magia actual
+    private float nowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
+
 
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     void Start()
     {
         // inicializa playerstats como las stats del jugador (que tiene este componente)
-        _playerStats = gameObject.GetComponent<PlayerStats>();
-        NowMagic = 0f; //establecemos valores iniciales
-        MaxMagic = _playerStats.GetMaxMagic(); // la stat magia máxima del jugador
-        NowReloadTime = TotalReloadTime;
+        playerStats = gameObject.GetComponent<PlayerStats>();
+        nowMagic = 0f; //establecemos valores iniciales
+        MaxMagic = playerStats.GetMaxMagic(); // la stat magia máxima del jugador
+        nowReloadTime = TotalReloadTime;
     }
 
     void Update()
     { 
-        if (NowMagic < MaxMagic) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
+        if (nowMagic < MaxMagic) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
         {
-            NowReloadTime = (MaxMagic - NowMagic) * TotalReloadTime / MaxMagic;
-            NowMagic += (Time.deltaTime * (MaxMagic - NowMagic)) / NowReloadTime;
-            NowMagic = Mathf.Clamp(NowMagic, 0, MaxMagic);            
+            nowReloadTime = (MaxMagic - nowMagic) * TotalReloadTime / MaxMagic;
+            nowMagic += (Time.deltaTime * (MaxMagic - nowMagic)) / nowReloadTime;
+            nowMagic = Mathf.Clamp(nowMagic, 0, MaxMagic);            
             
         }
 
         UpdateGUI();
     }
 
-
+    void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
+    {
+        MagicTank.text = nowMagic.ToString("F0") + " / " + MaxMagic;
+    }
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
@@ -64,30 +68,21 @@ public class MagicSystem : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
-    public void UpdateMaxMagic()
+     
+    private void LoseMagic(float cost)
     {
-        MaxMagic = _playerStats.GetMaxMagic();
+        nowMagic -= cost;
     }
 
-    public void UseMagic(float cost)
-    {
-        NowMagic -= cost;
-    }
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
-    private void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
-    {
-        MagicTank.text = NowMagic.ToString("F2") + " / " + MaxMagic;
-    }
 
     #endregion   
 
