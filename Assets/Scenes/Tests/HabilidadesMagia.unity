@@ -267,6 +267,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackFrecuency: 1
+--- !u!1001 &404546596
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452793005486345723, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: LimitX
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: LimitY
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1588426169}
+    - target: {fileID: 8800944320498933098, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
 --- !u!1 &510449026
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f031523f920bf14f85ebef003ab5495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 691948022}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dff287af2a361744b7ca53fccae5abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 691948022}
 --- !u!4 &768265567
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,7 +1122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dff287af2a361744b7ca53fccae5abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 691948022}
 --- !u!4 &1803622169
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,6 +1493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8488072362049856130, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: MaxMagic
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8798383079225510465, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1575,3 +1645,4 @@ SceneRoots:
   - {fileID: 1803622169}
   - {fileID: 768265567}
   - {fileID: 1541656975}
+  - {fileID: 404546596}

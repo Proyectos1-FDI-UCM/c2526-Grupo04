@@ -25,7 +25,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private Transform PlayerPosition;
+   
 
     [SerializeField] private GameObject Projectile;
 
@@ -43,6 +43,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private float _nextAttack = 0;
+    private Transform _playerTransform;
 
     #endregion
 
@@ -59,7 +60,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        _playerTransform = LevelManager.Instance.GetPlayer().transform;
     }
 
     /// <summary>
@@ -67,7 +68,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Vector3 direction = (PlayerPosition.position - transform.position).normalized;
+        Vector3 direction = (_playerTransform.position - transform.position).normalized;
 
         //Comprobamos si se ha introducido el prefab Projectile
         if (Projectile != null && Projectile.GetComponent<Projectile>() != null)

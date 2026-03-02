@@ -23,7 +23,7 @@ public class RangedEnemiesMovement : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private Transform PlayerPosition; //Transform del jugador para que el enemigo pueda seguirlo
+     //Transform del jugador para que el enemigo pueda seguirlo
 
     [SerializeField] private float MaxDistance; //Distancia máxima a la que se puede acercar el tirador al jugador
 
@@ -54,6 +54,8 @@ public class RangedEnemiesMovement : MonoBehaviour
 
     private float _actualKnockbackDuration;
 
+    private Transform _playerTransform;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -71,7 +73,7 @@ public class RangedEnemiesMovement : MonoBehaviour
     {
         _currentState = State.Chasing;
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
-
+        _playerTransform = LevelManager.Instance.GetPlayer().transform;
     }
 
     /// <summary>
@@ -80,10 +82,10 @@ public class RangedEnemiesMovement : MonoBehaviour
     void Update()
     {
         //Comprobar que el transform del jugador no es nulo para evitar errores
-        if (PlayerPosition != null)
+        if (_playerTransform != null)
         {
             //Obtenemos el vector distancia para comprobar si el tirador debe avanzar o no 
-            Vector3 distance = PlayerPosition.position - transform.position;
+            Vector3 distance = _playerTransform.position - transform.position;
             //Obtenemos la dirección que tiene que seguir
             Vector3 direction = distance.normalized;
 

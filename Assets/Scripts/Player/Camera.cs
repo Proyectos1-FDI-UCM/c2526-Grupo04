@@ -23,7 +23,7 @@ public class Camera : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private Transform Player; // Jugador aqui
+    // Jugador aqui
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -35,6 +35,7 @@ public class Camera : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    private Transform _playerTransform;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -50,7 +51,7 @@ public class Camera : MonoBehaviour
     /// </summary>
     void Start()
     {
-
+        _playerTransform = LevelManager.Instance.GetPlayer().transform;
     }
 
     /// <summary>
@@ -63,10 +64,10 @@ public class Camera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Player == null) return;
+        if (_playerTransform == null) return;
 
         // Calculamos la posición destino
-        Vector3 des_pos = new Vector3(Player.position.x, Player.position.y, transform.position.z);
+        Vector3 des_pos = new Vector3(_playerTransform.position.x, _playerTransform.position.y, transform.position.z);
 
         // Aplicamos la posición
         transform.position = des_pos;

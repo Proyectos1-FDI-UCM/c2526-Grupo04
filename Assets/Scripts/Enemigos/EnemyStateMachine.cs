@@ -75,7 +75,7 @@ public class EnemyStateMachine : MonoBehaviour
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
 
         _currentState = State.Chasing;
-        _player = FindFirstObjectByType<Movement>().gameObject;
+        _player = LevelManager.Instance.GetPlayer();
         _rb = GetComponent<Rigidbody2D>();
         _collider = gameObject.GetComponent<Collider2D>();
     }
