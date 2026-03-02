@@ -25,6 +25,9 @@ public class Damage : MonoBehaviour
 
     [SerializeField] float Multiplier = 1;
 
+    [Header("PROVISIONAL")]
+    [SerializeField] float TotalDamage = 1;
+
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -63,6 +66,11 @@ public class Damage : MonoBehaviour
     }
     #endregion
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<Health>().LoseHealth(TotalDamage);
+    }
+
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     // Documentar cada método que aparece aquí con ///<summary>
@@ -71,8 +79,13 @@ public class Damage : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    public void ChangeDamage(int damage)
+    {
+        TotalDamage = damage * Multiplier;
+    }
+
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -80,7 +93,9 @@ public class Damage : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion   
+
+
+    #endregion
 
 } // class Damage 
 // namespace
