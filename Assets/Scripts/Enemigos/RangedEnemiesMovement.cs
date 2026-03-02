@@ -29,6 +29,10 @@ public class RangedEnemiesMovement : MonoBehaviour
 
     [SerializeField] private float Speed; //Velocidad a la que se mueve el enemigo
 
+    [SerializeField] private float KnockbackSpeed; //Velocidad a la que retrocede el enemigo
+
+    [SerializeField] private float KnockbackDuration; //Duración del retroceso
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,6 +43,16 @@ public class RangedEnemiesMovement : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
+    protected enum State
+    {
+        Chasing,
+        Knockback
+    }
+
+    private State _currentState;
+
+    private float _actualKnockbackDuration;
 
     #endregion
 
@@ -55,7 +69,7 @@ public class RangedEnemiesMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        _currentState = State.Chasing;
     }
 
     /// <summary>
@@ -70,11 +84,26 @@ public class RangedEnemiesMovement : MonoBehaviour
             Vector3 distance = PlayerPosition.position - transform.position;
             //Obtenemos la dirección que tiene que seguir
             Vector3 direction = distance.normalized;
-            //Comprobamos si la magnitud del vector distancia es mayor que la distancia máxima a la que se puede acercar el tirador
-            if (distance.magnitude > MaxDistance)
+
+            switch (_currentState)
             {
-                //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
-                transform.position += direction * Speed * Time.deltaTime;
+                case State.Chasing:
+
+                    //Comprobamos si la magnitud del vector distancia es mayor que la distancia máxima a la que se puede acercar el tirador
+                    if (distance.magnitude > MaxDistance)
+                    {
+                        //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
+                        transform.position += direction * Speed * Time.deltaTime;
+                    }
+                    break;
+
+                case State.Knockback:
+                    if (Time.time > _actualKnockbackDuration)
+                    {
+                        _currentState = State.Chasing;
+                    }
+                    else transform.position -= direction * KnockbackSpeed * Time.deltaTime; 
+                    break;
             }
 
             //Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
@@ -94,13 +123,19 @@ public class RangedEnemiesMovement : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _currentState = State.Knockback;
+        _actualKnockbackDuration = Time.time + KnockbackDuration;
+    }
 
     #endregion   
 

@@ -909,9 +909,17 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -6790223917273143810, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+      propertyPath: KnockbackSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6790223917273143810, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: PlayerPosition
       value: 
       objectReference: {fileID: 1140653067}
+    - target: {fileID: -6790223917273143810, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+      propertyPath: KnockbackDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_Name
       value: Shooter
@@ -954,6 +962,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2525912049169018474, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467069275843345262, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8833900089195137924, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
