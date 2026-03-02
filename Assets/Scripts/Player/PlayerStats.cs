@@ -96,6 +96,7 @@ public class PlayerStats : MonoBehaviour
     public void MaxHealthUpload()
     {
         MaxHealth += 1;
+        _health.UpdateMaxHealth();
     }
 
     public void DmgUpload()

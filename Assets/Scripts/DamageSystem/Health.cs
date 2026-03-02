@@ -36,6 +36,7 @@ public class Health : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    private PlayerStats _playerStats;
     private float _currentHealth;
 
     #endregion
@@ -53,6 +54,7 @@ public class Health : MonoBehaviour
     /// </summary>
     void Start()
     {
+        _playerStats = gameObject.GetComponent<PlayerStats>();
         _currentHealth = MaxHealth;
     }
 
@@ -77,6 +79,12 @@ public class Health : MonoBehaviour
     public void LoseHealth(float damage)
     {
         _currentHealth -= damage;
+        Debug.Log("Vida: " + _currentHealth);
+    }
+
+    public void UpdateMaxHealth()
+    {
+        MaxHealth = (int)_playerStats.GetMaxHealth();
     }
 
     #endregion
