@@ -29,14 +29,17 @@ public class SistemaMagia : MonoBehaviour
     private float MaxMagic; //capacidad máxima de magia
 
     // ---- ATRIBUTOS PRIVADOS ----
+    private PlayerStats playerStats;
     private float NowMagic; //cantidad de magia actual
     private float NowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     void Start()
     {
+        // inicializa playerstats como las stats del jugador (que tiene este componente)
+        playerStats = gameObject.GetComponent<PlayerStats>();
         NowMagic = 0f; //establecemos valores iniciales
-        MaxMagic = 100;
+        MaxMagic = playerStats.MaxMagic; // la stat magia máxima del jugador
         NowReloadTime = TotalReloadTime;
     }
 

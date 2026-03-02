@@ -22,9 +22,9 @@ public class PlayerStats : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] float MaxHealth = 1;
-    [SerializeField] float Dmg = 1;
-    [SerializeField] float MaxMagic = 1;
+    [SerializeField] public float MaxHealth = 1;
+    [SerializeField] public float Dmg = 1;
+    [SerializeField] public float MaxMagic = 1;
 
     #endregion
     
