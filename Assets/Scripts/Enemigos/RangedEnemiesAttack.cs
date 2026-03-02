@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using System.Runtime.CompilerServices;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -23,6 +24,8 @@ public class RangedEnemiesAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+
+    [SerializeField] private Transform PlayerPosition;
 
     [SerializeField] private GameObject Projectile;
 
@@ -64,7 +67,19 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
+        Vector3 direction = (PlayerPosition.position - transform.position).normalized;
 
+        //Comprobamos si se ha introducido el prefab Projectile
+        if (Projectile != null && Projectile.GetComponent<Projectile>() != null)
+        {
+            //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
+            if (Time.time > _nextAttack)
+            {
+                _nextAttack = Time.time + AttackSpeed;
+                GameObject newProjectile = Instantiate(Projectile, transform.position, transform.rotation);
+                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
+            }
+        }
     }
     #endregion
 
@@ -75,21 +90,6 @@ public class RangedEnemiesAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
-    public void Shoot(Vector3 direction)
-    {
-        //Comprobamos si se ha introducido el prefab Projectile
-        if (Projectile != null && Projectile.GetComponent<Projectile>() != null)
-        {
-            //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
-            if (Time.time > _nextAttack) 
-            {
-                _nextAttack = Time.time + AttackSpeed;
-                GameObject newProjectile = Instantiate(Projectile, transform.position, transform.rotation);
-                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
-            }
-        }
-    }
 
     #endregion
     

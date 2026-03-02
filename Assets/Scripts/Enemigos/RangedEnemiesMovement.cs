@@ -76,10 +76,6 @@ public class RangedEnemiesMovement : MonoBehaviour
                 //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
                 transform.position += direction * Speed * Time.deltaTime;
             }
-            else
-            {
-                gameObject.GetComponent<RangedEnemiesAttack>().Shoot(direction);
-            }
 
             //Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
