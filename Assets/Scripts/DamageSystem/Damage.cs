@@ -23,7 +23,7 @@ public class Damage : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] float Multiplicador = 1;
+    [SerializeField] float Multiplier = 1;
 
     #endregion
     
