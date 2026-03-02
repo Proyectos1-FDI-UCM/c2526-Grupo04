@@ -75,10 +75,9 @@ public class AbilityAttack : MonoBehaviour
 
         if (Button == Buttons.Ability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
         
-        if (pulsado)
+        if (pulsado && magicSystem.UseMagic(Cost))
         {
             GameObject _ability = GameObject.Instantiate(AbilityPrefab);
-            magicSystem.UseMagic(Cost);
             _ability.transform.rotation = transform.rotation;
             _ability.transform.position = transform.position;
         }

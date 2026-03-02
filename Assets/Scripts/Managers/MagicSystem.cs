@@ -70,9 +70,12 @@ public class MagicSystem : MonoBehaviour
         MaxMagic = _playerStats.GetMaxMagic();
     }
 
-    public void UseMagic(float cost)
+    public bool UseMagic(float cost)
     {
-        NowMagic -= cost;
+        bool canUseMagic = NowMagic >= cost;
+        if (canUseMagic) NowMagic -= cost;
+        return canUseMagic;
+
     }
 
     #endregion
