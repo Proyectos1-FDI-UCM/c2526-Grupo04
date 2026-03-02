@@ -77,19 +77,13 @@ public class WeaponAttack : MonoBehaviour
             _debug.color = Color.red;
             _lastAttackTime = Time.time;
         }
-        else if (_lastAttackTime != Time.time)
+        else if (_lastAttackTime < Time.time)
         {
             _hitbox.enabled = false;
             _debug.color = Color.blue;
         }
         
 
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Pegar");
     }
     #endregion
 

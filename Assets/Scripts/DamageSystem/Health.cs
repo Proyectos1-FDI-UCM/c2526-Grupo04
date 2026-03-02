@@ -79,7 +79,7 @@ public class Health : MonoBehaviour
     public void LoseHealth(float damage)
     {
         _currentHealth -= damage;
-        Debug.Log("Vida: " + _currentHealth);
+        Debug.Log(gameObject.name + " Vida: " + _currentHealth);
     }
 
     public void UpdateMaxHealth()
