@@ -7,6 +7,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 /// <summary>
 /// Componente que se encarga de la gestión de un nivel concreto.
@@ -24,6 +25,9 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
+    [SerializeField] private Transform PlayerPosition;
+    [SerializeField] private float LimitX = 1.0f;
+    [SerializeField] private float LimitY = 1.0f;
 
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
@@ -41,8 +45,8 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
-
     #endregion
+
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
 
@@ -56,8 +60,8 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
-    }
 
+     }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -76,6 +80,8 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    
+    
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
@@ -87,6 +93,14 @@ public class LevelManager : MonoBehaviour
     public static bool HasInstance()
     {
         return _instance != null;
+    }
+
+    public void GetMapLimits(out float maxX, out float minX, out float maxY, out float minY)
+    {
+        maxX = LimitX / 2f;
+        minX = -maxX;
+        maxY = LimitY / 2f;
+        minY = -maxY;
     }
 
     #endregion
@@ -102,6 +116,8 @@ public class LevelManager : MonoBehaviour
     {
         // De momento no hay nada que inicializar
     }
+
+    
 
     #endregion
 } // class LevelManager 

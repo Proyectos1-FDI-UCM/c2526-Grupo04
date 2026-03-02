@@ -25,10 +25,6 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float Velocity;
 
-    [SerializeField] private float minX = -10f;
-    [SerializeField] private float maxX = 10f;
-    [SerializeField] private float minY = -5f;
-    [SerializeField] private float maxY = 5f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -39,7 +35,7 @@ public class Movement : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
+    private float minX, maxX, minY, maxY;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -55,6 +51,7 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Start()
     {
+        LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
     }
 
     /// <summary>
@@ -74,7 +71,7 @@ public class Movement : MonoBehaviour
 
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
-    
+
         transform.position = pos;
 
         if (movement != Vector2.zero)
