@@ -22,8 +22,13 @@ public class Movement : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+
     [SerializeField] private float Velocity;
 
+    [SerializeField] private float minX = -10f;
+    [SerializeField] private float maxX = 10f;
+    [SerializeField] private float minY = -5f;
+    [SerializeField] private float maxY = 5f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -60,7 +65,17 @@ public class Movement : MonoBehaviour
         Vector2 movement = InputManager.Instance.MovementVector;
         movement = SnapTo8Directions(movement);
         //_rb.linearVelocity = movement * Velocity;
+
+        
+
         transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
+
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+    
+        transform.position = pos;
 
         if (movement != Vector2.zero)
         {
