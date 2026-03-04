@@ -101,8 +101,6 @@ GameObject:
   - component: {fileID: 1966514247875632237}
   - component: {fileID: 5259760127212673282}
   - component: {fileID: 5084647295468977431}
-  - component: {fileID: 7628595582017182757}
-  - component: {fileID: 8145401655447753441}
   m_Layer: 7
   m_Name: Fighter
   m_TagString: Untagged
@@ -260,35 +258,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  TotalDamage: 1
   DamageLayer: 6
-  ObjectType: 0
---- !u!114 &7628595582017182757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2420980510147085542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 10
---- !u!114 &8145401655447753441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2420980510147085542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Multiplier: 1
-  TotalDamage: 1
-  DamageLayer: 7
   ObjectType: 0

@@ -39,7 +39,6 @@ public class EnemyStateMachine : MonoBehaviour
 
     protected GameObject _player;
     protected Collider2D _collider;
-    protected Rigidbody2D _rb;
     protected Vector2 _playerPosition;
     protected Vector2 _dir;
 
@@ -76,7 +75,6 @@ public class EnemyStateMachine : MonoBehaviour
 
         _currentState = State.Chasing;
         _player = FindFirstObjectByType<Movement>().gameObject;
-        _rb = GetComponent<Rigidbody2D>();
         _collider = gameObject.GetComponent<Collider2D>();
     }
 
@@ -142,7 +140,6 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     protected void SetState()
     {
-        _rb.linearVelocity = Vector2.zero;
         switch (_currentState)
         {
             case State.Chasing:
