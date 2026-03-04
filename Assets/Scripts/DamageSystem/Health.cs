@@ -55,6 +55,8 @@ public class Health : MonoBehaviour
     void Start()
     {
         _playerStats = gameObject.GetComponent<PlayerStats>();
+        if (_playerStats != null)
+            UpdateMaxHealth();
         _currentHealth = MaxHealth;
     }
 

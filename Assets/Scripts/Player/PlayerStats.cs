@@ -54,12 +54,11 @@ public class PlayerStats : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Awake()
+    void Start()
     {
         _health = gameObject.GetComponent<Health>();  
         _damage = gameObject.GetComponent<Damage>();
         _magicSystem = gameObject.GetComponent<MagicSystem>();
-        _health.UpdateMaxHealth();
     }
 
     /// <summary>
