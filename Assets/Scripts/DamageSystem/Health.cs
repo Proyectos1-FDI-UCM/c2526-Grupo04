@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        Die();
     }
     #endregion
 
@@ -79,7 +79,6 @@ public class Health : MonoBehaviour
     public void LoseHealth(float damage)
     {
         _currentHealth -= damage;
-        Debug.Log(gameObject.name + " Vida: " + _currentHealth);
     }
 
     public void UpdateMaxHealth()
@@ -102,7 +101,15 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+<<<<<<< Updated upstream
     #endregion
+=======
+    private void Die()
+    {
+        if (_currentHealth <= 0) Destroy(gameObject);
+    }
+    #endregion   
+>>>>>>> Stashed changes
 
 } // class Health 
 // namespace
