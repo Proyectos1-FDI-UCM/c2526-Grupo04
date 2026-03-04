@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Health : MonoBehaviour
+public class HealthRegen : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] int MaxHealth = 1;
+    [SerializedField] private float RegenTimePerUnit;
 
     #endregion
 
@@ -36,26 +36,25 @@ public class Health : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private PlayerStats _playerStats;
-    private float _currentHealth;
+    private Health _health;
+    private int regen;
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        _playerStats = gameObject.GetComponent<PlayerStats>();
-        _currentHealth = MaxHealth;
+        _health = gameObject.GetComponent<Health>();
     }
 
     /// <summary>
@@ -63,7 +62,8 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        regen = RegenTimePerUnit * Time.deltaTime;
+        _health.RegenHealth(regen);
     }
     #endregion
 
@@ -75,26 +75,8 @@ public class Health : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    // Método público para ser llamado por Damage (u otros) (si el daño introducido es negativo, currentHealth aumenta)
-    public void LoseHealth(float damage)
-    {
-        _currentHealth -= damage;
-        Debug.Log(gameObject.name + " Vida: " + _currentHealth);
-    }
-
-    public void UpdateMaxHealth()
-    {
-        MaxHealth = (int)_playerStats.GetMaxHealth();
-    }
-
-    public void RegenHealth(float regen)
-    {
-        if (_currentHealth < MaxHealth) _currentHealth += regen;
-        else _currentHealth = MaxHealth;
-    }
-
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -102,7 +84,7 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class Health 
+} // class HealthRegen 
 // namespace
