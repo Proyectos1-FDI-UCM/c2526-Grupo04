@@ -22,14 +22,12 @@ public class MagicSystem : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI MagicTank; //texto que se muestra en pantalla
 
-    [SerializeField]
-    private float MaxMagic; //capacidad máxima de magia
-
     // ---- ATRIBUTOS PRIVADOS ----
     private PlayerStats _playerStats;
     private AbilityAttack _abilityAttack;
     private float NowMagic; //cantidad de magia actual
     private float NowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
+    private float MaxMagic;
 
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----

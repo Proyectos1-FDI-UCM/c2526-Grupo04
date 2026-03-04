@@ -154,3 +154,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Multiplier: 1
   TotalDamage: 1
+  DamageLayer: 7
+  ObjectType: 1
