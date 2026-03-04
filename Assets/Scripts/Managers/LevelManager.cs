@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private GameObject Player;
+    [SerializeField] private Transform Player;
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
 
@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public GameObject GetPlayer()
+    public Transform GetPlayer()
     {
         return Player;
     }

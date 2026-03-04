@@ -60,7 +60,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _playerTransform = LevelManager.Instance.GetPlayer().transform;
+        _playerTransform = LevelManager.Instance.GetPlayer();
     }
 
     /// <summary>

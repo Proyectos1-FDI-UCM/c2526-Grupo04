@@ -527,6 +527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Multiplier: 1
   TotalDamage: 1
+  DamageLayer: 7
+  ObjectType: 0
 --- !u!1001 &737255833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -585,7 +587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488072362049856130, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: Dmg
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488072362049856130, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: MaxMagic
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8488072362049856130, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: MaxHealth
@@ -634,6 +640,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Multiplier: 1
   TotalDamage: 1
+  DamageLayer: 7
+  ObjectType: 0
 --- !u!1001 &1080936730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,8 +746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 1
-  TotalDamage: 5
+  Multiplier: 1.5
+  TotalDamage: 0
+  DamageLayer: 7
+  ObjectType: 1
 --- !u!212 &1235514958
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -995,6 +1005,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 15
+--- !u!4 &1611256841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7652162536970584005, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+  m_PrefabInstance: {fileID: 737255833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1642673531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1054,7 +1069,11 @@ PrefabInstance:
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 1611256827}
+      objectReference: {fileID: 1611256841}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8800944320498933098, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -1078,7 +1097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3550760798964533510, guid: 3eeeaccf46f684f6da400b898bbc2f73, type: 3}
       propertyPath: Device
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7775909251169774736, guid: 3eeeaccf46f684f6da400b898bbc2f73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,7 +1281,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

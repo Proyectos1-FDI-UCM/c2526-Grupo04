@@ -55,7 +55,7 @@ public class Aim : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        _playerTransform = LevelManager.Instance.GetPlayer().transform;
+        _playerTransform = LevelManager.Instance.GetPlayer();
     }
 
     /// <summary>

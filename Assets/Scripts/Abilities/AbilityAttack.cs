@@ -63,7 +63,7 @@ public class AbilityAttack : MonoBehaviour
 
     void Start()
     {
-        magicSystem = LevelManager.Instance.GetPlayer().GetComponent<MagicSystem>();
+        magicSystem = FindFirstObjectByType<MagicSystem>();
     }
 
     /// <summary>

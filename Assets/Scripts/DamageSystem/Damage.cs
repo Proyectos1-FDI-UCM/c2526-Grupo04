@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 // Añadir aquí el resto de directivas using
 
 
@@ -28,6 +29,10 @@ public class Damage : MonoBehaviour
     [Header("PROVISIONAL")]
     [SerializeField] float TotalDamage = 1;
 
+    [SerializeField] int DamageLayer = 6;
+
+    [SerializeField] Object ObjectType;
+
     #endregion
     
     // ---- ATRIBUTOS PRIVADOS ----
@@ -38,6 +43,14 @@ public class Damage : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+
+    enum Object
+    {
+        Enemy,
+        Player
+    }
+
+    private PlayerStats playerStats;
 
     #endregion
     
@@ -54,7 +67,12 @@ public class Damage : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        if (ObjectType == Object.Player)
+        {
+            playerStats = FindFirstObjectByType<PlayerStats>();
+            TotalDamage = Multiplier * playerStats.GetDmg();
+        }
+        else TotalDamage = Multiplier;
     }
 
     /// <summary>
@@ -69,12 +87,12 @@ public class Damage : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && gameObject.layer != collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && gameObject.layer != collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
     }
 
     // ---- MÉTODOS PÚBLICOS ----

@@ -89,7 +89,7 @@ public class MagicSystem : MonoBehaviour
 
     private void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
     {
-        MagicTank.text = NowMagic.ToString("F2") + " / " + MaxMagic;
+        MagicTank.text = NowMagic.ToString("F0") + " / " + MaxMagic;
     }
 
     #endregion   
