@@ -24,6 +24,7 @@ public class HealthRegen : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     [SerializeField] private float RegenTimePerUnit;
+    [SerializeField] TMPro.TextMeshProUGUI HealthTank; //texto que se muestra en pantalla
 
     #endregion
 
@@ -37,7 +38,9 @@ public class HealthRegen : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private Health _health;
-    private float regen;
+    private float regen = 0f;
+    private float _currentHealth;
+    private int _maxHealth;
 
     #endregion
 
@@ -63,7 +66,10 @@ public class HealthRegen : MonoBehaviour
     void Update()
     {
         regen = RegenTimePerUnit * Time.deltaTime;
+        _currentHealth = _health.GetCurrentHealth();
+        _maxHealth = _health.GetMaxHealth();
         _health.RegenHealth(regen);
+        UpdateGUI();
     }
     #endregion
 
@@ -76,13 +82,18 @@ public class HealthRegen : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+    private void UpdateGUI()
+    {
+        HealthTank.text = "Vida: " + _currentHealth.ToString("2") + " / " + _maxHealth.ToString("0");
+    }
 
     #endregion   
 

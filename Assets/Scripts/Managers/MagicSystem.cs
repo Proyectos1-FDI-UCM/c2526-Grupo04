@@ -46,8 +46,7 @@ public class MagicSystem : MonoBehaviour
         {
             NowReloadTime = (MaxMagic - NowMagic) * TotalReloadTime / MaxMagic;
             NowMagic += (Time.deltaTime * (MaxMagic - NowMagic)) / NowReloadTime;
-            NowMagic = Mathf.Clamp(NowMagic, 0, MaxMagic);            
-            
+            NowMagic = Mathf.Clamp(NowMagic, 0, MaxMagic);                     
         }
 
         UpdateGUI();

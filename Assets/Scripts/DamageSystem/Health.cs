@@ -21,9 +21,7 @@ public class Health : MonoBehaviour
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints
-
-    [SerializeField] int MaxHealth = 1;
+    // Ejemplo: MaxHealthPoints    
 
     #endregion
 
@@ -38,6 +36,7 @@ public class Health : MonoBehaviour
 
     private PlayerStats _playerStats;
     private float _currentHealth;
+    private int _maxHealth;
 
     #endregion
     
@@ -57,14 +56,14 @@ public class Health : MonoBehaviour
         _playerStats = gameObject.GetComponent<PlayerStats>();
         if (_playerStats != null)
             UpdateMaxHealth();
-        _currentHealth = MaxHealth;
+        _currentHealth = _maxHealth;
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {
+    {        
         Die();
     }
     #endregion
@@ -85,13 +84,23 @@ public class Health : MonoBehaviour
 
     public void UpdateMaxHealth()
     {
-        MaxHealth = (int)_playerStats.GetMaxHealth();
+        _maxHealth = (int)_playerStats.GetMaxHealth();
     }
 
     public void RegenHealth(float regen)
     {
-        if (_currentHealth < MaxHealth) _currentHealth += regen;
-        else _currentHealth = MaxHealth;
+        if (_currentHealth < _maxHealth) _currentHealth += regen;
+        else _currentHealth = _maxHealth;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
+
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
     }
 
     #endregion
@@ -102,6 +111,8 @@ public class Health : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+
 
     private void Die()
     {
