@@ -102,8 +102,11 @@ public class Health : MonoBehaviour
     // mayúscula, incluida la primera letra)
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     #endregion
 =======
+=======
+>>>>>>> Stashed changes
     private void Die()
     {
         if (_currentHealth <= 0) Destroy(gameObject);
