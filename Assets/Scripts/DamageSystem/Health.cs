@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     [SerializeField] int MaxHealth = 1;
+    [SerializedField] private float RegenTimePerUnit;
 
     #endregion
 
@@ -63,7 +64,8 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if (_currentHealth < MaxHealth) _currentHealth += RegenTimePerUnit * Time.deltaTime;
+        else _currentHealth = MaxHealth;
     }
     #endregion
 
