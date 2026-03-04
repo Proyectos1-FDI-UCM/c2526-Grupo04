@@ -144,8 +144,11 @@ public class RangedEnemiesMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _currentState = State.Knockback;
-        _actualKnockbackDuration = Time.time + KnockbackDuration;
+        if (gameObject.layer != collision.gameObject.layer)
+        {
+            _currentState = State.Knockback;
+            _actualKnockbackDuration = Time.time + KnockbackDuration;
+        } 
     }
 
     #endregion   
