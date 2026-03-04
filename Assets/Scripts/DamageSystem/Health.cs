@@ -101,18 +101,11 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    #endregion
-=======
-=======
->>>>>>> Stashed changes
     private void Die()
     {
         if (_currentHealth <= 0) Destroy(gameObject);
     }
-    #endregion   
->>>>>>> Stashed changes
+    #endregion  
 
 } // class Health 
 // namespace
