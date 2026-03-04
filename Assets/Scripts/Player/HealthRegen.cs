@@ -23,7 +23,7 @@ public class HealthRegen : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializedField] private float RegenTimePerUnit;
+    [SerializeField] private float RegenTimePerUnit;
 
     #endregion
 
@@ -37,7 +37,7 @@ public class HealthRegen : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private Health _health;
-    private int regen;
+    private float regen;
 
     #endregion
 
