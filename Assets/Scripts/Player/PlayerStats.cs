@@ -59,6 +59,7 @@ public class PlayerStats : MonoBehaviour
         _health = gameObject.GetComponent<Health>();  
         _damage = gameObject.GetComponent<Damage>();
         _magicSystem = gameObject.GetComponent<MagicSystem>();
+        _health.UpdateMaxHealth();
     }
 
     /// <summary>

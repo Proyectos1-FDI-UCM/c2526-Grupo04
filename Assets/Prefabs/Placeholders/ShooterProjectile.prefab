@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6171448766623364419}
   - component: {fileID: -3675568828033557716}
   - component: {fileID: 5486922565406197047}
+  - component: {fileID: 2955725125829381128}
   m_Layer: 7
   m_Name: ShooterProjectile
   m_TagString: Untagged
@@ -153,3 +154,19 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &2955725125829381128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7614014493205396280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplier: 1
+  TotalDamage: 1
+  DamageLayer: 6
+  ObjectType: 0

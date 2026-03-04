@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181839f3366ad864e89016d242cec2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 0
+  Cost: 1
   AbilityPrefab: {fileID: 2729126348020585492, guid: bc20d10cb967a6c4fafd7fec798834a5, type: 3}
   Button: 0
 --- !u!1 &3967698965498400418

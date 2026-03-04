@@ -24,14 +24,11 @@ public class Damage : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] float Multiplier = 1;
+    [SerializeField] private float Multiplier = 1;
 
-    [Header("PROVISIONAL")]
-    [SerializeField] float TotalDamage = 1;
+    [SerializeField] private int DamageLayer = 6;
 
-    [SerializeField] int DamageLayer = 6;
-
-    [SerializeField] Object ObjectType;
+    [SerializeField] private Object ObjectType;
 
     #endregion
     
@@ -52,15 +49,17 @@ public class Damage : MonoBehaviour
 
     private PlayerStats playerStats;
 
+    private float TotalDamage;
+
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
