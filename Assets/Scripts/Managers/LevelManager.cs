@@ -7,7 +7,6 @@
 //---------------------------------------------------------
 
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 /// <summary>
 /// Componente que se encarga de la gestión de un nivel concreto.
