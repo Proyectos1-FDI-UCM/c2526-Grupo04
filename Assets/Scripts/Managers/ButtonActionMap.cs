@@ -5,9 +5,8 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
-using System.Runtime.CompilerServices;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -15,7 +14,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class RangedEnemiesAttack : MonoBehaviour
+public class ButtonActionMap : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -24,13 +23,6 @@ public class RangedEnemiesAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
-   
-
-    [SerializeField] private GameObject Projectile;
-
-    [Tooltip("Tiempo entre cada ataque")]
-    [SerializeField] private float AttackSpeed;
 
     #endregion
 
@@ -43,9 +35,9 @@ public class RangedEnemiesAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private float _nextAttack = 0;
-    private Transform _playerTransform;
-
+    public enum Devices { Controller, Keyboard }
+    public Devices device;
+    private Button _button;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -61,7 +53,12 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _playerTransform = LevelManager.Instance.GetPlayer();
+        _button = GetComponent<Button>();
+        if (_button == null) return;
+
+        _button.onClick.RemoveAllListeners(); 
+        _button.onClick.AddListener(OnClick);
+
     }
 
     /// <summary>
@@ -69,22 +66,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-
-        Vector3 direction;
-        if (_playerTransform != null) direction = (_playerTransform.position - transform.position).normalized;
-        else direction = new Vector3(0, 0, 0);
-
-        //Comprobamos si se ha introducido el prefab Projectile
-        if (Projectile != null && Projectile.GetComponent<Projectile>() != null)
-        {
-            //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
-            if (Time.time > _nextAttack)
-            {
-                _nextAttack = Time.time + AttackSpeed;
-                GameObject newProjectile = Instantiate(Projectile, transform.position, transform.rotation);
-                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
-            }
-        }
+        
     }
     #endregion
 
@@ -97,7 +79,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -105,7 +87,22 @@ public class RangedEnemiesAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+    private void OnClick()
+    {
+        if (!InputManager.HasInstance()) return;
+
+        switch (device)
+        {
+            case Devices.Controller:
+                InputManager.Instance.UseController();
+                break;
+            case Devices.Keyboard:
+                InputManager.Instance.UseKeyboard();
+                break;
+        }
+    }
+
     #endregion   
 
-} // class RangedEnemiesAttack 
+} // class ButtonActionMap 
 // namespace

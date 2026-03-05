@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78830020d4ed3548ab3df0266523ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 50
+  MaxHealth: 20
   Dmg: 4
   MaxMagic: 20
 --- !u!58 &7348126984490994177
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a866c3d3c14744b9fcf311eaa251f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegenTimePerUnit: 4
+  RegenTimePerUnit: 1
   HealthTank: {fileID: 0}
 --- !u!114 &-5922553066343986802
 MonoBehaviour:
@@ -313,4 +313,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 1
+  _maxHealth: 0

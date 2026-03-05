@@ -41,6 +41,7 @@ public class EnemyStateMachine : MonoBehaviour
     protected Collider2D _collider;
     protected Vector2 _playerPosition;
     protected Vector2 _dir;
+    protected bool _isInKnockback;
 
     private float minX, maxX, minY, maxY;
 
@@ -83,7 +84,7 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     void Update()
     {
-        SetState();
+        if(_player!= null) SetState();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -96,7 +97,12 @@ public class EnemyStateMachine : MonoBehaviour
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
 
             // Iniciamos la corrutina de knockback cinemático
-            StartCoroutine(KnockbackCoroutine(knockbackDirection));
+            if (!_isInKnockback)
+            {
+                _isInKnockback = true;
+                StartCoroutine(KnockbackCoroutine(knockbackDirection));
+            }
+            
         }
     }
 
@@ -114,6 +120,10 @@ public class EnemyStateMachine : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        _currentState = State.Chasing;
+        _isInKnockback = false;
+
+
     }
 
     #endregion
@@ -198,10 +208,8 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     protected virtual void AttackingState()
     {
-        // TODO: _player.GetComponent<Health>().TakeDamage(Damage);
-
-        // Una vez atacado, vuelve a perseguir al player
-        _currentState = State.Chasing;
+        
+       
     }
 
     #endregion

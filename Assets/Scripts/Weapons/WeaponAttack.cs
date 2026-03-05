@@ -80,6 +80,10 @@ public class WeaponAttack : MonoBehaviour
         else if (_lastAttackTime < Time.time)
         {
             _hitbox.enabled = false;
+        }
+        //Esto es temporal para que se distinga el ataque
+        if(_lastAttackTime + 0.2 < Time.time)
+        {
             _debug.color = Color.blue;
         }
         

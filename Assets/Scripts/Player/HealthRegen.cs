@@ -66,9 +66,10 @@ public class HealthRegen : MonoBehaviour
     void Update()
     {
         regen = Time.deltaTime / RegenTimePerUnit;
-        _health.RegenHealth(regen);
         _currentHealth = _health.GetCurrentHealth();
         _maxHealth = _health.GetMaxHealth();
+        RegenHealth(regen);
+
         UpdateGUI();
     }
     #endregion
@@ -95,7 +96,11 @@ public class HealthRegen : MonoBehaviour
         HealthTank.text = "Vida: " + _currentHealth.ToString("0") + " / " + _maxHealth.ToString("0");
     }
 
-
+    public void RegenHealth(float regen)
+    {
+        if (_currentHealth < _maxHealth) _health.LoseHealth(-regen);
+        else _health.LoseHealth(_currentHealth - _maxHealth);
+    }
 
     #endregion
 

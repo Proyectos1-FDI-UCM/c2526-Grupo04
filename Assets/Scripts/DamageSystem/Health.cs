@@ -21,7 +21,9 @@ public class Health : MonoBehaviour
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
-    // Ejemplo: MaxHealthPoints    
+    // Ejemplo: MaxHealthPoints
+    [Header("Relevante solo para enemigos")]
+    [SerializeField] private int _maxHealth;
 
     #endregion
 
@@ -36,7 +38,6 @@ public class Health : MonoBehaviour
 
     private PlayerStats _playerStats;
     private float _currentHealth;
-    private int _maxHealth;
 
     #endregion
     
@@ -56,8 +57,8 @@ public class Health : MonoBehaviour
         _playerStats = gameObject.GetComponent<PlayerStats>();
         if (_playerStats != null)
             UpdateMaxHealth();
-        //_currentHealth = _maxHealth;
-        _currentHealth = 1; // esto es para probar el sistema de regeneración de vida, luego se quita y se deja lo de arriba
+        _currentHealth = _maxHealth;
+        
     }
 
     /// <summary>
@@ -65,7 +66,11 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Die();
+        if (Die()) 
+        {
+            //vuelve al inicio / pantalla de muerte
+        }
+
     }
     #endregion
 
@@ -86,12 +91,6 @@ public class Health : MonoBehaviour
     public void UpdateMaxHealth()
     {
         _maxHealth = (int)_playerStats.GetMaxHealth();
-    }
-
-    public void RegenHealth(float regen)
-    {
-        if (_currentHealth < _maxHealth) _currentHealth += regen;
-        else _currentHealth = _maxHealth;
     }
 
     public float GetCurrentHealth()
@@ -115,9 +114,14 @@ public class Health : MonoBehaviour
 
 
 
-    private void Die()
+    private bool Die()
     {
-        if (_currentHealth <= 0) Destroy(gameObject);
+        bool dead = _currentHealth <= 0;
+        if (dead) 
+        {
+            Destroy(gameObject);
+        }
+        return dead;
     }
     #endregion  
 

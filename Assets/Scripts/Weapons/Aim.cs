@@ -63,6 +63,7 @@ public class Aim : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if(_playerTransform!=null)
         transform.position = _playerTransform.position;
 
         Vector2 aim = InputManager.Instance.AimVector;

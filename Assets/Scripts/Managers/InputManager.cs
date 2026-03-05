@@ -4,6 +4,7 @@
 // Template-P1
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -107,6 +108,16 @@ public class InputManager : MonoBehaviour
             // Queremos sobrevivir a cambios de escena.
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
+            _theController = new InputSystem_Actions();
+            switch (Device)
+            {
+                case Devices.Keyboard:
+                    _activeMap = _theController.PlayerKeyboard.Get();
+                    break;
+                case Devices.Controller:
+                    _activeMap = _theController.PlayerController.Get();
+                    break;
+            }
             Init();
         }
     } // Awake
@@ -152,6 +163,44 @@ public class InputManager : MonoBehaviour
     public static bool HasInstance()
     {
         return _instance != null;
+    }
+
+    public void UseController()
+    {
+        _activeMap?.Disable();
+        Dis();
+        _activeMap = _theController.PlayerController.Get();
+        Device = Devices.Controller;
+        Init();
+    }
+
+    public void UseKeyboard()
+    {
+        _activeMap?.Disable();
+        Dis();
+        _activeMap = _theController.PlayerKeyboard.Get();
+        Device = Devices.Keyboard;
+        Init();
+    }
+
+    private void Dis()
+    {
+        if (_activeMap == null) return;
+
+        InputAction movement = _activeMap.FindAction("Move");
+        if (movement != null)
+        {
+            movement.performed -= OnMove;
+            movement.canceled -= OnMove;
+        }
+
+        InputAction aim = _activeMap.FindAction("Aim");
+        if (aim != null)
+        {
+            aim.performed -= OnAim;
+            aim.canceled -= OnAim;
+        }
+
     }
 
     /// <summary>
@@ -215,18 +264,6 @@ public class InputManager : MonoBehaviour
     private void Init()
     {
         // Creamos el controlador del input y activamos los controles del jugador
-        _theController = new InputSystem_Actions();
-
-
-        switch (Device)
-        {
-            case Devices.Keyboard:
-                _activeMap = _theController.PlayerKeyboard.Get();
-                break;
-            case Devices.Controller:
-                _activeMap = _theController.PlayerController.Get();
-                break;
-        }
 
         _activeMap.Enable();
 
@@ -237,13 +274,28 @@ public class InputManager : MonoBehaviour
 
         // Para el movimiento, actualizamos el vector de movimiento usando
         // el método OnMove
-        movement.performed += OnMove;
-        movement.canceled += OnMove;
+        if (movement != null)
+        {
+            movement.performed -= OnMove;
+            movement.canceled -= OnMove;
+
+            movement.performed += OnMove;
+            movement.canceled += OnMove;
+        }
 
         InputAction aim = _activeMap.FindAction("Aim");
 
-        aim.performed += OnAim;
-        aim.canceled += OnAim;
+        // Para el apuntado, actualizamos el vector de la dirección de apuntado usando
+        // el método OnAim
+
+        if (aim != null)
+        {
+            aim.performed -= OnAim;
+            aim.canceled -= OnAim;
+
+            aim.performed += OnAim;
+            aim.canceled += OnAim;
+        }
 
         // Para el disparo solo cacheamos la acción de disparo.
         // El estado lo consultaremos a través de los métodos públicos que 

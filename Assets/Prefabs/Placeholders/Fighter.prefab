@@ -192,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cffdc71f65d5b147aa2710aac28d08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
+  MovementSpeed: 3
   EnemyRangeLayer: 6
-  KnockbackForce: 3
+  KnockbackForce: 4
   Damage: 0
-  KnockbackDuration: 1
+  KnockbackDuration: 0.6
 --- !u!58 &1966514247875632237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  _maxHealth: 10
 --- !u!114 &5084647295468977431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 1
+  Multiplier: 2
   DamageLayer: 6
   ObjectType: 0
 --- !u!50 &8439281293455679385
