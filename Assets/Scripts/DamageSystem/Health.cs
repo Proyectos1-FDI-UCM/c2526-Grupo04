@@ -56,14 +56,15 @@ public class Health : MonoBehaviour
         _playerStats = gameObject.GetComponent<PlayerStats>();
         if (_playerStats != null)
             UpdateMaxHealth();
-        _currentHealth = _maxHealth;
+        //_currentHealth = _maxHealth;
+        _currentHealth = 1; // esto es para probar el sistema de regeneración de vida, luego se quita y se deja lo de arriba
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {        
+    {
         Die();
     }
     #endregion
