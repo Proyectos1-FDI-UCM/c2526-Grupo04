@@ -521,6 +521,10 @@ PrefabInstance:
       propertyPath: HealthTank
       value: 
       objectReference: {fileID: 1052836666}
+    - target: {fileID: 2340312500981586997, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: RegenTimePerUnit
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7652162536970584005, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12187221
@@ -567,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488072362049856130, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: Dmg
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8488072362049856130, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: MaxMagic
@@ -1116,6 +1120,10 @@ PrefabInstance:
     - target: {fileID: 689579953451842394, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
       propertyPath: m_Size.y
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538052147326406824, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
+      propertyPath: Multiplier
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5849566018043076284, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
       propertyPath: m_Name
