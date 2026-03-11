@@ -95,18 +95,16 @@ public class Spawner : MonoBehaviour
             //Posición de aparición del enemigo
             float _spawnPosX, _spawnPosY;
             Vector3 _spawnPos;
-            float _distanceX = MainCamera.transform.position.x + _cameraWidth + DistanceFromCamera;
-            float _distanceY = MainCamera.transform.position.y + _cameraHeight + DistanceFromCamera;
 
             //Obtenemos una posición aleatoria para el spawn del enemigo
             do
             {
-                _spawnPosX = Random.Range(-(_distanceX), _distanceX);
-            } while (_spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX && (_spawnPosX < _minX || _spawnPosX > _maxX));
+                _spawnPosX = Random.Range(_cameraMinX - DistanceFromCamera, _cameraMaxX + DistanceFromCamera);
+            } while ((_spawnPosX < _minX || _spawnPosX > _maxX) || _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
             do
             {
-                _spawnPosY = Random.Range(-(_distanceY), _distanceY);
-            } while (_spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && (_spawnPosY < _minY || _spawnPosY > _maxY));
+                _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
+            } while ((_spawnPosY < _minY || _spawnPosY > _maxY) || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY);
             _spawnPos = new Vector3(_spawnPosX, _spawnPosY, 0);
 
             //Generamos el enemigo en la posición obtenida
