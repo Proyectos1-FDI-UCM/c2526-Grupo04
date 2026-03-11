@@ -93,7 +93,7 @@ public class HealthRegen : MonoBehaviour
 
     private void UpdateGUI()
     {
-        HealthTank.text = "Vida: " + _currentHealth.ToString("0") + " / " + _maxHealth.ToString("0");
+        if (HealthTank != null) HealthTank.text = "Vida: " + _currentHealth.ToString("0") + " / " + _maxHealth.ToString("0");
     }
 
     public void RegenHealth(float regen)
