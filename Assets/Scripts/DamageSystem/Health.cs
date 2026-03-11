@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
         if (IsDead()) 
         {
             Die();
-            //vuelve al inicio / pantalla de muerte
+            // vuelve al inicio / pantalla de muerte
         }
 
     }
@@ -123,6 +123,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();

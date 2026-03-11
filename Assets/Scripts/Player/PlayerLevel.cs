@@ -23,8 +23,6 @@ public class PlayerLevel : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    // _currentLimit = InitialLimit * Increment ^ _level
-
     [SerializeField] private float InitialLimit;
     [SerializeField] private float Increment;
 
@@ -66,6 +64,7 @@ public class PlayerLevel : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // Si se cumplen las condiciones, realiza las acciones de subida de nivel
         if (IsLevelUpgraded())
         {
             LevelUpgrade();
@@ -81,6 +80,7 @@ public class PlayerLevel : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    // Suma la experienca obtenida
     public void XpUpdate(int drop)
     {
         _experience += drop;
@@ -95,17 +95,20 @@ public class PlayerLevel : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+
+    // Comprueba si se cumple el requisito para subir de nivel
     private bool IsLevelUpgraded()
     {
         return _experience >= _currentLimit;
     }
 
+    // Realiza las acciones de subida de nivel
     private void LevelUpgrade()
     {
         _currentLimit = (InitialLimit * Mathf.Pow(Increment, _level));
         _level++;
         _experience -= _currentLimit;
-        // aquí tiene q llamar a lo q sea que saque el menú de opciones para elegir
+        // aquí tiene q llamar a lo q sea que sume a la cola de aparición del menú de elegir 
     }
 
     #endregion   

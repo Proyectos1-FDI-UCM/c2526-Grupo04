@@ -73,6 +73,7 @@ public class EnemyXP : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    // Suma la experiencia correspondiente a la experiencia del jugador
     public void DeathXpDrop()
     {
         _playerLevel.XpUpdate(XpDrop);
