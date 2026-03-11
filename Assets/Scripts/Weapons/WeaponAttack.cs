@@ -35,7 +35,7 @@ public class WeaponAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private BoxCollider2D _hitbox;
+    private PolygonCollider2D _hitbox;
     private SpriteRenderer _debug;
     private float _lastAttackTime;
 
@@ -54,7 +54,7 @@ public class WeaponAttack : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        _hitbox = GetComponent<BoxCollider2D>();
+        _hitbox = GetComponent<PolygonCollider2D>();
         _debug = GetComponent<SpriteRenderer>();
     }
 
