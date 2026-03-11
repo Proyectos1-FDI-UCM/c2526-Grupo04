@@ -56,9 +56,10 @@ public class SistemaMagia : MonoBehaviour
         UpdateGUI();
     }
 
+   
     void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
     {
-        MagicTank.text = nowMagic.ToString("F0") + " / " + MaxMagic;
+        if (MagicTank != null) MagicTank.text = nowMagic.ToString("F0") + " / " + MaxMagic;
     }
 
     // ---- MÉTODOS PÚBLICOS ----
