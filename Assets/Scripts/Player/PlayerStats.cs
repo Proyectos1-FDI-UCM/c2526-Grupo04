@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
     private Health _health;
     private Damage _damage;
     private MagicSystem _magicSystem;
-
+    
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
