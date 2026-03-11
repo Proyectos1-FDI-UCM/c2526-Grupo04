@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Health : MonoBehaviour
+public class EnemyXP : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,8 +22,8 @@ public class Health : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Header("Relevante solo para enemigos")]
-    [SerializeField] private int _maxHealth;
+
+    [SerializeField] int XpDrop;
 
     #endregion
 
@@ -36,10 +36,8 @@ public class Health : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private PlayerStats _playerStats;
-    private float _currentHealth;
+    private PlayerLevel _playerLevel;
 
-    private EnemyXP _enemyXP;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -55,12 +53,7 @@ public class Health : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _playerStats = gameObject.GetComponent<PlayerStats>();
-        _enemyXP = gameObject.GetComponent<EnemyXP>();
-        if (_playerStats != null)
-            UpdateMaxHealth();
-        _currentHealth = _maxHealth;
-        
+        _playerLevel = FindAnyObjectByType<PlayerLevel>();
     }
 
     /// <summary>
@@ -68,12 +61,7 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (IsDead()) 
-        {
-            Die();
-            //vuelve al inicio / pantalla de muerte
-        }
-
+        
     }
     #endregion
 
@@ -85,29 +73,13 @@ public class Health : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    // Método público para ser llamado por Damage (u otros) (si el daño introducido es negativo, currentHealth aumenta)
-    public void LoseHealth(float damage)
+    public void DeathXpDrop()
     {
-        _currentHealth -= damage;
-    }
-
-    public void UpdateMaxHealth()
-    {
-        _maxHealth = (int)_playerStats.GetMaxHealth();
-    }
-
-    public float GetCurrentHealth()
-    {
-        return _currentHealth;
-    }
-
-    public int GetMaxHealth()
-    {
-        return _maxHealth;
+        _playerLevel.XpUpdate(XpDrop);
     }
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -115,24 +87,7 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private bool IsDead()
-    {
-        bool dead = _currentHealth <= 0;
-        return dead;
-    }
+    #endregion   
 
-    private void Die()
-    {
-        if (_enemyXP != null)
-        {
-            _enemyXP.DeathXpDrop();
-        }
-
-        // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
-
-        Destroy(gameObject);
-    }
-    #endregion  
-
-} // class Health 
+} // class EnemyXP 
 // namespace

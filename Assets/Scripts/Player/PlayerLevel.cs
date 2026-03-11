@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Health : MonoBehaviour
+public class PlayerLevel : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,11 +22,14 @@ public class Health : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Header("Relevante solo para enemigos")]
-    [SerializeField] private int _maxHealth;
+
+    // _currentLimit = InitialLimit * Increment ^ _level
+
+    [SerializeField] private float InitialLimit;
+    [SerializeField] private float Increment;
 
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -36,10 +39,10 @@ public class Health : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private PlayerStats _playerStats;
-    private float _currentHealth;
+    private float _experience = 0;
+    private int _level = 0;
+    private float _currentLimit;
 
-    private EnemyXP _enemyXP;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -55,12 +58,7 @@ public class Health : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _playerStats = gameObject.GetComponent<PlayerStats>();
-        _enemyXP = gameObject.GetComponent<EnemyXP>();
-        if (_playerStats != null)
-            UpdateMaxHealth();
-        _currentHealth = _maxHealth;
-        
+        _currentLimit = InitialLimit;
     }
 
     /// <summary>
@@ -68,12 +66,10 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (IsDead()) 
+        if (IsLevelUpgraded())
         {
-            Die();
-            //vuelve al inicio / pantalla de muerte
+            LevelUpgrade();
         }
-
     }
     #endregion
 
@@ -85,25 +81,9 @@ public class Health : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    // Método público para ser llamado por Damage (u otros) (si el daño introducido es negativo, currentHealth aumenta)
-    public void LoseHealth(float damage)
+    public void XpUpdate(int drop)
     {
-        _currentHealth -= damage;
-    }
-
-    public void UpdateMaxHealth()
-    {
-        _maxHealth = (int)_playerStats.GetMaxHealth();
-    }
-
-    public float GetCurrentHealth()
-    {
-        return _currentHealth;
-    }
-
-    public int GetMaxHealth()
-    {
-        return _maxHealth;
+        _experience += drop;
     }
 
     #endregion
@@ -115,24 +95,20 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private bool IsDead()
+    private bool IsLevelUpgraded()
     {
-        bool dead = _currentHealth <= 0;
-        return dead;
+        return _experience >= _currentLimit;
     }
 
-    private void Die()
+    private void LevelUpgrade()
     {
-        if (_enemyXP != null)
-        {
-            _enemyXP.DeathXpDrop();
-        }
-
-        // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
-
-        Destroy(gameObject);
+        _currentLimit = (InitialLimit * Mathf.Pow(Increment, _level));
+        _level++;
+        _experience -= _currentLimit;
+        // aquí tiene q llamar a lo q sea que saque el menú de opciones para elegir
     }
-    #endregion  
 
-} // class Health 
+    #endregion   
+
+} // class PlayerLevel 
 // namespace

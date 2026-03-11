@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 5259760127212673282}
   - component: {fileID: 5084647295468977431}
   - component: {fileID: 8439281293455679385}
+  - component: {fileID: 5863652967939033538}
   m_Layer: 7
   m_Name: Fighter
   m_TagString: Untagged
@@ -288,3 +289,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5863652967939033538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420980510147085542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08836c7d1be19814ab49aedfc68f6af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XpDrop: 5
