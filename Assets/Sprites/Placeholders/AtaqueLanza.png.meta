@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec7e26419970a8b4ba7303d6953efbec
+guid: 8aaf7952f8ca2b7479de069d21d9f638
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 454792566667018521
-    second: AtaqueEspada_0
+      213: 2800990082654047087
+    second: AtaqueLanza_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AtaqueEspada_0
+      name: AtaqueLanza_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 124
-        width: 256
-        height: 132
+        x: 90
+        y: 123
+        width: 50
+        height: 360
       alignment: 9
-      pivot: {x: 0.5, y: -0.5}
+      pivot: {x: 0.5, y: -0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9110da60e6fbf4600800000000000000
-      internalID: 454792566667018521
+      spriteID: f6b8cffc3ad1fd620800000000000000
+      internalID: 2800990082654047087
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c85ce48ec40ec33478d446bb47286fff
+    spriteID: 0a42b75e5d5b8ce489ec3033ced765a5
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AtaqueEspada_0: 454792566667018521
+      AtaqueLanza_0: 2800990082654047087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

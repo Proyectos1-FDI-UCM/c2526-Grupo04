@@ -86,11 +86,13 @@ public class Damage : MonoBehaviour
     {
         Health health = collision.gameObject.GetComponent<Health>();
         if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        Debug.Log("yo " + gameObject.name + " hago daño: " + TotalDamage);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
         if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        Debug.Log("yo " + gameObject.name + " hago daño: " + TotalDamage);
     }
 
     // ---- MÉTODOS PÚBLICOS ----

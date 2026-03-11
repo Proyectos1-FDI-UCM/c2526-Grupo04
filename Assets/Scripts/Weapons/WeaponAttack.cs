@@ -24,6 +24,9 @@ public class WeaponAttack : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [Tooltip("Ataques por segundo")]
     [SerializeField] private float AttackFrecuency;
+
+    [SerializeField] private float AttackDuration;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -38,6 +41,7 @@ public class WeaponAttack : MonoBehaviour
     private PolygonCollider2D _hitbox;
     private SpriteRenderer _debug;
     private float _lastAttackTime;
+    private Aim _aim;
 
     #endregion
 
@@ -56,6 +60,7 @@ public class WeaponAttack : MonoBehaviour
     {
         _hitbox = GetComponent<PolygonCollider2D>();
         _debug = GetComponent<SpriteRenderer>();
+        _aim = GetComponent<Aim>();
     }
 
     void Start()
@@ -67,28 +72,27 @@ public class WeaponAttack : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
         float latency = 1 / AttackFrecuency;
 
         if (_lastAttackTime + latency < Time.time)
         {
             _hitbox.enabled = true;
-            _debug.color = Color.red;
+            _debug.enabled = true;
             _lastAttackTime = Time.time;
+            _aim.SetMovement(false);
         }
-        else if (_lastAttackTime < Time.time)
+        else if(_lastAttackTime + AttackDuration < Time.time)
         {
+            _debug.enabled = false;
+            _aim.SetMovement(true);
+            //Esto es temporal para que se distinga el ataque
             _hitbox.enabled = false;
         }
-        //Esto es temporal para que se distinga el ataque
-        if(_lastAttackTime + 0.2 < Time.time)
-        {
-            _debug.color = Color.blue;
-        }
-        
 
     }
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----

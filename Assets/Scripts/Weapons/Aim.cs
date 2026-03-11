@@ -38,6 +38,7 @@ public class Aim : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private Transform _playerTransform;
+    private bool movement;
 
 
     #endregion
@@ -56,6 +57,7 @@ public class Aim : MonoBehaviour
     private void Start()
     {
         _playerTransform = LevelManager.Instance.GetPlayer();
+        movement = true;
     }
 
     /// <summary>
@@ -63,20 +65,22 @@ public class Aim : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(_playerTransform!=null)
-        transform.position = _playerTransform.position;
-
-        Vector2 aim = InputManager.Instance.AimVector;
-
-        if (aim != Vector2.zero)
+        if (movement)
         {
-            // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
-            float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+            if (_playerTransform != null)
+                transform.position = _playerTransform.position;
 
-            // Una vez tenemos el ángulo, rotamos el arma a esa dirección
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            Vector2 aim = InputManager.Instance.AimVector;
+
+            if (aim != Vector2.zero)
+            {
+                // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
+                float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+
+                // Una vez tenemos el ángulo, rotamos el arma a esa dirección
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
         }
-
     }
     #endregion
 
@@ -87,6 +91,12 @@ public class Aim : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
+
+    public void SetMovement(bool condition)
+    {
+        movement = condition;
+    }
+
 
     #endregion
 
