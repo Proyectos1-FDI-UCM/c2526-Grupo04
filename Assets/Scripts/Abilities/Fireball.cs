@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Damage : MonoBehaviour
+public class Fireball : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,15 +22,10 @@ public class Damage : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
-    [SerializeField] private float Multiplier = 1;
-
-    [SerializeField] private int DamageLayer = 6;
-
-    [SerializeField] private Object ObjectType;
-
+    [SerializeField] private float Radius = 1f;
+    [SerializeField] private float Duration = 1f;
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -40,16 +35,10 @@ public class Damage : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    enum Object
-    {
-        Enemy,
-        Player
-    }
-
-    private PlayerStats playerStats;
-
-    private float TotalDamage;
-
+    private Collider2D _hitbox;
+    private CircleCollider2D _explosionHitbox;
+    private float _spawnTime;
+    private bool attacking = false;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,14 +52,18 @@ public class Damage : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
+
+    private void Awake()
+    {
+        _spawnTime = Time.time;
+        _hitbox = GetComponent<Collider2D>();
+        _explosionHitbox = GetComponentInChildren<CircleCollider2D>();
+    }
+
     void Start()
     {
-        if (ObjectType == Object.Player)
-        {
-            playerStats = FindFirstObjectByType<PlayerStats>();
-            TotalDamage = Multiplier * playerStats.GetDmg();
-        }
-        else TotalDamage = Multiplier;
+        _explosionHitbox.radius = Radius;
+        _explosionHitbox.enabled = false;
     }
 
     /// <summary>
@@ -78,22 +71,24 @@ public class Damage : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        if (_spawnTime + Duration < Time.time)
+        {
+            Explode();
+        }
+
+        if (attacking) _explosionHitbox.enabled = false;
+    }
+
+    void FixedUpdate()
+    {
+        transform.Translate(Vector3.up * (0.1f));
+    }
+
+    private void OnCollisionEnter2D()
+    {
+        Explode();
     }
     #endregion
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
-        Debug.Log("yo " + gameObject.name + " hago daño: " + TotalDamage);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
-        Debug.Log("yo " + gameObject.name + " hago daño: " + TotalDamage);
-    }
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
@@ -102,11 +97,6 @@ public class Damage : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
-    public void ChangeDamage(int damage)
-    {
-        TotalDamage = damage * Multiplier;
-    }
 
     #endregion
 
@@ -117,9 +107,17 @@ public class Damage : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-
-
+    private void Explode()
+    {
+        if (!attacking)
+        {
+            _explosionHitbox.enabled = true;
+            Destroy(this.gameObject);
+            attacking = true;
+        }
+       
+    }
     #endregion
 
-} // class Damage 
+} // class Fireball 
 // namespace

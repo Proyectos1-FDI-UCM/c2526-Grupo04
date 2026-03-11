@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Damage : MonoBehaviour
+public class EnemyXP : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,14 +23,10 @@ public class Damage : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private float Multiplier = 1;
-
-    [SerializeField] private int DamageLayer = 6;
-
-    [SerializeField] private Object ObjectType;
+    [SerializeField] int XpDrop;
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -40,37 +36,24 @@ public class Damage : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    enum Object
-    {
-        Enemy,
-        Player
-    }
-
-    private PlayerStats playerStats;
-
-    private float TotalDamage;
+    private PlayerLevel _playerLevel;
 
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        if (ObjectType == Object.Player)
-        {
-            playerStats = FindFirstObjectByType<PlayerStats>();
-            TotalDamage = Multiplier * playerStats.GetDmg();
-        }
-        else TotalDamage = Multiplier;
+        _playerLevel = FindAnyObjectByType<PlayerLevel>();
     }
 
     /// <summary>
@@ -82,19 +65,6 @@ public class Damage : MonoBehaviour
     }
     #endregion
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
-        Debug.Log("yo " + gameObject.name + " hago daño: " + TotalDamage);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
-        Debug.Log("yo " + gameObject.name + " hago daño: " + TotalDamage);
-    }
-
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     // Documentar cada método que aparece aquí con ///<summary>
@@ -103,13 +73,14 @@ public class Damage : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void ChangeDamage(int damage)
+    // Suma la experiencia correspondiente a la experiencia del jugador
+    public void DeathXpDrop()
     {
-        TotalDamage = damage * Multiplier;
+        _playerLevel.XpUpdate(XpDrop);
     }
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -117,9 +88,7 @@ public class Damage : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+    #endregion   
 
-
-    #endregion
-
-} // class Damage 
+} // class EnemyXP 
 // namespace

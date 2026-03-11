@@ -39,6 +39,7 @@ public class Health : MonoBehaviour
     private PlayerStats _playerStats;
     private float _currentHealth;
 
+    private EnemyXP _enemyXP;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -55,6 +56,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         _playerStats = gameObject.GetComponent<PlayerStats>();
+        _enemyXP = gameObject.GetComponent<EnemyXP>();
         if (_playerStats != null)
             UpdateMaxHealth();
         _currentHealth = _maxHealth;
@@ -66,9 +68,10 @@ public class Health : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Die()) 
+        if (IsDead()) 
         {
-            //vuelve al inicio / pantalla de muerte
+            Die();
+            // vuelve al inicio / pantalla de muerte
         }
 
     }
@@ -112,16 +115,23 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-
-
-    private bool Die()
+    private bool IsDead()
     {
         bool dead = _currentHealth <= 0;
-        if (dead) 
-        {
-            Destroy(gameObject);
-        }
         return dead;
+    }
+
+    private void Die()
+    {
+        // Si es enemigo llama al sistema de experiencia del enemigo
+        if (_enemyXP != null)
+        {
+            _enemyXP.DeathXpDrop();
+        }
+
+        // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
+
+        Destroy(gameObject);
     }
     #endregion  
 

@@ -73,7 +73,7 @@ public class RangedEnemiesMovement : MonoBehaviour
     {
         _currentState = State.Chasing;
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
-        _playerTransform = LevelManager.Instance.GetPlayer().transform;
+        _playerTransform = LevelManager.Instance.GetPlayer();
     }
 
     /// <summary>
