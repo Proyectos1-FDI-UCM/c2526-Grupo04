@@ -121,7 +121,7 @@ public class PlayerLevel : MonoBehaviour
         _currentLimit = Mathf.Round(_currentLimit);
         _level++;
         _experience -= _previousLimit;
-        _itemSelectionManager.PauseGame();
+        _itemSelectionManager.QueueUp();
     }
 
     #endregion   

@@ -54,6 +54,7 @@ public class ItemSelectionManager : MonoBehaviour
     //array con todas las opciones posibles que pueden salir
     private string[] _options = {"Lanza", "Maza", "Espada", "Rayo", "Fireball", "Poison", "Casco", "Pocima", "Sello", "Pesa", "Tunica", "Orbe"};
     private int option1, option2, option3; //numeros aleatorios de las elecciones
+    private int queue = 0;
     private Potenciadores _potenciadores;
 
     #endregion
@@ -74,6 +75,15 @@ public class ItemSelectionManager : MonoBehaviour
         _potenciadores = GetComponent<Potenciadores>(); //obtenemos componente potenciadores
     }
 
+    void Update()
+    {
+        if (queue > 0)
+        {
+            PowerUpScreen();
+            queue--;
+        }
+    }
+
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
@@ -88,7 +98,7 @@ public class ItemSelectionManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void PauseGame() //método para pausar el juego, escondemos la UI del juego, mostramos el menú y paramos el resto
+    public void PowerUpScreen() //método para pausar el juego, escondemos la UI del juego, mostramos el menú y paramos el resto
     {
         GameCanvas.SetActive(false);
         SelectionMenu.SetActive(true);
@@ -112,6 +122,11 @@ public class ItemSelectionManager : MonoBehaviour
     {
         Selection(option3);   
         ResumeGame();
+    }
+
+    public void QueueUp()
+    {
+        queue++;
     }
 
     #endregion
