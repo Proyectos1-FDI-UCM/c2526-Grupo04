@@ -25,7 +25,6 @@ public class Potenciadores : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     enum Potenciador {Vida, Daño, Magia}
-    [SerializeField] Potenciador tipoPotenciador;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -81,19 +80,19 @@ public class Potenciadores : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     // El método Potencia() llama a uno de los métodos de potenciación en función del tipo de potenciador que es
-    public void Potencia()
+    public void Potencia(string tipoPotenciador)
     {
         switch (tipoPotenciador)
         {
-            case Potenciador.Vida:
+            case "Vida":
                 PotenciaV();
                 break;
 
-            case Potenciador.Daño:
+            case "Daño":
                 PotenciaD();
                 break;
 
-            case Potenciador.Magia:
+            case "Magia":
                 PotenciaM();
                 break;
 
