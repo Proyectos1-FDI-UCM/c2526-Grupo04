@@ -23,9 +23,11 @@ public class ItemSelectionManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
+    //interfaz visual del juego y del menú de elección
     [SerializeField] private GameObject SelectionMenu;
     [SerializeField] private GameObject GameCanvas;
 
+    //prefabs de aarmas y habilidades
     [SerializeField] private GameObject Lanza;
     [SerializeField] private GameObject Maza;
     [SerializeField] private GameObject Espada;
@@ -33,6 +35,7 @@ public class ItemSelectionManager : MonoBehaviour
     [SerializeField] private GameObject Fireball;
     [SerializeField] private GameObject Poison;
 
+    //textos de los botones con las distintas elecciones
     [SerializeField] private TMPro.TextMeshProUGUI Texto1;
     [SerializeField] private TMPro.TextMeshProUGUI Texto2;
     [SerializeField] private TMPro.TextMeshProUGUI Texto3;
@@ -48,8 +51,9 @@ public class ItemSelectionManager : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    //array con todas las opciones posibles que pueden salir
     private string[] _options = {"Lanza", "Maza", "Espada", "Rayo", "Fireball", "Poison", "Casco", "Pocima", "Sello", "Pesa", "Tunica", "Orbe"};
-    private int option1, option2, option3;
+    private int option1, option2, option3; //numeros aleatorios de las elecciones
     private Potenciadores _potenciadores;
 
     #endregion
@@ -67,7 +71,7 @@ public class ItemSelectionManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _potenciadores = GetComponent<Potenciadores>();
+        _potenciadores = GetComponent<Potenciadores>(); //obtenemos componente potenciadores
     }
 
     /// <summary>
@@ -84,33 +88,29 @@ public class ItemSelectionManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void PauseGame()
+    public void PauseGame() //método para pausar el juego, escondemos la UI del juego, mostramos el menú y paramos el resto
     {
         GameCanvas.SetActive(false);
         SelectionMenu.SetActive(true);
         Time.timeScale = 0;       
-        RandomOptions();
+        RandomOptions(); //elegimos aleatoriamente las opciones que se mostrarán en el menú
     }
 
-    public void Option1()
+    public void Option1() //se ejecuta cuando el jugador elige la primera opcion
     {
-        Debug.Log("¡He hecho click en la Opción 1!");
-        if (_options[option1] != null) Selection(option1);
-        else Option1();        
+        Selection(option1); 
         ResumeGame();
     }
 
-    public void Option2()
+    public void Option2() //se ejecuta cuando el jugador elige la segunda opcion
     {        
-        if (_options[option2] != null) Selection(option2);
-        else Option2();
+        Selection(option2);
         ResumeGame();
     }
 
-    public void Option3()
+    public void Option3() //se ejecuta cuando el jugador elige la tercera opcion
     {
-        if (_options[option3] != null) Selection(option3);
-        else Option3();   
+        Selection(option3);   
         ResumeGame();
     }
 
@@ -123,37 +123,37 @@ public class ItemSelectionManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private void RandomOptions()
+    private void RandomOptions() //elegimos al azar las opciones entre todas las disponibles
     {
         do
         {
             option1 = Random.Range(0, _options.Length);
             Texto1.text = _options[option1];
-        } while (_options[option1] == null);
+        } while (_options[option1] == null); //nos aseguramos de que no se haya elegido antes
 
         do {
             option2 = Random.Range(0, _options.Length);
             Texto2.text = _options[option2];
-        } while (option2 == option1 || _options[option2] == null);
+        } while (option2 == option1 || _options[option2] == null); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
 
         do
         {
             option3 = Random.Range(0, _options.Length);
             Texto3.text = _options[option3];
-        } while (option3 == option1 || option3 == option2 || _options[option3] == null);
+        } while (option3 == option1 || option3 == option2 || _options[option3] == null); //aqui igual
     }
 
-    private void ResumeGame()
+    private void ResumeGame() //metodo para reanudar el juego cuando se haya elgido alguna de las opciones, hace lo opuesto al metodo de pausa
     {
         SelectionMenu.SetActive(false);
         GameCanvas.SetActive(true);
         Time.timeScale = 1;
     }
 
-    private void Selection(int option)
+    private void Selection(int option) //metodo para ejecutar la accion seleccionada
     {
-        switch (option)
-        {
+        switch (option) //si es un arma o habilidad (0-5) se instancia, sino se llama al metodo potencia del componente potenciadores con el atributo correspondiente (6-11)
+        { // en caso de armas y potenciadores se marca esa posicion del array como null para que no vuelva a salir
             case 0:
                 GameObject.Instantiate(Lanza);
                 _options[option] = null;
