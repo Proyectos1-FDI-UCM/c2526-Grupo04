@@ -22,8 +22,9 @@ public class Fireball : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] private float Radius = 1f;
+    [SerializeField] private float ExplosionRadius = 1f;
     [SerializeField] private float Duration = 1f;
+    [SerializeField] private float ExplosionTime = 0.2f;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -36,8 +37,9 @@ public class Fireball : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private Collider2D _hitbox;
+    private GameObject _explosion;
     private CircleCollider2D _explosionHitbox;
-    private float _spawnTime;
+    private float _spawnTime, _explosionHitboxStart;
     private bool attacking = false;
     #endregion
 
@@ -55,15 +57,19 @@ public class Fireball : MonoBehaviour
 
     private void Awake()
     {
+        _explosion = transform.GetChild(0).gameObject;
         _spawnTime = Time.time;
         _hitbox = GetComponent<Collider2D>();
-        _explosionHitbox = GetComponentInChildren<CircleCollider2D>();
+        _explosionHitbox = _explosion.GetComponent<CircleCollider2D>();
     }
 
     void Start()
     {
-        _explosionHitbox.radius = Radius;
+        _hitbox.enabled = true;
+        _explosion.transform.localScale = Vector3.one * ExplosionRadius;
+
         _explosionHitbox.enabled = false;
+        _explosion.SetActive(false);
     }
 
     /// <summary>
@@ -76,15 +82,18 @@ public class Fireball : MonoBehaviour
             Explode();
         }
 
-        if (attacking) _explosionHitbox.enabled = false;
+        if (_explosionHitbox.enabled && Time.time > _explosionHitboxStart + 0.03f)
+        {
+            _explosionHitbox.enabled = false;
+        }
     }
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.up * (0.1f));
+        if (!attacking) transform.Translate(Vector3.up * (0.1f));
     }
 
-    private void OnCollisionEnter2D()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Explode();
     }
@@ -111,11 +120,17 @@ public class Fireball : MonoBehaviour
     {
         if (!attacking)
         {
-            _explosionHitbox.enabled = true;
-            Destroy(this.gameObject);
             attacking = true;
+
+            _hitbox.enabled = false;
+            _hitbox.GetComponent<SpriteRenderer>().enabled = false;
+            _explosion.SetActive(true);
+
+            _explosionHitbox.enabled = true;
+            _explosionHitboxStart = Time.time;
+
+            Destroy(gameObject, ExplosionTime);
         }
-       
     }
     #endregion
 
