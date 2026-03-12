@@ -100,11 +100,9 @@ public class Spawner : MonoBehaviour
             do
             {
                 _spawnPosX = Random.Range(_cameraMinX - DistanceFromCamera, _cameraMaxX + DistanceFromCamera);
-            } while ((_spawnPosX < _minX || _spawnPosX > _maxX) || _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
-            do
-            {
                 _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
-            } while ((_spawnPosY < _minY || _spawnPosY > _maxY) || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY);
+            } while ((_spawnPosY < _minY || _spawnPosY > _maxY || _spawnPosX < _minX || _spawnPosX > _maxX) 
+            || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
             _spawnPos = new Vector3(_spawnPosX, _spawnPosY, 0);
 
             //Generamos el enemigo en la posición obtenida
