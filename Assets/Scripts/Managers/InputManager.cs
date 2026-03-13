@@ -71,7 +71,9 @@ public class InputManager : MonoBehaviour
     /// acciones como esta (y crear los métodos que necesitemos para
     /// conocer el estado del botón)
     /// </summary>
-    private InputAction _fire;
+    private InputAction _fire1;
+    private InputAction _fire2;
+    private InputAction _fire3;
 
     private enum Devices {Controller, Keyboard}
 
@@ -224,10 +226,22 @@ public class InputManager : MonoBehaviour
     /// Devolverá true en todos los frames en los que se mantenga pulsado
     /// <returns>True, si el botón está pulsado</returns>
     /// </summary>
-    public bool FireIsPressed()
+    public bool FireIsPressed1()
     {
-        return _fire.IsPressed();
+        return _fire1.IsPressed();
     }
+
+    public bool FireIsPressed2()
+    {
+        return _fire2.IsPressed();
+    }
+
+    public bool FireIsPressed3()
+    {
+        return _fire3.IsPressed();
+    }
+
+
 
     /// <summary>
     /// Método para saber si el botón de disparo (Fire) se ha pulsado en este frame
@@ -235,9 +249,19 @@ public class InputManager : MonoBehaviour
     /// y false, en otro caso
     /// </returns>
     /// </summary>
-    public bool FireWasPressedThisFrame()
+    public bool FireWasPressedThisFrame1()
     {
-        return _fire.WasPressedThisFrame();
+        return _fire1.WasPressedThisFrame();
+    }
+
+    public bool FireWasPressedThisFrame2()
+    {
+        return _fire2.WasPressedThisFrame();
+    }
+
+    public bool FireWasPressedThisFrame3()
+    {
+        return _fire3.WasPressedThisFrame();
     }
 
     /// <summary>
@@ -247,9 +271,19 @@ public class InputManager : MonoBehaviour
     /// este frame; y false, en otro caso.
     /// </returns>
     /// </summary>
-    public bool FireWasReleasedThisFrame()
+    public bool FireWasReleasedThisFrame1()
     {
-        return _fire.WasReleasedThisFrame();
+        return _fire1.WasReleasedThisFrame();
+    }
+
+    public bool FireWasReleasedThisFrame2()
+    {
+        return _fire2.WasReleasedThisFrame();
+    }
+
+    public bool FireWasReleasedThisFrame3()
+    {
+        return _fire3.WasReleasedThisFrame();
     }
 
     #endregion
@@ -301,7 +335,9 @@ public class InputManager : MonoBehaviour
         // El estado lo consultaremos a través de los métodos públicos que 
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
         // y FireWasReleasedThisFrame)
-        _fire = _activeMap.FindAction("Fire");
+        _fire1 = _activeMap.FindAction("FireAbility1");
+        _fire2 = _activeMap.FindAction("FireAbility2");
+        _fire3 = _activeMap.FindAction("FireAbility3");
     }
 
     /// <summary>

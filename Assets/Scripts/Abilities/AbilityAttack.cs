@@ -39,7 +39,7 @@ public class AbilityAttack : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private enum Buttons { Ability1, Ability2, Ability3 };
+    private enum Buttons { Fireball, Lighting, Poison };
 
     private float _lastAttackTime;
     private MagicSystem magicSystem;
@@ -70,8 +70,10 @@ public class AbilityAttack : MonoBehaviour
     {
         bool pulsado = false;
 
-        if (Button == Buttons.Ability1) pulsado = InputManager.Instance.FireWasPressedThisFrame();
-        
+        if (Button == Buttons.Fireball) pulsado = InputManager.Instance.FireWasPressedThisFrame1();
+        else if (Button == Buttons.Lighting) pulsado = InputManager.Instance.FireWasPressedThisFrame2();
+        else if (Button == Buttons.Poison) pulsado = InputManager.Instance.FireWasPressedThisFrame3();
+
         if (pulsado && magicSystem.UseMagic(Cost))
         {
             GameObject _ability = GameObject.Instantiate(AbilityPrefab);
