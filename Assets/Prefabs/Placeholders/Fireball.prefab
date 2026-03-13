@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionRadius: 4
   Duration: 5
+  ExplosionTime: 0.2
 --- !u!58 &2299992181158089683
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

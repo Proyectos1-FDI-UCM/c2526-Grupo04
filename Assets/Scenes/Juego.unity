@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanza
       objectReference: {fileID: 0}
+    - target: {fileID: 5849566018043076284, guid: 238fa75347532b54580487759d2ae198, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7981063088359100545, guid: 238fa75347532b54580487759d2ae198, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2670,7 +2674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5849566018043076284, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7981063088359100545, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
       propertyPath: m_LocalPosition.x

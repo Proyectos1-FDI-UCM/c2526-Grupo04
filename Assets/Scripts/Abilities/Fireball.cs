@@ -93,7 +93,7 @@ public class Fireball : MonoBehaviour
         if (!attacking) transform.Translate(Vector3.up * (0.1f));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Explode();
     }
