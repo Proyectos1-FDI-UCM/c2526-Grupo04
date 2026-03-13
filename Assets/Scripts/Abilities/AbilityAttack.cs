@@ -28,6 +28,7 @@ public class AbilityAttack : MonoBehaviour
     [SerializeField] private int Cost;
     [SerializeField] private GameObject AbilityPrefab;
     [SerializeField] private Buttons Button;
+    [SerializeField] private float SpawnOffset;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -75,7 +76,7 @@ public class AbilityAttack : MonoBehaviour
         {
             GameObject _ability = GameObject.Instantiate(AbilityPrefab);
             _ability.transform.rotation = transform.rotation;
-            _ability.transform.position = transform.position;
+            _ability.transform.position = transform.position + transform.up * SpawnOffset;
         }
         
     }
