@@ -27,6 +27,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float ProjectileDuration; //Duración del proyectil
 
+    [SerializeField] private bool FollowsPlayer; //Si se marca, el proyectil sigue al jugador
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -71,6 +73,12 @@ public class Projectile : MonoBehaviour
         }
         else
         {
+            if (FollowsPlayer)
+            {
+                _direction = (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized;
+                float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
             transform.position += _direction * ProjectileSpeed * Time.deltaTime;
         }
     }
