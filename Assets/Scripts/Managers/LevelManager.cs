@@ -6,6 +6,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System.Xml.Serialization;
 using UnityEngine;
 
 /// <summary>
@@ -24,10 +25,12 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
+    [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
+
     [SerializeField] private Transform Player;
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
-
+    [SerializeField] private float InitialTime;
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -44,6 +47,7 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
+    private float _timer;
     #endregion
 
 
@@ -59,8 +63,18 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
+        _timer = InitialTime * 60;
+    }
 
-     }
+    void Update()
+    {
+        if (!TimeUp())
+        {
+            _timer -= Time.deltaTime;
+        }
+        
+        UpdateGUI();
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -105,6 +119,15 @@ public class LevelManager : MonoBehaviour
         minY = -maxY;
     }
 
+    public float GetTimer()
+    {
+        return _timer;
+    }
+
+    public bool TimeUp()
+    {
+        return _timer <= 0;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -119,7 +142,26 @@ public class LevelManager : MonoBehaviour
         // De momento no hay nada que inicializar
     }
 
-    
+    private void UpdateGUI()
+    {
+        if (!TimeUp())
+        {
+            UpdateTimerGUI();
+        }
+        
+    }
+
+    private void UpdateTimerGUI()
+    {
+        float mins = (int)_timer / 60;
+        float secs = (int)_timer % 60;
+
+        if (mins >= 1)
+        {
+            TimerGUI.text = string.Format("{0:00}:{1:00}", mins, secs);
+        }
+        else TimerGUI.text = secs.ToString("F0");
+    }
 
     #endregion
 } // class LevelManager 
