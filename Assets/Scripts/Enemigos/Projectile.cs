@@ -85,9 +85,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (ProjectileSpeed>0) Destroy(gameObject);
     }
-    
+
 
     #endregion
 

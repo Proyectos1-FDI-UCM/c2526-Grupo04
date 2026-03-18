@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
     [SerializeField] private float InitialTime;
+    [SerializeField] private GameObject Meteorite;
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -49,6 +50,7 @@ public class LevelManager : MonoBehaviour
     private static LevelManager _instance;
     private float _timer;
     private float _pillarNum;
+    private bool _meteorite = false;
     #endregion
 
 
@@ -65,6 +67,8 @@ public class LevelManager : MonoBehaviour
             Init();
         }
         _timer = InitialTime * 60;
+        _meteorite = false;
+        Meteorite.SetActive(false);
     }
 
     void Update()
@@ -73,7 +77,8 @@ public class LevelManager : MonoBehaviour
         {
             _timer -= Time.deltaTime;
         }
-        
+        else OnTimeUp();
+
         UpdateGUI();
     }
     #endregion
@@ -168,6 +173,15 @@ public class LevelManager : MonoBehaviour
             TimerGUI.text = string.Format("{0:00}:{1:00}", mins, secs);
         }
         else TimerGUI.text = secs.ToString("F0");
+    }
+
+    private void OnTimeUp()
+    {
+        if (!_meteorite) 
+        {
+            Meteorite.SetActive(true);
+            _meteorite = true;
+        }
     }
 
     #endregion
