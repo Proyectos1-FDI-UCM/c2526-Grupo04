@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398120f647e7e40da805fa99971f1f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimerGUI: {fileID: 0}
+  Meteorite: {fileID: 2035953162811259743, guid: 270ab64a97d05b944982462ba4129ec5, type: 3}
+  Boss: {fileID: 0}
+  Pillars: {fileID: 0}
   Player: {fileID: 0}
   LimitX: 100
   LimitY: 100
+  InitialTime: 0.1

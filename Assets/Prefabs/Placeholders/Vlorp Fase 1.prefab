@@ -104,9 +104,10 @@ GameObject:
   - component: {fileID: 3584967183498750984}
   - component: {fileID: 9073102906687013084}
   - component: {fileID: 2579812391206540743}
+  - component: {fileID: 336420932055618357}
   m_Layer: 7
   m_Name: Vlorp Fase 1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,3 +318,17 @@ MonoBehaviour:
   Multiplier: 1
   DamageLayer: 6
   ObjectType: 0
+--- !u!114 &336420932055618357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160531526119738106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9a62bb4fd70744da1eee09ecc10ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fase: 1
+  Fase2Boss: {fileID: 0}
