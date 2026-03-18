@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private static LevelManager _instance;
     private float _timer;
+    private float _pillarNum;
     #endregion
 
 
@@ -127,6 +128,12 @@ public class LevelManager : MonoBehaviour
     public bool TimeUp()
     {
         return _timer <= 0;
+    }
+
+
+    public void PillarDestroyed()
+    {
+
     }
     #endregion
 
