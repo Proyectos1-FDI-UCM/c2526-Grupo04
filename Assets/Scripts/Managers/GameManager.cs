@@ -152,6 +152,11 @@ public class GameManager : MonoBehaviour
         System.GC.Collect();
     } // ChangeScene
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
     public void QuitGame()
     {
         //método público para salir del juego, se llama desde el botón de salir del menú principal
