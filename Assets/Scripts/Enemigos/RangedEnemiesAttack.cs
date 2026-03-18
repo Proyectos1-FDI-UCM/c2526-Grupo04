@@ -31,6 +31,9 @@ public class RangedEnemiesAttack : MonoBehaviour
     [Tooltip("Tiempo entre cada ataque")]
     [SerializeField] private float AttackSpeed;
 
+    [SerializeField] private float ProjectileDistance; //Distancia del enemigo al proyectil al disparar
+
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -80,7 +83,7 @@ public class RangedEnemiesAttack : MonoBehaviour
             if (Time.time > _nextAttack)
             {
                 _nextAttack = Time.time + AttackSpeed;
-                GameObject newProjectile = Instantiate(Projectile, transform.position, transform.rotation);
+                GameObject newProjectile = Instantiate(Projectile, transform.position + transform.up * ProjectileDistance, transform.rotation);
                 newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
             }
         }
