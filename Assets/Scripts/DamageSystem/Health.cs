@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void LateUpdate()
     {
         if (IsDead()) 
         {
@@ -106,6 +106,12 @@ public class Health : MonoBehaviour
         return _maxHealth;
     }
 
+    public bool IsDead()
+    {
+        bool dead = _currentHealth <= 0;
+        return dead;
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -115,11 +121,6 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private bool IsDead()
-    {
-        bool dead = _currentHealth <= 0;
-        return dead;
-    }
 
     private void Die()
     {

@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Healing : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,7 +23,8 @@ public class Healing : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private float HealingTimePerUnit;
+    [SerializeField] private int Fase = 1;
+    [SerializeField] private GameObject Fase2Boss;
 
     #endregion
 
@@ -36,40 +37,25 @@ public class Healing : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+    private Health _health;
 
-    private GameObject _boss;
-    private Health _bossHealth;
-    private Health _pillarHealth;
-    private Transform _bossPos;
-    private float regen = 0f;
-    private float _currentHealth;
-    private int _maxHealth;
-    private bool _bossFase2;
 
     #endregion
-
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
+    
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
-        _boss = FindAnyObjectByType<Boss>().gameObject;
-        _pillarHealth = GetComponent<Health>();
-        if (_boss != null)
-        {
-            _bossHealth = _boss.GetComponent<Health>();
-            _bossPos = _boss.GetComponent<Transform>();
-            _maxHealth = _bossHealth.GetMaxHealth();
-        }
-        
+        _health = GetComponent<Health>();
     }
 
     /// <summary>
@@ -77,16 +63,9 @@ public class Healing : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (true)
+        if (_health.IsDead() && Fase == 1)
         {
-            if (_pillarHealth.IsDead())
-            {
-                if (LevelManager.Instance.PillarDestroyed() == 0 && !_bossFase2) //comprueba que es el último pilar y que el boss esté en la fase 1
-                {
-                    _bossHealth.LoseHealth(_maxHealth+1);
-                }
-            }
-            BossHeal();
+            Instantiate(Fase2Boss);
         }
     }
     #endregion
@@ -108,35 +87,7 @@ public class Healing : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-
-    private void BossHeal()
-    {
-
-        //Si el boss es nulo busca de nuevo (normalmente cuando pase a fase 2)
-        if (_boss == null)
-        {
-            _boss = GameObject.FindGameObjectWithTag("Boss");
-            if (_boss != null)
-            {
-                if (_maxHealth != _bossHealth.GetMaxHealth()) _bossFase2 = true;
-                _bossHealth = _boss.GetComponent<Health>();
-                _bossPos = _boss.GetComponent<Transform>();
-                _maxHealth = _bossHealth.GetMaxHealth();
-            }
-        }
-
-        //Mismo comportamiento que la regenHealth
-        else
-        {
-            regen = Time.deltaTime / HealingTimePerUnit;
-            _currentHealth = _bossHealth.GetCurrentHealth();
-
-            if (_currentHealth < _maxHealth) _bossHealth.LoseHealth(-regen);
-            else _bossHealth.LoseHealth(_currentHealth - _maxHealth);
-            Debug.Log(_currentHealth);
-        }
-    }
     #endregion   
 
-} // class Healing 
+} // class Boss 
 // namespace

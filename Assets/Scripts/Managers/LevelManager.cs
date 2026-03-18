@@ -26,12 +26,13 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
-
+    [SerializeField] private GameObject Meteorite;
+    [SerializeField] private GameObject Boss;
+    [SerializeField] private GameObject Pillars;
     [SerializeField] private Transform Player;
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
     [SerializeField] private float InitialTime;
-    [SerializeField] private GameObject Meteorite;
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -49,8 +50,8 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private static LevelManager _instance;
     private float _timer;
-    private float _pillarNum;
-    private bool _meteorite = false;
+    private int _pillarNum;
+    private bool _fase1Done = false;
     #endregion
 
 
@@ -67,7 +68,7 @@ public class LevelManager : MonoBehaviour
             Init();
         }
         _timer = InitialTime * 60;
-        _meteorite = false;
+        _fase1Done = false;
         Meteorite.SetActive(false);
     }
 
@@ -77,9 +78,12 @@ public class LevelManager : MonoBehaviour
         {
             _timer -= Time.deltaTime;
         }
-        else OnTimeUp();
+        else if (!_fase1Done)
+        {
+            OnTimeUp();
+        }
 
-        UpdateGUI();
+            UpdateGUI();
     }
     #endregion
 
@@ -136,10 +140,13 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public void PillarDestroyed()
+    public int PillarDestroyed()
     {
-
+        _pillarNum--;
+        return _pillarNum;
     }
+
+    
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -177,11 +184,15 @@ public class LevelManager : MonoBehaviour
 
     private void OnTimeUp()
     {
-        if (!_meteorite) 
+        Meteorite.SetActive(true);
+        Instantiate(Boss);
+        Instantiate(Pillars);
+        
+        if(_pillarNum == 0)
         {
-            Meteorite.SetActive(true);
-            _meteorite = true;
+            _pillarNum = FindObjectsByType<Healing>(FindObjectsSortMode.None).Length;
         }
+        _fase1Done = true;
     }
 
     #endregion
