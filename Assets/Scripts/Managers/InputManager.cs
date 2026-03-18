@@ -75,6 +75,11 @@ public class InputManager : MonoBehaviour
     private InputAction _fire2;
     private InputAction _fire3;
 
+    /// <summary>
+    /// Acción para abrir y cerrar el menú de pausa.
+    /// </summary>
+    private InputAction _pause;
+
     private enum Devices {Controller, Keyboard}
 
 
@@ -241,7 +246,15 @@ public class InputManager : MonoBehaviour
         return _fire3.IsPressed();
     }
 
-
+    /// <summary>
+    /// Método para saber si el botón de pausa (Pause) está pulsado
+    /// Devolverá true en todos los frames en los que se mantenga pulsado
+    /// <returns>True, si el botón está pulsado</returns>
+    /// </summary>
+    public bool PauseIsPressed()
+    {
+        return _pause.IsPressed();
+    }
 
     /// <summary>
     /// Método para saber si el botón de disparo (Fire) se ha pulsado en este frame
@@ -262,6 +275,17 @@ public class InputManager : MonoBehaviour
     public bool FireWasPressedThisFrame3()
     {
         return _fire3.WasPressedThisFrame();
+    }
+
+    /// <summary>
+    /// Método para saber si el botón de pausa (Pause) se ha pulsado en este frame
+    /// <returns>Devuelve true, si el botón ha sido pulsado en este frame
+    /// y false, en otro caso
+    /// </returns>
+    /// </summary>
+    public bool PauseWasPressedThisFrame()
+    {
+        return _pause.WasPressedThisFrame();
     }
 
     /// <summary>
@@ -286,6 +310,17 @@ public class InputManager : MonoBehaviour
         return _fire3.WasReleasedThisFrame();
     }
 
+    /// <summary>
+    /// Método para saber si el botón de pausa (Pause) ha dejado de pulsarse
+    /// durante este frame
+    /// <returns>Devuelve true, si el botón se ha dejado de pulsar en
+    /// este frame; y false, en otro caso.
+    /// </returns>
+    /// </summary>
+    public bool PauseWasReleasedThisFrame()
+    {
+        return _pause.WasReleasedThisFrame();
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
