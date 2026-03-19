@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.PauseWasPressedThisFrame()) _pausedGame = !_pausedGame;
+        if (InputManager.Instance.PauseWasPressedThisFrame()) PauseGame();
         Debug.Log("Juego Pausado: " + GetPause());
         if (!_pausedGame)
         {
@@ -157,7 +157,13 @@ public class LevelManager : MonoBehaviour
         return _pillarNum;
     }
 
-    
+    public bool PauseGame()   
+    {
+        _pausedGame = !_pausedGame;
+        return _pausedGame;
+    }
+
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
