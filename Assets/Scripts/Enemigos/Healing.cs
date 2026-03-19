@@ -77,16 +77,19 @@ public class Healing : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (true)
+        if (!LevelManager.Instance.GetPause())
         {
-            if (_pillarHealth.IsDead())
+            if (true)
             {
-                if (LevelManager.Instance.PillarDestroyed() == 0 && !_bossFase2) //comprueba que es el último pilar y que el boss esté en la fase 1
+                if (_pillarHealth.IsDead())
                 {
-                    _bossHealth.LoseHealth(_maxHealth+1);
+                    if (LevelManager.Instance.PillarDestroyed() == 0 && !_bossFase2) //comprueba que es el último pilar y que el boss esté en la fase 1
+                    {
+                        _bossHealth.LoseHealth(_maxHealth + 1);
+                    }
                 }
+                BossHeal();
             }
-            BossHeal();
         }
     }
     #endregion

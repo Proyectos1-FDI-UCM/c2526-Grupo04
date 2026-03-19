@@ -81,46 +81,49 @@ public class RangedEnemiesMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        //Comprobar que el transform del jugador no es nulo para evitar errores
-        if (_playerTransform != null)
+        if (!LevelManager.Instance.GetPause())
         {
-            //Obtenemos el vector distancia para comprobar si el tirador debe avanzar o no 
-            Vector3 distance = _playerTransform.position - transform.position;
-            //Obtenemos la dirección que tiene que seguir
-            Vector3 direction = distance.normalized;
-
-            switch (_currentState)
+            //Comprobar que el transform del jugador no es nulo para evitar errores
+            if (_playerTransform != null)
             {
-                case State.Chasing:
+                //Obtenemos el vector distancia para comprobar si el tirador debe avanzar o no 
+                Vector3 distance = _playerTransform.position - transform.position;
+                //Obtenemos la dirección que tiene que seguir
+                Vector3 direction = distance.normalized;
 
-                    //Comprobamos si la magnitud del vector distancia es mayor que la distancia máxima a la que se puede acercar el tirador
-                    if (distance.magnitude > MaxDistance)
-                    {
-                        //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
-                        transform.position += direction * Speed * Time.deltaTime;
+                switch (_currentState)
+                {
+                    case State.Chasing:
 
-                        Vector3 pos = transform.position;
+                        //Comprobamos si la magnitud del vector distancia es mayor que la distancia máxima a la que se puede acercar el tirador
+                        if (distance.magnitude > MaxDistance)
+                        {
+                            //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
+                            transform.position += direction * Speed * Time.deltaTime;
 
-                        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-                        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+                            Vector3 pos = transform.position;
 
-                        transform.position = pos;
-                    }
-                    break;
+                            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+                            pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
-                case State.Knockback:
-                    if (Time.time > _actualKnockbackDuration)
-                    {
-                        _currentState = State.Chasing;
-                    }
-                    else transform.position -= direction * KnockbackSpeed * Time.deltaTime; 
-                    break;
+                            transform.position = pos;
+                        }
+                        break;
+
+                    case State.Knockback:
+                        if (Time.time > _actualKnockbackDuration)
+                        {
+                            _currentState = State.Chasing;
+                        }
+                        else transform.position -= direction * KnockbackSpeed * Time.deltaTime;
+                        break;
+                }
+
+                //Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                //Rotamos al jugador dicho ángulo respecto al eje z
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
-
-            //Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-            //Rotamos al jugador dicho ángulo respecto al eje z
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
     #endregion

@@ -59,8 +59,7 @@ public class Health : MonoBehaviour
         _enemyXP = gameObject.GetComponent<EnemyXP>();
         if (_playerStats != null)
             UpdateMaxHealth();
-        _currentHealth = _maxHealth;
-        
+        _currentHealth = _maxHealth;        
     }
 
     /// <summary>
@@ -68,12 +67,14 @@ public class Health : MonoBehaviour
     /// </summary>
     void LateUpdate()
     {
-        if (IsDead()) 
+        if (!LevelManager.Instance.GetPause())
         {
-            Die();
-            // vuelve al inicio / pantalla de muerte
+            if (IsDead())
+            {
+                Die();
+                // vuelve al inicio / pantalla de muerte
+            }
         }
-
     }
     #endregion
 

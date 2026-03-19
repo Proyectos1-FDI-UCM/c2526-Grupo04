@@ -59,29 +59,33 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Vector2 movement = InputManager.Instance.MovementVector;
-        movement = SnapTo8Directions(movement);
-        //_rb.linearVelocity = movement * Velocity;
-
-        
-
-        transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
-
-        Vector3 pos = transform.position;
-
-        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-
-        transform.position = pos;
-
-        if (movement != Vector2.zero)
+        Debug.Log("Juego Pausado: " + LevelManager.Instance.GetPause());
+        if (LevelManager.Instance.GetPause() == false)
         {
-            // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
-            //  (pues el triángulo apunta hacia arriba la punta)
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
+            Vector2 movement = InputManager.Instance.MovementVector;
+            movement = SnapTo8Directions(movement);
+            //_rb.linearVelocity = movement * Velocity;
 
-            // Una vez tenemos el ángulo, rotamos el player a esa dirección
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+
+            transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
+
+            Vector3 pos = transform.position;
+
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+            transform.position = pos;
+
+            if (movement != Vector2.zero)
+            {
+                // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
+                //  (pues el triángulo apunta hacia arriba la punta)
+                float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
+
+                // Una vez tenemos el ángulo, rotamos el player a esa dirección
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
         }
     }
     #endregion

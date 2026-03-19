@@ -73,7 +73,6 @@ public class EnemyStateMachine : MonoBehaviour
     void Start()
     {
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
-
         _currentState = State.Chasing;
         _player = FindFirstObjectByType<Movement>().gameObject;
         _collider = gameObject.GetComponent<Collider2D>();
@@ -84,7 +83,8 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(_player!= null) SetState();
+        if (!LevelManager.Instance.GetPause())
+            if (_player != null) SetState();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

@@ -68,9 +68,12 @@ public class PlayerLevel : MonoBehaviour
     /// </summary>
     void Update()
     {
-        UpdateGUI();
-        // Si se cumplen las condiciones, realiza las acciones de subida de nivel
-        if (IsLevelUpgraded()) LevelUpgrade();      
+        if (!LevelManager.Instance.GetPause())
+        {
+            UpdateGUI();
+            // Si se cumplen las condiciones, realiza las acciones de subida de nivel
+            if (IsLevelUpgraded()) LevelUpgrade();
+        }
     }
     #endregion
 

@@ -41,7 +41,6 @@ public class Projectile : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private Vector3 _direction; //Dirección del proyectil
-
     private float _actualDuration; //Variable auxiliar que se usa para gestionar la desaparición del proyectil
 
     #endregion
@@ -59,7 +58,6 @@ public class Projectile : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
     }
 
     /// <summary>
@@ -67,19 +65,22 @@ public class Projectile : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Time.time > _actualDuration)
+        if (!LevelManager.Instance.GetPause())
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            if (FollowsPlayer)
+            if (Time.time > _actualDuration)
             {
-                _direction = (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized;
-                float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                Destroy(gameObject);
             }
-            transform.position += _direction * ProjectileSpeed * Time.deltaTime;
+            else
+            {
+                if (FollowsPlayer)
+                {
+                    _direction = (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized;
+                    float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
+                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                }
+                transform.position += _direction * ProjectileSpeed * Time.deltaTime;
+            }
         }
     }
 

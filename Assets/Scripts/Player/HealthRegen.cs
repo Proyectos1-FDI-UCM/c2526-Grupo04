@@ -65,12 +65,14 @@ public class HealthRegen : MonoBehaviour
     /// </summary>
     void Update()
     {
-        regen = Time.deltaTime / RegenTimePerUnit;
-        _currentHealth = _health.GetCurrentHealth();
-        _maxHealth = _health.GetMaxHealth();
-        RegenHealth(regen);
-
-        UpdateGUI();
+        if (!LevelManager.Instance.GetPause())
+        {
+            regen = Time.deltaTime / RegenTimePerUnit;
+            _currentHealth = _health.GetCurrentHealth();
+            _maxHealth = _health.GetMaxHealth();
+            RegenHealth(regen);
+            UpdateGUI();
+        }
     }
     #endregion
 

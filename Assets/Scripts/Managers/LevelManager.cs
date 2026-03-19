@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
     private float _timer;
     private int _pillarNum;
     private bool _fase1Done = false;
+    private bool _pausedGame;
     #endregion
 
 
@@ -70,20 +71,25 @@ public class LevelManager : MonoBehaviour
         _timer = InitialTime * 60;
         _fase1Done = false;
         Meteorite.SetActive(false);
+        _pausedGame = false;
     }
 
     void Update()
     {
-        if (!TimeUp())
+        if (InputManager.Instance.PauseWasPressedThisFrame()) _pausedGame = !_pausedGame;
+        Debug.Log("Juego Pausado: " + GetPause());
+        if (!_pausedGame)
         {
-            _timer -= Time.deltaTime;
-        }
-        else if (!_fase1Done)
-        {
-            OnTimeUp();
-        }
-
+            if (!TimeUp())
+            {
+                _timer -= Time.deltaTime;
+            }
+            else if (!_fase1Done)
+            {
+                OnTimeUp();
+            }
             UpdateGUI();
+        }       
     }
     #endregion
 
@@ -107,7 +113,12 @@ public class LevelManager : MonoBehaviour
     {
         return Player;
     }
-    
+
+    public bool GetPause()
+    {
+        return _pausedGame;
+    }
+
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
@@ -188,7 +199,7 @@ public class LevelManager : MonoBehaviour
         Instantiate(Boss);
         Instantiate(Pillars);
         
-        if(_pillarNum == 0)
+        if (_pillarNum == 0)
         {
             _pillarNum = FindObjectsByType<Healing>(FindObjectsSortMode.None).Length;
         }

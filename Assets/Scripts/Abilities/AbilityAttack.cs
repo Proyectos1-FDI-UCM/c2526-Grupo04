@@ -60,7 +60,7 @@ public class AbilityAttack : MonoBehaviour
 
     void Start()
     {
-        magicSystem = FindFirstObjectByType<MagicSystem>();
+        magicSystem = FindFirstObjectByType<MagicSystem>();        
     }
 
     /// <summary>
@@ -68,17 +68,20 @@ public class AbilityAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        bool pulsado = false;
-
-        if (Button == Buttons.Fireball) pulsado = InputManager.Instance.FireWasPressedThisFrame1();
-        else if (Button == Buttons.Lighting) pulsado = InputManager.Instance.FireWasPressedThisFrame2();
-        else if (Button == Buttons.Poison) pulsado = InputManager.Instance.FireWasPressedThisFrame3();
-
-        if (pulsado && magicSystem.UseMagic(Cost))
+        if (!LevelManager.Instance.GetPause())
         {
-            GameObject _ability = GameObject.Instantiate(AbilityPrefab);
-            _ability.transform.rotation = transform.rotation;
-            _ability.transform.position = transform.position + transform.up * SpawnOffset;
+            bool pulsado = false;
+
+            if (Button == Buttons.Fireball) pulsado = InputManager.Instance.FireWasPressedThisFrame1();
+            else if (Button == Buttons.Lighting) pulsado = InputManager.Instance.FireWasPressedThisFrame2();
+            else if (Button == Buttons.Poison) pulsado = InputManager.Instance.FireWasPressedThisFrame3();
+
+            if (pulsado && magicSystem.UseMagic(Cost))
+            {
+                GameObject _ability = GameObject.Instantiate(AbilityPrefab);
+                _ability.transform.rotation = transform.rotation;
+                _ability.transform.position = transform.position + transform.up * SpawnOffset;
+            }
         }
         
     }

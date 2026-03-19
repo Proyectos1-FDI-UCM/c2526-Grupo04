@@ -207,7 +207,6 @@ public class InputManager : MonoBehaviour
             aim.performed -= OnAim;
             aim.canceled -= OnAim;
         }
-
     }
 
     /// <summary>
