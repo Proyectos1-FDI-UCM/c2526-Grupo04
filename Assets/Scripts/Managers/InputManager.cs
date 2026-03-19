@@ -373,6 +373,9 @@ public class InputManager : MonoBehaviour
         _fire1 = _activeMap.FindAction("FireAbility1");
         _fire2 = _activeMap.FindAction("FireAbility2");
         _fire3 = _activeMap.FindAction("FireAbility3");
+
+        // Asignación del botón de pausa
+        _pause = _activeMap.FindAction("Pause");
     }
 
     /// <summary>
