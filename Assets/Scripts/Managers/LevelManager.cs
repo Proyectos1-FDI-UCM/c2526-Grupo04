@@ -6,6 +6,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
+    [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject Meteorite;
     [SerializeField] private GameObject Boss;
     [SerializeField] private GameObject Pillars;
@@ -72,12 +74,18 @@ public class LevelManager : MonoBehaviour
         _fase1Done = false;
         Meteorite.SetActive(false);
         _pausedGame = false;
+        PauseMenu.SetActive(false);
     }
 
     void Update()
     {
-        if (InputManager.Instance.PauseWasPressedThisFrame()) PauseGame();
-        Debug.Log("Juego Pausado: " + GetPause());
+        if (InputManager.Instance.PauseWasPressedThisFrame())
+        {
+            PauseGame();
+            Debug.Log("Juego Pausado: " + GetPause());
+
+            PauseMenu.SetActive(_pausedGame);
+        }
         if (!_pausedGame)
         {
             if (!TimeUp())
@@ -91,6 +99,8 @@ public class LevelManager : MonoBehaviour
             UpdateGUI();
         }       
     }
+
+    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -163,7 +173,18 @@ public class LevelManager : MonoBehaviour
         return _pausedGame;
     }
 
+    public void PauseGameButton()
+    {
+        PauseGame();
+        PauseMenu.SetActive(false);
+    }
 
+    public void ForceUnpause()
+    {
+        _pausedGame = false;
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
