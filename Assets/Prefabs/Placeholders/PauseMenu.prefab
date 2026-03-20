@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8100831599062059367}
   - component: {fileID: 1480737543972124309}
   - component: {fileID: 6752407705855976552}
+  - component: {fileID: 722984395040572340}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -34,10 +35,10 @@ RectTransform:
   - {fileID: 9073900073704310651}
   m_Father: {fileID: 5918599080477607411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 21}
-  m_SizeDelta: {x: -465.8832, y: -294.2434}
+  m_AnchorMin: {x: 0.4, y: 0.5}
+  m_AnchorMax: {x: 0.6, y: 0.65}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8100831599062059367
 CanvasRenderer:
@@ -120,19 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1480737543972124309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: PauseGameButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &722984395040572340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303145584966080239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128e1f188f8296c4e9aca0df111583f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2411169742483921300
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +493,7 @@ GameObject:
   - component: {fileID: 7228283613220065073}
   - component: {fileID: 1897256938917293484}
   - component: {fileID: 2834502796711183706}
+  - component: {fileID: 7147476231520380273}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -514,10 +516,10 @@ RectTransform:
   - {fileID: 1136802604101457861}
   m_Father: {fileID: 5918599080477607411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7, y: -88}
-  m_SizeDelta: {x: -465.8832, y: -294.2434}
+  m_AnchorMin: {x: 0.4, y: 0.25}
+  m_AnchorMax: {x: 0.6, y: 0.4}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7228283613220065073
 CanvasRenderer:
@@ -600,19 +602,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1897256938917293484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7147476231520380273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192538923044150656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539657053c0130c47b47eb4f804eaa02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7253239917747459856
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,10 +650,10 @@ RectTransform:
   - {fileID: 3598598379974348033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 642, y: 368}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5629787403390969555
 CanvasRenderer:

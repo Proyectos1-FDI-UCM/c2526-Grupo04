@@ -127,7 +127,7 @@ public class LevelManager : MonoBehaviour
     public bool GetPause()
     {
         return _pausedGame;
-    }
+    } 
 
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
@@ -179,12 +179,6 @@ public class LevelManager : MonoBehaviour
         PauseMenu.SetActive(false);
     }
 
-    public void ForceUnpause()
-    {
-        _pausedGame = false;
-        PauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
