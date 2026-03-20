@@ -82,8 +82,6 @@ public class LevelManager : MonoBehaviour
         if (InputManager.Instance.PauseWasPressedThisFrame())
         {
             PauseGame();
-            Debug.Log("Juego Pausado: " + GetPause());
-
             PauseMenu.SetActive(_pausedGame);
         }
         if (!_pausedGame)
