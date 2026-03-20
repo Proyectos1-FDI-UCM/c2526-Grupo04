@@ -25,6 +25,7 @@ public class Fireball : MonoBehaviour
     [SerializeField] private float ExplosionRadius = 1f;
     [SerializeField] private float Duration = 1f;
     [SerializeField] private float ExplosionTime = 0.2f;
+    [SerializeField] private float Speed;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -86,12 +87,11 @@ public class Fireball : MonoBehaviour
         {
             _explosionHitbox.enabled = false;
         }
+
+        if (!attacking) transform.Translate(Vector3.up * Speed * Time.deltaTime);
     }
 
-    void FixedUpdate()
-    {
-        if (!attacking) transform.Translate(Vector3.up * (0.1f));
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
