@@ -136,6 +136,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""8862a9f7-1073-4b1b-bf43-e5c636254e75"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -235,6 +244,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84fc10b3-268c-4933-beaf-0398a18f35c1"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -804,6 +824,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5a61cc33-cc89-4c12-9e3a-a15cb4e416df"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -960,6 +989,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""FireAbility3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2222834-6e7d-4d78-a867-7e32f2921434"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15b9086f-02e1-42c5-8db5-6c6ceb1bfb14"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1034,6 +1085,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_PlayerController_FireAbility1 = m_PlayerController.FindAction("FireAbility1", throwIfNotFound: true);
         m_PlayerController_FireAbility2 = m_PlayerController.FindAction("FireAbility2", throwIfNotFound: true);
         m_PlayerController_FireAbility3 = m_PlayerController.FindAction("FireAbility3", throwIfNotFound: true);
+        m_PlayerController_Pause = m_PlayerController.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1053,6 +1105,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_PlayerKeyboard_FireAbility1 = m_PlayerKeyboard.FindAction("FireAbility1", throwIfNotFound: true);
         m_PlayerKeyboard_FireAbility2 = m_PlayerKeyboard.FindAction("FireAbility2", throwIfNotFound: true);
         m_PlayerKeyboard_FireAbility3 = m_PlayerKeyboard.FindAction("FireAbility3", throwIfNotFound: true);
+        m_PlayerKeyboard_Pause = m_PlayerKeyboard.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1140,6 +1193,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerController_FireAbility1;
     private readonly InputAction m_PlayerController_FireAbility2;
     private readonly InputAction m_PlayerController_FireAbility3;
+    private readonly InputAction m_PlayerController_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerController".
     /// </summary>
@@ -1171,6 +1225,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerController/FireAbility3".
         /// </summary>
         public InputAction @FireAbility3 => m_Wrapper.m_PlayerController_FireAbility3;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerController/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_PlayerController_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1212,6 +1270,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @FireAbility3.started += instance.OnFireAbility3;
             @FireAbility3.performed += instance.OnFireAbility3;
             @FireAbility3.canceled += instance.OnFireAbility3;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -1238,6 +1299,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @FireAbility3.started -= instance.OnFireAbility3;
             @FireAbility3.performed -= instance.OnFireAbility3;
             @FireAbility3.canceled -= instance.OnFireAbility3;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -1475,6 +1539,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerKeyboard_FireAbility1;
     private readonly InputAction m_PlayerKeyboard_FireAbility2;
     private readonly InputAction m_PlayerKeyboard_FireAbility3;
+    private readonly InputAction m_PlayerKeyboard_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerKeyboard".
     /// </summary>
@@ -1506,6 +1571,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerKeyboard/FireAbility3".
         /// </summary>
         public InputAction @FireAbility3 => m_Wrapper.m_PlayerKeyboard_FireAbility3;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerKeyboard/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_PlayerKeyboard_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1547,6 +1616,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @FireAbility3.started += instance.OnFireAbility3;
             @FireAbility3.performed += instance.OnFireAbility3;
             @FireAbility3.canceled += instance.OnFireAbility3;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -1573,6 +1645,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @FireAbility3.started -= instance.OnFireAbility3;
             @FireAbility3.performed -= instance.OnFireAbility3;
             @FireAbility3.canceled -= instance.OnFireAbility3;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -1713,6 +1788,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFireAbility3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1834,5 +1916,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFireAbility3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

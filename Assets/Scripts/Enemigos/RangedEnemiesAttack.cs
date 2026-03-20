@@ -32,8 +32,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     [SerializeField] private float AttackSpeed;
 
     [SerializeField] private float ProjectileDistance; //Distancia del enemigo al proyectil al disparar
-
-
+    
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -71,20 +70,22 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-
-        Vector3 direction;
-        if (_playerTransform != null) direction = (_playerTransform.position - transform.position).normalized;
-        else direction = new Vector3(0, 0, 0);
-
-        //Comprobamos si se ha introducido el prefab Projectile
-        if (Projectile != null && Projectile.GetComponent<Projectile>() != null)
+        if (!LevelManager.Instance.GetPause())
         {
-            //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
-            if (Time.time > _nextAttack)
+            Vector3 direction;
+            if (_playerTransform != null) direction = (_playerTransform.position - transform.position).normalized;
+            else direction = new Vector3(0, 0, 0);
+
+            //Comprobamos si se ha introducido el prefab Projectile
+            if (Projectile != null && Projectile.GetComponent<Projectile>() != null)
             {
-                _nextAttack = Time.time + AttackSpeed;
-                GameObject newProjectile = Instantiate(Projectile, transform.position + transform.up * ProjectileDistance, transform.rotation);
-                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
+                //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
+                if (Time.time > _nextAttack)
+                {
+                    _nextAttack = Time.time + AttackSpeed;
+                    GameObject newProjectile = Instantiate(Projectile, transform.position + transform.up * ProjectileDistance, transform.rotation);
+                    newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Projectile : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,11 +23,8 @@ public class Projectile : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private float ProjectileSpeed; //Velocidad del proyectil
-
-    [SerializeField] private float ProjectileDuration; //Duración del proyectil
-
-    [SerializeField] private bool FollowsPlayer; //Si se marca, el proyectil sigue al jugador
+    [SerializeField] private int Fase = 1;
+    [SerializeField] private GameObject Fase2Boss;
 
     #endregion
 
@@ -40,24 +37,25 @@ public class Projectile : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private Vector3 _direction; //Dirección del proyectil
-    private float _actualDuration; //Variable auxiliar que se usa para gestionar la desaparición del proyectil
+    private Health _health;
+
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
+        _health = GetComponent<Health>();
     }
 
     /// <summary>
@@ -67,29 +65,12 @@ public class Projectile : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            if (Time.time > _actualDuration)
+            if (_health.IsDead() && Fase == 1)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                if (FollowsPlayer)
-                {
-                    _direction = (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized;
-                    float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
-                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
-                }
-                transform.position += _direction * ProjectileSpeed * Time.deltaTime;
+                Instantiate(Fase2Boss);
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (ProjectileSpeed>0) Destroy(gameObject);
-    }
-
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -99,14 +80,6 @@ public class Projectile : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
-    public void ProjectileDirection(Vector3 direction)
-    {
-        //Obtenemos la dirección que debe seguir el proyectil
-        _direction = direction;
-        //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
-        _actualDuration = ProjectileDuration + Time.time;
-    }
 
     #endregion
     
@@ -119,5 +92,5 @@ public class Projectile : MonoBehaviour
 
     #endregion   
 
-} // class Projectile 
+} // class Boss 
 // namespace

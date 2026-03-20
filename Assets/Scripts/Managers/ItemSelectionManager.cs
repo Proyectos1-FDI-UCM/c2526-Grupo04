@@ -58,14 +58,14 @@ public class ItemSelectionManager : MonoBehaviour
     private Potenciadores _potenciadores;
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -77,10 +77,13 @@ public class ItemSelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (queue > 0)
+        if (!LevelManager.Instance.GetPause())
         {
-            PowerUpScreen();
-            queue--;
+            if (queue > 0)
+            {
+                PowerUpScreen();
+                queue--;
+            }
         }
     }
 

@@ -43,10 +43,13 @@ public class FireTrailSpawner : MonoBehaviour
     void Update()
     {
         // Instanciamos un rastro cada SpawnInterval segundos en la posición actual del enemigo
-        if (Time.time > _lastSpawnTime + SpawnInterval)
+        if (!LevelManager.Instance.GetPause())
         {
-            Instantiate(FireTrailPrefab, transform.position, Quaternion.identity);
-            _lastSpawnTime = Time.time;
+            if (Time.time > _lastSpawnTime + SpawnInterval)
+            {
+                Instantiate(FireTrailPrefab, transform.position, Quaternion.identity);
+                _lastSpawnTime = Time.time;
+            }
         }
     }
 

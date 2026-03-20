@@ -59,21 +59,22 @@ public class Health : MonoBehaviour
         _enemyXP = gameObject.GetComponent<EnemyXP>();
         if (_playerStats != null)
             UpdateMaxHealth();
-        _currentHealth = _maxHealth;
-        
+        _currentHealth = _maxHealth;        
     }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    void Update()
+    void LateUpdate()
     {
-        if (IsDead()) 
+        if (!LevelManager.Instance.GetPause())
         {
-            Die();
-            // vuelve al inicio / pantalla de muerte
+            if (IsDead())
+            {
+                Die();
+                // vuelve al inicio / pantalla de muerte
+            }
         }
-
     }
     #endregion
 
@@ -106,6 +107,12 @@ public class Health : MonoBehaviour
         return _maxHealth;
     }
 
+    public bool IsDead()
+    {
+        bool dead = _currentHealth <= 0;
+        return dead;
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -115,11 +122,6 @@ public class Health : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private bool IsDead()
-    {
-        bool dead = _currentHealth <= 0;
-        return dead;
-    }
 
     private void Die()
     {

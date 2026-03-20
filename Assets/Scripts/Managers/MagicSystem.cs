@@ -25,8 +25,8 @@ public class MagicSystem : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     private PlayerStats _playerStats;
     private AbilityAttack _abilityAttack;
-    private float NowMagic; //cantidad de magia actual
-    private float NowReloadTime; //tiempo que tarda en recargar la magia en el momento actual
+    private float CurrentMagic; //cantidad de magia actual
+    private float CurrentReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     private float MaxMagic;
 
     
@@ -35,21 +35,24 @@ public class MagicSystem : MonoBehaviour
     {
         // inicializa playerstats como las stats del jugador (que tiene este componente)
         _playerStats = gameObject.GetComponent<PlayerStats>();
-        NowMagic = 0f; //establecemos valores iniciales
+        CurrentMagic = 0f; //establecemos valores iniciales
         MaxMagic = _playerStats.GetMaxMagic(); // la stat magia máxima del jugador
-        NowReloadTime = TotalReloadTime;
+        CurrentReloadTime = TotalReloadTime;
     }
 
     void Update()
-    { 
-        if (NowMagic < MaxMagic) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
+    {
+        if (!LevelManager.Instance.GetPause())
         {
-            NowReloadTime = (MaxMagic - NowMagic) * TotalReloadTime / MaxMagic;
-            NowMagic += (Time.deltaTime * (MaxMagic - NowMagic)) / NowReloadTime;
-            NowMagic = Mathf.Clamp(NowMagic, 0, MaxMagic);                     
-        }
+            if (CurrentMagic < MaxMagic) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
+            {
+                CurrentReloadTime = (MaxMagic - CurrentMagic) * TotalReloadTime / MaxMagic;
+                CurrentMagic += (Time.deltaTime * (MaxMagic - CurrentMagic)) / CurrentReloadTime;
+                CurrentMagic = Mathf.Clamp(CurrentMagic, 0, MaxMagic);
+            }
 
-        UpdateGUI();
+            UpdateGUI();
+        }
     }
 
 
@@ -69,8 +72,8 @@ public class MagicSystem : MonoBehaviour
 
     public bool UseMagic(float cost)
     {
-        bool canUseMagic = NowMagic >= cost;
-        if (canUseMagic) NowMagic -= cost;
+        bool canUseMagic = CurrentMagic >= cost;
+        if (canUseMagic) CurrentMagic -= cost;
         return canUseMagic;
 
     }
@@ -86,7 +89,7 @@ public class MagicSystem : MonoBehaviour
 
     private void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
     {
-        MagicTank.text = "Magia: " + NowMagic.ToString("F0") + " / " + MaxMagic;
+        MagicTank.text = "Magia: " + CurrentMagic.ToString("F0") + " / " + MaxMagic;
     }
 
     #endregion   

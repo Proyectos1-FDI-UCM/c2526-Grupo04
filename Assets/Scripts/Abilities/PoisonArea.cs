@@ -70,7 +70,6 @@ public class PoisonArea : MonoBehaviour
     /// </summary>
     void Update()
     {   
-
         if (_spawnTime + Duration < Time.time)
         {
             Destroy(this.gameObject);

@@ -82,34 +82,37 @@ public class Spawner : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Time.time > _realSpawnInterval)
+        if (!LevelManager.Instance.GetPause())
         {
-            float _cameraMinX, _cameraMaxX, _cameraMinY, _cameraMaxY; //Límites de la cámara
-
-            //Obtenemos los límites de la cámara
-            _cameraMaxY = MainCamera.transform.position.y + _cameraHeight;
-            _cameraMinY = MainCamera.transform.position.y - _cameraHeight;
-            _cameraMaxX = MainCamera.transform.position.x + _cameraWidth;
-            _cameraMinX = MainCamera.transform.position.x - _cameraWidth;
-
-            //Posición de aparición del enemigo
-            float _spawnPosX, _spawnPosY;
-            Vector3 _spawnPos;
-
-            //Obtenemos una posición aleatoria para el spawn del enemigo
-            do
+            if (Time.time > _realSpawnInterval)
             {
-                _spawnPosX = Random.Range(_cameraMinX - DistanceFromCamera, _cameraMaxX + DistanceFromCamera);
-                _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
-            } while ((_spawnPosY < _minY || _spawnPosY > _maxY || _spawnPosX < _minX || _spawnPosX > _maxX) 
-            || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
-            _spawnPos = new Vector3(_spawnPosX, _spawnPosY, 0);
+                float _cameraMinX, _cameraMaxX, _cameraMinY, _cameraMaxY; //Límites de la cámara
 
-            //Generamos el enemigo en la posición obtenida
-            GameObject _newEnemy = Instantiate(Enemy, _spawnPos, Quaternion.identity);
+                //Obtenemos los límites de la cámara
+                _cameraMaxY = MainCamera.transform.position.y + _cameraHeight;
+                _cameraMinY = MainCamera.transform.position.y - _cameraHeight;
+                _cameraMaxX = MainCamera.transform.position.x + _cameraWidth;
+                _cameraMinX = MainCamera.transform.position.x - _cameraWidth;
 
-            //Aumentamos el valor de _realSpawnInterval para que el juego espere el intervalo deseado hasta generar el siguient enemigo
-            _realSpawnInterval = Time.time + SpawnInterval;
+                //Posición de aparición del enemigo
+                float _spawnPosX, _spawnPosY;
+                Vector3 _spawnPos;
+
+                //Obtenemos una posición aleatoria para el spawn del enemigo
+                do
+                {
+                    _spawnPosX = Random.Range(_cameraMinX - DistanceFromCamera, _cameraMaxX + DistanceFromCamera);
+                    _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
+                } while ((_spawnPosY < _minY || _spawnPosY > _maxY || _spawnPosX < _minX || _spawnPosX > _maxX)
+                || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
+                _spawnPos = new Vector3(_spawnPosX, _spawnPosY, 0);
+
+                //Generamos el enemigo en la posición obtenida
+                GameObject _newEnemy = Instantiate(Enemy, _spawnPos, Quaternion.identity);
+
+                //Aumentamos el valor de _realSpawnInterval para que el juego espere el intervalo deseado hasta generar el siguient enemigo
+                _realSpawnInterval = Time.time + SpawnInterval;
+            }
         }
     }
     #endregion

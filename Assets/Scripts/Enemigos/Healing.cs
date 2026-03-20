@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class Projectile : MonoBehaviour
+public class Healing : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,11 +23,7 @@ public class Projectile : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [SerializeField] private float ProjectileSpeed; //Velocidad del proyectil
-
-    [SerializeField] private float ProjectileDuration; //Duración del proyectil
-
-    [SerializeField] private bool FollowsPlayer; //Si se marca, el proyectil sigue al jugador
+    [SerializeField] private float HealingTimePerUnit;
 
     #endregion
 
@@ -40,24 +36,40 @@ public class Projectile : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private Vector3 _direction; //Dirección del proyectil
-    private float _actualDuration; //Variable auxiliar que se usa para gestionar la desaparición del proyectil
+
+    private GameObject _boss;
+    private Health _bossHealth;
+    private Health _pillarHealth;
+    private Transform _bossPos;
+    private float regen = 0f;
+    private float _currentHealth;
+    private int _maxHealth;
+    private bool _bossFase2;
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
     {
+        _boss = FindAnyObjectByType<Boss>().gameObject;
+        _pillarHealth = GetComponent<Health>();
+        if (_boss != null)
+        {
+            _bossHealth = _boss.GetComponent<Health>();
+            _bossPos = _boss.GetComponent<Transform>();
+            _maxHealth = _bossHealth.GetMaxHealth();
+        }
+        
     }
 
     /// <summary>
@@ -67,29 +79,19 @@ public class Projectile : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            if (Time.time > _actualDuration)
+            if (true)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                if (FollowsPlayer)
+                if (_pillarHealth.IsDead())
                 {
-                    _direction = (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized;
-                    float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
-                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                    if (LevelManager.Instance.PillarDestroyed() == 0 && !_bossFase2) //comprueba que es el último pilar y que el boss esté en la fase 1
+                    {
+                        _bossHealth.LoseHealth(_maxHealth + 1);
+                    }
                 }
-                transform.position += _direction * ProjectileSpeed * Time.deltaTime;
+                BossHeal();
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (ProjectileSpeed>0) Destroy(gameObject);
-    }
-
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -100,14 +102,6 @@ public class Projectile : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void ProjectileDirection(Vector3 direction)
-    {
-        //Obtenemos la dirección que debe seguir el proyectil
-        _direction = direction;
-        //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
-        _actualDuration = ProjectileDuration + Time.time;
-    }
-
     #endregion
     
     // ---- MÉTODOS PRIVADOS ----
@@ -117,7 +111,35 @@ public class Projectile : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+
+    private void BossHeal()
+    {
+
+        //Si el boss es nulo busca de nuevo (normalmente cuando pase a fase 2)
+        if (_boss == null)
+        {
+            _boss = GameObject.FindGameObjectWithTag("Boss");
+            if (_boss != null)
+            {
+                if (_maxHealth != _bossHealth.GetMaxHealth()) _bossFase2 = true;
+                _bossHealth = _boss.GetComponent<Health>();
+                _bossPos = _boss.GetComponent<Transform>();
+                _maxHealth = _bossHealth.GetMaxHealth();
+            }
+        }
+
+        //Mismo comportamiento que la regenHealth
+        else
+        {
+            regen = Time.deltaTime / HealingTimePerUnit;
+            _currentHealth = _bossHealth.GetCurrentHealth();
+
+            if (_currentHealth < _maxHealth) _bossHealth.LoseHealth(-regen);
+            else _bossHealth.LoseHealth(_currentHealth - _maxHealth);
+            Debug.Log(_currentHealth);
+        }
+    }
     #endregion   
 
-} // class Projectile 
+} // class Healing 
 // namespace

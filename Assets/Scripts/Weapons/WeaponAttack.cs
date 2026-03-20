@@ -74,21 +74,24 @@ public class WeaponAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        float latency = 1 / AttackFrecuency;
+        if (!LevelManager.Instance.GetPause())
+        {
+            float latency = 1 / AttackFrecuency;
 
-        if (_lastAttackTime + latency < Time.time)
-        {
-            _hitbox.enabled = true;
-            _debug.enabled = true;
-            _lastAttackTime = Time.time;
-            _aim.SetMovement(false);
-        }
-        else if(_lastAttackTime + AttackDuration < Time.time)
-        {
-            _debug.enabled = false;
-            _aim.SetMovement(true);
-            //Esto es temporal para que se distinga el ataque
-            _hitbox.enabled = false;
+            if (_lastAttackTime + latency < Time.time)
+            {
+                _hitbox.enabled = true;
+                _debug.enabled = true;
+                _lastAttackTime = Time.time;
+                _aim.SetMovement(false);
+            }
+            else if (_lastAttackTime + AttackDuration < Time.time)
+            {
+                _debug.enabled = false;
+                _aim.SetMovement(true);
+                //Esto es temporal para que se distinga el ataque
+                _hitbox.enabled = false;
+            }
         }
 
     }

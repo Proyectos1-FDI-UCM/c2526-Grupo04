@@ -6,6 +6,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -26,12 +27,14 @@ public class LevelManager : MonoBehaviour
 
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
-
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject Meteorite;
+    [SerializeField] private GameObject Boss;
+    [SerializeField] private GameObject Pillars;
     [SerializeField] private Transform Player;
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
     [SerializeField] private float InitialTime;
-    [SerializeField] private GameObject Meteorite;
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -49,7 +52,9 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private static LevelManager _instance;
     private float _timer;
-    private bool _meteorite = false;
+    private int _pillarNum;
+    private bool _fase1Done = false;
+    private bool _pausedGame;
     #endregion
 
 
@@ -66,20 +71,36 @@ public class LevelManager : MonoBehaviour
             Init();
         }
         _timer = InitialTime * 60;
-        _meteorite = false;
+        _fase1Done = false;
         Meteorite.SetActive(false);
+        _pausedGame = false;
+        PauseMenu.SetActive(false);
     }
 
     void Update()
     {
-        if (!TimeUp())
+        if (InputManager.Instance.PauseWasPressedThisFrame())
         {
-            _timer -= Time.deltaTime;
-        }
-        else OnTimeUp();
+            PauseGame();
+            Debug.Log("Juego Pausado: " + GetPause());
 
-        UpdateGUI();
+            PauseMenu.SetActive(_pausedGame);
+        }
+        if (!_pausedGame)
+        {
+            if (!TimeUp())
+            {
+                _timer -= Time.deltaTime;
+            }
+            else if (!_fase1Done)
+            {
+                OnTimeUp();
+            }
+            UpdateGUI();
+        }       
     }
+
+    
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -102,7 +123,12 @@ public class LevelManager : MonoBehaviour
     {
         return Player;
     }
-    
+
+    public bool GetPause()
+    {
+        return _pausedGame;
+    }
+
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
     /// falso en otro caso.
@@ -132,6 +158,32 @@ public class LevelManager : MonoBehaviour
     public bool TimeUp()
     {
         return _timer <= 0;
+    }
+
+
+    public int PillarDestroyed()
+    {
+        _pillarNum--;
+        return _pillarNum;
+    }
+
+    public bool PauseGame()   
+    {
+        _pausedGame = !_pausedGame;
+        return _pausedGame;
+    }
+
+    public void PauseGameButton()
+    {
+        PauseGame();
+        PauseMenu.SetActive(false);
+    }
+
+    public void ForceUnpause()
+    {
+        _pausedGame = false;
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
     #endregion
 
@@ -170,11 +222,15 @@ public class LevelManager : MonoBehaviour
 
     private void OnTimeUp()
     {
-        if (!_meteorite) 
+        Meteorite.SetActive(true);
+        Instantiate(Boss);
+        Instantiate(Pillars);
+        
+        if (_pillarNum == 0)
         {
-            Meteorite.SetActive(true);
-            _meteorite = true;
+            _pillarNum = FindObjectsByType<Healing>(FindObjectsSortMode.None).Length;
         }
+        _fase1Done = true;
     }
 
     #endregion
