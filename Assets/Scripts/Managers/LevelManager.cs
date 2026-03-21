@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour
     #region Atributos del Inspector (serialized fields)
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject DefeatMenu;
+    [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject Meteorite;
     [SerializeField] private GameObject Boss;
     [SerializeField] private GameObject Pillars;
@@ -75,6 +77,8 @@ public class LevelManager : MonoBehaviour
         Meteorite.SetActive(false);
         _pausedGame = false;
         PauseMenu.SetActive(false);
+        DefeatMenu.SetActive(false);
+        WinMenu.SetActive(false);
     }
 
     void Update()
@@ -175,6 +179,12 @@ public class LevelManager : MonoBehaviour
     {
         PauseGame();
         PauseMenu.SetActive(false);
+    }
+
+    public void PlayerDead()
+    {
+        PauseGame();
+        DefeatMenu.SetActive(true);
     }
 
     #endregion

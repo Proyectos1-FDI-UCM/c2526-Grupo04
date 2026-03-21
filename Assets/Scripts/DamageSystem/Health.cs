@@ -132,8 +132,12 @@ public class Health : MonoBehaviour
         }
 
         // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
-
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+            LevelManager.Instance.PlayerDead();
+        }
+            
     }
     #endregion  
 
