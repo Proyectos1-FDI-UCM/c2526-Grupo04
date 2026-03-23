@@ -19,8 +19,7 @@ public class MagicSystem : MonoBehaviour
     [SerializeField]
     private float TotalReloadTime; // tiempo que tarda en rellenar el tanque al completo
 
-    [SerializeField]
-    private TMPro.TextMeshProUGUI MagicTank; //texto que se muestra en pantalla
+    [SerializeField] private TMPro.TextMeshProUGUI MagicTank; //texto que se muestra en pantalla
 
     // ---- ATRIBUTOS PRIVADOS ----
     private PlayerStats _playerStats;

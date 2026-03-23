@@ -175,6 +175,11 @@ public class LevelManager : MonoBehaviour
         return _pausedGame;
     }
 
+    public bool IsPaused()
+    {
+        return _pausedGame;
+    }
+
     public void PauseGameButton()
     {
         PauseGame();
