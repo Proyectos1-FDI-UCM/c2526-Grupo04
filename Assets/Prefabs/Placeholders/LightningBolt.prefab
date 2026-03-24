@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 10
-  DamageLayer: 7
+  DamageLayer: 070000000a000000
   ObjectType: 1
 --- !u!212 &3509790995327015231
 SpriteRenderer:

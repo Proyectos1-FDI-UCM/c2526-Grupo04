@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 605720341}
     - target: {fileID: 2745592665065407459, guid: f488a6d7bc778094b8d81f3f4c78bb28, type: 3}
       propertyPath: SpawnInterval
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2745592665065407459, guid: f488a6d7bc778094b8d81f3f4c78bb28, type: 3}
       propertyPath: DistanceFromCamera
@@ -332,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_Name
       value: Shooter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2525912049169018474, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -535,6 +539,10 @@ PrefabInstance:
     - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_Name
       value: Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2525912049169018474, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2149,7 +2157,7 @@ PrefabInstance:
       objectReference: {fileID: 605720341}
     - target: {fileID: 2745592665065407459, guid: f488a6d7bc778094b8d81f3f4c78bb28, type: 3}
       propertyPath: SpawnInterval
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2745592665065407459, guid: f488a6d7bc778094b8d81f3f4c78bb28, type: 3}
       propertyPath: DistanceFromCamera
@@ -2227,6 +2235,10 @@ PrefabInstance:
     - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_Name
       value: Shooter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2525912049169018474, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2559,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3550760798964533510, guid: 3eeeaccf46f684f6da400b898bbc2f73, type: 3}
       propertyPath: Device
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7775909251169774736, guid: 3eeeaccf46f684f6da400b898bbc2f73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3251,13 +3263,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 5160531526119738106, guid: ffc12da3042a9cc4c8498ec8f46eb9ca, type: 3}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1427719452}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: Pillars
+      value: 
+      objectReference: {fileID: 6327985153521420286, guid: cefb043468466c74c984ebfa57d17618, type: 3}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: WinMenu
+      value: 
+      objectReference: {fileID: 1710253825}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: TimerGUI
       value: 
       objectReference: {fileID: 553731004}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: Meteorite
+      value: 
+      objectReference: {fileID: 2035953162811259743, guid: 270ab64a97d05b944982462ba4129ec5, type: 3}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: PauseMenu
       value: 
@@ -3268,7 +3296,7 @@ PrefabInstance:
       objectReference: {fileID: 1710253825}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: InitialTime
-      value: 10
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8800944320498933098, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: m_Name

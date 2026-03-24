@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 7
+  DamageLayer: 070000000a000000
   ObjectType: 1
 --- !u!50 &6052425314834393414
 Rigidbody2D:

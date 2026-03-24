@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 7614014493205396280, guid: e33792cef685a1f48879174f6a5f7d50, type: 3}
   AttackSpeed: 1.75
+  ProjectileDistance: 0
 --- !u!58 &6467069275843345262
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 6
+  DamageLayer: 06000000
   ObjectType: 0
 --- !u!1 &8644320324171415907
 GameObject:

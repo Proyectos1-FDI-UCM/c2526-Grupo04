@@ -105,7 +105,7 @@ public class ItemSelectionManager : MonoBehaviour
     {
         GameCanvas.SetActive(false);
         SelectionMenu.SetActive(true);
-        Time.timeScale = 0;       
+        LevelManager.Instance.PauseGame();
         RandomOptions(); //elegimos aleatoriamente las opciones que se mostrarán en el menú
     }
 
@@ -165,7 +165,7 @@ public class ItemSelectionManager : MonoBehaviour
     {
         SelectionMenu.SetActive(false);
         GameCanvas.SetActive(true);
-        Time.timeScale = 1;
+        LevelManager.Instance.PauseGame();
     }
 
     private void Selection(int option) //metodo para ejecutar la accion seleccionada
