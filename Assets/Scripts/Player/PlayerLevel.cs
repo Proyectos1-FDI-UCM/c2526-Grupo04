@@ -25,8 +25,7 @@ public class PlayerLevel : MonoBehaviour
 
     [SerializeField] private float InitialLimit;
     [SerializeField] private float Increment;
-    [SerializeField] private TMPro.TextMeshProUGUI XpTank;
-    [SerializeField] private TMPro.TextMeshProUGUI Level;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -43,6 +42,7 @@ public class PlayerLevel : MonoBehaviour
     private float _currentLimit;
     private float _previousLimit;
     private ItemSelectionManager _itemSelectionManager;
+    private HUDManager _hudManager;
 
     #endregion
 
@@ -61,6 +61,7 @@ public class PlayerLevel : MonoBehaviour
     {
         _currentLimit = InitialLimit;
         _itemSelectionManager = GetComponent<ItemSelectionManager>();
+        _hudManager = GameObject.FindAnyObjectByType<HUDManager>();
     }
 
     /// <summary>
@@ -70,7 +71,7 @@ public class PlayerLevel : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            UpdateGUI();
+            _hudManager.UpdateLevelGUI(_level, _experience, _currentLimit);
             // Si se cumplen las condiciones, realiza las acciones de subida de nivel
             if (IsLevelUpgraded()) LevelUpgrade();
         }
@@ -104,12 +105,6 @@ public class PlayerLevel : MonoBehaviour
 
 
     // Comprueba si se cumple el requisito para subir de nivel
-
-    private void UpdateGUI()
-    {
-        XpTank.text = _experience + " / " + _currentLimit;
-        Level.text = "Nivel: " + _level;
-    }
 
     private bool IsLevelUpgraded()
     {

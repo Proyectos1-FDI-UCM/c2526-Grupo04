@@ -26,7 +26,6 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject DefeatMenu;
     [SerializeField] private GameObject WinMenu;
@@ -53,10 +52,12 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
+    private HUDManager _hudManager;
     private float _timer;
     private int _pillarNum;
     private bool _fase1Done = false;
     private bool _pausedGame;
+
     #endregion
 
 
@@ -72,6 +73,9 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
+
+        _hudManager = GetComponent<HUDManager>(); // conviene tener todos los managers en un solo objeto
+
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
@@ -92,12 +96,12 @@ public class LevelManager : MonoBehaviour
             if (!TimeUp())
             {
                 _timer -= Time.deltaTime;
+                _hudManager.UpdateTimerGUI(_timer);
             }
             else if (!_fase1Done)
             {
                 OnTimeUp();
             }
-            UpdateGUI();
         }       
     }
 
@@ -204,27 +208,6 @@ public class LevelManager : MonoBehaviour
     private void Init()
     {
         // De momento no hay nada que inicializar
-    }
-
-    private void UpdateGUI()
-    {
-        if (!TimeUp())
-        {
-            UpdateTimerGUI();
-        }
-        
-    }
-
-    private void UpdateTimerGUI()
-    {
-        float mins = (int)_timer / 60;
-        float secs = (int)_timer % 60;
-
-        if (mins >= 1)
-        {
-            TimerGUI.text = string.Format("{0:00}:{1:00}", mins, secs);
-        }
-        else TimerGUI.text = secs.ToString("F0");
     }
 
     private void OnTimeUp()

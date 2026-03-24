@@ -19,11 +19,10 @@ public class MagicSystem : MonoBehaviour
     [SerializeField]
     private float TotalReloadTime; // tiempo que tarda en rellenar el tanque al completo
 
-    [SerializeField] private TMPro.TextMeshProUGUI MagicTank; //texto que se muestra en pantalla
-
     // ---- ATRIBUTOS PRIVADOS ----
     private PlayerStats _playerStats;
     private AbilityAttack _abilityAttack;
+    private HUDManager _hudManager;
     private float CurrentMagic; //cantidad de magia actual
     private float CurrentReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     private float MaxMagic;
@@ -37,6 +36,7 @@ public class MagicSystem : MonoBehaviour
         CurrentMagic = 0f; //establecemos valores iniciales
         MaxMagic = _playerStats.GetMaxMagic(); // la stat magia máxima del jugador
         CurrentReloadTime = TotalReloadTime;
+        _hudManager = GameObject.FindAnyObjectByType<HUDManager>();
     }
 
     void Update()
@@ -50,7 +50,7 @@ public class MagicSystem : MonoBehaviour
                 CurrentMagic = Mathf.Clamp(CurrentMagic, 0, MaxMagic);
             }
 
-            UpdateGUI();
+            _hudManager.UpdateMagicGUI(CurrentMagic, MaxMagic);
         }
     }
 
@@ -85,11 +85,6 @@ public class MagicSystem : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-
-    private void UpdateGUI() //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
-    {
-        MagicTank.text = "Magia: " + CurrentMagic.ToString("F0") + " / " + MaxMagic;
-    }
 
     #endregion   
 
