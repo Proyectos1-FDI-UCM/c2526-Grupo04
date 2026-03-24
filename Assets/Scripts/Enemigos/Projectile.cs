@@ -29,6 +29,12 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private bool FollowsPlayer; //Si se marca, el proyectil sigue al jugador
 
+    [Header("Solo para las sombras de los meteoritos y los rayos del jefe")]
+    [SerializeField] private bool Shadow; //Indica si el GameObject con el componente Projectile es la sombra de otro GameObject
+                                          //Un GameObject Shadow predice la futura ubicación de aparición del GameObject real
+
+    [SerializeField] private GameObject NonShadowObject; //Se corresponde con el GameObject real
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -44,19 +50,15 @@ public class Projectile : MonoBehaviour
     private float _actualDuration; //Variable auxiliar que se usa para gestionar la desaparición del proyectil
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
+
+    private void Awake()
     {
         //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
         _actualDuration = ProjectileDuration + Time.time;
@@ -71,6 +73,10 @@ public class Projectile : MonoBehaviour
         {
             if (Time.time > _actualDuration)
             {
+                if (Shadow)
+                {
+                    GameObject realGameObject = Instantiate(NonShadowObject, transform.position, transform.rotation);
+                }
                 Destroy(gameObject);
             }
             else
@@ -88,7 +94,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ProjectileSpeed>0) Destroy(gameObject);
+        if (ProjectileSpeed >= 0 && !Shadow) Destroy(gameObject);
     }
 
 

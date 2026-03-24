@@ -27,12 +27,16 @@ public class Spawner : MonoBehaviour
     //Tiempo que tarda en aparecer un enemigo desde la aparición del último enemigo anterior a él
     [SerializeField] private float SpawnInterval;
 
-    //Ponemos UnityEngine.Camera
-    [SerializeField] private Camera MainCamera;
-
     //Introducimos el prefab del enemigo a generar
     [SerializeField] private GameObject Enemy;
 
+    //Distancia máxima respecto al boss a la cual podrán aparecer los enemigos 
+    [Header("(No rellenar si se trata de un spawner normal)")]
+    [SerializeField] private float DistanceFromBoss;
+
+    //Ponemos UnityEngine.Camera
+    [Header("(No rellenar si se trata del jefe final)")]
+    [SerializeField] private Camera MainCamera;
     //Variable para evitar que los enemigos aparezcan muy lejos de la cámara
     [SerializeField] private float DistanceFromCamera;
 
@@ -72,9 +76,12 @@ public class Spawner : MonoBehaviour
         //Obtenemos los límites del mapa llamando al método GetMapLimits del Level Manager
         LevelManager.Instance.GetMapLimits(out _maxX, out _minX, out _maxY, out _minY);
 
-        //Obtenemos el valor de _cameraHeight
-        _cameraHeight = MainCamera.orthographicSize;
-        _cameraWidth = _cameraHeight * MainCamera.aspect; //Usamos el aspect ratio de la cámara para obtener el valor de _cameraWidth
+        if (MainCamera != null)
+        {
+            //Obtenemos el valor de _cameraHeight
+            _cameraHeight = MainCamera.orthographicSize;
+            _cameraWidth = _cameraHeight * MainCamera.aspect; //Usamos el aspect ratio de la cámara para obtener el valor de _cameraWidth
+        }
     }
 
     /// <summary>
@@ -86,25 +93,39 @@ public class Spawner : MonoBehaviour
         {
             if (Time.time > _realSpawnInterval)
             {
-                float _cameraMinX, _cameraMaxX, _cameraMinY, _cameraMaxY; //Límites de la cámara
-
-                //Obtenemos los límites de la cámara
-                _cameraMaxY = MainCamera.transform.position.y + _cameraHeight;
-                _cameraMinY = MainCamera.transform.position.y - _cameraHeight;
-                _cameraMaxX = MainCamera.transform.position.x + _cameraWidth;
-                _cameraMinX = MainCamera.transform.position.x - _cameraWidth;
-
                 //Posición de aparición del enemigo
                 float _spawnPosX, _spawnPosY;
                 Vector3 _spawnPos;
 
-                //Obtenemos una posición aleatoria para el spawn del enemigo
-                do
+                if (MainCamera != null)
                 {
-                    _spawnPosX = Random.Range(_cameraMinX - DistanceFromCamera, _cameraMaxX + DistanceFromCamera);
-                    _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
-                } while ((_spawnPosY < _minY || _spawnPosY > _maxY || _spawnPosX < _minX || _spawnPosX > _maxX)
-                || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
+                    float _cameraMinX, _cameraMaxX, _cameraMinY, _cameraMaxY; //Límites de la cámara
+
+                    //Obtenemos los límites de la cámara
+                    _cameraMaxY = MainCamera.transform.position.y + _cameraHeight;
+                    _cameraMinY = MainCamera.transform.position.y - _cameraHeight;
+                    _cameraMaxX = MainCamera.transform.position.x + _cameraWidth;
+                    _cameraMinX = MainCamera.transform.position.x - _cameraWidth;
+
+                    //Obtenemos una posición aleatoria para el spawn del enemigo
+                    do
+                    {
+                        _spawnPosX = Random.Range(_cameraMinX - DistanceFromCamera, _cameraMaxX + DistanceFromCamera);
+                        _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
+                    } while ((_spawnPosY < _minY || _spawnPosY > _maxY || _spawnPosX < _minX || _spawnPosX > _maxX)
+                    || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
+
+                }
+
+                else
+                {
+                    do
+                    {
+                        _spawnPosX = Random.Range(transform.position.x - DistanceFromBoss, transform.position.x + DistanceFromBoss);
+                        _spawnPosY = Random.Range(transform.position.y - DistanceFromBoss, transform.position.y + DistanceFromBoss);
+                    } while (_spawnPosX < _minX || _spawnPosX > _maxX || _spawnPosY < _minY || _spawnPosY > _maxY);
+                }
+
                 _spawnPos = new Vector3(_spawnPosX, _spawnPosY, 0);
 
                 //Generamos el enemigo en la posición obtenida
