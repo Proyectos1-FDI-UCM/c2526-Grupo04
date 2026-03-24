@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5289741700462976232}
   - component: {fileID: 1346887679528048754}
   - component: {fileID: 6086874097155862534}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Pillar (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 8914354780453432043}
   - component: {fileID: 6283539471838144708}
   - component: {fileID: 7908839891473798299}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Pillar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5435978408196346224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 643347248254990424}
   - component: {fileID: 2011160137582173072}
   - component: {fileID: 3895002288626534672}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9062509421913000031}
   - component: {fileID: 2775508867049155006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 9073102906687013084}
   - component: {fileID: 2579812391206540743}
   - component: {fileID: 336420932055618357}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Vlorp Fase 1
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 6
+  DamageLayer: 06000000
   ObjectType: 0
 --- !u!114 &336420932055618357
 MonoBehaviour:

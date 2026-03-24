@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1.5
-  DamageLayer: 7
+  DamageLayer: 070000000a000000
   ObjectType: 1
 --- !u!114 &4296237826464953130
 MonoBehaviour:
@@ -130,7 +130,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 1.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!50 &-8345261863790632753

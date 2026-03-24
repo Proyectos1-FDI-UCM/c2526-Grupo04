@@ -25,7 +25,7 @@ public class Damage : MonoBehaviour
 
     [SerializeField] private float Multiplier = 1;
 
-    [SerializeField] private int DamageLayer = 6;
+    [SerializeField] private int[] DamageLayer;
 
     [SerializeField] private Object ObjectType;
 
@@ -85,12 +85,18 @@ public class Damage : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
-    }
+        for (int i = 0; i < DamageLayer.Length; i++)
+        {
+            if (health != null && DamageLayer[i] == collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        }
+    }   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null && DamageLayer == collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        for (int i = 0; i < DamageLayer.Length; i++)
+        {
+            if (health != null && DamageLayer[i] == collision.gameObject.layer) health.LoseHealth(TotalDamage);
+        }
     }
 
     // ---- MÉTODOS PÚBLICOS ----

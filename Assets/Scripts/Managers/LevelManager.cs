@@ -74,7 +74,6 @@ public class LevelManager : MonoBehaviour
         }
         _timer = InitialTime * 60;
         _fase1Done = false;
-        Meteorite.SetActive(false);
         _pausedGame = false;
         PauseMenu.SetActive(false);
         DefeatMenu.SetActive(false);
@@ -130,6 +129,7 @@ public class LevelManager : MonoBehaviour
     {
         return _pausedGame;
     } 
+    
 
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
@@ -224,7 +224,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnTimeUp()
     {
-        Meteorite.SetActive(true);
+        Instantiate(Meteorite);
         Instantiate(Boss);
         Instantiate(Pillars);
         

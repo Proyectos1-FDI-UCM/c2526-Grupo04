@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 2.4
-  DamageLayer: 7
+  DamageLayer: 070000000a000000
   ObjectType: 1
 --- !u!114 &4296237826464953130
 MonoBehaviour:

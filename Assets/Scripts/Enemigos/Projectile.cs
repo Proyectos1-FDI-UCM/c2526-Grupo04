@@ -58,6 +58,8 @@ public class Projectile : MonoBehaviour
     /// </summary>
     void Start()
     {
+        //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
+        _actualDuration = ProjectileDuration + Time.time;
     }
 
     /// <summary>
@@ -104,8 +106,7 @@ public class Projectile : MonoBehaviour
     {
         //Obtenemos la dirección que debe seguir el proyectil
         _direction = direction;
-        //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
-        _actualDuration = ProjectileDuration + Time.time;
+        
     }
 
     #endregion
