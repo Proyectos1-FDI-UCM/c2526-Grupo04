@@ -90,7 +90,11 @@ public class PlayerLevel : MonoBehaviour
         _experience += drop;
     }
 
-    
+    public int LevelPlayer()
+    {
+        return _level;
+    }
+
 
     #endregion
 
