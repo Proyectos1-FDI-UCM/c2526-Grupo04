@@ -372,8 +372,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 7
+  DamageLayer: 
   ObjectType: 0
+--- !u!1 &887550620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5742588794691887291, guid: 3f71f7c895ba4764e893d76d066c3ffd, type: 3}
+  m_PrefabInstance: {fileID: 1291392110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &953143117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1554651958612783473, guid: 3f71f7c895ba4764e893d76d066c3ffd, type: 3}
@@ -717,6 +722,10 @@ PrefabInstance:
       propertyPath: MagicTank
       value: 
       objectReference: {fileID: 1126872154}
+    - target: {fileID: 7822677027345570714, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: PauseMenu
+      value: 
+      objectReference: {fileID: 887550620}
     - target: {fileID: 7822677027345570714, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: HealthTank
       value: 

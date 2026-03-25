@@ -96,6 +96,9 @@ public class HUDManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             Init();
         } // if-else somos instancia nueva o no.
+        PauseMenu.SetActive(false);
+        DefeatMenu.SetActive(false);
+        WinMenu.SetActive(false);
     }
 
     /// <summary>
@@ -152,6 +155,16 @@ public class HUDManager : MonoBehaviour
     {
         if (HealthTank != null) HealthTank.text = "Vida: " + currentHealth.ToString("0") + " / " + maxHealth.ToString("0");
         else Console.WriteLine("Tanque de vida sin asignar");
+    }
+
+    public void PauseMenuHUD(bool pausedGame)
+    {
+        PauseMenu.SetActive(pausedGame);
+    }
+
+    public void DefeatMenuHUD(bool defeat)
+    {
+        DefeatMenu.SetActive(defeat);
     }
 
     #endregion
