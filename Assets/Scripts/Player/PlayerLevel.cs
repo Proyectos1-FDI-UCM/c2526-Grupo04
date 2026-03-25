@@ -42,7 +42,6 @@ public class PlayerLevel : MonoBehaviour
     private float _currentLimit;
     private float _previousLimit;
     private ItemSelectionManager _itemSelectionManager;
-    private HUDManager _hudManager;
 
     #endregion
 
@@ -61,7 +60,6 @@ public class PlayerLevel : MonoBehaviour
     {
         _currentLimit = InitialLimit;
         _itemSelectionManager = GetComponent<ItemSelectionManager>();
-        _hudManager = GameObject.FindAnyObjectByType<HUDManager>();
     }
 
     /// <summary>
@@ -71,7 +69,7 @@ public class PlayerLevel : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            _hudManager.UpdateLevelGUI(_level, _experience, _currentLimit);
+            HUDManager.Instance.UpdateLevelGUI(_level, _experience, _currentLimit);
             // Si se cumplen las condiciones, realiza las acciones de subida de nivel
             if (IsLevelUpgraded()) LevelUpgrade();
         }

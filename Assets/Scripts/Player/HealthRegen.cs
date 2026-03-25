@@ -37,7 +37,6 @@ public class HealthRegen : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private Health _health;
-    private HUDManager _hudManager;
     private float regen = 0f;
     private float _currentHealth;
     private int _maxHealth;
@@ -58,7 +57,6 @@ public class HealthRegen : MonoBehaviour
     void Start()
     {
         _health = gameObject.GetComponent<Health>();
-        _hudManager = GameObject.FindAnyObjectByType<HUDManager>();
 
     }
 
@@ -73,7 +71,7 @@ public class HealthRegen : MonoBehaviour
             _currentHealth = _health.GetCurrentHealth();
             _maxHealth = _health.GetMaxHealth();
             RegenHealth(regen);
-            _hudManager.UpdateHealthGUI(_maxHealth, _currentHealth);
+            HUDManager.Instance.UpdateHealthGUI(_maxHealth, _currentHealth);
         }
     }
     #endregion

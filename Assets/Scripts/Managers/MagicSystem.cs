@@ -22,7 +22,6 @@ public class MagicSystem : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     private PlayerStats _playerStats;
     private AbilityAttack _abilityAttack;
-    private HUDManager _hudManager;
     private float CurrentMagic; //cantidad de magia actual
     private float CurrentReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     private float MaxMagic;
@@ -36,7 +35,6 @@ public class MagicSystem : MonoBehaviour
         CurrentMagic = 0f; //establecemos valores iniciales
         MaxMagic = _playerStats.GetMaxMagic(); // la stat magia máxima del jugador
         CurrentReloadTime = TotalReloadTime;
-        _hudManager = GameObject.FindAnyObjectByType<HUDManager>();
     }
 
     void Update()
@@ -50,7 +48,7 @@ public class MagicSystem : MonoBehaviour
                 CurrentMagic = Mathf.Clamp(CurrentMagic, 0, MaxMagic);
             }
 
-            _hudManager.UpdateMagicGUI(CurrentMagic, MaxMagic);
+            HUDManager.Instance.UpdateMagicGUI(CurrentMagic, MaxMagic);
         }
     }
 

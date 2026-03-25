@@ -112,6 +112,15 @@ public class HUDManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    public static HUDManager Instance
+    {
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
+    } // Instance
+
     public void UpdateTimerGUI(float timer)
     {
         float mins = (int)timer / 60;

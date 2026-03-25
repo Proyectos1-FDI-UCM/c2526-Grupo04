@@ -52,7 +52,6 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
-    private HUDManager _hudManager;
     private float _timer;
     private int _pillarNum;
     private bool _fase1Done = false;
@@ -74,8 +73,6 @@ public class LevelManager : MonoBehaviour
             Init();
         }
 
-        _hudManager = GetComponent<HUDManager>(); // conviene tener todos los managers en un solo objeto
-
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
@@ -96,7 +93,7 @@ public class LevelManager : MonoBehaviour
             if (!TimeUp())
             {
                 _timer -= Time.deltaTime;
-                _hudManager.UpdateTimerGUI(_timer);
+                HUDManager.Instance.UpdateTimerGUI(_timer);
             }
             else if (!_fase1Done)
             {
