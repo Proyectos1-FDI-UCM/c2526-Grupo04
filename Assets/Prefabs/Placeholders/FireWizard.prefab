@@ -97,13 +97,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1610646913054059057}
   - component: {fileID: 2544638442664072071}
-  - component: {fileID: 4575677876406930474}
   - component: {fileID: 4382505535281439270}
   - component: {fileID: 2849509321579220326}
   - component: {fileID: 4776937822016880350}
   - component: {fileID: 4029512634833485826}
   - component: {fileID: 8925630370752230243}
   - component: {fileID: 6286224844203278341}
+  - component: {fileID: -5694987294035228357}
   m_Layer: 7
   m_Name: FireWizard
   m_TagString: Untagged
@@ -182,22 +182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4575677876406930474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586222516470173899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b8e9a00969f2540aed3e558f2eb2ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxDistance: 7
-  Speed: 2
-  KnockbackSpeed: 4
-  KnockbackDuration: 0.6
 --- !u!114 &4382505535281439270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 5924167819689233841, guid: cc79acb38f4ea1343975343778daca87, type: 3}
   AttackSpeed: 2
+  ProjectileDistance: 0
 --- !u!58 &2849509321579220326
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -314,5 +299,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 6
+  DamageLayer: 
   ObjectType: 0
+--- !u!114 &-5694987294035228357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586222516470173899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxDistance: 7
+  Speed: 2
+  KnockbackSpeed: 4
+  KnockbackDuration: 0.6

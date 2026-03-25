@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2525912049169018474}
   - component: {fileID: 8505703863331564463}
-  - component: {fileID: -6790223917273143810}
   - component: {fileID: 8833900089195137924}
   - component: {fileID: 6467069275843345262}
   - component: {fileID: -3158868274408476015}
   - component: {fileID: 3507801469053700435}
   - component: {fileID: -5026416645095779832}
   - component: {fileID: 229519763979392449}
+  - component: {fileID: 5579286273804602523}
   m_Layer: 7
   m_Name: Shooter
   m_TagString: Untagged
@@ -95,22 +95,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6790223917273143810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682974897844745307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b8e9a00969f2540aed3e558f2eb2ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxDistance: 7
-  Speed: 2
-  KnockbackSpeed: 4
-  KnockbackDuration: 0.6
 --- !u!114 &8833900089195137924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +214,22 @@ MonoBehaviour:
   Multiplier: 1
   DamageLayer: 06000000
   ObjectType: 0
+--- !u!114 &5579286273804602523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682974897844745307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxDistance: 7
+  Speed: 2
+  KnockbackSpeed: 4
+  KnockbackDuration: 0.6
 --- !u!1 &8644320324171415907
 GameObject:
   m_ObjectHideFlags: 0

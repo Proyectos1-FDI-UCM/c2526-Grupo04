@@ -99,13 +99,13 @@ GameObject:
   - component: {fileID: 1739820489112021536}
   - component: {fileID: 6316464676337568603}
   - component: {fileID: 423040701863116087}
-  - component: {fileID: 8869811750483351392}
   - component: {fileID: 469461105131824385}
   - component: {fileID: 241851441803424710}
   - component: {fileID: 4999924409428340674}
   - component: {fileID: 3283832534606403581}
   - component: {fileID: 8128886831723762597}
   - component: {fileID: 123761286522349000}
+  - component: {fileID: 4835226226583288920}
   m_Layer: 7
   m_Name: Vlorp Fase 2
   m_TagString: Boss
@@ -247,22 +247,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8869811750483351392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5942378618628523076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b8e9a00969f2540aed3e558f2eb2ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxDistance: 0
-  Speed: 0
-  KnockbackSpeed: 0
-  KnockbackDuration: 0
 --- !u!114 &469461105131824385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 6
+  DamageLayer: 
   ObjectType: 0
 --- !u!114 &8128886831723762597
 MonoBehaviour:
@@ -350,3 +334,19 @@ MonoBehaviour:
   DistanceFromBoss: 10
   MainCamera: {fileID: 0}
   DistanceFromCamera: 0
+--- !u!114 &4835226226583288920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942378618628523076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxDistance: 0
+  Speed: 0
+  KnockbackSpeed: 0
+  KnockbackDuration: 0
