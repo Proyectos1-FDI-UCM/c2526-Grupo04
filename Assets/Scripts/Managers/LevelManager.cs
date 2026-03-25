@@ -26,8 +26,9 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject DefeatMenu;
+    [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject Meteorite;
     [SerializeField] private GameObject Boss;
     [SerializeField] private GameObject Pillars;
@@ -51,10 +52,12 @@ public class LevelManager : MonoBehaviour
     /// Instancia única de la clase (singleton).
     /// </summary>
     private static LevelManager _instance;
+    private HUDManager _hudManager;
     private float _timer;
     private int _pillarNum;
     private bool _fase1Done = false;
     private bool _pausedGame;
+
     #endregion
 
 
@@ -70,11 +73,15 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
+
+        _hudManager = GetComponent<HUDManager>(); // conviene tener todos los managers en un solo objeto
+
         _timer = InitialTime * 60;
         _fase1Done = false;
-        Meteorite.SetActive(false);
         _pausedGame = false;
         PauseMenu.SetActive(false);
+        DefeatMenu.SetActive(false);
+        WinMenu.SetActive(false);
     }
 
     void Update()
@@ -82,8 +89,6 @@ public class LevelManager : MonoBehaviour
         if (InputManager.Instance.PauseWasPressedThisFrame())
         {
             PauseGame();
-            Debug.Log("Juego Pausado: " + GetPause());
-
             PauseMenu.SetActive(_pausedGame);
         }
         if (!_pausedGame)
@@ -91,12 +96,12 @@ public class LevelManager : MonoBehaviour
             if (!TimeUp())
             {
                 _timer -= Time.deltaTime;
+                _hudManager.UpdateTimerGUI(_timer);
             }
             else if (!_fase1Done)
             {
                 OnTimeUp();
             }
-            UpdateGUI();
         }       
     }
 
@@ -128,6 +133,7 @@ public class LevelManager : MonoBehaviour
     {
         return _pausedGame;
     } 
+    
 
     /// <summary>
     /// Devuelve cierto si la instancia del singleton está creada y
@@ -173,10 +179,21 @@ public class LevelManager : MonoBehaviour
         return _pausedGame;
     }
 
+    public bool IsPaused()
+    {
+        return _pausedGame;
+    }
+
     public void PauseGameButton()
     {
         PauseGame();
         PauseMenu.SetActive(false);
+    }
+
+    public void PlayerDead()
+    {
+        PauseGame();
+        DefeatMenu.SetActive(true);
     }
 
     #endregion
@@ -193,30 +210,9 @@ public class LevelManager : MonoBehaviour
         // De momento no hay nada que inicializar
     }
 
-    private void UpdateGUI()
-    {
-        if (!TimeUp())
-        {
-            UpdateTimerGUI();
-        }
-        
-    }
-
-    private void UpdateTimerGUI()
-    {
-        float mins = (int)_timer / 60;
-        float secs = (int)_timer % 60;
-
-        if (mins >= 1)
-        {
-            TimerGUI.text = string.Format("{0:00}:{1:00}", mins, secs);
-        }
-        else TimerGUI.text = secs.ToString("F0");
-    }
-
     private void OnTimeUp()
     {
-        Meteorite.SetActive(true);
+        Instantiate(Meteorite);
         Instantiate(Boss);
         Instantiate(Pillars);
         

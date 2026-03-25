@@ -59,7 +59,6 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        Debug.Log("Juego Pausado: " + LevelManager.Instance.GetPause());
         if (LevelManager.Instance.GetPause() == false)
         {
             Vector2 movement = InputManager.Instance.MovementVector;
