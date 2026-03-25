@@ -13,7 +13,7 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class WeaponAttack : MonoBehaviour
+public class StadisticsEndgame : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -22,10 +22,11 @@ public class WeaponAttack : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Tooltip("Ataques por segundo")]
-    [SerializeField] private float AttackFrecuency;
+    [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
+    [SerializeField] private TMPro.TextMeshProUGUI Level;
+    [SerializeField] private PlayerLevel playerLevel;
 
-    [SerializeField] private float AttackDuration;
+
 
     #endregion
 
@@ -37,13 +38,8 @@ public class WeaponAttack : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-
-    private PolygonCollider2D _hitbox;
-    private SpriteRenderer _debug;
-    private float _lastAttackTime;
-    private Aim _aim;
-    
-
+    private int plevel;
+    pr
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -57,17 +53,9 @@ public class WeaponAttack : MonoBehaviour
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
     /// </summary>
-    void Awake()
-    {
-        _hitbox = GetComponent<PolygonCollider2D>();
-        _debug = GetComponent<SpriteRenderer>();
-        _aim = GetComponent<Aim>();
-    }
-
     void Start()
     {
-        _hitbox.enabled = false;
-        _lastAttackTime = Time.time;
+        plevel = playerLevel.LevelPlayer();
     }
 
     /// <summary>
@@ -75,28 +63,8 @@ public class WeaponAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (!LevelManager.Instance.GetPause())
-        {
-            float latency = 1 / AttackFrecuency;
-
-            if (_lastAttackTime + latency < Time.time)
-            {
-                _hitbox.enabled = true;
-                _debug.enabled = true;
-                _lastAttackTime = Time.time;
-                _aim.SetMovement(false);
-            }
-            else if (_lastAttackTime + AttackDuration < Time.time)
-            {
-                _debug.enabled = false;
-                _aim.SetMovement(true);
-                //Esto es temporal para que se distinga el ataque
-                _hitbox.enabled = false;
-            }
-        }
-
+        
     }
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -108,7 +76,7 @@ public class WeaponAttack : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -116,7 +84,7 @@ public class WeaponAttack : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    #endregion
+    #endregion   
 
-} // class WeaponAttack 
+} // class StadisticsEndgame 
 // namespace
