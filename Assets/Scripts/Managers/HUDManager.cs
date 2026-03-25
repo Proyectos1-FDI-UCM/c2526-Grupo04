@@ -34,6 +34,13 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI XpTank;
     [SerializeField] private TMPro.TextMeshProUGUI HealthTank;
 
+    [Header("Objeto vació con Spriterenderer para mostrar armas y habilidades")]
+    [SerializeField] private SpriteRenderer HUDitem;
+
+    [Header("Posiciones en las que están los items en orden")]
+    [SerializeField] private Vector2[] posList;
+
+
     [Header("Imágenes y texto para los botones de la selección")]
     [SerializeField] private Image[] buttonImages;
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonTexts;
@@ -45,6 +52,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject DefeatMenu;
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject SelectionMenu;
+
+    [Header("")]
+
 
     #endregion
 
@@ -58,7 +68,15 @@ public class HUDManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private static HUDManager _instance;
-    
+
+    private struct HUDlist
+    {
+        public Vector2[] listaPos;
+        public int index;
+    }
+
+    HUDlist elemList;
+
 
     #endregion
 
@@ -106,9 +124,8 @@ public class HUDManager : MonoBehaviour
         DefeatMenu.SetActive(false);
         WinMenu.SetActive(false);
 
-
         
-
+        HUDlistIni(out elemList);
 
     }
 
@@ -198,6 +215,18 @@ public class HUDManager : MonoBehaviour
         SelectionMenu.SetActive(levelUp);
     }
 
+    public void DmgItemsHUDEnable(Item item)
+    {
+        Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, 0, elemList.listaPos[elemList.index].y);
+        SpriteRenderer HUDelem;
+
+        HUDelem = SpriteRenderer.Instantiate(HUDitem);
+        HUDelem.sprite = item.GetSprite();  
+
+        HUDelem.transform.position = pos;
+        elemList.index++;
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -216,6 +245,16 @@ public class HUDManager : MonoBehaviour
     {
         // De momento no hay que transferir ningún setup
         // a otro manager
+    }
+
+    private void HUDlistIni(out HUDlist lista)
+    {
+        lista.listaPos = new Vector2[6];
+        for (int i = 0; i < lista.listaPos.Length; i++)
+        {
+            lista.listaPos[i] = posList[i];
+        }
+        lista.index = 0;
     }
 
     #endregion   

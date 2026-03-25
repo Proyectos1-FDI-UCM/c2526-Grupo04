@@ -123,7 +123,11 @@ public class ItemSelectionManager : MonoBehaviour
     {
         DamageItem DItem1 = item1 as DamageItem;
         PowerUpItem PUItem1 = item1 as PowerUpItem;
-        if (DItem1 != null) Instantiate(DItem1.GetPrefab());
+        if (DItem1 != null) 
+        { 
+            Instantiate(DItem1.GetPrefab());
+            ItemHUDEnable(item1);
+        }
         else if (PUItem1 != null)
         {
             _potenciadores.Potencia(PUItem1.GetPowerUp1());
@@ -137,7 +141,11 @@ public class ItemSelectionManager : MonoBehaviour
         Debug.Log("opcion2");
         DamageItem DItem2 = item2 as DamageItem;
         PowerUpItem PUItem2 = item2 as PowerUpItem;
-        if (DItem2 != null) Instantiate(DItem2.GetPrefab());
+        if (DItem2 != null)
+        {
+            Instantiate(DItem2.GetPrefab());
+            ItemHUDEnable(item2);
+        }
         else if (PUItem2 != null)
         {
             _potenciadores.Potencia(PUItem2.GetPowerUp1());
@@ -150,7 +158,11 @@ public class ItemSelectionManager : MonoBehaviour
     {
         DamageItem DItem3 = item3 as DamageItem;
         PowerUpItem PUItem3 = item3 as PowerUpItem;
-        if (DItem3 != null) Instantiate(DItem3.GetPrefab());
+        if (DItem3 != null) 
+        {
+            Instantiate(DItem3.GetPrefab());
+            ItemHUDEnable(item3);
+        }
         else if (PUItem3 != null)
         {
             _potenciadores.Potencia(PUItem3.GetPowerUp1());
@@ -202,7 +214,11 @@ public class ItemSelectionManager : MonoBehaviour
         GameCanvas.SetActive(true);
         LevelManager.Instance.PauseGame();
     }
-  
+    
+    private void ItemHUDEnable(Item item)
+    {
+        HUDManager.Instance.DmgItemsHUDEnable(item);
+    }
     
     #endregion   
 
