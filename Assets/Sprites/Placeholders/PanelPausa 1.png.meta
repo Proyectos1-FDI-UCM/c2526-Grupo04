@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 54b6eb589222f7547b567e2cd22b9030
+guid: 0e2a118f04388944eaf618fadff2f2d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -574898896581145385
-    second: PanelPausa_0
+      213: -4380027158970706186
+    second: PanelPausa 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PanelPausa_0
+      name: PanelPausa 1_0
       rect:
         serializedVersion: 2
         x: 19
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7dc448fdf7c8508f0800000000000000
-      internalID: -574898896581145385
+      spriteID: 6f6dcfa51840733c0800000000000000
+      internalID: -4380027158970706186
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PanelPausa_0: -574898896581145385
+      PanelPausa 1_0: -4380027158970706186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
