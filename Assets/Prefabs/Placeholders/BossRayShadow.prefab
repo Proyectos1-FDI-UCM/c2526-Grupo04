@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5909546864045698372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSpeed: 0
-  ProjectileDuration: 3
-  FollowsPlayer: 1
+  ProjectileDuration: 1
+  FollowsPlayer: 0
   Shadow: 1
   NonShadowObject: {fileID: 2559104892871797837, guid: 6dfda0d283e956a4588cc260ce418838, type: 3}

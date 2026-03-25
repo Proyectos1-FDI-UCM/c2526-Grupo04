@@ -94,7 +94,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ProjectileSpeed >= 0 && !Shadow) Destroy(gameObject);
+        if (ProjectileSpeed > 0) Destroy(gameObject);
     }
 
 

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0.5019608, b: 0, a: 1}
+  m_Color: {r: 0.13725491, g: 0.75686276, b: 0.13725491, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 9073102906687013084}
   - component: {fileID: 2579812391206540743}
   - component: {fileID: 336420932055618357}
+  - component: {fileID: 7683771931456591089}
   m_Layer: 10
   m_Name: Vlorp Fase 1
   m_TagString: Boss
@@ -173,7 +174,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0.5019608, b: 0, a: 1}
+  m_Color: {r: 0.13595577, g: 0.7584905, b: 0.13595577, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -258,8 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b8e9a00969f2540aed3e558f2eb2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxDistance: 0
-  Speed: 0
+  MaxDistance: 1
+  Speed: 1
   KnockbackSpeed: 0
   KnockbackDuration: 0
 --- !u!114 &2247015155820865584
@@ -274,9 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c017248095561634b995d963e80ce24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 5296946077233990910, guid: 2f920b07ef071e24992961ad8433e053, type: 3}
-  AttackSpeed: 2
-  ProjectileDistance: 4
+  Projectile: {fileID: 8888801021112317073, guid: 2b9ce117d96a4d340b77ac013defd6e7, type: 3}
+  AttackSpeed: 5
+  ProjectileDistance: 0
 --- !u!114 &3584967183498750984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,10 +326,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5160531526119738106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea9a62bb4fd70744da1eee09ecc10ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Fase: 1
   Fase2Boss: {fileID: 0}
+--- !u!114 &7683771931456591089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160531526119738106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa3ee128400538448c2fd9c431ec808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnInterval: 4
+  Enemy: {fileID: 4163877867695462335, guid: c371f37fd19917042ba2217d588d6018, type: 3}
+  DistanceFromBoss: 10
+  MainCamera: {fileID: 0}
+  DistanceFromCamera: 0
