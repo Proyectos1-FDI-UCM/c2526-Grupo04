@@ -26,7 +26,6 @@ public class LevelManager : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
 
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject DefeatMenu;
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject Meteorite;
@@ -76,9 +75,6 @@ public class LevelManager : MonoBehaviour
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
-        PauseMenu.SetActive(false);
-        DefeatMenu.SetActive(false);
-        WinMenu.SetActive(false);
     }
 
     void Update()
@@ -86,7 +82,7 @@ public class LevelManager : MonoBehaviour
         if (InputManager.Instance.PauseWasPressedThisFrame())
         {
             PauseGame();
-            PauseMenu.SetActive(_pausedGame);
+            HUDManager.Instance.PauseMenuHUD(_pausedGame);
         }
         if (!_pausedGame)
         {
@@ -184,13 +180,13 @@ public class LevelManager : MonoBehaviour
     public void PauseGameButton()
     {
         PauseGame();
-        PauseMenu.SetActive(false);
+        HUDManager.Instance.PauseMenuHUD(false);
     }
 
     public void PlayerDead()
     {
         PauseGame();
-        DefeatMenu.SetActive(true);
+        HUDManager.Instance.DefeatMenuHUD(true);
     }
 
     #endregion
