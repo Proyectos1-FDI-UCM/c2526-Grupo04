@@ -97,13 +97,13 @@ GameObject:
   m_Component:
   - component: {fileID: 248981827213167643}
   - component: {fileID: 9153263497844655765}
-  - component: {fileID: 1961932365673630015}
   - component: {fileID: 1966514247875632237}
   - component: {fileID: 5259760127212673282}
   - component: {fileID: 5084647295468977431}
   - component: {fileID: 8439281293455679385}
   - component: {fileID: 5863652967939033538}
   - component: {fileID: 2080656735773128375}
+  - component: {fileID: 2733301430666678101}
   m_Layer: 7
   m_Name: FireWalker
   m_TagString: Untagged
@@ -182,23 +182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1961932365673630015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2420980510147085542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cffdc71f65d5b147aa2710aac28d08e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 3
-  EnemyRangeLayer: 6
-  KnockbackForce: 4
-  Damage: 0
-  KnockbackDuration: 0.6
 --- !u!58 &1966514247875632237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 2
-  DamageLayer: 6
+  DamageLayer: 
   ObjectType: 0
 --- !u!50 &8439281293455679385
 Rigidbody2D:
@@ -317,3 +300,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireTrailPrefab: {fileID: 3058660825821453314, guid: 8b6f217337091c148a4465572d0e24dd, type: 3}
   SpawnInterval: 0.3
+--- !u!114 &2733301430666678101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420980510147085542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxDistance: 0
+  Speed: 3
+  KnockbackSpeed: 4
+  KnockbackDuration: 0.6
