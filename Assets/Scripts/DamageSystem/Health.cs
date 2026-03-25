@@ -129,6 +129,7 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();
+            Destroy(gameObject);
         }
 
         // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
@@ -137,7 +138,7 @@ public class Health : MonoBehaviour
             LevelManager.Instance.PlayerDead();
         }
 
-        Destroy(gameObject);
+       
     }
     #endregion  
 

@@ -7,6 +7,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 // Añadir aquí el resto de directivas using
 
@@ -31,14 +32,16 @@ public class HUDManager : MonoBehaviour
 
     [SerializeField] private TMPro.TextMeshProUGUI MagicTank; 
     [SerializeField] private TMPro.TextMeshProUGUI XpTank;
-    [SerializeField] private TMPro.TextMeshProUGUI HealthTank; 
-
+    [SerializeField] private TMPro.TextMeshProUGUI HealthTank;
+    [SerializeField] private Image[] buttonImages;
+    [SerializeField] private TMPro.TextMeshProUGUI[] buttonTexts;
+    
 
     // Menús
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject DefeatMenu;
     [SerializeField] private GameObject WinMenu;
-
+    [SerializeField] private GameObject SelectionMenu;
 
     #endregion
 
@@ -99,6 +102,11 @@ public class HUDManager : MonoBehaviour
         PauseMenu.SetActive(false);
         DefeatMenu.SetActive(false);
         WinMenu.SetActive(false);
+
+
+        
+
+
     }
 
     /// <summary>
@@ -157,6 +165,17 @@ public class HUDManager : MonoBehaviour
         else Console.WriteLine("Tanque de vida sin asignar");
     }
 
+    public void UpdateSelectionGUI(Item item, int button)
+    {
+
+        TMPro.TextMeshProUGUI name = buttonTexts[button - 1];
+        Image image = buttonImages[button - 1];
+
+        if (image!=null) image.sprite = item.GetSprite();
+
+        if(name!=null) name.text = item.name;
+    }
+
     public void PauseMenuHUD(bool pausedGame)
     {
         PauseMenu.SetActive(pausedGame);
@@ -165,6 +184,11 @@ public class HUDManager : MonoBehaviour
     public void DefeatMenuHUD(bool defeat)
     {
         DefeatMenu.SetActive(defeat);
+    }
+
+    public void LevelUpMenuHUD(bool levelUp)
+    {
+        SelectionMenu.SetActive(levelUp);
     }
 
     #endregion

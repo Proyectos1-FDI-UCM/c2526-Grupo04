@@ -88,6 +88,10 @@ public class RangedEnemiesAttack : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            _nextAttack += Time.deltaTime;
+        }
     }
     #endregion
 

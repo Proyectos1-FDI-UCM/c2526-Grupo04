@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Activator Fireball Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4319035929566680841, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319035929566680841, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: m_Color.g
+      value: 0.050745394
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319035929566680841, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

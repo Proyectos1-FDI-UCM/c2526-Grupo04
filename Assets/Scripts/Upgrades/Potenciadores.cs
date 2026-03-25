@@ -14,6 +14,9 @@ using UnityEngine;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
+
+public enum PowerUp { Health, Damage, Magic }
+
 public class Potenciadores : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
@@ -24,7 +27,7 @@ public class Potenciadores : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    enum Potenciador {Vida, Daño, Magia}
+   
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -82,22 +85,22 @@ public class Potenciadores : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     // El método Potencia() llama a uno de los métodos de potenciación en función del tipo de potenciador que es
-    public void Potencia(string tipoPotenciador)
+    public void Potencia(PowerUp tipoPotenciador)
     {
         switch (tipoPotenciador)
         {
-            case "Vida":
+            case PowerUp.Health:
                 PotenciaV();
                 vtimes++;
                 break;
 
-            case "Daño":
+            case PowerUp.Damage:
                 PotenciaD();
                 dtimes++;
 
                 break;
 
-            case "Magia":
+            case PowerUp.Magic:
                 PotenciaM();
                 mtimes++;
                 break;

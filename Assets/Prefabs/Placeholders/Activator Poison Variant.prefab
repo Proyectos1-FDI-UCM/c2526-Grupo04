@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2219120055358969182, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
       propertyPath: Button
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2219120055358969182, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
       propertyPath: AbilityPrefab
@@ -63,6 +63,18 @@ PrefabInstance:
     - target: {fileID: 3511915618305929550, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
       propertyPath: m_Name
       value: Activator Poison Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319035929566680841, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319035929566680841, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319035929566680841, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6122818
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

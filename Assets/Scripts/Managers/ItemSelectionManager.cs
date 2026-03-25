@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -24,21 +25,28 @@ public class ItemSelectionManager : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     //interfaz visual del juego y del menú de elección
-    [SerializeField] private GameObject SelectionMenu;
     [SerializeField] private GameObject GameCanvas;
 
-    //prefabs de aarmas y habilidades
-    [SerializeField] private GameObject Lanza;
-    [SerializeField] private GameObject Maza;
-    [SerializeField] private GameObject Espada;
-    [SerializeField] private GameObject Rayo;
-    [SerializeField] private GameObject Fireball;
-    [SerializeField] private GameObject Poison;
+    //Array de todos los tipos de items del juego
+    [SerializeReference] private Item[] Items = new Item[] {
+        new DamageItem("Lanza"),
+        new DamageItem("Maza"),
+        new DamageItem("Espada"),
+        new DamageItem("Rayo"),
+        new DamageItem("Fireball"),
+        new DamageItem("Poison"),
+        new PowerUpItem("Casco"),
+        new PowerUpItem("Pocima"),
+        new PowerUpItem("Sello"),
+        new PowerUpItem("Pesa"),
+        new PowerUpItem("Tunica"),
+        new PowerUpItem("Orbe"),
+    };
+
+
+    
 
     //textos de los botones con las distintas elecciones
-    [SerializeField] private TMPro.TextMeshProUGUI Texto1;
-    [SerializeField] private TMPro.TextMeshProUGUI Texto2;
-    [SerializeField] private TMPro.TextMeshProUGUI Texto3;
 
     #endregion
 
@@ -51,11 +59,15 @@ public class ItemSelectionManager : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+
     //array con todas las opciones posibles que pueden salir
-    private string[] _options = {"Lanza", "Maza", "Espada", "Rayo", "Fireball", "Poison", "Casco", "Pocima", "Sello", "Pesa", "Tunica", "Orbe"};
-    private int option1, option2, option3; //numeros aleatorios de las elecciones
+
+    
+
+    private enum Options{Lanza, Maza, Espada, Rayo, Fireball, Poison, Casco, Pocima, Sello, Pesa, Tunica, Orbe};
     private int queue = 0;
     private Potenciadores _potenciadores;
+    private Item item1, item2, item3;
 
     #endregion
 
@@ -74,22 +86,20 @@ public class ItemSelectionManager : MonoBehaviour
     {
         _potenciadores = GetComponent<Potenciadores>(); //obtenemos componente potenciadores
     }
-
-    void Update()
-    {
-        if (!LevelManager.Instance.GetPause())
-        {
-            if (queue > 0)
-            {
-                PowerUpScreen();
-                queue--;
-            }
-        }
-    }
-
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
+
+    void Update()
+    {
+        if (queue > 0)
+        {
+            PowerUpScreen();
+            queue--;
+            Debug.Log(queue);
+        }
+    }
+
 
     #endregion
 
@@ -104,26 +114,48 @@ public class ItemSelectionManager : MonoBehaviour
     public void PowerUpScreen() //método para pausar el juego, escondemos la UI del juego, mostramos el menú y paramos el resto
     {
         GameCanvas.SetActive(false);
-        SelectionMenu.SetActive(true);
+        HUDManager.Instance.LevelUpMenuHUD(true);
         LevelManager.Instance.PauseGame();
         RandomOptions(); //elegimos aleatoriamente las opciones que se mostrarán en el menú
     }
 
     public void Option1() //se ejecuta cuando el jugador elige la primera opcion
     {
-        Selection(option1); 
+        DamageItem DItem1 = item1 as DamageItem;
+        PowerUpItem PUItem1 = item1 as PowerUpItem;
+        if (DItem1 != null) Instantiate(DItem1.GetPrefab());
+        else if (PUItem1 != null)
+        {
+            _potenciadores.Potencia(PUItem1.GetPowerUp1());
+            _potenciadores.Potencia(PUItem1.GetPowerUp2());
+        }
         ResumeGame();
     }
 
     public void Option2() //se ejecuta cuando el jugador elige la segunda opcion
-    {        
-        Selection(option2);
+    {
+        Debug.Log("opcion2");
+        DamageItem DItem2 = item2 as DamageItem;
+        PowerUpItem PUItem2 = item2 as PowerUpItem;
+        if (DItem2 != null) Instantiate(DItem2.GetPrefab());
+        else if (PUItem2 != null)
+        {
+            _potenciadores.Potencia(PUItem2.GetPowerUp1());
+            _potenciadores.Potencia(PUItem2.GetPowerUp2());
+        }
         ResumeGame();
     }
 
     public void Option3() //se ejecuta cuando el jugador elige la tercera opcion
     {
-        Selection(option3);   
+        DamageItem DItem3 = item3 as DamageItem;
+        PowerUpItem PUItem3 = item3 as PowerUpItem;
+        if (DItem3 != null) Instantiate(DItem3.GetPrefab());
+        else if (PUItem3 != null)
+        {
+            _potenciadores.Potencia(PUItem3.GetPowerUp1());
+            _potenciadores.Potencia(PUItem3.GetPowerUp2());
+        }
         ResumeGame();
     }
 
@@ -141,96 +173,37 @@ public class ItemSelectionManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
+
+    
+    
     private void RandomOptions() //elegimos al azar las opciones entre todas las disponibles
     {
         do
         {
-            option1 = Random.Range(0, _options.Length);
-            Texto1.text = _options[option1];
-        } while (_options[option1] == null); //nos aseguramos de que no se haya elegido antes
+            item1 = Items[UnityEngine.Random.Range(0, Items.Length)];
+        } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
+        HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
         do {
-            option2 = Random.Range(0, _options.Length);
-            Texto2.text = _options[option2];
-        } while (option2 == option1 || _options[option2] == null); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
+            item2 = Items[UnityEngine.Random.Range(0, Items.Length)];
+        } while (item1 == item2 || item2.WasUsed() == true); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
+        HUDManager.Instance.UpdateSelectionGUI(item2, 2);
 
         do
         {
-            option3 = Random.Range(0, _options.Length);
-            Texto3.text = _options[option3];
-        } while (option3 == option1 || option3 == option2 || _options[option3] == null); //aqui igual
+            item3 = Items[UnityEngine.Random.Range(0, Items.Length)];
+        } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
+        HUDManager.Instance.UpdateSelectionGUI(item3, 3);
     }
-
+    
     private void ResumeGame() //metodo para reanudar el juego cuando se haya elgido alguna de las opciones, hace lo opuesto al metodo de pausa
     {
-        SelectionMenu.SetActive(false);
+        HUDManager.Instance.LevelUpMenuHUD(false);
         GameCanvas.SetActive(true);
         LevelManager.Instance.PauseGame();
     }
-
-    private void Selection(int option) //metodo para ejecutar la accion seleccionada
-    {
-        switch (option) //si es un arma o habilidad (0-5) se instancia, sino se llama al metodo potencia del componente potenciadores con el atributo correspondiente (6-11)
-        { // en caso de armas y potenciadores se marca esa posicion del array como null para que no vuelva a salir
-            case 0:
-                GameObject.Instantiate(Lanza);
-                _options[option] = null;
-                break;
-
-            case 1:
-                GameObject.Instantiate(Maza);
-                _options[option] = null;
-                break;
-
-            case 2:
-                GameObject.Instantiate(Espada);
-                _options[option] = null;
-                break;
-
-            case 3:
-                GameObject.Instantiate(Rayo);
-                _options[option] = null;
-                break;
-
-            case 4:
-                GameObject.Instantiate(Fireball);
-                _options[option] = null;
-                break;
-
-            case 5:
-                GameObject.Instantiate(Poison);
-                _options[option] = null;
-                break;
-
-            case 6:
-                _potenciadores.Potencia("Vida");
-                break;
-
-            case 7:
-                _potenciadores.Potencia("Daño");
-                break;
-
-            case 8:
-                _potenciadores.Potencia("Magia");
-                break;
-                
-            case 9:
-                _potenciadores.Potencia("Vida");
-                _potenciadores.Potencia("Daño");
-                break;
-
-            case 10:
-                _potenciadores.Potencia("Vida");
-                _potenciadores.Potencia("Magia");
-                break;
-
-            case 11:
-                _potenciadores.Potencia("Daño");
-                _potenciadores.Potencia("Magia");
-                break;
-        }
-    }   
-
+  
+    
     #endregion   
 
 } // class ItemSelectionManager 
