@@ -7,7 +7,8 @@ public class Item
     /// <summary>
     /// nombre del objeto
     /// </summary>
-    public string name; 
+    public string name;
+    [SerializeField] private string description;
     [SerializeField] private Sprite sprite; // Imagen del objeto (para selección o HUD)
     private bool used; // indica si el objeto se ha usado o no (relevante para armas y habilidades)
 
@@ -17,9 +18,21 @@ public class Item
         used = false;
     }
 
+    /// <summary>
+    /// Devuelve el sprite del item
+    /// </summary>
     public Sprite GetSprite()
     {
         return sprite;
+    }
+
+    /// <summary>
+    /// Devuelve la descripción del item
+    /// </summary>
+    /// <returns></returns>
+    public string GetDescription()
+    {
+        return description;
     }
 
     /// <summary>

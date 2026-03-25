@@ -37,7 +37,8 @@ public class HUDManager : MonoBehaviour
     [Header("Imágenes y texto para los botones de la selección")]
     [SerializeField] private Image[] buttonImages;
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonTexts;
-    
+    [SerializeField] private TMPro.TextMeshProUGUI[] buttonDescriptions;
+
 
     [Header("Menús")]
     [SerializeField] private GameObject PauseMenu;
@@ -171,11 +172,15 @@ public class HUDManager : MonoBehaviour
     {
 
         TMPro.TextMeshProUGUI name = buttonTexts[button - 1];
+        TMPro.TextMeshProUGUI description = buttonDescriptions[button - 1];
         Image image = buttonImages[button - 1];
 
-        if (image!=null) image.sprite = item.GetSprite();
 
-        if(name!=null) name.text = item.name;
+        if (image != null) image.sprite = item.GetSprite();
+
+        if(name != null) name.text = item.name;
+
+        if (description != null) description.text = item.GetDescription();
     }
 
     public void PauseMenuHUD(bool pausedGame)
