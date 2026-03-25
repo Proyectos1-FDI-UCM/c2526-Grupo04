@@ -26,13 +26,20 @@ public class HUDManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [Header("Elementos de la interfaz (texto)")]
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private TMPro.TextMeshProUGUI Level;
 
-    [SerializeField] private TMPro.TextMeshProUGUI MagicTank; 
-    [SerializeField] private TMPro.TextMeshProUGUI XpTank;
-    [SerializeField] private TMPro.TextMeshProUGUI HealthTank;
+    [Header("Magia")]
+    [SerializeField] private TMPro.TextMeshProUGUI MagicText;
+    [SerializeField] private Image MagicJar;
+
+    [Header("Xp")]
+    [SerializeField] private TMPro.TextMeshProUGUI XpText;
+    [SerializeField] private Image XpBar;
+
+    [Header("Health")]
+    [SerializeField] private TMPro.TextMeshProUGUI HealthText;
+    [SerializeField] private Image HealthJar;
 
     [Header("Objeto vació con Spriterenderer para mostrar armas y habilidades")]
     [SerializeField] private SpriteRenderer HUDitem;
@@ -46,7 +53,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonTexts;
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonDescriptions;
 
-
+    
     [Header("Menús")]
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject DefeatMenu;
@@ -54,7 +61,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject SelectionMenu;
 
     [Header("")]
-
+    
 
     #endregion
 
@@ -166,8 +173,11 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateLevelGUI(int level, float exp, float currentLimit)
     {
-        if (XpTank != null) XpTank.text = exp + " / " + currentLimit;
-        else Console.WriteLine("Tanque de XP sin asignar");
+        if (XpText != null) XpText.text = exp + " / " + currentLimit;
+        else Console.WriteLine("Texto de XP sin asignar");
+
+        if (XpBar != null) XpBar.fillAmount = exp / currentLimit;
+        else Console.WriteLine("Barra de XP sin asignar");
 
         if (Level != null) Level.text = "Nivel: " + level;
         else Console.WriteLine("Ui de nivel sin asignar");
@@ -175,14 +185,20 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateMagicGUI(float currentMagic, float maxMagic) //actualizar el texto en pantalla limitando el valor de la magia actual a dos decimales para que se vea mejor
     {
-        if (MagicTank != null) MagicTank.text = "Magia: " + currentMagic.ToString("F0") + " / " + maxMagic;
-        else Console.WriteLine("Tanque de magia sin asignar");
+        if (MagicText != null) MagicText.text = currentMagic.ToString("F0") + " / " + maxMagic;
+        else Console.WriteLine("Texto de magia sin asignar");
+
+        if (MagicJar != null) MagicJar.fillAmount = (currentMagic * 0.7f) / maxMagic;
+        else Console.WriteLine("Tarro de magia sin asignar");
     }
 
     public void UpdateHealthGUI(int maxHealth, float currentHealth)
     {
-        if (HealthTank != null) HealthTank.text = "Vida: " + currentHealth.ToString("0") + " / " + maxHealth.ToString("0");
-        else Console.WriteLine("Tanque de vida sin asignar");
+        if (HealthText != null) HealthText.text = currentHealth.ToString("0") + " / " + maxHealth.ToString("0");
+        else Console.WriteLine("Texto de vida sin asignar");
+
+        if (HealthJar != null) HealthJar.fillAmount = (currentHealth * 0.7f) / maxHealth;
+        else Console.WriteLine("Tarro de vida sin asignar");
     }
 
     public void UpdateSelectionGUI(Item item, int button)
