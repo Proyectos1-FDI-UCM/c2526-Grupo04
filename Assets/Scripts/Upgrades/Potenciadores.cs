@@ -38,16 +38,18 @@ public class Potenciadores : MonoBehaviour
 
     private GameObject _player;
     private PlayerStats _playerStats;
-
+    private int vtimes = 0;
+    private int dtimes = 0;
+    private int mtimes = 0;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -86,14 +88,18 @@ public class Potenciadores : MonoBehaviour
         {
             case "Vida":
                 PotenciaV();
+                vtimes++;
                 break;
 
             case "Daño":
                 PotenciaD();
+                dtimes++;
+
                 break;
 
             case "Magia":
                 PotenciaM();
+                mtimes++;
                 break;
 
             default:

@@ -39,7 +39,7 @@ public class StadisticsEndgame : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private int plevel;
-    pr
+    private float damage;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
