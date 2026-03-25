@@ -26,18 +26,20 @@ public class HUDManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    // Elementos del HUD
+    [Header("Elementos de la interfaz (texto)")]
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private TMPro.TextMeshProUGUI Level;
 
     [SerializeField] private TMPro.TextMeshProUGUI MagicTank; 
     [SerializeField] private TMPro.TextMeshProUGUI XpTank;
     [SerializeField] private TMPro.TextMeshProUGUI HealthTank;
+
+    [Header("Imágenes y texto para los botones de la selección")]
     [SerializeField] private Image[] buttonImages;
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonTexts;
     
 
-    // Menús
+    [Header("Menús")]
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject DefeatMenu;
     [SerializeField] private GameObject WinMenu;
