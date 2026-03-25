@@ -25,6 +25,7 @@ public class StadisticsEndgame : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private TMPro.TextMeshProUGUI Level;
     [SerializeField] private PlayerLevel playerLevel;
+    [SerializeField] private Potenciadores potenciadores;
 
 
 
@@ -40,6 +41,9 @@ public class StadisticsEndgame : MonoBehaviour
     // Ejemplo: _maxHealthPoints
     private int plevel;
     private float damage;
+    private int vtimes;
+    private int dtimes;
+    private int mtimes;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -56,6 +60,10 @@ public class StadisticsEndgame : MonoBehaviour
     void Start()
     {
         plevel = playerLevel.LevelPlayer();
+        vtimes = potenciadores.PotenciadorV();
+        dtimes = potenciadores.PotenciadorD();
+        mtimes = potenciadores.PotenciadorM();
+
     }
 
     /// <summary>

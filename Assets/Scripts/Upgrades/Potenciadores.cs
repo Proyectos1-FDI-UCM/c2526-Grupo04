@@ -108,8 +108,20 @@ public class Potenciadores : MonoBehaviour
         }
     }
 
+    public int PotenciadorV()
+    {
+        return vtimes;
+    }
+    public int PotenciadorD()
+    {
+        return dtimes;
+    }
+    public int PotenciadorM()
+    {
+        return mtimes;
+    }
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
