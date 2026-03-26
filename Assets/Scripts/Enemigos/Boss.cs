@@ -69,6 +69,11 @@ public class Boss : MonoBehaviour
             {
                 Instantiate(Fase2Boss);
             }
+
+            else if (_health.IsDead() && Fase == 2)
+            {
+                HUDManager.Instance.WinMenuHUD(true);
+            }
         }
     }
     #endregion

@@ -84,6 +84,7 @@ public class LevelManager : MonoBehaviour
             PauseGame();
             HUDManager.Instance.PauseMenuHUD(_pausedGame);
         }
+
         if (!_pausedGame)
         {
             if (!TimeUp())

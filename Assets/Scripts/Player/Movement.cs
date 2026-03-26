@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (LevelManager.Instance.GetPause() == false)
+        if (!LevelManager.Instance.GetPause())
         {
             Vector2 movement = InputManager.Instance.MovementVector;
             movement = SnapTo8Directions(movement);

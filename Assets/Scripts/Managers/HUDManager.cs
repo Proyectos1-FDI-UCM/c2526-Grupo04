@@ -203,7 +203,6 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateSelectionGUI(Item item, int button)
     {
-
         TMPro.TextMeshProUGUI name = buttonTexts[button - 1];
         TMPro.TextMeshProUGUI description = buttonDescriptions[button - 1];
         Image image = buttonImages[button - 1];
@@ -219,16 +218,25 @@ public class HUDManager : MonoBehaviour
     public void PauseMenuHUD(bool pausedGame)
     {
         PauseMenu.SetActive(pausedGame);
+        LevelManager.Instance.PauseGame();
     }
 
-    public void DefeatMenuHUD(bool defeat)
+    public void DefeatMenuHUD()
     {
-        DefeatMenu.SetActive(defeat);
+        DefeatMenu.SetActive(true);
+        LevelManager.Instance.PauseGame();
     }
 
     public void LevelUpMenuHUD(bool levelUp)
     {
         SelectionMenu.SetActive(levelUp);
+        LevelManager.Instance.PauseGame();
+    }
+
+    public void WinMenuHUD()
+    {
+        WinMenu.SetActive(true);
+        LevelManager.Instance.PauseGame();
     }
 
     public void DmgItemsHUDEnable(Item item)
@@ -241,7 +249,7 @@ public class HUDManager : MonoBehaviour
 
         HUDelem.transform.position = pos;
         elemList.index++;
-    }
+    }    
 
     #endregion
 
