@@ -187,7 +187,7 @@ public class LevelManager : MonoBehaviour
     public void PlayerDead()
     {
         PauseGame();
-        HUDManager.Instance.DefeatMenuHUD(true);
+        HUDManager.Instance.DefeatMenuHUD();
     }
 
     #endregion

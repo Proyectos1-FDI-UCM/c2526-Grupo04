@@ -72,7 +72,7 @@ public class Boss : MonoBehaviour
 
             else if (_health.IsDead() && Fase == 2)
             {
-                HUDManager.Instance.WinMenuHUD(true);
+                HUDManager.Instance.WinMenuHUD();
             }
         }
     }
