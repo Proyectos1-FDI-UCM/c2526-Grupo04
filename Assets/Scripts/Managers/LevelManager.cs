@@ -71,7 +71,11 @@ public class LevelManager : MonoBehaviour
             _instance = this;
             Init();
         }
-
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
@@ -79,9 +83,10 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.PauseWasPressedThisFrame())
+        if (InputManager.Instance.PauseWasPressedThisFrame() && !HUDManager.Instance.IsInLevelUp())
         {
-            PauseGame();
+            if (!_pausedGame) PauseGame();
+            else UnPauseGame();
             HUDManager.Instance.PauseMenuHUD(_pausedGame);
         }
 
@@ -167,20 +172,19 @@ public class LevelManager : MonoBehaviour
         return _pillarNum;
     }
 
-    public bool PauseGame()   
+    public void PauseGame()   
     {
-        _pausedGame = !_pausedGame;
-        return _pausedGame;
+        _pausedGame = true;
     }
 
-    public bool IsPaused()
+    public void UnPauseGame()
     {
-        return _pausedGame;
+        _pausedGame = false;
     }
 
     public void PauseGameButton()
     {
-        PauseGame();
+        UnPauseGame();
         HUDManager.Instance.PauseMenuHUD(false);
     }
 

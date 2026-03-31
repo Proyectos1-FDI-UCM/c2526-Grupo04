@@ -69,33 +69,47 @@ public class PoisonArea : MonoBehaviour
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {   
-        if (_spawnTime + Duration < Time.time)
+    {
+        if (!LevelManager.Instance.GetPause())
         {
-            Destroy(this.gameObject);
+            if (_spawnTime + Duration < Time.time)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Duration += Time.deltaTime;
         }
     }
 
     void FixedUpdate()
     {
-        float latency = 1 / AttackSpeed;
+        if (!LevelManager.Instance.GetPause())
+        {
+            float latency = 1 / AttackSpeed;
 
-        if (_lastAttackTime + latency < Time.time)
-        {
-            _hitbox.enabled = true;
-            _debug.color = Color.green;
-            
-            _lastAttackTime = Time.time;
-            
+            if (_lastAttackTime + latency < Time.time)
+            {
+                _hitbox.enabled = true;
+                _debug.color = Color.green;
+
+                _lastAttackTime = Time.time;
+
+            }
+            else if (_lastAttackTime < Time.time)
+            {
+                _hitbox.enabled = false;
+            }
+            //Esto es temporal para que se distinga el ataque
+            if (_lastAttackTime + 0.2 < Time.time)
+            {
+                _debug.color = new Color(0.63f, 0.05f, 0.55f);
+            }
         }
-        else if (_lastAttackTime < Time.time)
+        else
         {
-            _hitbox.enabled = false;
-        }
-        //Esto es temporal para que se distinga el ataque
-        if (_lastAttackTime + 0.2 < Time.time)
-        {
-            _debug.color = new Color(0.63f, 0.05f, 0.55f);
+            _lastAttackTime += Time.deltaTime;
         }
     }
     #endregion

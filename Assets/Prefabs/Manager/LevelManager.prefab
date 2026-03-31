@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1452793005486345723}
   - component: {fileID: 8290758750213688814}
-  - component: {fileID: 7822677027345570714}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -45,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398120f647e7e40da805fa99971f1f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerGUI: {fileID: 0}
-  PauseMenu: {fileID: 0}
   DefeatMenu: {fileID: 0}
   WinMenu: {fileID: 0}
   Meteorite: {fileID: 2035953162811259743, guid: 270ab64a97d05b944982462ba4129ec5, type: 3}
@@ -56,15 +53,3 @@ MonoBehaviour:
   LimitX: 100
   LimitY: 100
   InitialTime: 0.1
---- !u!114 &7822677027345570714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8800944320498933098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee0af50eb2068147937f3f91f104071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

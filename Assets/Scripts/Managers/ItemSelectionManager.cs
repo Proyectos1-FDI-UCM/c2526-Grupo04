@@ -92,11 +92,13 @@ public class ItemSelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (queue > 0)
+        if (!LevelManager.Instance.GetPause())
         {
-            PowerUpScreen();
-            queue--;
-            Debug.Log(queue);
+            if (queue > 0)
+            {
+                PowerUpScreen();
+                queue--;
+            }
         }
     }
 
@@ -138,7 +140,6 @@ public class ItemSelectionManager : MonoBehaviour
 
     public void Option2() //se ejecuta cuando el jugador elige la segunda opcion
     {
-        Debug.Log("opcion2");
         DamageItem DItem2 = item2 as DamageItem;
         PowerUpItem PUItem2 = item2 as PowerUpItem;
         if (DItem2 != null)
@@ -212,7 +213,7 @@ public class ItemSelectionManager : MonoBehaviour
     {
         HUDManager.Instance.LevelUpMenuHUD(false);
         GameCanvas.SetActive(true);
-        LevelManager.Instance.PauseGame();
+        LevelManager.Instance.UnPauseGame();
     }
     
     private void ItemHUDEnable(Item item)

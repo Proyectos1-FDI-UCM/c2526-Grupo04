@@ -67,6 +67,7 @@ public class WeaponAttack : MonoBehaviour
     void Start()
     {
         _hitbox.enabled = false;
+        _debug.enabled = false;
         _lastAttackTime = Time.time;
     }
 

@@ -7,6 +7,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 // Añadir aquí el resto de directivas using
@@ -124,7 +125,6 @@ public class HUDManager : MonoBehaviour
             // Somos el primer GameManager.
             // Queremos sobrevivir a cambios de escena.
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
             Init();
         } // if-else somos instancia nueva o no.
         PauseMenu.SetActive(false);
@@ -218,24 +218,33 @@ public class HUDManager : MonoBehaviour
     public void PauseMenuHUD(bool pausedGame)
     {
         PauseMenu.SetActive(pausedGame);
-        LevelManager.Instance.PauseGame();
+        EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
     }
 
     public void DefeatMenuHUD()
     {
         DefeatMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(DefeatMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
+
     }
 
     public void LevelUpMenuHUD(bool levelUp)
     {
         SelectionMenu.SetActive(levelUp);
+        EventSystem.current.SetSelectedGameObject(SelectionMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
+    }
+
+    public bool IsInLevelUp()
+    {
+        return SelectionMenu.activeSelf;
     }
 
     public void WinMenuHUD()
     {
         WinMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(WinMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
     }
 
