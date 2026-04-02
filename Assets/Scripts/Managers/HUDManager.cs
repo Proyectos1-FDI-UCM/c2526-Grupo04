@@ -27,6 +27,8 @@ public class HUDManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
+    [SerializeField] RectTransform CanvasTransform;
+    
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private TMPro.TextMeshProUGUI Level;
 
@@ -42,7 +44,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI HealthText;
     [SerializeField] private Image HealthJar;
 
-    [Header("Objeto vació con Spriterenderer para mostrar armas y habilidades")]
+    [Header("Objeto vacío con Spriterenderer para mostrar armas y habilidades, tiene que tener RectTransform")]
     [SerializeField] private SpriteRenderer HUDitem;
 
     [Header("Posiciones en las que están los items en orden")]
@@ -250,13 +252,19 @@ public class HUDManager : MonoBehaviour
 
     public void DmgItemsHUDEnable(Item item)
     {
-        Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, 0, elemList.listaPos[elemList.index].y);
+        Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, elemList.listaPos[elemList.index].y, 0);
         SpriteRenderer HUDelem;
 
-        HUDelem = SpriteRenderer.Instantiate(HUDitem);
-        HUDelem.sprite = item.GetSprite();  
+        HUDelem = SpriteRenderer.Instantiate(HUDitem, CanvasTransform, false);
 
-        HUDelem.transform.position = pos;
+        HUDelem.gameObject.AddComponent<RectTransform>();
+        HUDelem.gameObject.AddComponent<Image>();
+
+        HUDelem.gameObject.GetComponent<Image>().sprite = item.GetSprite();
+
+        RectTransform rectTrans = HUDelem.GetComponent<RectTransform>();
+
+        rectTrans.anchoredPosition = pos;
         elemList.index++;
     }    
 
