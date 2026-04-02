@@ -26,7 +26,7 @@ public class RangedEnemiesAttack : MonoBehaviour
 
    
 
-    [SerializeField] private GameObject Projectile;
+    [SerializeField] private Projectile Projectile;
 
     [Tooltip("Tiempo entre cada ataque")]
     [SerializeField] private float AttackSpeed;
@@ -83,7 +83,7 @@ public class RangedEnemiesAttack : MonoBehaviour
                 if (Time.time > _nextAttack)
                 {
                     _nextAttack = Time.time + AttackSpeed;
-                    GameObject newProjectile = Instantiate(Projectile, transform.position + transform.up * ProjectileDistance, transform.rotation);
+                    GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
                     newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
                 }
             }
