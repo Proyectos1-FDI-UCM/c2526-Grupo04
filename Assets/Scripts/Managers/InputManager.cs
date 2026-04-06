@@ -7,6 +7,7 @@
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 
 /// <summary>
@@ -78,6 +79,10 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private InputAction _pause;
 
+    /// <summary>
+    /// Evitar suscripciones múltiples a eventos estáticos
+    /// </summary>
+    private bool _inputSystemSubscribed = false;
 
     #endregion
 
@@ -126,6 +131,12 @@ public class InputManager : MonoBehaviour
     {
         if (this == _instance)
         {
+            if (_inputSystemSubscribed)
+            {
+                InputSystem.onDeviceChange -= OnDeviceChange;
+                InputSystem.onEvent -= OnInputEvent;
+                _inputSystemSubscribed = false;
+            }
             // Éramos la instancia de verdad, no un clon.
             _instance = null;
         } // if somos la instancia principal
@@ -322,7 +333,13 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private void Init()
     {
-        InputSystem.onDeviceChange += OnDeviceChange;
+        // Nos suscribimos a eventos estáticos UNA sola vez para evitar duplicados
+        if (!_inputSystemSubscribed)
+        {
+            InputSystem.onDeviceChange += OnDeviceChange;
+            InputSystem.onEvent += OnInputEvent; // Escucha eventos de entrada para detectar qué dispositivo se está usando
+            _inputSystemSubscribed = true;
+        }
 
 
         // Creamos el controlador del input y activamos los controles del jugador
@@ -399,6 +416,35 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Detecta el dispositivo que está generando entradas en tiempo real y
+    /// cambia el mapa de acciones según el dispositivo usado (teclado/ratón vs mando).
+    /// </summary>
+    private void OnInputEvent(InputEventPtr eventPtr, InputDevice device)
+    {
+        if (device == null) return;
+
+        // Si el dispositivo que generó el evento es un mando, usamos el mapa de mando
+        if (device is Gamepad)
+        {
+            // Solo cambiar si es distinto para evitar re-inicializaciones innecesarias
+            if (_activeMap != _theController.PlayerController.Get())
+            {
+                UseController();
+            }
+        }
+        // Si el dispositivo es teclado o ratón (u otro dispositivo basado en teclado), usamos teclado
+        else if (device is Keyboard || device is Mouse)
+        {
+            if (_activeMap != _theController.PlayerKeyboard.Get())
+            {
+                UseKeyboard();
+            }
+        }
+       
+    }
+
+
+    /// <summary>
     /// Método que es llamado por el controlador de input cuando se producen
     /// eventos de movimiento (relacionados con la acción Move)
     /// </summary>
@@ -414,8 +460,13 @@ public class InputManager : MonoBehaviour
 
         AimVector = context.ReadValue<Vector2>();
 
-        if (Gamepad.current!=null) AimVector = context.ReadValue<Vector2>();
-        else AimVector = new Vector2(context.ReadValue<Vector2>().x - _screenX, context.ReadValue<Vector2>().y - _screenY);
+        if (_activeMap == _theController.PlayerController.Get()) AimVector = context.ReadValue<Vector2>();
+
+        else 
+        {
+            Vector2 _screenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+            AimVector = (context.ReadValue<Vector2>() - _screenCenter).normalized; 
+        }
               
         /// <summary>
         ///Si se usa el ratón se lee la posición del ratón 

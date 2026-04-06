@@ -238,17 +238,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c69a48c5-a8ae-4328-9e10-4f23b6a1f766"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""84fc10b3-268c-4933-beaf-0398a18f35c1"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
@@ -960,7 +949,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""508b427c-0bb1-44ed-97ce-42190b0d4832"",
-                    ""path"": ""<Mouse>/position"",
+                    ""path"": ""<Mouse>/{Point}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
