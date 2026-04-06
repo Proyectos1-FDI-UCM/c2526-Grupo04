@@ -42,8 +42,6 @@ public class InputManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [Header("Elegir solo antes de ejecución y no cambiar durante ella")]
-    [SerializeField] Devices Device;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -80,8 +78,6 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private InputAction _pause;
 
-    private enum Devices {Controller, Keyboard}
-
 
     #endregion
 
@@ -116,15 +112,9 @@ public class InputManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
             _theController = new InputSystem_Actions();
-            switch (Device)
-            {
-                case Devices.Keyboard:
-                    _activeMap = _theController.PlayerKeyboard.Get();
-                    break;
-                case Devices.Controller:
-                    _activeMap = _theController.PlayerController.Get();
-                    break;
-            }
+            if(Gamepad.current==null) _activeMap = _theController.PlayerKeyboard.Get();
+            else _activeMap = _theController.PlayerController.Get();
+
             Init();
         }
     } // Awake
@@ -177,7 +167,6 @@ public class InputManager : MonoBehaviour
         _activeMap?.Disable();
         Dis();
         _activeMap = _theController.PlayerController.Get();
-        Device = Devices.Controller;
         Init();
     }
 
@@ -185,29 +174,11 @@ public class InputManager : MonoBehaviour
     {
         _activeMap?.Disable();
         Dis();
-        _activeMap = _theController.PlayerKeyboard.Get();
-        Device = Devices.Keyboard;
+        _activeMap = _theController.PlayerKeyboard.Get(); 
         Init();
     }
 
-    private void Dis()
-    {
-        if (_activeMap == null) return;
-
-        InputAction movement = _activeMap.FindAction("Move");
-        if (movement != null)
-        {
-            movement.performed -= OnMove;
-            movement.canceled -= OnMove;
-        }
-
-        InputAction aim = _activeMap.FindAction("Aim");
-        if (aim != null)
-        {
-            aim.performed -= OnAim;
-            aim.canceled -= OnAim;
-        }
-    }
+    
 
     /// <summary>
     /// Propiedad para acceder al vector de movimiento.
@@ -326,13 +297,36 @@ public class InputManager : MonoBehaviour
 
     #region Métodos Privados
 
+
+    private void Dis()
+    {
+        if (_activeMap == null) return;
+
+        InputAction movement = _activeMap.FindAction("Move");
+        if (movement != null)
+        {
+            movement.performed -= OnMove;
+            movement.canceled -= OnMove;
+        }
+
+        InputAction aim = _activeMap.FindAction("Aim");
+        if (aim != null)
+        {
+            aim.performed -= OnAim;
+            aim.canceled -= OnAim;
+        }
+    }
+
     /// <summary>
     /// Dispara la inicialización.
     /// </summary>
     private void Init()
     {
-        // Creamos el controlador del input y activamos los controles del jugador
+        InputSystem.onDeviceChange += OnDeviceChange;
 
+
+        // Creamos el controlador del input y activamos los controles del jugador
+        _activeMap.Disable();
         _activeMap.Enable();
 
 
@@ -377,6 +371,33 @@ public class InputManager : MonoBehaviour
         _pause = _activeMap.FindAction("Pause");
     }
 
+
+    private void OnDeviceChange(InputDevice device, InputDeviceChange change)
+    {
+        if (change == InputDeviceChange.Added)
+        {
+            if (Gamepad.current != null)
+            {
+                UseController();
+            }
+            else if (Keyboard.current != null)
+            {
+                UseKeyboard();
+            }
+        }
+        else if (change == InputDeviceChange.Disconnected)
+        {
+            if (Gamepad.current != null)
+            {
+                UseController();
+            }
+            else if (Keyboard.current != null)
+            {
+                UseKeyboard();
+            }
+        }
+    }
+
     /// <summary>
     /// Método que es llamado por el controlador de input cuando se producen
     /// eventos de movimiento (relacionados con la acción Move)
@@ -393,15 +414,9 @@ public class InputManager : MonoBehaviour
 
         AimVector = context.ReadValue<Vector2>();
 
-        switch (Device)
-        {
-            case Devices.Controller:
-                AimVector = context.ReadValue<Vector2>();
-                break;
-            case Devices.Keyboard:
-                AimVector = new Vector2 ( context.ReadValue<Vector2>().x - _screenX , context.ReadValue<Vector2>().y - _screenY);
-                break;
-        }
+        if (Gamepad.current!=null) AimVector = context.ReadValue<Vector2>();
+        else AimVector = new Vector2(context.ReadValue<Vector2>().x - _screenX, context.ReadValue<Vector2>().y - _screenY);
+              
         /// <summary>
         ///Si se usa el ratón se lee la posición del ratón 
         ///[(0,0) abajo a la izquierda y (1600, 900) arriba a la derecha] 
