@@ -65,8 +65,6 @@ public class Movement : MonoBehaviour
             movement = SnapTo8Directions(movement);
             //_rb.linearVelocity = movement * Velocity;
 
-
-
             transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
 
             Vector3 pos = transform.position;

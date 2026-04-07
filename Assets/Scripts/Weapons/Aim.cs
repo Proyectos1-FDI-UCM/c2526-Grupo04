@@ -58,7 +58,6 @@ public class Aim : MonoBehaviour
     {
         _playerTransform = LevelManager.Instance.GetPlayer();
         movement = true;
-
     }
 
     /// <summary>
@@ -71,15 +70,25 @@ public class Aim : MonoBehaviour
             if (_playerTransform != null)
                 transform.position = _playerTransform.position;
 
-            Vector2 aim = InputManager.Instance.AimVector;
-
-            if (aim != Vector2.zero)
+            // Comprobamos si el gameObject tiene el componente WeaponAttack
+            // En ese caso, el gameObject es un arma y copia la rotación del jugador
+            if (gameObject.GetComponent<WeaponAttack>() != null)
             {
-                // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
-                float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+                transform.rotation = LevelManager.Instance.GetPlayer().rotation;
+            }
 
-                // Una vez tenemos el ángulo, rotamos el arma a esa dirección
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            // En caso contrario, se tratará de una habilidad y su rotación dependerá de la ubicación del ratón
+            else
+            {
+                Vector2 aim = InputManager.Instance.AimVector;
+                if (aim != Vector2.zero)
+                {
+                    // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
+                    float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+
+                    // Una vez tenemos el ángulo, rotamos el arma a esa dirección
+                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                }
             }
         }
     }
