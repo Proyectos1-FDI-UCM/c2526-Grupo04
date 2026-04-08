@@ -51,12 +51,21 @@ public class LightningBolt : MonoBehaviour
 
     void Update()
     {
-        // Destruimos el rayo una vez ha pasado su duración
-        if (Time.time > _spawnTime + Duration)
+        if (!LevelManager.Instance.GetPause())
         {
-            Destroy(gameObject);
+            if (Time.time > _spawnTime + Duration)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
+        else
+        {
+            Duration += Time.deltaTime;
+        }
+
+            // Destruimos el rayo una vez ha pasado su duración
+
+        }
 
     #endregion
 

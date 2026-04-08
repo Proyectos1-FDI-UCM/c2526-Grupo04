@@ -78,17 +78,24 @@ public class Fireball : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_spawnTime + Duration < Time.time)
+        if (!LevelManager.Instance.GetPause())
         {
-            Explode();
-        }
+            if (_spawnTime + Duration < Time.time)
+            {
+                Explode();
+            }
 
-        if (_explosionHitbox.enabled && Time.time > _explosionHitboxStart + 0.03f)
+            if (_explosionHitbox.enabled && Time.time > _explosionHitboxStart + 0.03f)
+            {
+                _explosionHitbox.enabled = false;
+            }
+
+            if (!attacking) transform.Translate(Vector3.up * Speed * Time.deltaTime);
+        }
+        else
         {
-            _explosionHitbox.enabled = false;
+            Duration += Time.deltaTime;
         }
-
-        if (!attacking) transform.Translate(Vector3.up * Speed * Time.deltaTime);
     }
 
     
