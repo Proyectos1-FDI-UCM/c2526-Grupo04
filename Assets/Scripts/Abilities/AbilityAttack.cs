@@ -72,9 +72,9 @@ public class AbilityAttack : MonoBehaviour
         {
             bool pulsado = false;
 
-            if (Button == Buttons.Fireball) pulsado = InputManager.Instance.FireWasPressedThisFrame1();
-            else if (Button == Buttons.Lighting) pulsado = InputManager.Instance.FireWasPressedThisFrame2();
-            else if (Button == Buttons.Poison) pulsado = InputManager.Instance.FireWasPressedThisFrame3();
+            if (Button == Buttons.Fireball) pulsado = InputManager.Instance.FireballWasPressedThisFrame();
+            else if (Button == Buttons.Lighting) pulsado = InputManager.Instance.LightingWasPressedThisFrame();
+            else if (Button == Buttons.Poison) pulsado = InputManager.Instance.PoisonWasPressedThisFrame();
 
             if (pulsado && magicSystem.UseMagic(Cost))
             {

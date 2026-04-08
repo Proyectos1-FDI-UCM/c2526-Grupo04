@@ -4,7 +4,6 @@
 // Template-P1
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -70,9 +69,9 @@ public class InputManager : MonoBehaviour
     /// acciones como esta (y crear los métodos que necesitemos para
     /// conocer el estado del botón)
     /// </summary>
-    private InputAction _fire1;
-    private InputAction _fire2;
-    private InputAction _fire3;
+    private InputAction _fireball;
+    private InputAction _lighting;
+    private InputAction _poison;
 
     /// <summary>
     /// Acción para abrir y cerrar el menú de pausa.
@@ -133,7 +132,6 @@ public class InputManager : MonoBehaviour
         {
             if (_inputSystemSubscribed)
             {
-                InputSystem.onDeviceChange -= OnDeviceChange;
                 InputSystem.onEvent -= OnInputEvent;
                 _inputSystemSubscribed = false;
             }
@@ -173,20 +171,33 @@ public class InputManager : MonoBehaviour
         return _instance != null;
     }
 
+
+    /// <summary>
+    /// Cambia el mapa de acciones al del Mando (asegurandose de que desactive el otro)
+    /// </summary>
     public void UseController()
     {
-        _activeMap?.Disable();
-        Dis();
-        _activeMap = _theController.PlayerController.Get();
-        Init();
+        if (_activeMap != _theController.PlayerController.Get())
+        {
+            _activeMap?.Disable();
+            Dis();
+            _activeMap = _theController.PlayerController.Get();
+            Init();
+        }
     }
 
+    /// <summary>
+    /// Cambia el mapa de acciones al del Teclado (asegurandose de que desactive el otro)
+    /// </summary>
     public void UseKeyboard()
     {
-        _activeMap?.Disable();
-        Dis();
-        _activeMap = _theController.PlayerKeyboard.Get(); 
-        Init();
+        if (_activeMap != _theController.PlayerKeyboard.Get())
+        {
+            _activeMap?.Disable();
+            Dis();
+            _activeMap = _theController.PlayerKeyboard.Get();
+            Init();
+        }
     }
 
     
@@ -208,23 +219,33 @@ public class InputManager : MonoBehaviour
 
 
     /// <summary>
-    /// Método para saber si el botón de disparo (Fire) está pulsado
+    /// Método para saber si el botón de Fireball está pulsado
     /// Devolverá true en todos los frames en los que se mantenga pulsado
     /// <returns>True, si el botón está pulsado</returns>
     /// </summary>
-    public bool FireIsPressed1()
+    public bool FireballIsPressed()
     {
-        return _fire1.IsPressed();
+        return _fireball.IsPressed();
     }
 
-    public bool FireIsPressed2()
+    /// <summary>
+    /// Método para saber si el botón de Lighting está pulsado
+    /// Devolverá true en todos los frames en los que se mantenga pulsado
+    /// <returns>True, si el botón está pulsado</returns>
+    /// </summary>
+    public bool LightingIsPressed()
     {
-        return _fire2.IsPressed();
+        return _lighting.IsPressed();
     }
 
-    public bool FireIsPressed3()
+    /// <summary>
+    /// Método para saber si el botón de Poison está pulsado
+    /// Devolverá true en todos los frames en los que se mantenga pulsado
+    /// <returns>True, si el botón está pulsado</returns>
+    /// </summary>
+    public bool PoisonIsPressed()
     {
-        return _fire3.IsPressed();
+        return _poison.IsPressed();
     }
 
     /// <summary>
@@ -238,24 +259,36 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Método para saber si el botón de disparo (Fire) se ha pulsado en este frame
+    /// Método para saber si el botón de Fireball se ha pulsado en este frame
     /// <returns>Devuelve true, si el botón ha sido pulsado en este frame
     /// y false, en otro caso
     /// </returns>
     /// </summary>
-    public bool FireWasPressedThisFrame1()
+    public bool FireballWasPressedThisFrame()
     {
-        return _fire1.WasPressedThisFrame();
+        return _fireball.WasPressedThisFrame();
     }
 
-    public bool FireWasPressedThisFrame2()
+    /// <summary>
+    /// Método para saber si el botón de Lighting se ha pulsado en este frame
+    /// <returns>Devuelve true, si el botón ha sido pulsado en este frame
+    /// y false, en otro caso
+    /// </returns>
+    /// </summary>
+    public bool LightingWasPressedThisFrame()
     {
-        return _fire2.WasPressedThisFrame();
+        return _lighting.WasPressedThisFrame();
     }
 
-    public bool FireWasPressedThisFrame3()
+    /// <summary>
+    /// Método para saber si el botón de Poison se ha pulsado en este frame
+    /// <returns>Devuelve true, si el botón ha sido pulsado en este frame
+    /// y false, en otro caso
+    /// </returns>
+    /// </summary>
+    public bool PoisonWasPressedThisFrame()
     {
-        return _fire3.WasPressedThisFrame();
+        return _poison.WasPressedThisFrame();
     }
 
     /// <summary>
@@ -270,25 +303,39 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Método para saber si el botón de disparo (Fire) ha dejado de pulsarse
+    /// Método para saber si el botón de Fireball ha dejado de pulsarse
     /// durante este frame
     /// <returns>Devuelve true, si el botón se ha dejado de pulsar en
     /// este frame; y false, en otro caso.
     /// </returns>
     /// </summary>
-    public bool FireWasReleasedThisFrame1()
+    public bool FireballWasReleasedThisFrame()
     {
-        return _fire1.WasReleasedThisFrame();
+        return _fireball.WasReleasedThisFrame();
     }
 
-    public bool FireWasReleasedThisFrame2()
+    /// <summary>
+    /// Método para saber si el botón de Lighting ha dejado de pulsarse
+    /// durante este frame
+    /// <returns>Devuelve true, si el botón se ha dejado de pulsar en
+    /// este frame; y false, en otro caso.
+    /// </returns>
+    /// </summary>
+    public bool LightingWasReleasedThisFrame()
     {
-        return _fire2.WasReleasedThisFrame();
+        return _lighting.WasReleasedThisFrame();
     }
 
-    public bool FireWasReleasedThisFrame3()
+    /// <summary>
+    /// Método para saber si el botón de Poison ha dejado de pulsarse
+    /// durante este frame
+    /// <returns>Devuelve true, si el botón se ha dejado de pulsar en
+    /// este frame; y false, en otro caso.
+    /// </returns>
+    /// </summary>
+    public bool PosionWasReleasedThisFrame()
     {
-        return _fire3.WasReleasedThisFrame();
+        return _poison.WasReleasedThisFrame();
     }
 
     /// <summary>
@@ -308,7 +355,9 @@ public class InputManager : MonoBehaviour
 
     #region Métodos Privados
 
-
+    /// <summary>
+    /// Desabilita el mapa activo y se desuscribe de las acciones de OnAim y OnMove
+    /// </summary>
     private void Dis()
     {
         if (_activeMap == null) return;
@@ -336,7 +385,6 @@ public class InputManager : MonoBehaviour
         // Nos suscribimos a eventos estáticos UNA sola vez para evitar duplicados
         if (!_inputSystemSubscribed)
         {
-            InputSystem.onDeviceChange += OnDeviceChange;
             InputSystem.onEvent += OnInputEvent; // Escucha eventos de entrada para detectar qué dispositivo se está usando
             _inputSystemSubscribed = true;
         }
@@ -380,40 +428,16 @@ public class InputManager : MonoBehaviour
         // El estado lo consultaremos a través de los métodos públicos que 
         // tenemos (FireIsPressed, FireWasPressedThisFrame 
         // y FireWasReleasedThisFrame)
-        _fire1 = _activeMap.FindAction("FireAbility1");
-        _fire2 = _activeMap.FindAction("FireAbility2");
-        _fire3 = _activeMap.FindAction("FireAbility3");
+        _fireball = _activeMap.FindAction("Fireball");
+        _lighting = _activeMap.FindAction("Lighting");
+        _poison = _activeMap.FindAction("Poison");
 
         // Asignación del botón de pausa
         _pause = _activeMap.FindAction("Pause");
     }
 
 
-    private void OnDeviceChange(InputDevice device, InputDeviceChange change)
-    {
-        if (change == InputDeviceChange.Added)
-        {
-            if (Gamepad.current != null)
-            {
-                UseController();
-            }
-            else if (Keyboard.current != null)
-            {
-                UseKeyboard();
-            }
-        }
-        else if (change == InputDeviceChange.Disconnected)
-        {
-            if (Gamepad.current != null)
-            {
-                UseController();
-            }
-            else if (Keyboard.current != null)
-            {
-                UseKeyboard();
-            }
-        }
-    }
+    
 
     /// <summary>
     /// Detecta el dispositivo que está generando entradas en tiempo real y
@@ -454,6 +478,11 @@ public class InputManager : MonoBehaviour
         MovementVector = context.ReadValue<Vector2>();
     }
 
+    /// <summary>
+    ///Si se usa el ratón se lee la posición del ratón 
+    ///[(0,0) abajo a la izquierda y (1600, 900) arriba a la derecha] 
+    ///y se calcula la dirección asumiendo que el jugador está en el centro
+    ///</summary>
     private void OnAim(InputAction.CallbackContext context)
     {
         float _screenX = 800, _screenY = 450;
@@ -467,14 +496,6 @@ public class InputManager : MonoBehaviour
             Vector2 _screenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
             AimVector = (context.ReadValue<Vector2>() - _screenCenter).normalized; 
         }
-              
-        /// <summary>
-        ///Si se usa el ratón se lee la posición del ratón 
-        ///[(0,0) abajo a la izquierda y (1600, 900) arriba a la derecha] 
-        ///y se calcula la dirección asumiendo que el jugador está en el centro
-        ///</summary>
-
-
     }
 
     #endregion
