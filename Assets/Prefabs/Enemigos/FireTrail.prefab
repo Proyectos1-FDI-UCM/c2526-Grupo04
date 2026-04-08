@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2299992181158089683}
   - component: {fileID: -892931762809785477}
   - component: {fileID: -8105623975354114718}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FireTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,5 +152,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 06000000
-  ObjectType: 0
