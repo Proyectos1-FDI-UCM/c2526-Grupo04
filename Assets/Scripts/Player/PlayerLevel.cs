@@ -60,6 +60,7 @@ public class PlayerLevel : MonoBehaviour
     {
         _currentLimit = InitialLimit;
         _itemSelectionManager = GetComponent<ItemSelectionManager>();
+        _itemSelectionManager.QueueUp();
     }
 
     /// <summary>

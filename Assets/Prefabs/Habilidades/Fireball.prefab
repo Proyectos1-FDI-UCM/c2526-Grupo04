@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionRadius: 4
-  Duration: 5
+  Duration: 3
   ExplosionTime: 0.2
   Speed: 5
 --- !u!58 &2299992181158089683
@@ -309,8 +309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1.4
-  DamageLayer: 070000000a000000
-  ObjectType: 1
 --- !u!50 &6052425314834393414
 Rigidbody2D:
   serializedVersion: 5

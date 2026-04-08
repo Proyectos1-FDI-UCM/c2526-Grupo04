@@ -42,10 +42,17 @@ public class FireTrail : MonoBehaviour
 
     void Update()
     {
-        // Destruimos el rastro una vez ha pasado su duración
-        if (Time.time > _spawnTime + Duration)
+        if (!LevelManager.Instance.GetPause())
         {
-            Destroy(gameObject);
+            // Destruimos el rastro una vez ha pasado su duración
+            if (Time.time > _spawnTime + Duration)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            Duration += Time.deltaTime;
         }
     }
 
