@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7683157861364631283}
   - component: {fileID: 5289463489190291236}
   - component: {fileID: 4533521924617215962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Poison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,5 +153,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 0.3
-  DamageLayer: 070000000a000000
-  ObjectType: 1

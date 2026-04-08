@@ -276,6 +276,7 @@ public class HUDManager : MonoBehaviour
     public void ConfirmSelection(int button)
     {
         ConfirmationButton.gameObject.SetActive(true);
+        ConfirmationButton.onClick.RemoveAllListeners();
         switch (button)
         {
             case 1:
