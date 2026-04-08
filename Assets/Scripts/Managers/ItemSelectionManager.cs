@@ -68,6 +68,7 @@ public class ItemSelectionManager : MonoBehaviour
     private int queue = 0;
     private Potenciadores _potenciadores;
     private Item item1, item2, item3;
+    private bool FirstTime;
 
     #endregion
 
@@ -84,6 +85,7 @@ public class ItemSelectionManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        FirstTime = true;
         _potenciadores = GetComponent<Potenciadores>(); //obtenemos componente potenciadores
     }
     /// <summary>
@@ -191,22 +193,29 @@ public class ItemSelectionManager : MonoBehaviour
     
     private void RandomOptions() //elegimos al azar las opciones entre todas las disponibles
     {
+        // Si se trata de la primera selección de la partida, solo se podrá elegir entre las 3 armas del juego
         do
-        {
-            item1 = Items[UnityEngine.Random.Range(0, Items.Length)];
+        {   
+            if (FirstTime) item1 = Items[0];
+            else item1 = Items[UnityEngine.Random.Range(0, Items.Length)];
         } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
         HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
-        do {
-            item2 = Items[UnityEngine.Random.Range(0, Items.Length)];
+        do 
+        {
+            if (FirstTime) item2 = Items[1];
+            else item2 = Items[UnityEngine.Random.Range(0, Items.Length)];
         } while (item1 == item2 || item2.WasUsed() == true); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
         HUDManager.Instance.UpdateSelectionGUI(item2, 2);
 
         do
         {
-            item3 = Items[UnityEngine.Random.Range(0, Items.Length)];
+            if (FirstTime) item3 = Items[2]; 
+            else item3 = Items[UnityEngine.Random.Range(0, Items.Length)];
         } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
         HUDManager.Instance.UpdateSelectionGUI(item3, 3);
+        // Cambiamos el valor del booleano FirstTime para que de ahora en adelante salgan todas las opciones
+        if (FirstTime) FirstTime = false;
     }
     
     private void ResumeGame() //metodo para reanudar el juego cuando se haya elgido alguna de las opciones, hace lo opuesto al metodo de pausa
