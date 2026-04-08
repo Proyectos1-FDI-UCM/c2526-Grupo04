@@ -70,25 +70,27 @@ public class Aim : MonoBehaviour
             if (_playerTransform != null)
                 transform.position = _playerTransform.position;
 
+            Vector2 aim;
             // Comprobamos si el gameObject tiene el componente WeaponAttack
             // En ese caso, el gameObject es un arma y copia la rotación del jugador
             if (gameObject.GetComponent<WeaponAttack>() != null)
             {
-                transform.rotation = LevelManager.Instance.GetPlayer().rotation;
+                aim = SnapTo8Directions(InputManager.Instance.MovementVector);
             }
 
             // En caso contrario, se tratará de una habilidad y su rotación dependerá de la ubicación del ratón
             else
             {
-                Vector2 aim = InputManager.Instance.AimVector;
-                if (aim != Vector2.zero)
-                {
-                    // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
-                    float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+                aim = InputManager.Instance.AimVector;
+            }
 
-                    // Una vez tenemos el ángulo, rotamos el arma a esa dirección
-                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
-                }
+            if (aim != Vector2.zero)
+            {
+                // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
+                float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+
+                // Una vez tenemos el ángulo, rotamos el arma a esa dirección
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
     }
@@ -116,6 +118,23 @@ public class Aim : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
+
+    private Vector2 SnapTo8Directions(Vector2 input)
+    {
+        if (input.magnitude < 0.1f) return Vector2.zero;
+
+        // Cálculo del ángulo en radianes y lo pasamos a grados
+        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+
+        // Redondeamos al múltiplo de 45 más cercano (para las 8 direcciones)
+        angle = Mathf.Round(angle / 45f) * 45f;
+
+        // Lo pasamos de vuelta a radianes
+        float rad = angle * Mathf.Deg2Rad;
+
+        // Creamos un vector de dirección normalizado a partir del ángulo
+        return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+    }
 
     #endregion
 
