@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 44.4444, y: -35.555603}
+  m_AnchoredPosition: {x: 44.444458, y: -35.555603}
   m_SizeDelta: {x: 60, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24009182
@@ -3387,9 +3387,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "WASD: Movimiento\n\r\r\nHover del rat\xF3n: Direcci\xF3n de los\nataques
-    y habilidades del jugador\n\r\nClick izquierdo (men\xFA): Seleccionar\n\r\nEsc:
-    Men\xFA/Pausar\n\r\nClick izquierdo: Habilidad 1\n\r\nClick derecho: Habilidad
-    2\r\n\nEspacio: Habilidad 3\r\n"
+    de las armas\n\r\nDirecci\xF3n de mov del jugador: Direcci\xF3n de\nlos ataques
+    de las habilidades\n\nClick izquierdo (men\xFA): Seleccionar\n\r\nEsc: Men\xFA/Pausar\n\r\nClick
+    izquierdo: Habilidad 1\n\r\nClick derecho: Habilidad 2\r\n\nEspacio: Habilidad
+    3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3416,8 +3417,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4319,7 +4320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50.99994, y: 93.000015}
+  m_AnchoredPosition: {x: 50.99994, y: 133}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129273975
@@ -4344,8 +4345,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "+ : Men\xFA/Pausar\r\n\nX: Seleccionar\r\n\nRB: Habilidad 1\r\n\nRT: Habilidad
     2\r\n\nLB: Habilidad 3\r\n\nL: Movimiento lateral, vertical, \ndiagonal, moverse
-    por men\xFAs\r\n\nR: Direcci\xF3n de los ataques y \nhabilidades del jugador
-    \r\n\n\u2191 \u2193  \u2190 \u2192 : Movimiento"
+    por men\xFAs\r\n\nR: Direcci\xF3n de los ataques de las armas\n\nDirecci\xF3n
+    de mov del jugador: Direcci\xF3n de\nlos ataques de las habilidades\r\n\n\u2191
+    \u2193  \u2190 \u2192 : Movimiento"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
