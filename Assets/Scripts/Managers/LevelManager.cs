@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
     [SerializeField] private float InitialTime;
+
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
@@ -55,6 +56,7 @@ public class LevelManager : MonoBehaviour
     private int _pillarNum;
     private bool _fase1Done = false;
     private bool _pausedGame;
+    private int kills = 0;
 
     #endregion
 
@@ -79,6 +81,8 @@ public class LevelManager : MonoBehaviour
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
+
+       
     }
 
     void Update()
@@ -132,6 +136,8 @@ public class LevelManager : MonoBehaviour
     {
         return _pausedGame;
     } 
+
+    
     
 
     /// <summary>
@@ -192,6 +198,15 @@ public class LevelManager : MonoBehaviour
     {
         PauseGame();
         HUDManager.Instance.DefeatMenuHUD();
+    }
+
+    public void Addkill()
+    {
+        kills++;
+    }
+    public int GetKills()
+    {
+        return kills;
     }
 
     #endregion

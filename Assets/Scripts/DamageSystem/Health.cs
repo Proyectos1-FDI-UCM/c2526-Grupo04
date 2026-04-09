@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [Header("Relevante solo para enemigos")]
     [SerializeField] private int _maxHealth;
+    [SerializeField] private LevelManager kill;
 
     #endregion
 
@@ -40,6 +41,7 @@ public class Health : MonoBehaviour
     private float _currentHealth;
 
     private EnemyXP _enemyXP;
+    
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -129,7 +131,9 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();
+            kill.Addkill();
             Destroy(gameObject);
+            
         }
 
         // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
@@ -140,6 +144,9 @@ public class Health : MonoBehaviour
 
        
     }
+
+
+
     #endregion  
 
 } // class Health 

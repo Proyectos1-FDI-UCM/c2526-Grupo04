@@ -5,6 +5,8 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -22,10 +24,12 @@ public class StadisticsEndgame : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-    [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
-    [SerializeField] private TMPro.TextMeshProUGUI Level;
     [SerializeField] private PlayerLevel playerLevel;
-    [SerializeField] private Potenciadores potenciadores;
+    [SerializeField] private PlayerStats stats;
+    [SerializeField] private LevelManager levelmanager;
+    [SerializeField] private TextMeshProUGUI textMeshProStats;
+
+
 
 
 
@@ -39,11 +43,16 @@ public class StadisticsEndgame : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    //nivel del jugador
     private int plevel;
-    private float damage;
-    private int vtimes;
-    private int dtimes;
-    private int mtimes;
+    private float damage; //daño total
+    private float time;
+    private int kills; //enemigos muertos
+
+    private float h;
+    private float d ;
+    private float m;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -58,11 +67,17 @@ public class StadisticsEndgame : MonoBehaviour
     /// any of the Update methods are called the first time.
     /// </summary>
     void Start()
-    {
+    {  
         plevel = playerLevel.LevelPlayer();
-        vtimes = potenciadores.PotenciadorV();
-        dtimes = potenciadores.PotenciadorD();
-        mtimes = potenciadores.PotenciadorM();
+        time = (600 - levelmanager.GetTimer())  ;
+
+        kills = levelmanager.GetKills();
+
+        h = stats.GetMaxHealth();
+        d = stats.GetMaxMagic();
+        m = stats.GetDmg();
+
+        textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + time + "segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
 
     }
 
@@ -70,9 +85,11 @@ public class StadisticsEndgame : MonoBehaviour
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
-    {
-        
+    {// Sumamos el tiempo que pasó desde el frame anterior
+
     }
+
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
