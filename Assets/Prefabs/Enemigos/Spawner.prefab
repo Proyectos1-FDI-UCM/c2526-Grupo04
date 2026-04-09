@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa3ee128400538448c2fd9c431ec808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnInterval: 3
-  Enemy: {fileID: 1682974897844745307, guid: d032cf292cfa341439b44611a00e05e1, type: 3}
+  SpawnInterval: 5
+  Enemy: {fileID: 0}
   DistanceFromBoss: 0
-  MainCamera: {fileID: 0}
+  MainCamera: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
   DistanceFromCamera: 10

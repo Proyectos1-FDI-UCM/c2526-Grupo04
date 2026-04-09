@@ -35,6 +35,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
     [SerializeField] private float InitialTime;
+    [SerializeField] private GameObject Spawner1;
+    [SerializeField] private GameObject Spawner2;
+    [SerializeField] private GameObject Spawner3;
+    [SerializeField] private GameObject Spawner4;
 
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
@@ -57,6 +61,11 @@ public class LevelManager : MonoBehaviour
     private bool _fase1Done = false;
     private bool _pausedGame;
     private int kills = 0;
+
+    private bool spawner1 = false;
+    private bool spawner2 = false;
+    private bool spawner3 = false;
+    private bool spawner4 = false;
 
     #endregion
 
@@ -105,7 +114,33 @@ public class LevelManager : MonoBehaviour
             {
                 OnTimeUp();
             }
-        }       
+        }
+
+
+        if (_timer <= 600 && !spawner1)
+        {
+            CrearSpawners(Spawner1);
+            spawner1 = true;
+        }
+
+        if (_timer <= 500 && !spawner2)
+        {
+            CrearSpawners(Spawner2);
+            spawner2 = true;
+        }
+
+        if (_timer <= 400 && !spawner3)
+        {
+            CrearSpawners(Spawner3);
+            spawner3 = true;
+        }
+
+        if (_timer <= 300 && !spawner4)
+        {
+            CrearSpawners(Spawner4);
+            spawner4 = true;
+        }
+
     }
 
     
@@ -236,6 +271,14 @@ public class LevelManager : MonoBehaviour
         _fase1Done = true;
     }
 
+    private void CrearSpawners (GameObject spawner)
+    {
+        if (spawner != null)
+        {
+            Instantiate(spawner, transform.position, Quaternion.identity);
+        }
+
+    }
     #endregion
 } // class LevelManager 
 // namespace

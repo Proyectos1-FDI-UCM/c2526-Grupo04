@@ -131,7 +131,6 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();
-            kill.Addkill();
             Destroy(gameObject);
             
         }
