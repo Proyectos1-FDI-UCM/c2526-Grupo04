@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2219120055358969182, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
       propertyPath: Cost
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2219120055358969182, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
       propertyPath: Button
