@@ -97,6 +97,7 @@ public class PlayerStats : MonoBehaviour
     {
         MaxHealth += 1;
         _health.UpdateMaxHealth();
+        _health.LoseHealth(-1);
     }
 
     public void DmgUpload()
@@ -108,6 +109,7 @@ public class PlayerStats : MonoBehaviour
     {
         MaxMagic += 1;
         _magicSystem.UpdateMaxMagic();
+        _magicSystem.UseMagic(-1);
     }
 
     #endregion

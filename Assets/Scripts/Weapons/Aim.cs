@@ -40,6 +40,8 @@ public class Aim : MonoBehaviour
     private Transform _playerTransform;
     private bool movement;
 
+    private float angle = 0;
+    private Vector2 aim = Vector2.zero;
 
     #endregion
 
@@ -65,33 +67,34 @@ public class Aim : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (movement)
-        {
-            if (_playerTransform != null)
-                transform.position = _playerTransform.position;
+        if (_playerTransform != null)
 
-            Vector2 aim;
+        if (!LevelManager.Instance.GetPause())
+        {
             // Comprobamos si el gameObject tiene el componente WeaponAttack
             // En ese caso, el gameObject es un arma y copia la rotación del jugador
             if (gameObject.GetComponent<WeaponAttack>() != null)
             {
-                aim = SnapTo8Directions(InputManager.Instance.MovementVector);
+                if (InputManager.Instance.MovementVector != Vector2.zero) aim = SnapTo8Directions(InputManager.Instance.MovementVector);
+                if (movement) angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+                if (aim != Vector2.zero && movement)
+                {
+                    transform.position = _playerTransform.position;
+                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                }
             }
 
             // En caso contrario, se tratará de una habilidad y su rotación dependerá de la ubicación del ratón
             else
             {
                 aim = InputManager.Instance.AimVector;
-            }
-
-            if (aim != Vector2.zero)
-            {
-                // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
-                float angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
-
-                // Una vez tenemos el ángulo, rotamos el arma a esa dirección
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
-            }
+                angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
+                transform.position = _playerTransform.position;
+                if (aim != Vector2.zero)
+                {
+                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                }
+            } 
         }
     }
     #endregion

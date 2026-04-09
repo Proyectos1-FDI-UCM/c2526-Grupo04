@@ -122,22 +122,25 @@ public class LevelManager : MonoBehaviour
             CrearSpawners(Spawner1);
             spawner1 = true;
         }
-
+            
         if (_timer <= 500 && !spawner2)
         {
             CrearSpawners(Spawner2);
+            CrearSpawners(Spawner1);
             spawner2 = true;
         }
 
         if (_timer <= 400 && !spawner3)
         {
             CrearSpawners(Spawner3);
+            CrearSpawners(Spawner2);
             spawner3 = true;
         }
 
         if (_timer <= 300 && !spawner4)
         {
             CrearSpawners(Spawner4);
+            CrearSpawners(Spawner1);
             spawner4 = true;
         }
 

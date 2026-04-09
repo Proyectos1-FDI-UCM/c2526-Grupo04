@@ -145,9 +145,10 @@ public class EnemyStateMachine : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.layer != collision.gameObject.layer)
+        WeaponAttack weapon = collision.gameObject.GetComponent<WeaponAttack>();
+        if (weapon!= null || collision.gameObject.layer == 6)
         {
             _currentState = State.Knockback;
             _actualKnockbackDuration = Time.time + KnockbackDuration;

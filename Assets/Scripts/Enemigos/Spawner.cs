@@ -36,7 +36,6 @@ public class Spawner : MonoBehaviour
 
     //Ponemos UnityEngine.Camera
     [Header("(No rellenar si se trata del jefe final)")]
-    [SerializeField] private Camera MainCamera;
     //Variable para evitar que los enemigos aparezcan muy lejos de la cámara
     [SerializeField] private float DistanceFromCamera;
 
@@ -58,6 +57,8 @@ public class Spawner : MonoBehaviour
     private float _cameraHeight; //Distancia que hay desde el centro de la cámara hasta la parte superior de esta
     private float _cameraWidth; //Distancia que hay desde el centro de la cámara hasta cualquiera de los dos laterales
 
+    private Camera MainCamera;
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -75,6 +76,8 @@ public class Spawner : MonoBehaviour
     {
         //Obtenemos los límites del mapa llamando al método GetMapLimits del Level Manager
         LevelManager.Instance.GetMapLimits(out _maxX, out _minX, out _maxY, out _minY);
+
+        MainCamera = FindFirstObjectByType<Camera>();
 
         if (MainCamera != null)
         {

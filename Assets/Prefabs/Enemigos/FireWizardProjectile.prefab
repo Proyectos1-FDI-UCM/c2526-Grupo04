@@ -103,9 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4484d9571bb44e349b15b5293eecd14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileSpeed: 2
+  ProjectileSpeed: 4
   ProjectileDuration: 3
   FollowsPlayer: 1
+  Shadow: 0
+  NonShadowObject: {fileID: 0}
 --- !u!60 &3449774514797940190
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -169,8 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 06000000
-  ObjectType: 0
 --- !u!50 &477504954561022414
 Rigidbody2D:
   serializedVersion: 5

@@ -106,6 +106,8 @@ MonoBehaviour:
   ProjectileSpeed: 0
   ProjectileDuration: 3
   FollowsPlayer: 0
+  Shadow: 0
+  NonShadowObject: {fileID: 0}
 --- !u!114 &5890079327174536653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,8 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1000
-  DamageLayer: 07000000
-  ObjectType: 0
 --- !u!50 &613066524502074687
 Rigidbody2D:
   serializedVersion: 5
@@ -164,7 +164,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1856
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

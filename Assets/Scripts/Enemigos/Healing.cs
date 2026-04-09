@@ -136,7 +136,6 @@ public class Healing : MonoBehaviour
 
             if (_currentHealth < _maxHealth) _bossHealth.LoseHealth(-regen);
             else _bossHealth.LoseHealth(_currentHealth - _maxHealth);
-            Debug.Log(_currentHealth);
         }
     }
     #endregion   

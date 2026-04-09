@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 10
+  kill: {fileID: 0}
 --- !u!114 &5084647295468977431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,9 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 2
-  DamageLayer: 06000000
-  ObjectType: 0
+  Multiplier: 1
 --- !u!50 &8439281293455679385
 Rigidbody2D:
   serializedVersion: 5
@@ -299,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDistance: 0
-  Speed: 3
+  Speed: 3.2
   KnockbackSpeed: 4
   KnockbackDuration: 0.6
 --- !u!58 &2200818588066000849
