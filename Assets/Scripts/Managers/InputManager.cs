@@ -200,7 +200,27 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// Devuelve el mapa de acciones actual como string, "keyb" o "cont", y "null" si no hay un mapa de acciones asignado
+    /// </summary>
+    public string InputMap()
+    {
+        string map;
+        if (_activeMap == _theController.PlayerKeyboard.Get())
+        {
+            map = "keyb";
+        }
+        else if (_activeMap == _theController.PlayerController.Get())
+        {
+            map = "cont";
+        }
+        else
+        {
+            map = "null";
+        }
+
+        return map;
+    }
 
     /// <summary>
     /// Propiedad para acceder al vector de movimiento.
