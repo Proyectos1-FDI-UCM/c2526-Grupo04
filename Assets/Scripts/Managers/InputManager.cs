@@ -31,6 +31,9 @@ using UnityEngine.InputSystem.LowLevel;
 /// - Añadir nuevos métodos para acceder al estado que estemos interesados
 ///  
 /// </summary>
+
+public enum CurrentMap {Controller, Keyboard}; 
+
 public class InputManager : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
@@ -63,6 +66,7 @@ public class InputManager : MonoBehaviour
 
     // Variable para el mapa de acciones
     private InputActionMap _activeMap;
+    private CurrentMap map;
 
     /// <summary>
     /// Acción para Fire. Si tenemos más botones tendremos que crear más
@@ -116,10 +120,9 @@ public class InputManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
             _theController = new InputSystem_Actions();
-            if(Gamepad.current==null) _activeMap = _theController.PlayerKeyboard.Get();
-            else _activeMap = _theController.PlayerController.Get();
+            if (Gamepad.current == null) UseKeyboard();
+            else UseController();
 
-            Init();
         }
     } // Awake
 
@@ -182,6 +185,7 @@ public class InputManager : MonoBehaviour
             _activeMap?.Disable();
             Dis();
             _activeMap = _theController.PlayerController.Get();
+            map = CurrentMap.Controller;
             Init();
         }
     }
@@ -196,6 +200,7 @@ public class InputManager : MonoBehaviour
             _activeMap?.Disable();
             Dis();
             _activeMap = _theController.PlayerKeyboard.Get();
+            map = CurrentMap.Keyboard;
             Init();
         }
     }
@@ -203,22 +208,8 @@ public class InputManager : MonoBehaviour
     /// <summary>
     /// Devuelve el mapa de acciones actual como string, "keyb" o "cont", y "null" si no hay un mapa de acciones asignado
     /// </summary>
-    public string InputMap()
+    public CurrentMap GetInputMap()
     {
-        string map;
-        if (_activeMap == _theController.PlayerKeyboard.Get())
-        {
-            map = "keyb";
-        }
-        else if (_activeMap == _theController.PlayerController.Get())
-        {
-            map = "cont";
-        }
-        else
-        {
-            map = "null";
-        }
-
         return map;
     }
 
@@ -409,6 +400,7 @@ public class InputManager : MonoBehaviour
             _inputSystemSubscribed = true;
         }
 
+        HUDManager.Instance.ChangeActiveMap(map);
 
         // Creamos el controlador del input y activamos los controles del jugador
         _activeMap.Disable();

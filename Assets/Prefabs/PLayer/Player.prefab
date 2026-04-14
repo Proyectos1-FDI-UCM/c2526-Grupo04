@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 0
+  kill: {fileID: 0}
 --- !u!114 &-5471398437306984953
 MonoBehaviour:
   m_ObjectHideFlags: 0
