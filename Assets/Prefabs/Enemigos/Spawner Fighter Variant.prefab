@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
     - target: {fileID: 2745592665065407459, guid: f488a6d7bc778094b8d81f3f4c78bb28, type: 3}
       propertyPath: SpawnInterval
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2745592665065407459, guid: f488a6d7bc778094b8d81f3f4c78bb28, type: 3}
       propertyPath: DistanceFromCamera

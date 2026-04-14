@@ -27,8 +27,7 @@ public class ControlsSceneManager : MonoBehaviour
 
     [SerializeField] private GameObject GamePadControls;
     [SerializeField] private GameObject KeyboardControls;
-    [SerializeField] private GameObject GamePadControlsOut;
-    [SerializeField] private GameObject KeyboardControlsOut;
+    [SerializeField] private Button MainMenu;
 
     #endregion
 
@@ -107,13 +106,19 @@ public class ControlsSceneManager : MonoBehaviour
     public void GamePadControlsHUD(bool ver)
     {
         GamePadControls.SetActive(ver);
-        EventSystem.current.SetSelectedGameObject(GamePadControls.GetComponentInChildren<Button>().gameObject);
+        if (ver)
+            EventSystem.current.SetSelectedGameObject(GamePadControls.GetComponentInChildren<Button>().gameObject);
+        else
+            EventSystem.current.SetSelectedGameObject(MainMenu.gameObject);
     }
 
     public void KeyboardControlsHUD(bool ver)
     {
-        KeyboardControls.SetActive(ver);
-        EventSystem.current.SetSelectedGameObject(KeyboardControls.GetComponentInChildren<Button>().gameObject);
+        KeyboardControls.SetActive(ver); 
+        if (ver)
+            EventSystem.current.SetSelectedGameObject(KeyboardControls.GetComponentInChildren<Button>().gameObject);
+        else
+            EventSystem.current.SetSelectedGameObject(MainMenu.gameObject);
     }
 
     #endregion

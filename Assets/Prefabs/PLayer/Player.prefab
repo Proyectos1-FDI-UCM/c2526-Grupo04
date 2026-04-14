@@ -277,7 +277,7 @@ MonoBehaviour:
       data:
         name: Sello
         description: "Tiene pinta de m\xE1gico"
-        sprite: {fileID: 0}
+        sprite: {fileID: 6520782655345429521, guid: aab0bf932481a2443897267543598eb5, type: 3}
         Powerup1: 2
         Powerup2: 2
     - rid: 1009
@@ -285,7 +285,7 @@ MonoBehaviour:
       data:
         name: Pesa
         description: Entrena tu cuerpo
-        sprite: {fileID: 0}
+        sprite: {fileID: -6616005784318921224, guid: efd456da79e81cc4c8c2a92d0a4fea06, type: 3}
         Powerup1: 0
         Powerup2: 1
     - rid: 1010
@@ -293,7 +293,7 @@ MonoBehaviour:
       data:
         name: Tunica
         description: Protege tu magia o algo
-        sprite: {fileID: 0}
+        sprite: {fileID: 1121629854725215057, guid: d735d3fddcff8ff49b5b0b46f43417cd, type: 3}
         Powerup1: 0
         Powerup2: 2
     - rid: 1011
@@ -301,7 +301,7 @@ MonoBehaviour:
       data:
         name: Orbe
         description: Es como los magos estos epicos con bolas
-        sprite: {fileID: 0}
+        sprite: {fileID: -6163619978771963370, guid: 224cf65bf394d6b429045f1dcdb108ea, type: 3}
         Powerup1: 1
         Powerup2: 2
 --- !u!114 &1815295831481581564
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789489742296e1342ab0ff927073e2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalReloadTime: 6
+  TotalReloadTime: 8
 --- !u!114 &-1724316360020513461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe0c12cef41f5a4bb0adc572a4d3666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 5
+  Velocity: 5.5
 --- !u!114 &8488072362049856130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!50 &7713415307688923660
 Rigidbody2D:
   serializedVersion: 5
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a866c3d3c14744b9fcf311eaa251f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegenTimePerUnit: 3
+  RegenTimePerUnit: 4
 --- !u!114 &-5922553066343986802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 0
+  kill: {fileID: 0}
 --- !u!114 &-5471398437306984953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,8 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a78d386c71aa48b50a53e981c1b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialLimit: 20
-  Increment: 1.3
+  InitialLimit: 60
+  Increment: 1.7
 --- !u!114 &5651830946197662469
 MonoBehaviour:
   m_ObjectHideFlags: 0

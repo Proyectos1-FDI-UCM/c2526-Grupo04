@@ -279,13 +279,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nCr\xE9ditos MMDM\n\nJuego realizado por Arturo y sus duendes \n(grupo
-    4) para la asignatura de Proyecto I\n\nIntegrantes:\nArturo Ramos Romero\r\nAdri\xE1n
-    Montiel Mart\xEDnez\r\nEnrique Satr\xFAstegui Coca\r\nRodrigo Ce\xF1a \xC1lvarez\r\nNicol\xE1s
-    Jim\xE9nez Hern\xE1ndez\r\nJes\xFAs Maldonado Becerra \r\nJavier Hoyos Giunta\n\r\n"
+  m_text: "MMDM\n\nJuego realizado por Arturo y sus duendes \n(grupo 4) para la asignatura
+    de Proyecto I\n\nIntegrantes:\nArturo Ramos Romero\n Adrian Montiel Martinez\r\nEnrique
+    Satrustegui Coca\n Rodrigo Ce\xF1a Alvarez\r\nNicolas Jimenez Hernandez\nJesus
+    Maldonado Becerra \r\nJavier Hoyos Giunta\n\nFuente: Ivano Palmentieri, aka somepx"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 879b43a59808d9b4e846bb2cf14e3931, type: 2}
+  m_sharedMaterial: {fileID: -8635258126111222964, guid: 879b43a59808d9b4e846bb2cf14e3931, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.45
+  m_fontSize: 30.45
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -261.92288, y: 0, z: -261.92285, w: 0}
+  m_margin: {x: 19.57782, y: 21.379715, z: 26.705536, w: 23.161575}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 3943399833073527735, guid: 3e215e22c205d1e4b9157849a85b75ef, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -724,8 +724,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <<<
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 879b43a59808d9b4e846bb2cf14e3931, type: 2}
+  m_sharedMaterial: {fileID: -8635258126111222964, guid: 879b43a59808d9b4e846bb2cf14e3931, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
