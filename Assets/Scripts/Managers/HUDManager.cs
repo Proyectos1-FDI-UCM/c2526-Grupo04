@@ -79,7 +79,16 @@ public class HUDManager : MonoBehaviour
 
     private static HUDManager _instance;
 
-    private ItemSelectionManager SelectionManager;
+    private ItemSelectionManager _selectionManager;
+
+    private struct currentAbItems
+    {
+        public AbilityItem[] itemList;
+        public SpriteRenderer[] HUDlist;
+        public int ind;
+    }
+
+    currentAbItems AbListItems;
 
     private struct HUDlist
     {
@@ -136,10 +145,11 @@ public class HUDManager : MonoBehaviour
         WinMenu.SetActive(false);
 
         ConfirmationButton.gameObject.SetActive(false);
-        SelectionManager = FindAnyObjectByType<ItemSelectionManager>(); 
+        _selectionManager = FindAnyObjectByType<ItemSelectionManager>(); 
 
         HUDlistIni(out elemList);
-
+        AbListItems.itemList = new AbilityItem[3];
+        AbListItems.ind = 0;
     }
 
     /// <summary>
@@ -256,6 +266,8 @@ public class HUDManager : MonoBehaviour
 
     public void DmgItemsHUDEnable(Item item)
     {
+        AbilityItem abItem = item as AbilityItem;
+        
         Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, elemList.listaPos[elemList.index].y, 0);
         SpriteRenderer HUDelem;
 
@@ -270,7 +282,34 @@ public class HUDManager : MonoBehaviour
 
         rectTrans.anchoredPosition = pos;
         elemList.index++;
+
+        if (abItem != null)
+        {
+            AbListItems.itemList[AbListItems.ind] = abItem;
+            AbListItems.HUDlist[AbListItems.ind] = HUDelem;
+            AbListItems.ind++;
+        }
+        ChangeActiveMap(InputManager.Instance.GetInputMap());
+
     }    
+
+    public void ChangeActiveMap(CurrentMap mapa)
+    {
+        if (mapa == CurrentMap.Controller)
+        {
+            for (int i = 0; i < AbListItems.ind; i++)
+            {
+                AbListItems.HUDlist[i].sprite = AbListItems.itemList[i].GetControllerSprite(); 
+            }
+        }
+        else
+        {
+            for (int i = 0; i < AbListItems.ind; i++)
+            {
+                AbListItems.HUDlist[i].sprite = AbListItems.itemList[i].GetKeyboardSprite();
+            }
+        }
+    }
 
     public void ConfirmSelection(int button)
     {
@@ -279,13 +318,13 @@ public class HUDManager : MonoBehaviour
         switch (button)
         {
             case 1:
-                ConfirmationButton.onClick.AddListener(SelectionManager.Option1);
+                ConfirmationButton.onClick.AddListener(_selectionManager.Option1);
                 break;
             case 2:
-                ConfirmationButton.onClick.AddListener(SelectionManager.Option2);
+                ConfirmationButton.onClick.AddListener(_selectionManager.Option2);
                 break;
             case 3:
-                ConfirmationButton.onClick.AddListener(SelectionManager.Option3);
+                ConfirmationButton.onClick.AddListener(_selectionManager.Option3);
                 break;
         }
 

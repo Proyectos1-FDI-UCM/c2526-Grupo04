@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Runtime.CompilerServices;
 
 [Serializable]
 public class Item
@@ -82,6 +83,27 @@ public class DamageItem : Item
 /// Clase hija de Item (Potenciadores)
 /// </summary>
 [Serializable]
+
+public class AbilityItem : DamageItem
+{
+    [SerializeField] private Sprite KeyboardSprite;
+    [SerializeField] private Sprite ControllerSprite;
+
+    public AbilityItem(string name) : base(name) //Constructora por nombre
+    {
+    }
+
+    public Sprite GetKeyboardSprite()
+    {
+        return KeyboardSprite;
+    }
+
+    public Sprite GetControllerSprite()
+    {
+        return ControllerSprite;
+    }
+
+}
 public class PowerUpItem : Item
 {
     [SerializeField] private PowerUp Powerup1; //Primera estadística que sube

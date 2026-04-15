@@ -29,12 +29,12 @@ public class ItemSelectionManager : MonoBehaviour
 
     //Array de todos los tipos de items del juego
     [SerializeReference] private Item[] Items = new Item[] {
+        new AbilityItem("Rayo"),
+        new AbilityItem("Fireball"),
+        new AbilityItem("Poison"),
         new DamageItem("Lanza"),
         new DamageItem("Maza"),
         new DamageItem("Espada"),
-        new DamageItem("Rayo"),
-        new DamageItem("Fireball"),
-        new DamageItem("Poison"),
         new PowerUpItem("Casco"),
         new PowerUpItem("Pocima"),
         new PowerUpItem("Sello"),
@@ -103,6 +103,9 @@ public class ItemSelectionManager : MonoBehaviour
             }
         }
     }
+
+   
+    
 
 
     #endregion
