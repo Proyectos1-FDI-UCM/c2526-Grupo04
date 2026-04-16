@@ -58,6 +58,7 @@ public class Fireball : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager.Instance.PlayFireballSound();
         _explosion = transform.GetChild(0).gameObject;
         _spawnTime = Time.time;
         _hitbox = GetComponent<Collider2D>();
@@ -132,6 +133,7 @@ public class Fireball : MonoBehaviour
             _hitbox.enabled = false;
             _hitbox.GetComponent<SpriteRenderer>().enabled = false;
             _explosion.SetActive(true);
+            AudioManager.Instance.PlayFireballExplosionSound();
 
             _explosionHitbox.enabled = true;
             _explosionHitboxStart = Time.time;

@@ -36,6 +36,7 @@ public class LightningBolt : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager.Instance.PlayLightningSound();
         _spawnTime = Time.time;
 
         Vector2 aim = InputManager.Instance.AimVector;

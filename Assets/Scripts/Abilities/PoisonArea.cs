@@ -51,6 +51,8 @@ public class PoisonArea : MonoBehaviour
     // - Hay que borrar los que no se usen 
     private void Awake()
     {
+        AudioManager.Instance.PlayPoisonSound();
+        AudioManager.Instance.PlayPoisonedFloorSound();
         _hitbox = GetComponent<CircleCollider2D>();
         _debug = GetComponent<SpriteRenderer>();
     }

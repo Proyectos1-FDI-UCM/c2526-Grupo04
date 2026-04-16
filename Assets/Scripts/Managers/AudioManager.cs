@@ -31,9 +31,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip DamageSound; // Sonido mp3 que se reproduce cuando el jugador reciba daño.
     [Header("Efecto de sonido para la derrota del jugador")]
     [SerializeField] private AudioClip DefeatSound; // Sonido mp3 que se reproduce tras la derrota del jugador.
+    [Header("Efecto de sonido cuando se usa la habilidad de la bola de fuego")]
+    [SerializeField] private AudioClip FireballSound; // Sonido mp3 que se reproduce al usar la habilidad de la bola de fuego.
+    [Header("Efecto de sonido cuando explota la bola de fuego")]
+    [SerializeField] private AudioClip FireballExplosionSound; // Sonido mp3 que se reproduce cuando explota la bola de fuego.
+    [Header("Efecto de sonido cuando se usa la habilidad del rayo")]
+    [SerializeField] private AudioClip LightningSound; // Sonido mp3 que se reproduce al usar la habilidad del rayo.
+    [Header("Efectos de sonido cuando se usa la habilidad de la zona de veneno")]
+    [SerializeField] private AudioClip PoisonSound; // Sonido mp3 que se reproducen al usar la habilidad de la zona de veneno.
+    [Header("Efectos de sonido mientras esté la zona de veneno")]
+    [SerializeField] private AudioClip PoisonedFloorSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
     #endregion
-    
+
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -127,8 +137,48 @@ public class AudioManager : MonoBehaviour
         PlaySound(DamageSound);
     }
 
+    /// <summary>
+    /// Método al que llamaremos cuando el jugador use la habilidad de la bola de fuego.
+    /// </summary>
+    public void PlayFireballSound()
+    {
+        PlaySound(FireballSound);
+    }
+
+    /// <summary>
+    /// Método al que llamaremos cuando el jugador use la habilidad de la bola de fuego.
+    /// </summary>
+    public void PlayFireballExplosionSound()
+    {
+        PlaySound(FireballExplosionSound);
+    }
+
+    /// <summary>
+    /// Método al que llamaremos cuando el jugador use la habilidad del rayo.
+    /// </summary>
+    public void PlayLightningSound()
+    {
+        PlaySound(LightningSound, 0.5f);
+    }
+
+    /// <summary>
+    /// Método al que llamaremos cuando el jugador use la habilidad de la zona de veneno.
+    /// </summary>
+    public void PlayPoisonSound()
+    {
+        PlaySound(PoisonSound);
+    }
+
+    /// <summary>
+    /// Método al que llamaremos mientras esté la zona de veneno.
+    /// </summary>
+    public void PlayPoisonedFloorSound()
+    {
+        PlaySound(PoisonedFloorSound);
+    }
+
     #endregion
-    
+
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
