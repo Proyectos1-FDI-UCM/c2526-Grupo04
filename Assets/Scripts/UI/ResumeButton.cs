@@ -86,6 +86,7 @@ public class ResumeButton : MonoBehaviour
 
     private void OnClick()
     {
+        AudioManager.Instance.ClickSound();
         LevelManager.Instance.PauseGameButton();
     }
     #endregion   

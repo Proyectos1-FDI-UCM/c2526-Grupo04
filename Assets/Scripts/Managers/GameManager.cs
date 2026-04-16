@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviour
     /// que se cargará.</param>
     public void ChangeScene(int index)
     {
+        AudioManager.Instance.ClickSound();
         // Antes y después de la carga fuerza la recolección de basura, por eficiencia,
         // dado que se espera que la carga tarde un tiempo, y dado que tenemos al
         // usuario esperando podemos aprovechar para hacer limpieza y ahorrarnos algún
@@ -153,7 +154,7 @@ public class GameManager : MonoBehaviour
     } // ChangeScene
 
     public void QuitGame()
-    {
+    { 
         //método público para salir del juego, se llama desde el botón de salir del menú principal
         Application.Quit();
     }

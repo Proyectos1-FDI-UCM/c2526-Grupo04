@@ -313,6 +313,7 @@ public class HUDManager : MonoBehaviour
     
     public void ConfirmSelection(int button)
     {
+        AudioManager.Instance.ClickSound();
         ConfirmationButton.gameObject.SetActive(true);
         ConfirmationButton.onClick.RemoveAllListeners();
         switch (button)
