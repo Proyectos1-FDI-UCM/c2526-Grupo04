@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameCanvas: {fileID: 0}
-  Items:
+  ItemList:
   - rid: 1000
   - rid: 1001
   - rid: 1002
@@ -218,92 +218,98 @@ MonoBehaviour:
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Lanza
-        description: Es larga o algo
-        sprite: {fileID: -5794715571201452823, guid: 58bbe81c74157bc4fa9d8a8ed04970cc, type: 3}
-        prefab: {fileID: 5849566018043076284, guid: 238fa75347532b54580487759d2ae198, type: 3}
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
     - rid: 1001
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Maza
-        description: Es grande y palante
-        sprite: {fileID: 2000012997640232444, guid: 0310c3cd3352bbe47a9056281d2cbf5f, type: 3}
-        prefab: {fileID: 5849566018043076284, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
     - rid: 1002
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Espada
-        description: Cuidaito tio que te rodea
-        sprite: {fileID: -1944415871678772671, guid: 697374375a4a4e2408e72ee27f8e83fa, type: 3}
-        prefab: {fileID: 5849566018043076284, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
     - rid: 1003
-      type: {class: DamageItem, ns: , asm: Assembly-CSharp}
+      type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
       data:
         name: Rayo
-        description: No te rayes bro
-        sprite: {fileID: -8095492364776438727, guid: 036bd939e5d8c7542b89117c24610c75, type: 3}
-        prefab: {fileID: 2896242413348064248, guid: 31813bd05eaac2f4b8c469200f24aca6, type: 3}
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
     - rid: 1004
-      type: {class: DamageItem, ns: , asm: Assembly-CSharp}
+      type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
       data:
         name: Fireball
-        description: 'Como diria pitbull: OMEGALUL'
-        sprite: {fileID: 6413846847208173478, guid: 6f0bd2b50c754c94e91d2db52e9fba75, type: 3}
-        prefab: {fileID: 4537825390611009081, guid: e0e8ac48a596eab4e902528f00927476, type: 3}
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
     - rid: 1005
-      type: {class: DamageItem, ns: , asm: Assembly-CSharp}
+      type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
       data:
         name: Poison
-        description: Cuidado que es venenoso
-        sprite: {fileID: -4421112310250324744, guid: f9d7ab9c9cea02545984fb7795e0016c, type: 3}
-        prefab: {fileID: 5755108880737174360, guid: 89e14f5a979c11e43bd178efce2e3571, type: 3}
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
     - rid: 1006
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Casco
-        description: Protegete la cabeza
-        sprite: {fileID: -765941401550130194, guid: d3e34135bf2151249883e5c6f386a10e, type: 3}
+        description: 
+        sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
     - rid: 1007
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pocima
-        description: Dopate mazo tela bro
-        sprite: {fileID: 7623132335517700770, guid: 82b158a2bef36c241b38e741b484574f, type: 3}
-        Powerup1: 1
-        Powerup2: 1
+        description: 
+        sprite: {fileID: 0}
+        Powerup1: 0
+        Powerup2: 0
     - rid: 1008
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Sello
-        description: "Tiene pinta de m\xE1gico"
-        sprite: {fileID: 6520782655345429521, guid: aab0bf932481a2443897267543598eb5, type: 3}
-        Powerup1: 2
-        Powerup2: 2
+        description: 
+        sprite: {fileID: 0}
+        Powerup1: 0
+        Powerup2: 0
     - rid: 1009
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pesa
-        description: Entrena tu cuerpo
-        sprite: {fileID: -6616005784318921224, guid: efd456da79e81cc4c8c2a92d0a4fea06, type: 3}
+        description: 
+        sprite: {fileID: 0}
         Powerup1: 0
-        Powerup2: 1
+        Powerup2: 0
     - rid: 1010
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Tunica
-        description: Protege tu magia o algo
-        sprite: {fileID: 1121629854725215057, guid: d735d3fddcff8ff49b5b0b46f43417cd, type: 3}
+        description: 
+        sprite: {fileID: 0}
         Powerup1: 0
-        Powerup2: 2
+        Powerup2: 0
     - rid: 1011
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Orbe
-        description: Es como los magos estos epicos con bolas
-        sprite: {fileID: -6163619978771963370, guid: 224cf65bf394d6b429045f1dcdb108ea, type: 3}
-        Powerup1: 1
-        Powerup2: 2
+        description: 
+        sprite: {fileID: 0}
+        Powerup1: 0
+        Powerup2: 0
 --- !u!114 &1815295831481581564
 MonoBehaviour:
   m_ObjectHideFlags: 0

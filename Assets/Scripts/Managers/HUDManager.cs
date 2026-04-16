@@ -43,8 +43,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI HealthText;
     [SerializeField] private Image HealthJar;
 
-    [Header("Objeto vacío con Spriterenderer para mostrar armas y habilidades, tiene que tener RectTransform")]
-    [SerializeField] private SpriteRenderer HUDitem;
+    [Header("Objeto vacío con Image para mostrar armas y habilidades, tiene que tener RectTransform")]
+    [SerializeField] private Image HUDItem;
 
     [Header("Posiciones en las que están los items en orden")]
     [SerializeField] private Vector2[] posList;
@@ -80,16 +80,16 @@ public class HUDManager : MonoBehaviour
     private static HUDManager _instance;
 
     private ItemSelectionManager _selectionManager;
-
-    private struct currentAbItems
+    
+    private struct AbItems
     {
         public AbilityItem[] itemList;
-        public SpriteRenderer[] HUDlist;
+        public Image[] HUDlist;
         public int ind;
     }
 
-    currentAbItems AbListItems;
-
+    AbItems currentAbItems;
+    
     private struct HUDlist
     {
         public Vector2[] listaPos;
@@ -148,8 +148,9 @@ public class HUDManager : MonoBehaviour
         _selectionManager = FindAnyObjectByType<ItemSelectionManager>(); 
 
         HUDlistIni(out elemList);
-        AbListItems.itemList = new AbilityItem[3];
-        AbListItems.ind = 0;
+        currentAbItems.itemList = new AbilityItem[3];
+        currentAbItems.HUDlist = new Image[3];
+        currentAbItems.ind = 0;
     }
 
     /// <summary>
@@ -269,48 +270,47 @@ public class HUDManager : MonoBehaviour
         AbilityItem abItem = item as AbilityItem;
         
         Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, elemList.listaPos[elemList.index].y, 0);
-        SpriteRenderer HUDelem;
+        Image HUDelem;
 
-        HUDelem = SpriteRenderer.Instantiate(HUDitem, CanvasTransform, false);
+        HUDelem = Image.Instantiate(HUDItem, CanvasTransform, false);
 
         HUDelem.gameObject.AddComponent<RectTransform>();
-        HUDelem.gameObject.AddComponent<Image>();
 
-        HUDelem.gameObject.GetComponent<Image>().sprite = item.GetSprite();
+        HUDelem.sprite = item.GetSprite();
 
         RectTransform rectTrans = HUDelem.GetComponent<RectTransform>();
 
         rectTrans.anchoredPosition = pos;
         elemList.index++;
-
+        
         if (abItem != null)
         {
-            AbListItems.itemList[AbListItems.ind] = abItem;
-            AbListItems.HUDlist[AbListItems.ind] = HUDelem;
-            AbListItems.ind++;
+            currentAbItems.itemList[currentAbItems.ind] = abItem;
+            currentAbItems.HUDlist[currentAbItems.ind] = HUDelem;
+            currentAbItems.ind++;
         }
         ChangeActiveMap(InputManager.Instance.GetInputMap());
-
+        
     }    
-
+    
     public void ChangeActiveMap(CurrentMap mapa)
     {
         if (mapa == CurrentMap.Controller)
         {
-            for (int i = 0; i < AbListItems.ind; i++)
+            for (int i = 0; i < currentAbItems.ind; i++)
             {
-                AbListItems.HUDlist[i].sprite = AbListItems.itemList[i].GetControllerSprite(); 
+                currentAbItems.HUDlist[i].sprite = currentAbItems.itemList[i].GetControllerSprite();
             }
         }
         else
         {
-            for (int i = 0; i < AbListItems.ind; i++)
+            for (int i = 0; i < currentAbItems.ind; i++)
             {
-                AbListItems.HUDlist[i].sprite = AbListItems.itemList[i].GetKeyboardSprite();
+                currentAbItems.HUDlist[i].sprite = currentAbItems.itemList[i].GetKeyboardSprite();
             }
         }
     }
-
+    
     public void ConfirmSelection(int button)
     {
         ConfirmationButton.gameObject.SetActive(true);

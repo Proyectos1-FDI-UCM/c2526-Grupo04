@@ -7,6 +7,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -32,7 +33,9 @@ using UnityEngine.InputSystem.LowLevel;
 ///  
 /// </summary>
 
-public enum CurrentMap {Controller, Keyboard}; 
+public enum CurrentMap {Controller, Keyboard};
+
+
 
 public class InputManager : MonoBehaviour
 {
@@ -50,6 +53,8 @@ public class InputManager : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
 
     #region Atributos Privados (private fields)
+
+    const int GameScene = 1;
 
     /// <summary>
     /// Instancia única de la clase (singleton).
@@ -120,11 +125,16 @@ public class InputManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
             _theController = new InputSystem_Actions();
-            if (Gamepad.current == null) UseKeyboard();
-            else UseController();
 
         }
     } // Awake
+
+
+    private void Start()
+    {
+        if (Gamepad.current == null) UseKeyboard();
+        else UseController();
+    }
 
     /// <summary>
     /// Método llamado cuando se destruye el componente.
@@ -400,7 +410,9 @@ public class InputManager : MonoBehaviour
             _inputSystemSubscribed = true;
         }
 
-        HUDManager.Instance.ChangeActiveMap(map);
+        
+
+        if (SceneManager.GetActiveScene().buildIndex == GameScene) HUDManager.Instance.ChangeActiveMap(map);
 
         // Creamos el controlador del input y activamos los controles del jugador
         _activeMap.Disable();

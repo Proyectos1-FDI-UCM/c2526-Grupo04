@@ -10,7 +10,7 @@ public class Item
     /// </summary>
     public string name;
     [SerializeField] private string description;
-    [SerializeField] private Sprite sprite; // Imagen del objeto (para selección o HUD)
+    [SerializeField] private Sprite sprite; // Imagen del objeto (para selecciï¿½n o HUD)
     private bool used; // indica si el objeto se ha usado o no (relevante para armas y habilidades)
 
     public Item(string name) //Constructora por nombre
@@ -28,7 +28,7 @@ public class Item
     }
 
     /// <summary>
-    /// Devuelve la descripción del item
+    /// Devuelve la descripciï¿½n del item
     /// </summary>
     /// <returns></returns>
     public string GetDescription()
@@ -39,7 +39,7 @@ public class Item
     /// <summary>
     /// Getter de used
     /// </summary>
-    public bool WasUsed() 
+    public bool WasUsed()
     {
         return used;
     }
@@ -47,7 +47,7 @@ public class Item
     /// <summary>
     /// Cambia used a true
     /// </summary>
-    public void Use() 
+    public void Use()
     {
         used = true;
     }
@@ -57,12 +57,12 @@ public class Item
 /// Clase hija de Item (Armas y Habiliades)
 /// </summary>
 [Serializable]
-public class DamageItem : Item 
+public class DamageItem : Item
 {
     /// <summary>
     /// Prefab del arma/activador
     /// </summary>
-    [SerializeField] private GameObject prefab; 
+    [SerializeField] private GameObject prefab;
 
     public DamageItem(string name) : base(name) //Constructora por nombre
     {
@@ -71,12 +71,12 @@ public class DamageItem : Item
     /// <summary>
     /// Devuelve el
     /// </summary>
-    public GameObject GetPrefab() 
+    public GameObject GetPrefab()
     {
         Use();
         return prefab;
     }
-    
+
 }
 
 /// <summary>
@@ -106,8 +106,8 @@ public class AbilityItem : DamageItem
 }
 public class PowerUpItem : Item
 {
-    [SerializeField] private PowerUp Powerup1; //Primera estadística que sube
-    [SerializeField] private PowerUp Powerup2; //Segunda estadística que sube
+    [SerializeField] private PowerUp Powerup1; //Primera estadï¿½stica que sube
+    [SerializeField] private PowerUp Powerup2; //Segunda estadï¿½stica que sube
 
 
     public PowerUpItem(string name) : base(name)
@@ -115,7 +115,7 @@ public class PowerUpItem : Item
     }
 
     /// <summary>
-    /// Getter de la primera estadística que sube
+    /// Getter de la primera estadï¿½stica que sube
     /// </summary>
     public PowerUp GetPowerUp1()
     {
@@ -123,11 +123,10 @@ public class PowerUpItem : Item
     }
 
     /// <summary>
-    /// Getter de la segunda estadística que sube
+    /// Getter de la segunda estadï¿½stica que sube
     /// </summary>
     public PowerUp GetPowerUp2()
     {
         return Powerup2;
     }
 }
-

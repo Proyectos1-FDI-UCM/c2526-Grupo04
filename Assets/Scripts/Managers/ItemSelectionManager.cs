@@ -28,13 +28,13 @@ public class ItemSelectionManager : MonoBehaviour
     [SerializeField] private GameObject GameCanvas;
 
     //Array de todos los tipos de items del juego
-    [SerializeReference] private Item[] Items = new Item[] {
-        new AbilityItem("Rayo"),
-        new AbilityItem("Fireball"),
-        new AbilityItem("Poison"),
+    [SerializeReference] private Item[] ItemList = new Item[] {
         new DamageItem("Lanza"),
         new DamageItem("Maza"),
         new DamageItem("Espada"),
+        new AbilityItem("Rayo"),
+        new AbilityItem("Fireball"),
+        new AbilityItem("Poison"),
         new PowerUpItem("Casco"),
         new PowerUpItem("Pocima"),
         new PowerUpItem("Sello"),
@@ -103,9 +103,6 @@ public class ItemSelectionManager : MonoBehaviour
             }
         }
     }
-
-   
-    
 
 
     #endregion
@@ -199,22 +196,22 @@ public class ItemSelectionManager : MonoBehaviour
         // Si se trata de la primera selección de la partida, solo se podrá elegir entre las 3 armas del juego
         do
         {   
-            if (FirstTime) item1 = Items[0];
-            else item1 = Items[UnityEngine.Random.Range(0, Items.Length)];
+            if (FirstTime) item1 = ItemList[0];
+            else item1 = ItemList[UnityEngine.Random.Range(0, ItemList.Length)];
         } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
         HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
         do 
         {
-            if (FirstTime) item2 = Items[1];
-            else item2 = Items[UnityEngine.Random.Range(0, Items.Length)];
+            if (FirstTime) item2 = ItemList[1];
+            else item2 = ItemList[UnityEngine.Random.Range(0, ItemList.Length)];
         } while (item1 == item2 || item2.WasUsed() == true); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
         HUDManager.Instance.UpdateSelectionGUI(item2, 2);
 
         do
         {
-            if (FirstTime) item3 = Items[2]; 
-            else item3 = Items[UnityEngine.Random.Range(0, Items.Length)];
+            if (FirstTime) item3 = ItemList[2]; 
+            else item3 = ItemList[UnityEngine.Random.Range(0, ItemList.Length)];
         } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
         HUDManager.Instance.UpdateSelectionGUI(item3, 3);
         // Cambiamos el valor del booleano FirstTime para que de ahora en adelante salgan todas las opciones

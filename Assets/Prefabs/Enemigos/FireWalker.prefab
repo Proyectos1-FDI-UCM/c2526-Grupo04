@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDistance: 0
-  Speed: 2
+  Speed: 3
   KnockbackSpeed: 4
   KnockbackDuration: 0.6
 --- !u!58 &4577321693829766445
