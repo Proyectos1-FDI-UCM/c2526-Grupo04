@@ -71,11 +71,8 @@ public class Health : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            if (IsDead())
-            {
-                Die();
-                // vuelve al inicio / pantalla de muerte
-            }
+            if (IsDead()) Die();
+            // vuelve al inicio / pantalla de muerte 
         }
     }
     #endregion
@@ -91,6 +88,8 @@ public class Health : MonoBehaviour
     // Método público para ser llamado por Damage (u otros) (si el daño introducido es negativo, currentHealth aumenta)
     public void LoseHealth(float damage)
     {
+        // Reproducimos el sonido de recibir daño del jugador
+        if (_playerStats != null && damage > 0) AudioManager.Instance.PlayerDamageSound();
         _currentHealth -= damage;
     }
 
@@ -127,21 +126,22 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        // Reproducimos el sonido de muerte
+        AudioManager.Instance.EnemiesDeathSound();
+
         // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();
             Destroy(gameObject);
-            
         }
 
         // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)
         else if (_playerStats!= null)
         {
+            AudioManager.Instance.PlayerDefeatSound(); // Reproducimos el sonido de derrota del jugador
             LevelManager.Instance.PlayerDead();
         }
-
-       
     }
 
 

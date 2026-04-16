@@ -128,6 +128,7 @@ public class ItemSelectionManager : MonoBehaviour
 
     public void Option1() //se ejecuta cuando el jugador elige la primera opcion
     {
+        AudioManager.Instance.ClickSound();
         DamageItem DItem1 = item1 as DamageItem;
         PowerUpItem PUItem1 = item1 as PowerUpItem;
         if (DItem1 != null) 
@@ -145,6 +146,7 @@ public class ItemSelectionManager : MonoBehaviour
 
     public void Option2() //se ejecuta cuando el jugador elige la segunda opcion
     {
+        AudioManager.Instance.ClickSound();
         DamageItem DItem2 = item2 as DamageItem;
         PowerUpItem PUItem2 = item2 as PowerUpItem;
         if (DItem2 != null)
@@ -162,6 +164,7 @@ public class ItemSelectionManager : MonoBehaviour
 
     public void Option3() //se ejecuta cuando el jugador elige la tercera opcion
     {
+        AudioManager.Instance.ClickSound();
         DamageItem DItem3 = item3 as DamageItem;
         PowerUpItem PUItem3 = item3 as PowerUpItem;
         if (DItem3 != null) 

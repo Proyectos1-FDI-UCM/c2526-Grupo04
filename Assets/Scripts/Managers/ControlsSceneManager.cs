@@ -105,6 +105,7 @@ public class ControlsSceneManager : MonoBehaviour
 
     public void GamePadControlsHUD(bool ver)
     {
+        AudioManager.Instance.ClickSound();
         GamePadControls.SetActive(ver);
         if (ver)
             EventSystem.current.SetSelectedGameObject(GamePadControls.GetComponentInChildren<Button>().gameObject);
@@ -114,6 +115,7 @@ public class ControlsSceneManager : MonoBehaviour
 
     public void KeyboardControlsHUD(bool ver)
     {
+        AudioManager.Instance.ClickSound(); // Reproducimos el sonido de click
         KeyboardControls.SetActive(ver); 
         if (ver)
             EventSystem.current.SetSelectedGameObject(KeyboardControls.GetComponentInChildren<Button>().gameObject);
