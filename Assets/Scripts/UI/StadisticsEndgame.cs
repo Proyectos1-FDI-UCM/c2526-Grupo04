@@ -46,6 +46,9 @@ public class StadisticsEndgame : MonoBehaviour
     private int plevel; //nivel del jugador
     private float damage; //daño total
     private float time; //tiempo transcurrido
+    private float mins;
+    private float secs;
+
     private int kills; //enemigos muertos
 
     private float h;
@@ -75,7 +78,10 @@ public class StadisticsEndgame : MonoBehaviour
         if (levelManager != null)
         {
             time = (600 - levelManager.GetTimer());
-            time = Mathf.FloorToInt(time);
+
+            mins = Mathf.FloorToInt(time / 60); ;
+            secs = secs = Mathf.FloorToInt(time % 60);
+
             kills = levelManager.GetKills();
             damage = levelManager.GetTotalDamage();
         }
@@ -87,7 +93,7 @@ public class StadisticsEndgame : MonoBehaviour
             d = stats.GetDmg();
         }
 
-        textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + time + " segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
+        textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + mins + " minutos y "+ secs + " segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
 
     }
 
