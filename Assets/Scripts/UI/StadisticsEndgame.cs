@@ -19,13 +19,13 @@ public class StadisticsEndgame : MonoBehaviour
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
+    // El convenio de nombr es de Unity recomienda que los atributos
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [SerializeField] private PlayerLevel playerLevel;
     [SerializeField] private PlayerStats stats;
-    [SerializeField] private LevelManager levelmanager;
+    [SerializeField] private LevelManager levelManager;
     [SerializeField] private TextMeshProUGUI textMeshProStats;
 
 
@@ -43,9 +43,9 @@ public class StadisticsEndgame : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     //nivel del jugador
-    private int plevel;
+    private int plevel; //nivel del jugador
     private float damage; //daño total
-    private float time;
+    private float time; //tiempo transcurrido
     private int kills; //enemigos muertos
 
     private float h;
@@ -67,16 +67,27 @@ public class StadisticsEndgame : MonoBehaviour
     /// </summary>
     void Start()
     {  
-        plevel = playerLevel.LevelPlayer();
-        time = (600 - levelmanager.GetTimer())  ;
+        if (playerLevel != null)
+        {
+            plevel = playerLevel.LevelPlayer();
+        }
+        
+        if (levelManager != null)
+        {
+            time = (600 - levelManager.GetTimer());
+            time = Mathf.FloorToInt(time);
+            kills = levelManager.GetKills();
+            damage = levelManager.GetTotalDamage();
+        }
+        
+        if (stats  != null)
+        {
+            h = stats.GetMaxHealth();
+            m = stats.GetMaxMagic();
+            d = stats.GetDmg();
+        }
 
-        kills = levelmanager.GetKills();
-
-        h = stats.GetMaxHealth();
-        d = stats.GetMaxMagic();
-        m = stats.GetDmg();
-
-        textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + time + "segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
+        textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + time + " segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
 
     }
 

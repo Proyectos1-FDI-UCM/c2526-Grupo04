@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 20
-  kill: {fileID: 0}
+  levelManager: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
 --- !u!114 &5084647295468977431
 MonoBehaviour:
   m_ObjectHideFlags: 0

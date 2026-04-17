@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject Spawner2;
     [SerializeField] private GameObject Spawner3;
     [SerializeField] private GameObject Spawner4;
+    [SerializeField] private float totalDamage;
 
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
@@ -60,13 +61,12 @@ public class LevelManager : MonoBehaviour
     private int _pillarNum;
     private bool _fase1Done = false;
     private bool _pausedGame;
-    private int kills = 0;
 
     private bool spawner1 = false;
     private bool spawner2 = false;
     private bool spawner3 = false;
     private bool spawner4 = false;
-
+    private int kills;
     #endregion
 
 
@@ -244,6 +244,15 @@ public class LevelManager : MonoBehaviour
         return kills;
     }
 
+    public void AddDamage(float amount)
+    {
+        totalDamage += amount;
+    }
+
+    public float GetTotalDamage()
+    {
+        return totalDamage;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

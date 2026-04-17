@@ -24,7 +24,6 @@ public class Health : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [Header("Relevante solo para enemigos")]
     [SerializeField] private int _maxHealth;
-    [SerializeField] private LevelManager kill;
 
     #endregion
 
@@ -91,6 +90,12 @@ public class Health : MonoBehaviour
         // Reproducimos el sonido de recibir daño del jugador
         if (_playerStats != null && damage > 0) AudioManager.Instance.PlayerDamageSound();
         _currentHealth -= damage;
+
+        if (damage > 0 && _enemyXP != null)
+        {
+            // Le enviamos el daño al LevelManager
+            LevelManager.Instance.AddDamage(damage);
+        }
     }
 
     public void UpdateMaxHealth()
@@ -133,6 +138,12 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();
+
+            if (LevelManager.Instance != null)
+            {
+                LevelManager.Instance.Addkill();
+            }
+
             Destroy(gameObject);
         }
 
