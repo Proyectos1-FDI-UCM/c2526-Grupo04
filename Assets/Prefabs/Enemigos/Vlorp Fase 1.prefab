@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
+  kill: {fileID: 0}
 --- !u!114 &9073102906687013084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,13 +309,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5160531526119738106}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea9a62bb4fd70744da1eee09ecc10ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Fase: 1
-  Fase2Boss: {fileID: 0}
+  Fase2Boss: {fileID: 5942378618628523076, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
 --- !u!114 &7683771931456591089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +331,6 @@ MonoBehaviour:
   SpawnInterval: 4
   Enemy: {fileID: 4163877867695462335, guid: c371f37fd19917042ba2217d588d6018, type: 3}
   DistanceFromBoss: 10
-  MainCamera: {fileID: 0}
   DistanceFromCamera: 0
 --- !u!114 &-4694202947145842597
 MonoBehaviour:

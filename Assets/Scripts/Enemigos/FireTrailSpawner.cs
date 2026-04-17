@@ -1,8 +1,8 @@
 //---------------------------------------------------------
 // Gestiona la generación periódica del rastro de fuego
 // que deja el Caminante Ardiente a su paso.
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Rodrigo Ceña Álvarez
+// MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 

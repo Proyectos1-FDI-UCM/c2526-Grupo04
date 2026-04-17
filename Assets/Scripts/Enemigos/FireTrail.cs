@@ -2,8 +2,8 @@
 // Controla el comportamiento del rastro de fuego que deja
 // el Caminante Ardiente. Daña al player si lo pisa y
 // desaparece tras un tiempo determinado.
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Rodrigo Ceña Álvarez
+// MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 

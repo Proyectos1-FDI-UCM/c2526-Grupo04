@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
 // Rodrigo Ceña Álvarez
-// Nombre del juego
+// MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
         if (!LevelManager.Instance.GetPause())
         {
             Vector2 movement = InputManager.Instance.MovementVector;
-            movement = SnapTo8Directions(movement);
+            //movement = SnapTo8Directions(movement);
             //_rb.linearVelocity = movement * Velocity;
 
             transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
@@ -103,22 +103,22 @@ public class Movement : MonoBehaviour
     // El convenio de nombres de Unity recomienda que estos métodos
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
-    private Vector2 SnapTo8Directions(Vector2 input)
-    {
-        if (input.magnitude < 0.1f) return Vector2.zero;
+    //private Vector2 SnapTo8Directions(Vector2 input)
+    //{
+    //    if (input.magnitude < 0.1f) return Vector2.zero;
 
-        // Cálculo del ángulo en radianes y lo pasamos a grados
-        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+    //    // Cálculo del ángulo en radianes y lo pasamos a grados
+    //    float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
 
-        // Redondeamos al múltiplo de 45 más cercano (para las 8 direcciones)
-        angle = Mathf.Round(angle / 45f) * 45f;
+    //    // Redondeamos al múltiplo de 45 más cercano (para las 8 direcciones)
+    //    angle = Mathf.Round(angle / 45f) * 45f;
 
-        // Lo pasamos de vuelta a radianes
-        float rad = angle * Mathf.Deg2Rad;
+    //    // Lo pasamos de vuelta a radianes
+    //    float rad = angle * Mathf.Deg2Rad;
 
-        // Creamos un vector de dirección normalizado a partir del ángulo
-        return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-    }
+    //    // Creamos un vector de dirección normalizado a partir del ángulo
+    //    return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+    //}
     #endregion
 
 } // class Movement 

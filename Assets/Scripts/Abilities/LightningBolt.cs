@@ -1,8 +1,8 @@
 //---------------------------------------------------------
 // Gestiona la hitbox del rayo: la orienta hacia el ratón
 // y la destruye tras un tiempo determinado.
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Rodrigo Ceña Álvarez
+// MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
