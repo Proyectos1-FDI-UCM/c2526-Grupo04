@@ -9,6 +9,12 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
+public enum RangedAtacks
+{
+    None,
+    Laser,
+    Rock
+}
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -32,7 +38,8 @@ public class RangedEnemiesAttack : MonoBehaviour
     [SerializeField] private float AttackSpeed;
 
     [SerializeField] private float ProjectileDistance; //Distancia del enemigo al proyectil al disparar
-    
+
+    [SerializeField] private RangedAtacks RangedAtacks;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -82,6 +89,7 @@ public class RangedEnemiesAttack : MonoBehaviour
                 //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
                 if (Time.time > _nextAttack)
                 {
+                    AudioManager.Instance.PlayRangedAtack(RangedAtacks);
                     _nextAttack = Time.time + AttackSpeed;
                     GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
                     newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);

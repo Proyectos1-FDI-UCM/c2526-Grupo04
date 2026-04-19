@@ -8,7 +8,12 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
-
+public enum Weapon
+{
+    Sword,
+    Spear,
+    Hammer
+}
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
@@ -27,6 +32,8 @@ public class WeaponAttack : MonoBehaviour
 
     [SerializeField] private float AttackDuration;
 
+    [SerializeField] private Weapon Weapon;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -42,9 +49,7 @@ public class WeaponAttack : MonoBehaviour
     private SpriteRenderer _debug;
     private float _lastAttackTime;
     private Aim _aim;
-    
-
-    #endregion
+        #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
@@ -82,6 +87,7 @@ public class WeaponAttack : MonoBehaviour
 
             if (_lastAttackTime + latency < Time.time)
             {
+                AudioManager.Instance.PlayWeaponSound(Weapon);
                 _hitbox.enabled = true;
                 _debug.enabled = true;
                 _lastAttackTime = Time.time;

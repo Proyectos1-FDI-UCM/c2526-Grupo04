@@ -72,6 +72,7 @@ public class Boss : MonoBehaviour
 
             else if (_health.IsDead() && Fase == 2)
             {
+                AudioManager.Instance.PlayDeathBossSound();
                 HUDManager.Instance.WinMenuHUD();
             }
         }

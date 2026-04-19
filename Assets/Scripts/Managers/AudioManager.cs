@@ -25,22 +25,51 @@ public class AudioManager : MonoBehaviour
 
     [Header("Efecto de sonido al pulsar botones")]
     [SerializeField] private AudioClip ButtonSound; // Sonido mp3 que se reproduce al pulsar un botón.
+    
     [Header("Efectos de sonido de muerte de los enemigos")]
     [SerializeField] private AudioClip[] DeathSound; // Sonidos mp3 posibles que se reproducirán al morir los enemigos.
+    
     [Header("Efecto de sonido de recibir daño del jugador")]
     [SerializeField] private AudioClip DamageSound; // Sonido mp3 que se reproduce cuando el jugador reciba daño.
+    
     [Header("Efecto de sonido para la derrota del jugador")]
     [SerializeField] private AudioClip DefeatSound; // Sonido mp3 que se reproduce tras la derrota del jugador.
+    
     [Header("Efecto de sonido cuando se usa la habilidad de la bola de fuego")]
     [SerializeField] private AudioClip FireballSound; // Sonido mp3 que se reproduce al usar la habilidad de la bola de fuego.
+    
     [Header("Efecto de sonido cuando explota la bola de fuego")]
     [SerializeField] private AudioClip FireballExplosionSound; // Sonido mp3 que se reproduce cuando explota la bola de fuego.
+    
     [Header("Efecto de sonido cuando se usa la habilidad del rayo")]
     [SerializeField] private AudioClip LightningSound; // Sonido mp3 que se reproduce al usar la habilidad del rayo.
+    
     [Header("Efectos de sonido cuando se usa la habilidad de la zona de veneno")]
     [SerializeField] private AudioClip PoisonSound; // Sonido mp3 que se reproducen al usar la habilidad de la zona de veneno.
+    
     [Header("Efectos de sonido mientras esté la zona de veneno")]
     [SerializeField] private AudioClip PoisonedFloorSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido espada")]
+    [SerializeField] private AudioClip SwordSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido lanza")]
+    [SerializeField] private AudioClip SpearSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido martillo")]
+    [SerializeField] private AudioClip HammerSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido muerte del Boss")]
+    [SerializeField] private AudioClip DeathBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido curación de los pilares")]
+    [SerializeField] private AudioClip HealBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido para el ataque laser del boss")]
+    [SerializeField] private AudioClip LaserBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("Efectos de sonido para el ataque de piedras del boss")]
+    [SerializeField] private AudioClip StoneBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
     #endregion
 
@@ -175,6 +204,34 @@ public class AudioManager : MonoBehaviour
     public void PlayPoisonedFloorSound()
     {
         PlaySound(PoisonedFloorSound);
+    }
+
+    public void PlayDeathBossSound()
+    {
+        PlaySound(DeathBossSound);
+    }
+    public void PlayHealBossSound()
+    {
+        PlaySound(HealBossSound);
+    }
+
+    public void PlayWeaponSound(Weapon weapon)
+    {
+        switch (weapon)
+        {
+            case Weapon.Sword: PlaySound(SwordSound); break;
+            case Weapon.Spear: PlaySound(SpearSound); break;
+            case Weapon.Hammer: PlaySound(HammerSound); break;
+        }
+    }
+
+    public void PlayRangedAtack(RangedAtacks rangedAtacks)
+    {
+        switch (rangedAtacks)
+        {
+            case RangedAtacks.Laser: PlaySound(LaserBossSound); break;
+            case RangedAtacks.Rock: PlaySound(StoneBossSound); break;
+        }
     }
 
     #endregion
