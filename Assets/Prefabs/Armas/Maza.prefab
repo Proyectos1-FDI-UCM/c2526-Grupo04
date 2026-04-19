@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackFrecuency: 0.6
   AttackDuration: 0.6
+  Weapon: 2
 --- !u!212 &2884794129930726834
 SpriteRenderer:
   m_ObjectHideFlags: 0
