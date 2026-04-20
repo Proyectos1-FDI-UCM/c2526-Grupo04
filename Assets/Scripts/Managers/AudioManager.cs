@@ -50,6 +50,9 @@ public class AudioManager : MonoBehaviour
     [Header("Efectos de sonido mientras esté la zona de veneno")]
     [SerializeField] private AudioClip PoisonedFloorSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
+    [Header("Efectos de sonido al subir de nivel")]
+    [SerializeField] private AudioClip UpgradeSound; // Sonido mp3 que se reproducen al subir de nivel.
+
     [Header("Efectos de sonido espada")]
     [SerializeField] private AudioClip SwordSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
@@ -204,6 +207,14 @@ public class AudioManager : MonoBehaviour
     public void PlayPoisonedFloorSound()
     {
         PlaySound(PoisonedFloorSound);
+    }
+
+    /// <summary>
+    /// Método al que llamaremos al subir de nivel.
+    /// </summary>
+    public void PlayUpgradeSound()
+    {
+        PlaySound(UpgradeSound);
     }
 
     public void PlayDeathBossSound()

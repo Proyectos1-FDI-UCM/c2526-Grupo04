@@ -62,6 +62,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject DefeatMenu;
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject SelectionMenu;
+    [SerializeField] private GameObject LevelUpTextScreen;
 
     [Header("")]
     
@@ -242,7 +243,6 @@ public class HUDManager : MonoBehaviour
         DefeatMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(DefeatMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
-
     }
 
     public void LevelUpMenuHUD(bool levelUp)
@@ -262,6 +262,12 @@ public class HUDManager : MonoBehaviour
     {
         WinMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(WinMenu.GetComponentInChildren<Button>().gameObject);
+        LevelManager.Instance.PauseGame();
+    }
+
+    public void LevelUpTextScreenHUD(bool active)
+    {
+        LevelUpTextScreen.SetActive(active);
         LevelManager.Instance.PauseGame();
     }
 

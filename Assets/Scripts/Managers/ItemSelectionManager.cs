@@ -28,7 +28,8 @@ public class ItemSelectionManager : MonoBehaviour
     [SerializeField] private GameObject GameCanvas;
 
     //Array de todos los tipos de items del juego
-    [SerializeReference] private Item[] ItemList = new Item[] {
+    [SerializeReference]
+    private Item[] ItemList = new Item[] {
         new DamageItem("Lanza"),
         new DamageItem("Maza"),
         new DamageItem("Espada"),
@@ -44,7 +45,7 @@ public class ItemSelectionManager : MonoBehaviour
     };
 
 
-    
+
 
     //textos de los botones con las distintas elecciones
 
@@ -62,15 +63,18 @@ public class ItemSelectionManager : MonoBehaviour
 
     //array con todas las opciones posibles que pueden salir
 
-    
 
-    private enum Options{Lanza, Maza, Espada, Rayo, Fireball, Poison, Casco, Pocima, Sello, Pesa, Tunica, Orbe};
+
+    private enum Options { Lanza, Maza, Espada, Rayo, Fireball, Poison, Casco, Pocima, Sello, Pesa, Tunica, Orbe };
     private int queue = 0;
     private Potenciadores _potenciadores;
     private Item item1, item2, item3;
     private bool FirstTime;
     private int[] _random;
     private int _elec;
+    private float _count = 0f;
+    private bool _wait = false;
+    private float _waitTime = 1.5f;
 
     #endregion
 
@@ -102,10 +106,29 @@ public class ItemSelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (!LevelManager.Instance.GetPause())
+        if (queue > 0 && !_wait) //si sube de nivel y no estamos mostrando el texto en pantalla entramos
         {
-            if (queue > 0)
+            if (!FirstTime) //si no es la primera vez, mostramos el texto de subida de nivel y comenzamos espera para menú de selección 
             {
+                LevelUpTextScreen();
+                _wait = true;
+                _count = 0f;
+            }
+            else //si es la primera vez, directamente el menú de selección
+            {
+                PowerUpScreen();
+                queue--;
+            }
+        }
+
+        if (_wait) //si estamos esperando para mostrar el menú de selección, aumentamos el contador
+        {
+            _count += Time.unscaledDeltaTime;
+
+            if (_count >= _waitTime) //si ha pasado el tiempo de espera, mostramos el menú de selección y reseteamos el contador
+            {
+                _wait = false;
+                HUDManager.Instance.LevelUpTextScreenHUD(false);
                 PowerUpScreen();
                 queue--;
             }
@@ -123,9 +146,16 @@ public class ItemSelectionManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
+    public void LevelUpTextScreen() //método para pausar el juego, escondemos la UI del juego, mostramos el menú y paramos el resto
+    {
+        HUDManager.Instance.LevelUpTextScreenHUD(true);
+        GameCanvas.SetActive(false);
+        LevelManager.Instance.PauseGame();        
+        AudioManager.Instance.PlayUpgradeSound();
+    }
+
     public void PowerUpScreen() //método para pausar el juego, escondemos la UI del juego, mostramos el menú y paramos el resto
     {
-        GameCanvas.SetActive(false);
         HUDManager.Instance.LevelUpMenuHUD(true);
         LevelManager.Instance.PauseGame();
         RandomOptions(); //elegimos aleatoriamente las opciones que se mostrarán en el menú
@@ -136,8 +166,8 @@ public class ItemSelectionManager : MonoBehaviour
         AudioManager.Instance.ClickSound();
         DamageItem DItem1 = item1 as DamageItem;
         PowerUpItem PUItem1 = item1 as PowerUpItem;
-        if (DItem1 != null) 
-        { 
+        if (DItem1 != null)
+        {
             Instantiate(DItem1.GetPrefab());
             ItemHUDEnable(item1);
         }
@@ -172,7 +202,7 @@ public class ItemSelectionManager : MonoBehaviour
         AudioManager.Instance.ClickSound();
         DamageItem DItem3 = item3 as DamageItem;
         PowerUpItem PUItem3 = item3 as PowerUpItem;
-        if (DItem3 != null) 
+        if (DItem3 != null)
         {
             Instantiate(DItem3.GetPrefab());
             ItemHUDEnable(item3);
@@ -200,19 +230,19 @@ public class ItemSelectionManager : MonoBehaviour
     // mayúscula, incluida la primera letra)
 
 
-    
-    
+
+
     private void RandomOptions() //elegimos al azar las opciones entre todas las disponibles
     {
         // Si se trata de la primera selección de la partida, solo se podrá elegir entre las 3 armas del juego
         do
-        {   
+        {
             if (FirstTime) item1 = ItemList[0];
             else item1 = ItemList[_random[_elec]]; _elec++;
         } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
         HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
-        do 
+        do
         {
             if (FirstTime) item2 = ItemList[1];
             else item2 = ItemList[_random[_elec]]; _elec++;
@@ -221,27 +251,28 @@ public class ItemSelectionManager : MonoBehaviour
 
         do
         {
-            if (FirstTime) item3 = ItemList[2]; 
+            if (FirstTime) item3 = ItemList[2];
             else item3 = ItemList[_random[_elec]]; _elec++;
         } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
         HUDManager.Instance.UpdateSelectionGUI(item3, 3);
+
         // Cambiamos el valor del booleano FirstTime para que de ahora en adelante salgan todas las opciones
         if (FirstTime) FirstTime = false;
     }
-    
+
     private void ResumeGame() //metodo para reanudar el juego cuando se haya elgido alguna de las opciones, hace lo opuesto al metodo de pausa
     {
         HUDManager.Instance.LevelUpMenuHUD(false);
         GameCanvas.SetActive(true);
         LevelManager.Instance.UnPauseGame();
     }
-    
+
     private void ItemHUDEnable(Item item)
     {
         HUDManager.Instance.DmgItemsHUDEnable(item);
     }
-    
-    #endregion   
+
+    #endregion
 
 } // class ItemSelectionManager 
 // namespace
