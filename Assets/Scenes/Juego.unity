@@ -9882,6 +9882,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
+      propertyPath: SpearSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f738c26bf7f50a444a91e4d212b91219, type: 3}
+    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
+      propertyPath: SwordSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 41aec8decfd8a734f9c07523f06a3c7d, type: 3}
+    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
+      propertyPath: HammerSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a01937840939815449be8e119ea953bf, type: 3}
+    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
       propertyPath: PoisonSound
       value: 
       objectReference: {fileID: 8300000, guid: 4f128adab09380c42a94fc8e6a611e1a, type: 3}
@@ -9890,9 +9902,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: def6c02025097b04eb5fca8e1e7a6bf9, type: 3}
     - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
+      propertyPath: DeathBossSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f56fb2464374bb448e411ea959e05f6, type: 3}
+    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
+      propertyPath: LaserBossSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 90f32d92596fa7b47b263763bf1c65d4, type: 3}
+    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
       propertyPath: LightningSound
       value: 
       objectReference: {fileID: 8300000, guid: ed1053c77f8327e448cd93c1ca4575d6, type: 3}
+    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
+      propertyPath: StoneBossSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3076f9cce0a9e1c4b9ef3155c7e534a3, type: 3}
     - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
       propertyPath: PoisonedFloorSound
       value: 
