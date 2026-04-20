@@ -69,6 +69,8 @@ public class ItemSelectionManager : MonoBehaviour
     private Potenciadores _potenciadores;
     private Item item1, item2, item3;
     private bool FirstTime;
+    private int[] _random;
+    private int _elec;
 
     #endregion
 
@@ -87,6 +89,12 @@ public class ItemSelectionManager : MonoBehaviour
     {
         FirstTime = true;
         _potenciadores = GetComponent<Potenciadores>(); //obtenemos componente potenciadores
+        _random = new int[100];
+        for (int i = 0; i < 100; i++)
+        {
+            _random[i] = UnityEngine.Random.Range(0, ItemList.Length);
+        }
+        _elec = 0;
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -200,21 +208,21 @@ public class ItemSelectionManager : MonoBehaviour
         do
         {   
             if (FirstTime) item1 = ItemList[0];
-            else item1 = ItemList[UnityEngine.Random.Range(0, ItemList.Length)];
+            else item1 = ItemList[_random[_elec]]; _elec++;
         } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
         HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
         do 
         {
             if (FirstTime) item2 = ItemList[1];
-            else item2 = ItemList[UnityEngine.Random.Range(0, ItemList.Length)];
+            else item2 = ItemList[_random[_elec]]; _elec++;
         } while (item1 == item2 || item2.WasUsed() == true); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
         HUDManager.Instance.UpdateSelectionGUI(item2, 2);
 
         do
         {
             if (FirstTime) item3 = ItemList[2]; 
-            else item3 = ItemList[UnityEngine.Random.Range(0, ItemList.Length)];
+            else item3 = ItemList[_random[_elec]]; _elec++;
         } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
         HUDManager.Instance.UpdateSelectionGUI(item3, 3);
         // Cambiamos el valor del booleano FirstTime para que de ahora en adelante salgan todas las opciones

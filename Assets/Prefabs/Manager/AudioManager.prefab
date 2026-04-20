@@ -149,3 +149,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f8e96880c62aac42b2bb0ee9b27c708, type: 3}
   DamageSound: {fileID: 8300000, guid: e17a8a02581d6c043828d6e5460aea20, type: 3}
   DefeatSound: {fileID: 8300000, guid: 63acec7c1f0b880449fa7a3b3e37c82d, type: 3}
+  FireballSound: {fileID: 0}
+  FireballExplosionSound: {fileID: 0}
+  LightningSound: {fileID: 0}
+  PoisonSound: {fileID: 0}
+  PoisonedFloorSound: {fileID: 0}

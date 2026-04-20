@@ -30,7 +30,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject Meteorite;
     [SerializeField] private GameObject Boss;
-    [SerializeField] private GameObject Pillars;
+    [SerializeField] private GameObject Pillar;
+    [SerializeField] private Vector2[] PillarPos = new Vector2[3];
     [SerializeField] private Transform Player;
     [SerializeField] private float LimitX = 1.0f;
     [SerializeField] private float LimitY = 1.0f;
@@ -39,7 +40,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject Spawner2;
     [SerializeField] private GameObject Spawner3;
     [SerializeField] private GameObject Spawner4;
-    [SerializeField] private float totalDamage;
+    [SerializeField] private int Seed;
 
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
@@ -61,12 +62,12 @@ public class LevelManager : MonoBehaviour
     private int _pillarNum;
     private bool _fase1Done = false;
     private bool _pausedGame;
-
     private bool spawner1 = false;
     private bool spawner2 = false;
     private bool spawner3 = false;
     private bool spawner4 = false;
     private int kills;
+    private float totalDamage;
     #endregion
 
 
@@ -90,8 +91,8 @@ public class LevelManager : MonoBehaviour
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
+        UnityEngine.Random.InitState(Seed);
 
-       
     }
 
     void Update()
@@ -116,31 +117,31 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-
-        if (_timer <= 600 && !spawner1)
+        
+        if (_timer <= InitialTime * 60 && !spawner1)
         {
             CrearSpawners(Spawner1);
             spawner1 = true;
         }
             
-        if (_timer <= 500 && !spawner2)
+        if (_timer <= ((InitialTime * 60)*2)/3 && !spawner2)
         {
             CrearSpawners(Spawner2);
             spawner2 = true;
         }
 
-        if (_timer <= 400 && !spawner3)
+        if (_timer <= (InitialTime * 60)/2 && !spawner3)
         {
             CrearSpawners(Spawner3);
             spawner3 = true;
         }
 
-        if (_timer <= 300 && !spawner4)
+        if (_timer <= (InitialTime * 60)/3 && !spawner4)
         {
             CrearSpawners(Spawner4);
             spawner4 = true;
         }
-
+        
     }
 
     
@@ -271,8 +272,10 @@ public class LevelManager : MonoBehaviour
     {
         Instantiate(Meteorite);
         Instantiate(Boss);
-        Instantiate(Pillars);
-        
+        Instantiate(Pillar, PillarPos[0], Quaternion.identity);
+        Instantiate(Pillar, PillarPos[1], Quaternion.identity);
+        Instantiate(Pillar, PillarPos[2], Quaternion.identity);
+
         if (_pillarNum == 0)
         {
             _pillarNum = FindObjectsByType<Healing>(FindObjectsSortMode.None).Length;

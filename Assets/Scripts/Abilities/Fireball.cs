@@ -26,6 +26,11 @@ public class Fireball : MonoBehaviour
     [SerializeField] private float Duration = 1f;
     [SerializeField] private float ExplosionTime = 0.2f;
     [SerializeField] private float Speed;
+
+
+    AudioSource man;
+    
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----

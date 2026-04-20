@@ -40,7 +40,8 @@ public class Health : MonoBehaviour
     private float _currentHealth;
 
     private EnemyXP _enemyXP;
-    
+
+    private Healing _healing;
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -58,6 +59,7 @@ public class Health : MonoBehaviour
     {
         _playerStats = gameObject.GetComponent<PlayerStats>();
         _enemyXP = gameObject.GetComponent<EnemyXP>();
+        _healing = gameObject.GetComponent<Healing>();
         if (_playerStats != null)
             UpdateMaxHealth();
         _currentHealth = _maxHealth;        
@@ -152,6 +154,11 @@ public class Health : MonoBehaviour
         {
             AudioManager.Instance.PlayerDefeatSound(); // Reproducimos el sonido de derrota del jugador
             LevelManager.Instance.PlayerDead();
+        }
+
+        else if (_healing != null)
+        {
+            Destroy(gameObject);
         }
     }
 

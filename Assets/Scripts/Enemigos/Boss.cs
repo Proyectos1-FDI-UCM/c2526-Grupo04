@@ -55,7 +55,8 @@ public class Boss : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _health = GetComponent<Health>();
+        _health = gameObject.GetComponent<Health>();
+        Debug.Log(Fase);
     }
 
     /// <summary>
@@ -65,13 +66,16 @@ public class Boss : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
+            Debug.Log(_health.IsDead());
             if (_health.IsDead() && Fase == 1)
             {
+                Debug.Log("1");
                 Instantiate(Fase2Boss);
             }
 
             else if (_health.IsDead() && Fase == 2)
             {
+                Debug.Log("2");
                 HUDManager.Instance.WinMenuHUD();
             }
         }

@@ -275,7 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
-  levelManager: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
 --- !u!114 &9073102906687013084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxDistance: 1
-  Speed: 1
+  MaxDistance: 0
+  Speed: 0
   KnockbackSpeed: 0
   KnockbackDuration: 0
