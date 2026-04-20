@@ -187,7 +187,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayLightningSound()
     {
-        PlaySound(LightningSound, 0.5f);
+        PlaySound(LightningSound);
     }
 
     /// <summary>
