@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
     private float _currentHealth;
 
     private EnemyXP _enemyXP;
+    private Boss _boss;
 
     private Healing _healing;
     #endregion
@@ -60,6 +61,7 @@ public class Health : MonoBehaviour
         _playerStats = gameObject.GetComponent<PlayerStats>();
         _enemyXP = gameObject.GetComponent<EnemyXP>();
         _healing = gameObject.GetComponent<Healing>();
+        _boss = gameObject.GetComponent<Boss>();
         if (_playerStats != null)
             UpdateMaxHealth();
         _currentHealth = _maxHealth;        
@@ -140,13 +142,10 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             _enemyXP.DeathXpDrop();
-
-            if (LevelManager.Instance != null)
-            {
-                LevelManager.Instance.Addkill();
-            }
-
-            Destroy(gameObject);
+            LevelManager.Instance.Addkill();
+            if (_boss == null) Destroy(gameObject); // No destruimos al jefe.
+            // Al no destruirlo, permitimos que el Update del componente Boss se ejecute, instanciando
+            // la segunda fase y destruyendo la primera instantaneamente.
         }
 
         // aqui un else que te saque la pantalla de derrota (else pq solo si es el player)

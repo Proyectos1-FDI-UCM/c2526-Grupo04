@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9143576245860555351}
   - component: {fileID: 1012053196835705351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8128886831723762597}
   - component: {fileID: 123761286522349000}
   - component: {fileID: 4835226226583288920}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Vlorp Fase 2
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -262,6 +262,7 @@ MonoBehaviour:
   Projectile: {fileID: 545131121240906260, guid: 2b9ce117d96a4d340b77ac013defd6e7, type: 3}
   AttackSpeed: 5
   ProjectileDistance: 0
+  RangedAtacks: 0
 --- !u!114 &241851441803424710
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -40,11 +40,10 @@ public class Healing : MonoBehaviour
     private GameObject _boss;
     private Health _bossHealth;
     private Health _pillarHealth;
-    private Transform _bossPos;
-    private float regen = 0f;
+    private float _regen = 0f;
     private float _currentHealth;
     private int _maxHealth;
-    private bool _bossFase2;
+    private bool _Phase2Boss = false;
 
     #endregion
 
@@ -61,12 +60,11 @@ public class Healing : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _boss = FindAnyObjectByType<Boss>().gameObject;
+        _boss = GameObject.FindGameObjectWithTag("Boss");
         _pillarHealth = GetComponent<Health>();
         if (_boss != null)
         {
             _bossHealth = _boss.GetComponent<Health>();
-            _bossPos = _boss.GetComponent<Transform>();
             _maxHealth = _bossHealth.GetMaxHealth();
         }
         
@@ -79,15 +77,14 @@ public class Healing : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-                if (_pillarHealth.IsDead())
+            if (_pillarHealth.IsDead())
+            {
+                if (LevelManager.Instance.PillarDestroyed() == 0 && !_Phase2Boss) //comprueba que es el último pilar y que el boss esté en la fase 1
                 {
-                    
-                    if (LevelManager.Instance.PillarDestroyed() == 0 && !_bossFase2) //comprueba que es el último pilar y que el boss esté en la fase 1
-                    {
-                        _bossHealth.LoseHealth(_maxHealth + 1);
-                    }
+                    _bossHealth.LoseHealth(_maxHealth + 1);
                 }
-                BossHeal();
+            }
+            BossHeal();
         }
     }
     #endregion
@@ -112,16 +109,14 @@ public class Healing : MonoBehaviour
 
     private void BossHeal()
     {
-
         //Si el boss es nulo busca de nuevo (normalmente cuando pase a fase 2)
         if (_boss == null)
         {
             _boss = GameObject.FindGameObjectWithTag("Boss");
             if (_boss != null)
             {
-                if (_maxHealth != _bossHealth.GetMaxHealth()) _bossFase2 = true;
+                if (_maxHealth != _bossHealth.GetMaxHealth()) _Phase2Boss = true;
                 _bossHealth = _boss.GetComponent<Health>();
-                _bossPos = _boss.GetComponent<Transform>();
                 _maxHealth = _bossHealth.GetMaxHealth();
             }
         }
@@ -129,10 +124,10 @@ public class Healing : MonoBehaviour
         //Mismo comportamiento que la regenHealth
         else
         {
-            regen = Time.deltaTime / HealingTimePerUnit;
+            _regen = Time.deltaTime / HealingTimePerUnit;
             _currentHealth = _bossHealth.GetCurrentHealth();
 
-            if (_currentHealth < _maxHealth) _bossHealth.LoseHealth(-regen);
+            if (_currentHealth < _maxHealth) _bossHealth.LoseHealth(-_regen);
             else _bossHealth.LoseHealth(_currentHealth - _maxHealth);
         }
     }

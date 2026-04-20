@@ -117,7 +117,6 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        
         if (_timer <= InitialTime * 60 && !spawner1)
         {
             CrearSpawners(Spawner1);
@@ -141,7 +140,6 @@ public class LevelManager : MonoBehaviour
             CrearSpawners(Spawner4);
             spawner4 = true;
         }
-        
     }
 
     

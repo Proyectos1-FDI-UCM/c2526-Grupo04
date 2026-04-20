@@ -56,7 +56,6 @@ public class Boss : MonoBehaviour
     void Start()
     {
         _health = gameObject.GetComponent<Health>();
-        Debug.Log(Fase);
     }
 
     /// <summary>
@@ -69,14 +68,15 @@ public class Boss : MonoBehaviour
             Debug.Log(_health.IsDead());
             if (_health.IsDead() && Fase == 1)
             {
-                Debug.Log("1");
-                Instantiate(Fase2Boss);
+                GameObject BossPhase2 = Instantiate(Fase2Boss, transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
 
             else if (_health.IsDead() && Fase == 2)
             {
                 AudioManager.Instance.PlayDeathBossSound();
                 HUDManager.Instance.WinMenuHUD();
+                Destroy(gameObject);
             }
         }
     }
