@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackFrecuency: 1
   AttackDuration: 0.2
+  Weapon: 0
 --- !u!212 &2884794129930726834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1421755285969323024, guid: 5bae4606d3521324db3d7ffe8799f1ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -1334,10 +1334,10 @@ RectTransform:
   - {fileID: 295545100}
   m_Father: {fileID: 861581150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2248133, y: 0.36900002}
-  m_AnchorMax: {x: 0.7851597, y: 0.586595}
-  m_AnchoredPosition: {x: -2.3587952, y: 12.209}
-  m_SizeDelta: {x: -148.4482, y: -24.4189}
+  m_AnchorMin: {x: 0.34, y: 0.45}
+  m_AnchorMax: {x: 0.65, y: 0.57}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356464014
 MonoBehaviour:
@@ -5180,51 +5180,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670720].description
-      value: 
+      value: Arma rapida y alargada
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670721].description
-      value: 
+      value: Arma lenta y fuerte
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670722].description
-      value: 
+      value: Arma corta en barrido
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670723].description
-      value: 
+      value: 'Habilidad que lanza una descarga electrica '
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670724].description
-      value: 
+      value: Habilidad que lanza una bola de fuego
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670725].description
-      value: 
+      value: Habilidad que genera una zona venenosa
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670726].description
-      value: 
+      value: Vida++
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670727].description
-      value: 
+      value: Fuerza++
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670728].description
-      value: 
+      value: Magia++
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670729].description
-      value: 
+      value: Vida+ Fuerza+
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670730].description
-      value: 
+      value: Vida+ Magia+
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[3899020313545670731].description
-      value: 
+      value: Magia+ Fuerza+
       objectReference: {fileID: 0}
     - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: managedReferences[8278630194761695284].description
@@ -6194,10 +6194,10 @@ RectTransform:
   - {fileID: 1159920930}
   m_Father: {fileID: 861581150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2248133, y: 0.099851266}
-  m_AnchorMax: {x: 0.7851597, y: 0.32055384}
-  m_AnchoredPosition: {x: -2.6296997, y: 4.5}
-  m_SizeDelta: {x: -147.9064, y: -26.1052}
+  m_AnchorMin: {x: 0.34, y: 0.18}
+  m_AnchorMax: {x: 0.65, y: 0.3}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596394733
 MonoBehaviour:
@@ -6268,7 +6268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.13777518, a: 1}
+  m_Color: {r: 0.97622836, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9293,7 +9293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1710253826
 MonoBehaviour:
   m_ObjectHideFlags: 0
