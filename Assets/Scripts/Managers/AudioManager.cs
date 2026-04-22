@@ -221,10 +221,6 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(DeathBossSound);
     }
-    public void PlayHealBossSound()
-    {
-        PlaySound(HealBossSound);
-    }
 
     public void PlayWeaponSound(Weapon weapon)
     {
