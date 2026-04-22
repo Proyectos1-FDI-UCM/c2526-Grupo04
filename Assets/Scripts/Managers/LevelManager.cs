@@ -66,8 +66,10 @@ public class LevelManager : MonoBehaviour
     private bool spawner2 = false;
     private bool spawner3 = false;
     private bool spawner4 = false;
-    private int kills;
-    private float totalDamage;
+    private int _kills;
+    private float _totalDamage;
+    private int _nEnemies;
+
     #endregion
 
 
@@ -91,6 +93,7 @@ public class LevelManager : MonoBehaviour
         _timer = InitialTime * 60;
         _fase1Done = false;
         _pausedGame = false;
+        _nEnemies = 0;
         UnityEngine.Random.InitState(Seed);
 
     }
@@ -236,21 +239,37 @@ public class LevelManager : MonoBehaviour
 
     public void Addkill()
     {
-        kills++;
+        _kills++;
     }
     public int GetKills()
     {
-        return kills;
+        return _kills;
     }
 
     public void AddDamage(float amount)
     {
-        totalDamage += amount;
+        _totalDamage += amount;
     }
 
     public float GetTotalDamage()
     {
-        return totalDamage;
+        return _totalDamage;
+    }
+
+
+    public void SpawnEnemy()
+    {
+        _nEnemies++;
+    }
+
+    public void DestroyEnemy()
+    {
+        _nEnemies--;
+    }
+
+    public int NumOfEnemies()
+    {
+        return _nEnemies;
     }
     #endregion
 

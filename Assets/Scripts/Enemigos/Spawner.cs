@@ -49,6 +49,7 @@ public class Spawner : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
+    const int EnemyCap = 100;
 
     private float _minX, _maxX, _minY, _maxY; //Valores de los límites del mapa en x e y
 
@@ -94,6 +95,11 @@ public class Spawner : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
+            if (LevelManager.Instance.NumOfEnemies() > EnemyCap/3)
+            {
+                _realSpawnInterval += Time.deltaTime * ((float)LevelManager.Instance.NumOfEnemies()/(float)EnemyCap);
+            }
+
             if (Time.time > _realSpawnInterval)
             {
                 //Posición de aparición del enemigo
@@ -133,11 +139,13 @@ public class Spawner : MonoBehaviour
 
                 //Generamos el enemigo en la posición obtenida
                 GameObject _newEnemy = Instantiate(Enemy, _spawnPos, Quaternion.identity);
+                LevelManager.Instance.SpawnEnemy();
 
                 //Aumentamos el valor de _realSpawnInterval para que el juego espere el intervalo deseado hasta generar el siguient enemigo
                 _realSpawnInterval = Time.time + SpawnInterval;
             }
         }
+        else _realSpawnInterval += Time.deltaTime;
     }
     #endregion
 

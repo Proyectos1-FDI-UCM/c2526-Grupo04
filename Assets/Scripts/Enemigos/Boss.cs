@@ -65,7 +65,6 @@ public class Boss : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            Debug.Log(_health.IsDead());
             if (_health.IsDead() && Fase == 1)
             {
                 GameObject BossPhase2 = Instantiate(Fase2Boss, transform.position, Quaternion.identity);

@@ -135,12 +135,12 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        // Reproducimos el sonido de muerte
-        AudioManager.Instance.EnemiesDeathSound();
-
         // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {
+            LevelManager.Instance.DestroyEnemy();
+            // Reproducimos el sonido de muerte
+            AudioManager.Instance.EnemiesDeathSound();
             _enemyXP.DeathXpDrop();
             LevelManager.Instance.Addkill();
             if (_boss == null) Destroy(gameObject); // No destruimos al jefe.
