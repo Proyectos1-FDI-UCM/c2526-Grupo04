@@ -59,6 +59,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip StoneBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
+    [SerializeField] private AudioClip VictorySound; // Sonido mp3 que se reproduce al derrotar al jefe final.
+
     [Header("OST del juego")]
     // Sonido mp3 que se reproduce en la escena de juego principal.
     [SerializeField] private AudioClip GameSceneMusic;
@@ -68,9 +70,6 @@ public class AudioManager : MonoBehaviour
 
     // Sonido mp3 que se reproduce al enfrentarse contra el jefe final.
     [SerializeField] private AudioClip BossFightMusic; 
-
-    // Sonido mp3 que se reproduce al derrotar al jefe final.
-    [SerializeField] private AudioClip VictoryMusic; 
 
     #endregion
 
@@ -263,17 +262,13 @@ public class AudioManager : MonoBehaviour
 
 
     /// <summary>
-    /// Método al que llamaremos para cambiar la canción de fondo y reproducir la correspondiente al 
-    /// jefe final.
+    /// Método al que llamaremos para cambiar reproducir el efecto de sonido correspondiente a la 
+    /// victoria.
     /// </summary>
-    public void ChangeToVictoryMusic()
+    public void PlayVictorySound()
     {
-        if (VictoryMusic != null)
-        {
-            _musicAudioSource.Stop();
-            _musicAudioSource.clip = VictoryMusic;
-            _musicAudioSource.Play();
-        }
+        _musicAudioSource.Stop();
+        if (VictorySound != null) PlaySound(VictorySound);
     }
 
     /// <summary>

@@ -77,7 +77,7 @@ public class Boss : MonoBehaviour
                 AudioManager.Instance.PlayDeathBossSound();
 
                 // Reproducimos la banda sonora correspondiente a la victoria del jugador.
-                AudioManager.Instance.ChangeToVictoryMusic();
+                AudioManager.Instance.PlayVictorySound();
 
                 HUDManager.Instance.WinMenuHUD();
 
