@@ -10026,85 +10026,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: SpearSound
+      propertyPath: MenuMusic
       value: 
-      objectReference: {fileID: 8300000, guid: f738c26bf7f50a444a91e4d212b91219, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: SwordSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 41aec8decfd8a734f9c07523f06a3c7d, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: HammerSound
-      value: 
-      objectReference: {fileID: 8300000, guid: a01937840939815449be8e119ea953bf, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: PoisonSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f128adab09380c42a94fc8e6a611e1a, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: UpgradeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: db5b9622cf46be04986cfc429a6f879b, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: FireballSound
-      value: 
-      objectReference: {fileID: 8300000, guid: def6c02025097b04eb5fca8e1e7a6bf9, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: HealBossSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 739a9d88b49a05c4a93ba29901e2694b, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: DeathBossSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f56fb2464374bb448e411ea959e05f6, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: LaserBossSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 90f32d92596fa7b47b263763bf1c65d4, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: LightningSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ed1053c77f8327e448cd93c1ca4575d6, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: StoneBossSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 3076f9cce0a9e1c4b9ef3155c7e534a3, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: PoisonedFloorSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 752ec562532cb304a8dcc770accf1e10, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: FireballExplosionSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 3748a893865f7c2488a93d25cb3f1162, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: PoisonSound.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: _DeathSound.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: 'PoisonSound.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f128adab09380c42a94fc8e6a611e1a, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: 'PoisonSound.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 752ec562532cb304a8dcc770accf1e10, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: '_DeathSound.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 7088f87901775c24faab58096bda8dd9, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: '_DeathSound.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 27185033d67d8ac42af8c8e0a49a15dc, type: 3}
-    - target: {fileID: 1268835254145913471, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: '_DeathSound.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 5f8e96880c62aac42b2bb0ee9b27c708, type: 3}
+      objectReference: {fileID: 8300000, guid: a1cecc1e32db2ce4db72b97da12395d4, type: 3}
     - target: {fileID: 3151400313730206173, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10148,10 +10072,6 @@ PrefabInstance:
     - target: {fileID: 6123658157842093414, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995662422203390806, guid: 924d2512fb58ab34f8dd9446b2cb4c78, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

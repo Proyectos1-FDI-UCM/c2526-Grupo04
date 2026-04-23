@@ -217,11 +217,13 @@ public class LevelManager : MonoBehaviour
 
     public void PauseGame()   
     {
+        AudioManager.Instance.SetOSTVolume(0.4f); // Bajamos el volumen.
         _pausedGame = true;
     }
 
     public void UnPauseGame()
     {
+        AudioManager.Instance.SetOSTVolume(1); // Restauramos el volumen.
         _pausedGame = false;
     }
 
@@ -287,6 +289,9 @@ public class LevelManager : MonoBehaviour
 
     private void OnTimeUp()
     {
+        // Reproducimos la banda sonora correspondiente a la batalla contra el jefe final.
+        AudioManager.Instance.ChangeToBossFigthMusic(); 
+
         Instantiate(Meteorite);
         Instantiate(Boss);
         Instantiate(Pillar, PillarPos[0], Quaternion.identity);

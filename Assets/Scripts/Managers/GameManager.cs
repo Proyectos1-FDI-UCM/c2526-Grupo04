@@ -7,6 +7,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -135,6 +136,10 @@ public class GameManager : MonoBehaviour
     /// que se cargará.</param>
     public void ChangeScene(int index)
     {
+        // En función de la escena a la que vamos a ir cambiamos el sonido de fondo
+        if (index == 1) AudioManager.Instance.ChangeToGameSceneMusic();
+        else AudioManager.Instance.ChangeToMenuMusic(SceneManager.GetActiveScene().buildIndex);
+
         AudioManager.Instance.ClickSound();
         // Antes y después de la carga fuerza la recolección de basura, por eficiencia,
         // dado que se espera que la carga tarde un tiempo, y dado que tenemos al

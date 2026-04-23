@@ -83,18 +83,15 @@ public class RangedEnemiesAttack : MonoBehaviour
             if (_playerTransform != null) direction = (_playerTransform.position - transform.position).normalized;
             else direction = new Vector3(0, 0, 0);
 
-            //Comprobamos si se ha introducido el prefab Projectile
-            if (Projectile != null && Projectile.GetComponent<Projectile>() != null)
+            //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
+            if (Time.time > _nextAttack)
             {
-                //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
-                if (Time.time > _nextAttack)
-                {
-                    AudioManager.Instance.PlayRangedAtack(RangedAtacks);
-                    _nextAttack = Time.time + AttackSpeed;
-                    GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
-                    newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
-                }
+                AudioManager.Instance.PlayRangedAtack(RangedAtacks);
+                _nextAttack = Time.time + AttackSpeed;
+                GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
+                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
             }
+            
         }
         else
         {

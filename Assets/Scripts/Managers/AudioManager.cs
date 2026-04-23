@@ -1,17 +1,18 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Componente que gestiona la OST y los SFX por medio de los componentes AudioSource del manager
+// Arturo Ramos Romero
+// MMDM (Meteorito Monstruos Duendes Matar)
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using JetBrains.Annotations;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.SceneManagement;
 using UnityEngine;
-// Añadir aquí el resto de directivas using
-
+using UnityEngine.VFX;
 
 /// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
+/// Clase que gestiona la reprodución de la OST y los SFX a lo largo del juego.
 /// </summary>
 public class AudioManager : MonoBehaviour
 {
@@ -23,56 +24,53 @@ public class AudioManager : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
 
-    [Header("Efecto de sonido al pulsar botones")]
+    [Header("SFX del juego")]
     [SerializeField] private AudioClip ButtonSound; // Sonido mp3 que se reproduce al pulsar un botón.
     
-    [Header("Efectos de sonido de muerte de los enemigos")]
     [SerializeField] private AudioClip[] DeathSound; // Sonidos mp3 posibles que se reproducirán al morir los enemigos.
     
-    [Header("Efecto de sonido de recibir daño del jugador")]
     [SerializeField] private AudioClip DamageSound; // Sonido mp3 que se reproduce cuando el jugador reciba daño.
     
-    [Header("Efecto de sonido para la derrota del jugador")]
     [SerializeField] private AudioClip DefeatSound; // Sonido mp3 que se reproduce tras la derrota del jugador.
     
-    [Header("Efecto de sonido cuando se usa la habilidad de la bola de fuego")]
     [SerializeField] private AudioClip FireballSound; // Sonido mp3 que se reproduce al usar la habilidad de la bola de fuego.
     
-    [Header("Efecto de sonido cuando explota la bola de fuego")]
     [SerializeField] private AudioClip FireballExplosionSound; // Sonido mp3 que se reproduce cuando explota la bola de fuego.
     
-    [Header("Efecto de sonido cuando se usa la habilidad del rayo")]
     [SerializeField] private AudioClip LightningSound; // Sonido mp3 que se reproduce al usar la habilidad del rayo.
-    
-    [Header("Efectos de sonido cuando se usa la habilidad de la zona de veneno")]
+
     [SerializeField] private AudioClip PoisonSound; // Sonido mp3 que se reproducen al usar la habilidad de la zona de veneno.
     
-    [Header("Efectos de sonido mientras esté la zona de veneno")]
     [SerializeField] private AudioClip PoisonedFloorSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido al subir de nivel")]
     [SerializeField] private AudioClip UpgradeSound; // Sonido mp3 que se reproducen al subir de nivel.
 
-    [Header("Efectos de sonido espada")]
     [SerializeField] private AudioClip SwordSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido lanza")]
     [SerializeField] private AudioClip SpearSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido martillo")]
     [SerializeField] private AudioClip HammerSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido muerte del Boss")]
     [SerializeField] private AudioClip DeathBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido curación de los pilares")]
     [SerializeField] private AudioClip HealBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido para el ataque laser del boss")]
     [SerializeField] private AudioClip LaserBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
 
-    [Header("Efectos de sonido para el ataque de piedras del boss")]
     [SerializeField] private AudioClip StoneBossSound; // Sonido mp3 que se reproducen durante la zona de veneno.
+
+    [Header("OST del juego")]
+    // Sonido mp3 que se reproduce en la escena de juego principal.
+    [SerializeField] private AudioClip GameSceneMusic;
+
+    // Sonido mp3 que se reproduce en los menús del juego.
+    [SerializeField] private AudioClip MenuMusic;
+
+    // Sonido mp3 que se reproduce al enfrentarse contra el jefe final.
+    [SerializeField] private AudioClip BossFightMusic; 
+
+    // Sonido mp3 que se reproduce al derrotar al jefe final.
+    [SerializeField] private AudioClip VictoryMusic; 
 
     #endregion
 
@@ -85,8 +83,10 @@ public class AudioManager : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private static AudioManager _instance;
-    private AudioSource _audioSource;
+    private static AudioManager _instance; // Instancia del AudioManager
+    private AudioSource _musicAudioSource; // Componente AudioSource para la ost.
+    private AudioSource _soundEffectsAudioSource; // Componente AudioSource para los efectos de sonido.
+    private int _numAudioSources = 2; // Número de AudioSources que maneja el Manager
 
     #endregion
 
@@ -97,7 +97,6 @@ public class AudioManager : MonoBehaviour
     {
         if (_instance != null)
         { 
-
             // Y ahora nos destruímos del todo. DestroyImmediate y no Destroy para evitar
             // que se inicialicen el resto de componentes del GameObject para luego ser
             // destruídos. Esto es importante dependiendo de si hay o no más managers
@@ -141,7 +140,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void ClickSound()
     {
-        PlaySound(ButtonSound);
+        if (ButtonSound != null) PlaySound(ButtonSound);
     }
 
     /// <summary>
@@ -158,7 +157,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayerDefeatSound()
     {
-        PlaySound(DefeatSound);
+        if (DefeatSound != null) PlaySound(DefeatSound);
     }
 
     /// <summary>
@@ -166,7 +165,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayerDamageSound()
     {
-        PlaySound(DamageSound);
+        if (DamageSound != null) PlaySound(DamageSound);
     }
 
     /// <summary>
@@ -174,7 +173,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayFireballSound()
     {
-        PlaySound(FireballSound);
+        if (FireballSound != null) PlaySound(FireballSound);
     }
 
     /// <summary>
@@ -182,7 +181,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayFireballExplosionSound()
     {
-        PlaySound(FireballExplosionSound);
+        if (FireballExplosionSound != null) PlaySound(FireballExplosionSound);
     }
 
     /// <summary>
@@ -190,7 +189,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayLightningSound()
     {
-        PlaySound(LightningSound);
+        if (LightningSound != null) PlaySound(LightningSound);
     }
 
     /// <summary>
@@ -198,7 +197,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayPoisonSound()
     {
-        PlaySound(PoisonSound);
+        if (PoisonSound != null) PlaySound(PoisonSound);
     }
 
     /// <summary>
@@ -206,7 +205,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayPoisonedFloorSound()
     {
-        PlaySound(PoisonedFloorSound);
+        if (PoisonedFloorSound != null) PlaySound(PoisonedFloorSound);
     }
 
     /// <summary>
@@ -214,31 +213,119 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayUpgradeSound()
     {
-        PlaySound(UpgradeSound);
+        if (UpgradeSound != null) PlaySound(UpgradeSound);
     }
 
+    /// <summary>
+    /// Método al que llamaremos cuando el jefe final sea derrotado.
+    /// </summary>
     public void PlayDeathBossSound()
     {
-        PlaySound(DeathBossSound);
+        if (DeathBossSound != null) PlaySound(DeathBossSound);
     }
 
+    /// <summary>
+    /// Método al que se llama cuando se usa una de las tres armas disponibles.
+    /// </summary>
+    /// <param name="weapon">El arma concreta que usa el jugador.</param>
     public void PlayWeaponSound(Weapon weapon)
     {
         switch (weapon)
         {
-            case Weapon.Sword: PlaySound(SwordSound); break;
-            case Weapon.Spear: PlaySound(SpearSound); break;
-            case Weapon.Hammer: PlaySound(HammerSound); break;
+            case Weapon.Sword: 
+                if (SwordSound != null) PlaySound(SwordSound); 
+                break;
+            case Weapon.Spear: 
+                if (SpearSound != null) PlaySound(SpearSound); 
+                break;
+            case Weapon.Hammer: 
+                if (HammerSound != null) PlaySound(HammerSound); 
+                break;
         }
     }
 
+    /// <summary>
+    /// Método al que se llama cuando el jefe final ejecuta alguno de sus ataques.
+    /// </summary>
+    /// <param name="rangedAtacks">El ataque concreto que usa el jefe.</param>
     public void PlayRangedAtack(RangedAtacks rangedAtacks)
     {
         switch (rangedAtacks)
         {
-            case RangedAtacks.Laser: PlaySound(LaserBossSound); break;
-            case RangedAtacks.Rock: PlaySound(StoneBossSound); break;
+            case RangedAtacks.Laser: 
+                if (LaserBossSound != null) PlaySound(LaserBossSound); 
+                break;
+            case RangedAtacks.Rock: 
+                if (StoneBossSound != null) PlaySound(StoneBossSound); 
+                break;
         }
+    }
+
+
+    /// <summary>
+    /// Método al que llamaremos para cambiar la canción de fondo y reproducir la correspondiente al 
+    /// jefe final.
+    /// </summary>
+    public void ChangeToVictoryMusic()
+    {
+        if (VictoryMusic != null)
+        {
+            _musicAudioSource.Stop();
+            _musicAudioSource.clip = VictoryMusic;
+            _musicAudioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Método al que llamaremos para cambiar la canción de fondo y reproducir la
+    /// correspondiente a la escena de juego principal.
+    /// </summary>
+    public void ChangeToGameSceneMusic()
+    {
+        if (GameSceneMusic != null)
+        {
+            _musicAudioSource.Stop();
+            _musicAudioSource.clip = GameSceneMusic;
+            _musicAudioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Método al que llamaremos para cambiar la canción de fondo y reproducir la correspondiente a la
+    /// victoria del jugador.
+    /// </summary>
+    public void ChangeToBossFigthMusic()
+    {
+        if (BossFightMusic != null)
+        {
+            _musicAudioSource.Stop();
+            _musicAudioSource.clip = BossFightMusic;
+            _musicAudioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Método al que llamaremos para cambiar la canción de fondo y reproducir la correspondiente a los
+    /// menús, siempre y cuando no se venga de una escena de menú.
+    /// </summary>
+    /// <param name="preSceneIndex">Índice de la escena anterior para no cambiar la música al
+    /// saltar entre menús.</param>
+    public void ChangeToMenuMusic(int preSceneIndex)
+    {
+        if (MenuMusic != null && preSceneIndex == 1)
+        {
+            _musicAudioSource.Stop();
+            _musicAudioSource.clip = MenuMusic;
+            _musicAudioSource.Play();
+        }
+    }
+
+    /// <summary>
+    /// Método al que llamaremos para cambiar el volumen del AudioSource encargado de la OST.
+    /// </summary>
+    public void SetOSTVolume(float newVolume)
+    {
+        _musicAudioSource.volume = newVolume;
     }
 
     #endregion
@@ -250,10 +337,36 @@ public class AudioManager : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    // Método de inicialización del Audio Manager
+    /// <summary>
+    /// Método de inicialización del Audio Manager.
+    /// </summary>
     private void Init()
     {
-        _audioSource = gameObject.GetComponent<AudioSource>();
+        // Guardamos todos los componentes AudioSource del AudioManager en un array.
+        AudioSource[] _audioSources = GetComponents<AudioSource>(); 
+
+        // Comprobamos si hay más componentes AudioSource de los necesarios en el AudioManager.
+        if (_audioSources.Length > _numAudioSources)
+        {
+            // Borramos el exceso de componentes AudioSource.
+            for (int i = _numAudioSources;  i < _audioSources.Length; i++) DestroyImmediate(_audioSources[i]);
+        }
+        else if (_audioSources.Length < _numAudioSources)
+        {
+            // Creamos nuevos componentes AudioSource en caso de que no haya suficientes.
+            for (int i = _audioSources.Length; i < _numAudioSources; i++) gameObject.AddComponent<AudioSource>();
+            _audioSources = GetComponents<AudioSource>();
+        }
+
+        // Asignamos los AudioSources con su respectiva utilidad.
+        _musicAudioSource = _audioSources[0];
+        _musicAudioSource.loop = true;
+        if (MenuMusic != null)
+        {
+            _musicAudioSource.clip = MenuMusic;
+            _musicAudioSource.Play();
+        }
+        _soundEffectsAudioSource = _audioSources[1];
     }
 
     /// <summary>
@@ -263,10 +376,10 @@ public class AudioManager : MonoBehaviour
     /// <param name="volume">Volumen al que se va a reproducir el AudioClip</param>
     private void PlaySound(AudioClip clip, float volume = 1f)
     {
-        if (clip != null) _audioSource.PlayOneShot(clip, volume);
+        if (clip != null) _soundEffectsAudioSource.PlayOneShot(clip, volume);
     }
 
-    #endregion   
+    #endregion  
 
 } // class AudioManager 
 // namespace

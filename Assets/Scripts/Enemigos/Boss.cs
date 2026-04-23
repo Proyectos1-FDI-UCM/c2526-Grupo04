@@ -74,6 +74,10 @@ public class Boss : MonoBehaviour
             else if (_health.IsDead() && Fase == 2)
             {
                 AudioManager.Instance.PlayDeathBossSound();
+
+                // Reproducimos la banda sonora correspondiente a la victoria del jugador.
+                AudioManager.Instance.ChangeToVictoryMusic();
+
                 HUDManager.Instance.WinMenuHUD();
                 Destroy(gameObject);
             }
