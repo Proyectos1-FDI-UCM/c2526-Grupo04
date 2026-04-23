@@ -67,6 +67,7 @@ public class Boss : MonoBehaviour
         {
             if (_health.IsDead() && Fase == 1)
             {
+                // Instanciamos a la segunda fase y después destruimos la primera.
                 GameObject BossPhase2 = Instantiate(Fase2Boss, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
@@ -79,6 +80,7 @@ public class Boss : MonoBehaviour
                 AudioManager.Instance.ChangeToVictoryMusic();
 
                 HUDManager.Instance.WinMenuHUD();
+
                 Destroy(gameObject);
             }
         }

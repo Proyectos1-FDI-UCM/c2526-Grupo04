@@ -139,6 +139,7 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             LevelManager.Instance.DestroyEnemy();
+
             // Reproducimos el sonido de muerte
             AudioManager.Instance.EnemiesDeathSound();
             _enemyXP.DeathXpDrop();

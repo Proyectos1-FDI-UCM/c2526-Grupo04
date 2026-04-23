@@ -54,7 +54,6 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private Image[] buttonImages;
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonTexts;
     [SerializeField] private TMPro.TextMeshProUGUI[] buttonDescriptions;
-    [SerializeField] private Button ConfirmationButton;
 
     
     [Header("Menús")]
@@ -79,8 +78,6 @@ public class HUDManager : MonoBehaviour
     // Ejemplo: _maxHealthPoints
 
     private static HUDManager _instance;
-
-    private ItemSelectionManager _selectionManager;
     
     private struct AbItems
     {
@@ -144,9 +141,6 @@ public class HUDManager : MonoBehaviour
         PauseMenu.SetActive(false);
         DefeatMenu.SetActive(false);
         WinMenu.SetActive(false);
-
-        ConfirmationButton.gameObject.SetActive(false);
-        _selectionManager = FindAnyObjectByType<ItemSelectionManager>(); 
 
         HUDlistIni(out elemList);
         currentAbItems.itemList = new AbilityItem[3];
@@ -248,7 +242,6 @@ public class HUDManager : MonoBehaviour
     public void LevelUpMenuHUD(bool levelUp)
     {
         SelectionMenu.SetActive(levelUp);
-        ConfirmationButton.gameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(SelectionMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
     }
@@ -315,26 +308,6 @@ public class HUDManager : MonoBehaviour
                 currentAbItems.HUDlist[i].sprite = currentAbItems.itemList[i].GetKeyboardSprite();
             }
         }
-    }
-    
-    public void ConfirmSelection(int button)
-    {
-        AudioManager.Instance.ClickSound();
-        ConfirmationButton.gameObject.SetActive(true);
-        ConfirmationButton.onClick.RemoveAllListeners();
-        switch (button)
-        {
-            case 1:
-                ConfirmationButton.onClick.AddListener(_selectionManager.Option1);
-                break;
-            case 2:
-                ConfirmationButton.onClick.AddListener(_selectionManager.Option2);
-                break;
-            case 3:
-                ConfirmationButton.onClick.AddListener(_selectionManager.Option3);
-                break;
-        }
-
     }
 
     #endregion

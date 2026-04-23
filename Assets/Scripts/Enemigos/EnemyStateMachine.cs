@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Arturo
-// Nombre del juego
+// Componente que gestiona el estado del enemigo (persecución y retroceso) y su lógica.
+// Arturo Ramos Romero
+// MMDM (Meteorito Monstruos Duendes Matar)
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -43,18 +43,19 @@ public class EnemyStateMachine : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    private float minX, maxX, minY, maxY;
-    protected enum State
+    private float minX, maxX, minY, maxY; // Límites del mapa.
+    protected enum State // Estado del enemigo (persecución o retroceso).
     {
         Chasing,
         Knockback
     }
 
-    private State _currentState;
+    private State _currentState; // Estado en el que se encuentra el enemigo en dicho momento.
 
-    private float _actualKnockbackDuration;
+    // Duración del retroceso + Time.time para gestionar el tiempo que dura el retroceso del enemigo.
+    private float _actualKnockbackDuration; 
 
-    private Transform _playerTransform;
+    private Transform _playerTransform; // Transform del jugador.
 
     #endregion
 
@@ -71,9 +72,12 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _currentState = State.Chasing;
-        LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
-        _playerTransform = LevelManager.Instance.GetPlayer();
+        _currentState = State.Chasing; // Establecemos el estado de persecución como el inicial.
+
+        // Establecemos los límites del mapa para el movimiento de los enemigos.
+        LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY); 
+
+        _playerTransform = LevelManager.Instance.GetPlayer(); // Recibe el transform del jugador.
     }
 
     /// <summary>
@@ -81,24 +85,27 @@ public class EnemyStateMachine : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // Si el juego no está en pausa.
         if (!LevelManager.Instance.GetPause())
         {
-            //Comprobar que el transform del jugador no es nulo para evitar errores
+            // Comprobar que el transform del jugador no es nulo para evitar errores
             if (_playerTransform != null)
             {
-                //Obtenemos el vector distancia para comprobar si el tirador debe avanzar o no 
+                // Obtenemos el vector distancia para comprobar si el tirador debe avanzar o no 
                 Vector3 distance = _playerTransform.position - transform.position;
-                //Obtenemos la dirección que tiene que seguir
+
+                // Obtenemos la dirección que tiene que seguir
                 Vector3 direction = distance.normalized;
 
                 switch (_currentState)
                 {
+                    // Si su estado es el de persecución.
                     case State.Chasing:
 
-                        //Comprobamos si la magnitud del vector distancia es mayor que la distancia máxima a la que se puede acercar el tirador
+                        // Comprobamos si la magnitud del vector distancia es mayor que la distancia máxima a la que se puede acercar el tirador
                         if (distance.magnitude > MaxDistance)
                         {
-                            //Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
+                            // Le hacemos avanzar en dicha dirección a la velocidad definida desde el editor
                             transform.position += direction * Speed * Time.deltaTime;
 
                             Vector3 pos = transform.position;
@@ -110,18 +117,22 @@ public class EnemyStateMachine : MonoBehaviour
                         }
                         break;
 
+                    // Si su estado es el de retroceso.
                     case State.Knockback:
+
+                        // Comprobamos si ya ha pasado la duración del retroceso.
                         if (Time.time > _actualKnockbackDuration)
                         {
                             _currentState = State.Chasing;
                         }
+                        // Desplazamos al enemigo en la dirección contraria (le hacemos retroceder).
                         else transform.position -= direction * KnockbackSpeed * Time.deltaTime;
                         break;
                 }
 
-                //Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
+                // Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                //Rotamos al jugador dicho ángulo respecto al eje z
+                // Rotamos al jugador dicho ángulo respecto al eje z
                 transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
@@ -148,8 +159,10 @@ public class EnemyStateMachine : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         WeaponAttack weapon = collision.gameObject.GetComponent<WeaponAttack>();
-        if (weapon!= null || collision.gameObject.layer == 6)
+        // Si colisiona con un arma o con el jugador.
+        if (weapon != null || collision.gameObject.layer == 6)
         {
+            // Entra en el estado de retroceso.
             _currentState = State.Knockback;
             _actualKnockbackDuration = Time.time + KnockbackDuration;
         }

@@ -68,7 +68,7 @@ MonoBehaviour:
   StoneBossSound: {fileID: 8300000, guid: 3076f9cce0a9e1c4b9ef3155c7e534a3, type: 3}
   GameSceneMusic: {fileID: 8300000, guid: 4222ca0732b0e3d459f7f234f89d0b7e, type: 3}
   MenuMusic: {fileID: 8300000, guid: 18a7e36f1f7a00b4f99cbf3361b7353c, type: 3}
-  BossFightMusic: {fileID: 0}
+  BossFightMusic: {fileID: 8300000, guid: 78999b3bc57e6a94b903c6ff6cc9e5ef, type: 3}
   VictoryMusic: {fileID: 0}
 --- !u!82 &8995662422203390806
 AudioSource:
