@@ -18,18 +18,26 @@ MonoBehaviour:
   m_PlatformId: 4e3c793746204150860bf175a9a41a05
   m_PlatformBuildProfile:
     rid: 5195746024110948352
-  m_OverrideGlobalSceneList: 0
+  m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/MenuPrincipal.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/Juego.unity
+    m_path: Assets/Scenes/Playtest/MenuPrincipal 1.unity
   - m_enabled: 1
     m_path: "Assets/Scenes/Cr\xE9ditos.unity"
   - m_enabled: 1
     m_path: Assets/Scenes/Controles.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/Juego.unity
+    m_path: Assets/Scenes/Playtest/Escena de prueba 1.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Playtest/Escena de prueba 2.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Playtest/Escena de prueba 3.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Playtest/Escena de prueba 4.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Playtest/Escena de prueba 5.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Playtest/Escena de prueba 6.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []

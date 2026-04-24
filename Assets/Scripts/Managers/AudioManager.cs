@@ -6,8 +6,6 @@
 //---------------------------------------------------------
 
 using JetBrains.Annotations;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.VFX;
 

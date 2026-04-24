@@ -4938,7 +4938,7 @@ PrefabInstance:
       objectReference: {fileID: 1710253825}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: InitialTime
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: PillarPos.Array.data[0].x
