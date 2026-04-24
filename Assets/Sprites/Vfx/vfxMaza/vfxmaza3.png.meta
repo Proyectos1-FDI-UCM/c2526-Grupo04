@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 5fce0453822be1442918d9afe9d3765b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6011763214389561828
+    second: vfxmaza3_0
+  - first:
+      213: 8478439013149841381
+    second: vfxmaza3_1
+  - first:
+      213: -9138195610700249734
+    second: vfxmaza3_2
+  - first:
+      213: -3408316295545323887
+    second: vfxmaza3_3
+  - first:
+      213: 1605626077933691208
+    second: vfxmaza3_4
+  - first:
+      213: -3469658897308710577
+    second: vfxmaza3_5
+  - first:
+      213: -8092312390764900532
+    second: vfxmaza3_6
+  - first:
+      213: 7147796484837415354
+    second: vfxmaza3_7
+  - first:
+      213: -1217379559696783441
+    second: vfxmaza3_8
+  - first:
+      213: -6878511277309670019
+    second: vfxmaza3_9
+  - first:
+      213: 329834924419935925
+    second: vfxmaza3_10
+  - first:
+      213: -8935702966478404842
+    second: vfxmaza3_11
+  - first:
+      213: -532246524862225161
+    second: vfxmaza3_12
+  - first:
+      213: 4875029898615313492
+    second: vfxmaza3_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vfxmaza3_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 216
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16bc8c453de19ca0800000000000000
+      internalID: -6011763214389561828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 141
+        width: 105
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e71c9c9c5779a570800000000000000
+      internalID: 8478439013149841381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 116
+        width: 110
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a758d20228b9e2180800000000000000
+      internalID: -9138195610700249734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 214
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e78d1236a33b0d0800000000000000
+      internalID: -3408316295545323887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 223
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84167513964584610800000000000000
+      internalID: 1605626077933691208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 104
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49042ead9b49dfc0800000000000000
+      internalID: -3469658897308710577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 85
+        width: 95
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f47f861c452bf80800000000000000
+      internalID: -8092312390764900532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_7
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 43
+        width: 78
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab915854803123360800000000000000
+      internalID: 7147796484837415354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 24
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa7a37b8dbffa1fe0800000000000000
+      internalID: -1217379559696783441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_9
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 87
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d407cef6e9a80a0800000000000000
+      internalID: -6878511277309670019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_10
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 26
+        width: 39
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be6190cd1fc39400800000000000000
+      internalID: 329834924419935925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_11
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 33
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61386a0de710ef380800000000000000
+      internalID: -8935702966478404842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 7
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f4a6a80b941d98f0800000000000000
+      internalID: -532246524862225161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfxmaza3_13
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 13
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 454df502dd597a340800000000000000
+      internalID: 4875029898615313492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      vfxmaza3_0: -6011763214389561828
+      vfxmaza3_1: 8478439013149841381
+      vfxmaza3_10: 329834924419935925
+      vfxmaza3_11: -8935702966478404842
+      vfxmaza3_12: -532246524862225161
+      vfxmaza3_13: 4875029898615313492
+      vfxmaza3_2: -9138195610700249734
+      vfxmaza3_3: -3408316295545323887
+      vfxmaza3_4: 1605626077933691208
+      vfxmaza3_5: -3469658897308710577
+      vfxmaza3_6: -8092312390764900532
+      vfxmaza3_7: 7147796484837415354
+      vfxmaza3_8: -1217379559696783441
+      vfxmaza3_9: -6878511277309670019
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
