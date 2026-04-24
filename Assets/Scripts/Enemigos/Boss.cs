@@ -67,8 +67,12 @@ public class Boss : MonoBehaviour
         {
             if (_health.IsDead() && Fase == 1)
             {
-                // Instanciamos a la segunda fase y después destruimos la primera.
-                GameObject BossPhase2 = Instantiate(Fase2Boss, transform.position, Quaternion.identity);
+                AudioManager.Instance.PlayDeathBossSound();
+
+                // Reproducimos la banda sonora correspondiente a la victoria del jugador.
+                AudioManager.Instance.PlayVictorySound();
+
+                HUDManager.Instance.WinMenuHUD();
                 Destroy(gameObject);
             }
 

@@ -96,6 +96,8 @@ public class HUDManager : MonoBehaviour
 
     HUDlist elemList;
 
+    private bool _finishedGame;
+
 
     #endregion
 
@@ -141,6 +143,7 @@ public class HUDManager : MonoBehaviour
         PauseMenu.SetActive(false);
         DefeatMenu.SetActive(false);
         WinMenu.SetActive(false);
+        _finishedGame = false;
 
         HUDlistIni(out elemList);
         currentAbItems.itemList = new AbilityItem[3];
@@ -228,12 +231,16 @@ public class HUDManager : MonoBehaviour
 
     public void PauseMenuHUD(bool pausedGame)
     {
-        PauseMenu.SetActive(pausedGame);
-        EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
+        if (!_finishedGame)
+        {
+            PauseMenu.SetActive(pausedGame);
+            EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
+        }
     }
 
     public void DefeatMenuHUD()
     {
+        _finishedGame = true;
         DefeatMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(DefeatMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
@@ -253,6 +260,7 @@ public class HUDManager : MonoBehaviour
 
     public void WinMenuHUD()
     {
+        _finishedGame = true;
         WinMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(WinMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
@@ -308,6 +316,11 @@ public class HUDManager : MonoBehaviour
                 currentAbItems.HUDlist[i].sprite = currentAbItems.itemList[i].GetKeyboardSprite();
             }
         }
+    }
+
+    public bool GetFinishedGame()
+    {
+        return _finishedGame;
     }
 
     #endregion

@@ -66,8 +66,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
-  DamageLayer: 06000000
-  ObjectType: 0
 --- !u!61 &3456552143702869650
 BoxCollider2D:
   m_ObjectHideFlags: 0

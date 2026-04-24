@@ -100,7 +100,7 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.PauseWasPressedThisFrame() && !HUDManager.Instance.IsInLevelUp())
+        if (InputManager.Instance.PauseWasPressedThisFrame() && !HUDManager.Instance.IsInLevelUp() && !HUDManager.Instance.GetFinishedGame())
         {
             if (!_pausedGame) PauseGame();
             else UnPauseGame();

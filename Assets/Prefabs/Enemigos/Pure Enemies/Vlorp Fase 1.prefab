@@ -262,6 +262,7 @@ MonoBehaviour:
   Projectile: {fileID: 545131121240906260, guid: 2b9ce117d96a4d340b77ac013defd6e7, type: 3}
   AttackSpeed: 5
   ProjectileDistance: 0
+  RangedAtacks: 0
 --- !u!114 &3584967183498750984
 MonoBehaviour:
   m_ObjectHideFlags: 0
