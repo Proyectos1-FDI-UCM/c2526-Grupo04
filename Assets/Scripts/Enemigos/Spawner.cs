@@ -50,6 +50,9 @@ public class Spawner : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     const int EnemyCap = 100;
+    private float _realEnemyCap;
+
+    private float _totalTime;
 
     private float _minX, _maxX, _minY, _maxY; //Valores de los límites del mapa en x e y
 
@@ -75,6 +78,8 @@ public class Spawner : MonoBehaviour
     /// </summary>
     void Start()
     {
+        _totalTime = LevelManager.Instance.GetTimer();
+
         //Obtenemos los límites del mapa llamando al método GetMapLimits del Level Manager
         LevelManager.Instance.GetMapLimits(out _maxX, out _minX, out _maxY, out _minY);
 
@@ -95,9 +100,19 @@ public class Spawner : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            if (LevelManager.Instance.NumOfEnemies() > EnemyCap/3)
+            float _realTime = LevelManager.Instance.GetTimer();
+
+            if (_realTime > 0) 
             {
-                _realSpawnInterval += Time.deltaTime * ((float)LevelManager.Instance.NumOfEnemies()/(float)EnemyCap);
+                if ((_realTime / _totalTime) > 0.25)
+                    _realEnemyCap = EnemyCap * (1 - (_realTime / _totalTime));
+                else
+                    _realEnemyCap = EnemyCap * 0.25f;
+            }
+
+            if (LevelManager.Instance.NumOfEnemies() > _realEnemyCap/3)
+            {
+                _realSpawnInterval += Time.deltaTime * ((float)LevelManager.Instance.NumOfEnemies()/(float)_realEnemyCap);
             }
 
             if (Time.time > _realSpawnInterval)
