@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2bae606eaa98aa94592b886ee2c67cfe
+guid: 233a8be4e05dd5743b572499548081c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7776655918608524285
-    second: Tarrito_0
+      213: 6541774445398879347
+    second: PanelSeleccion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tarrito_0
+      name: PanelSeleccion_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 12
-        width: 76
-        height: 86
+        x: 21
+        y: 2
+        width: 68
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df3a9110b5b3ceb60800000000000000
-      internalID: 7776655918608524285
+      spriteID: 37c6ab2c23d09ca50800000000000000
+      internalID: 6541774445398879347
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tarrito_0: 7776655918608524285
+      PanelSeleccion_0: 6541774445398879347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

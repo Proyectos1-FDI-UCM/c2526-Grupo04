@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 88aea5bdfcd6c7441be61e8415976211
+guid: 57aaa9e8f95901347bce9c6f3bb2d47b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5398230693474030073
-    second: Vida_0
+      213: 6823730998285495618
+    second: Pocion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Vida_0
+      name: Pocion_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 12
-        width: 76
-        height: 86
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f15124f63e5aea40800000000000000
-      internalID: 5398230693474030073
+      spriteID: 24de0a37033c2be50800000000000000
+      internalID: 6823730998285495618
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Vida_0: 5398230693474030073
+      Pocion_0: 6823730998285495618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

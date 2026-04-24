@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bf098085ccab06b479e17d54b89ac5c3
+guid: 75b9ff5a2748e2b4e9c510fa0f69441a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6589333729013556656
-    second: Magia_0
+      213: -720703876719934200
+    second: Tunica_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Magia_0
+      name: Tunica_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 12
-        width: 76
-        height: 86
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b56a506d14027b50800000000000000
-      internalID: 6589333729013556656
+      spriteID: 8058cdf74ab8ff5f0800000000000000
+      internalID: -720703876719934200
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Magia_0: 6589333729013556656
+      Tunica_0: -720703876719934200
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
