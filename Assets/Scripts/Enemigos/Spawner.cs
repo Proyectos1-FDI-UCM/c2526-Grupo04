@@ -104,15 +104,23 @@ public class Spawner : MonoBehaviour
 
             if (_realTime > 0) 
             {
-                if ((_realTime / _totalTime) > 0.25)
+                if ((_realTime / _totalTime) > 0.25) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
+                {
+                    //Se fija el tope como un porcentaje del tope total en proporción al tiempo de juego
                     _realEnemyCap = EnemyCap * (1 - (_realTime / _totalTime));
+                }
                 else
-                    _realEnemyCap = EnemyCap * 0.25f;
+                {
+                    // Se fija el tope a un porcentaje determinado
+                    _realEnemyCap = EnemyCap * 0.25f; 
+                }
             }
 
-            if (LevelManager.Instance.NumOfEnemies() > _realEnemyCap/3)
+            if (LevelManager.Instance.NumOfEnemies() > _realEnemyCap/3) //Se aplica la ralentización cuando el número de enemigos alcanza un porcentaje del tope
             {
+                //Se suma una fracción del delta time al intervalo de aparición en función de los numeros de enemigos que hay en pantalla respecto al tope
                 _realSpawnInterval += Time.deltaTime * ((float)LevelManager.Instance.NumOfEnemies()/(float)_realEnemyCap);
+
             }
 
             if (Time.time > _realSpawnInterval)
