@@ -93,7 +93,7 @@ public class StadisticsEndgame : MonoBehaviour
             d = stats.GetDmg();
         }
 
-        textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + mins + " minutos y "+ secs + " segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
+        //textMeshProStats.text = ("Nivel del jugador " + plevel + "\n\n" + "Has hecho " + damage + " de daño" + "\n\n" + "Has sobrevivido " + mins + " minutos y "+ secs + " segundos" + "\n\n" + "Has matado a " + kills + " enemigos" + "\n\n" + "Vida " + h + "\n" + "Daño " + d + "\n" + "Magia " + m);
 
     }
 

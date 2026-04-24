@@ -4370,17 +4370,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7686921144180283222, guid: efc870c25ce306545be915dee6adea5a, type: 3}
   m_PrefabInstance: {fileID: 5340575298427021522}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &430436049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29761795587276022, guid: 3f71f7c895ba4764e893d76d066c3ffd, type: 3}
-  m_PrefabInstance: {fileID: 692769246315147335}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &553731004 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3579236021195603840, guid: 3f71f7c895ba4764e893d76d066c3ffd, type: 3}
@@ -5663,7 +5652,7 @@ PrefabInstance:
     - target: {fileID: 7459209557916764213, guid: efc870c25ce306545be915dee6adea5a, type: 3}
       propertyPath: textMeshProStats
       value: 
-      objectReference: {fileID: 430436049}
+      objectReference: {fileID: 0}
     - target: {fileID: 7686921144180283222, guid: efc870c25ce306545be915dee6adea5a, type: 3}
       propertyPath: m_Name
       value: WinMenu
@@ -5887,7 +5876,8 @@ PrefabInstance:
       value: DefeatMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2378805694684367493, guid: bd9a4bc76bb1d204a8d54eabaf0129f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd9a4bc76bb1d204a8d54eabaf0129f7, type: 3}
