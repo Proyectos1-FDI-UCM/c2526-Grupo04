@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de139f324bbb84a41b50231421fbc85f
+guid: 3cf9263fd97fc164fb1dc27afb5ed40b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2403621696057179548
-    second: Casco_0
+      213: 4405825205344493429
+    second: Pesa 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Casco_0
+      name: Pesa 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46207186dce94aed0800000000000000
-      internalID: -2403621696057179548
+      spriteID: 57f55036ea2a42d30800000000000000
+      internalID: 4405825205344493429
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Casco_0: -2403621696057179548
+      Pesa 1_0: 4405825205344493429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

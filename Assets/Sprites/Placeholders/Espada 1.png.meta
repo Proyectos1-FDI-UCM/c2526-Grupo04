@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e88f85136d603e148af8c013322e33fd
+guid: 04c7a96a5fbcd3841b007896d932ea26
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8042340749556229780
-    second: Maza_0
+      213: -5249406216860985669
+    second: Espada 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Maza_0
+      name: Espada 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 496a2f33d422c9f60800000000000000
-      internalID: 8042340749556229780
+      spriteID: bb6164abbdc5627b0800000000000000
+      internalID: -5249406216860985669
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Maza_0: 8042340749556229780
+      Espada 1_0: -5249406216860985669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

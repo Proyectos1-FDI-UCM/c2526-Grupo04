@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7b9ae73abc2c9e146ba36ba0746b4c74
+guid: 1fc2daa8373473942b1ab27c94d9dd4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2796400091282023116
-    second: Lanza_0
+      213: -7932079948829234735
+    second: Rayo 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lanza_0
+      name: Rayo 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43dd345dee03139d0800000000000000
-      internalID: -2796400091282023116
+      spriteID: 1d9e80000579be190800000000000000
+      internalID: -7932079948829234735
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lanza_0: -2796400091282023116
+      Rayo 1_0: -7932079948829234735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

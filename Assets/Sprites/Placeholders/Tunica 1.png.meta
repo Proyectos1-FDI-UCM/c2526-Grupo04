@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d3dbba64fe867be468c201cedd64ca33
+guid: aa989ea22cf352c4a943e1131987e3bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7958147730908029603
-    second: Veneno_0
+      213: -1810594182234041129
+    second: Tunica 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Veneno_0
+      name: Tunica 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a2aada7235017e60800000000000000
-      internalID: 7958147730908029603
+      spriteID: 7d41d872f2a7fd6e0800000000000000
+      internalID: -1810594182234041129
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Veneno_0: 7958147730908029603
+      Tunica 1_0: -1810594182234041129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

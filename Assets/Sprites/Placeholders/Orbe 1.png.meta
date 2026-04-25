@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a6b66ec2937b1f24fa2d6a3a4713fc96
+guid: fa59a325825e2c0468c5b33ceed1b641
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5937764268318024347
-    second: Espada_0
+      213: 4373435502633529281
+    second: Orbe 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Espada_0
+      name: Orbe 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56d95ea8bd2d89da0800000000000000
-      internalID: -5937764268318024347
+      spriteID: 1cfad8e0b6091bc30800000000000000
+      internalID: 4373435502633529281
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Espada_0: -5937764268318024347
+      Orbe 1_0: 4373435502633529281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0f0ff96f6504f9842ba4e447f596b3a5
+guid: 5e9dddbd6dd23c149ac4b48cb5a10c31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3093207718481668220
-    second: Rayo_0
+      213: -2216465941964285244
+    second: Casco 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rayo_0
+      name: Casco 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c78a89c08084dea20800000000000000
-      internalID: 3093207718481668220
+      spriteID: 4ca977818f78d31e0800000000000000
+      internalID: -2216465941964285244
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rayo_0: 3093207718481668220
+      Casco 1_0: -2216465941964285244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

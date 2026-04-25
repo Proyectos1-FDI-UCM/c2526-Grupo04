@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc090cc897493bb4caa63a20fd18b283
+guid: e97e96bf626951842b0fce8e9c86d753
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3784010049462987352
-    second: Orbe_0
+      213: 4999615721149538655
+    second: Fireball 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orbe_0
+      name: Fireball 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85aefb86711838430800000000000000
-      internalID: 3784010049462987352
+      spriteID: f51a3906204326540800000000000000
+      internalID: 4999615721149538655
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Orbe_0: 3784010049462987352
+      Fireball 1_0: 4999615721149538655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
