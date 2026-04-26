@@ -183,7 +183,15 @@ public class HUDManager : MonoBehaviour
         {
             TimerGUI.text = string.Format("{0:00}:{1:00}", mins, secs);
         }
-        else TimerGUI.text = secs.ToString("F0");
+        else
+        {
+            if (secs >= 1) TimerGUI.text = secs.ToString("F0");
+            else
+            {
+                TimerGUI.color = Color.red;
+                TimerGUI.text = "DERROTA A VLORP";
+            }
+        }
     }
 
     public void UpdateLevelGUI(int level, float exp, float currentLimit)
