@@ -56,7 +56,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   LimitX: 100
   LimitY: 100
-  InitialTime: 5.56
+  InitialTime: 0.1
   Spawner1: {fileID: 0}
   Spawner2: {fileID: 0}
   Spawner3: {fileID: 0}
