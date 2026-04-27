@@ -217,13 +217,16 @@ public class LevelManager : MonoBehaviour
 
     public void PauseGame()   
     {
-        AudioManager.Instance.SetOSTVolume(0.4f); // Bajamos el volumen.
+        // Evitamos que se reproduzcan los efectos de sonido y bajamos el volumen de la música de
+        // fondo.
+        AudioManager.Instance.PauseGame(0.4f);
         _pausedGame = true;
     }
 
     public void UnPauseGame()
     {
-        AudioManager.Instance.SetOSTVolume(1); // Restauramos el volumen.
+        // Restauramos la reproducción de efectos de sonido y el volumen de la música de fondo.
+        AudioManager.Instance.UnpauseGame(1f);
         _pausedGame = false;
     }
 

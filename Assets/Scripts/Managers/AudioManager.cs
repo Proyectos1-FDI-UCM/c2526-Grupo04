@@ -314,10 +314,23 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Método al que llamaremos para cambiar el volumen del AudioSource encargado de la OST.
+    /// Método al que se llama cuando se pausa el juego para evitar que el AudioManager reproduzca
+    /// efectos de sonido.
     /// </summary>
-    public void SetOSTVolume(float newVolume)
+    public void PauseGame(float newVolume)
     {
+        _soundEffectsAudioSource.Pause();
+        _musicAudioSource.volume = newVolume;
+    }
+
+
+    /// <summary>
+    /// Método al que se llama cuando se reanuda el juego para evitar que el AudioManager reproduzca
+    /// los efectos de sonido por el punto en el que se quedaron.
+    /// </summary>
+    public void UnpauseGame(float newVolume)
+    {
+        _soundEffectsAudioSource.UnPause();
         _musicAudioSource.volume = newVolume;
     }
 
