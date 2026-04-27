@@ -81,8 +81,12 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null) health.LoseHealth(TotalDamage);
-    }
+        if (health != null) 
+        {
+            health.SetDamageSource(Source);
+            health.LoseHealth(TotalDamage);
+        }
+    }   
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos

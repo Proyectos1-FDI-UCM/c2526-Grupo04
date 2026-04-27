@@ -5,6 +5,7 @@
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
+using System.ComponentModel;
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
@@ -43,15 +44,17 @@ public class Health : MonoBehaviour
     private Boss _boss;
 
     private Healing _healing;
+
+    private DamageSource _damageType = DamageSource.Other;
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-    
+
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 
     /// any of the Update methods are called the first time.
@@ -123,7 +126,12 @@ public class Health : MonoBehaviour
         return dead;
     }
 
-    public void ProcessDamage(DamageSource source = DamageSource.Other)
+    public void SetDamageSource(DamageSource source)
+    {
+        _damageType = source;
+    }
+
+    public void ProcessDamage(DamageSource source)
     {
         if (source == DamageSource.Other)
         {
@@ -151,7 +159,7 @@ public class Health : MonoBehaviour
             // Reproducimos el sonido de muerte
             AudioManager.Instance.EnemiesDeathSound();
 
-            ProcessDamage();
+            ProcessDamage(_damageType);
 
 
             if (_boss == null) Destroy(gameObject); // No destruimos al jefe.
