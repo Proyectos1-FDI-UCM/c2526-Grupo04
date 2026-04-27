@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 3e0d5cbceb4a1e54a92248fee55c50b2
+guid: 0a5ddabcd58e8d54a98ef248b3941a39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7165716350834512323
-    second: venenoMando_0
+      213: -1348275659240025970
+    second: VenenoMando 2_0
+  - first:
+      213: -2849847136915727343
+    second: VenenoMando 2_1
+  - first:
+      213: -8062132944417302918
+    second: VenenoMando 2_2
+  - first:
+      213: 1613850917165916021
+    second: VenenoMando 2_3
+  - first:
+      213: 5794594178509216396
+    second: VenenoMando 2_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: venenoMando_0
+      name: VenenoMando 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 100
-        height: 100
+        y: 16
+        width: 63
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c113b43e0db17360800000000000000
-      internalID: 7165716350834512323
+      spriteID: e8051bf6e66f94de0800000000000000
+      internalID: -1348275659240025970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VenenoMando 2_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c59fbc02f4378d0800000000000000
+      internalID: -2849847136915727343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VenenoMando 2_2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 2
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7658045dcc8d1090800000000000000
+      internalID: -8062132944417302918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VenenoMando 2_3
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 2
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fdc1ecbdc856610800000000000000
+      internalID: 1613850917165916021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VenenoMando 2_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 2
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a969b44b88a6050800000000000000
+      internalID: 5794594178509216396
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      venenoMando_0: 7165716350834512323
+      VenenoMando 2_0: -1348275659240025970
+      VenenoMando 2_1: -2849847136915727343
+      VenenoMando 2_2: -8062132944417302918
+      VenenoMando 2_3: 1613850917165916021
+      VenenoMando 2_4: 5794594178509216396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
