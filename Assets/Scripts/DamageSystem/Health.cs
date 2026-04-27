@@ -123,6 +123,14 @@ public class Health : MonoBehaviour
         return dead;
     }
 
+    public void ProcessDamage(DamageSource source = DamageSource.Other)
+    {
+        if (source == DamageSource.Other)
+        {
+            _enemyXP.DeathXpDrop();
+            LevelManager.Instance.Addkill();
+        }
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
@@ -142,8 +150,10 @@ public class Health : MonoBehaviour
 
             // Reproducimos el sonido de muerte
             AudioManager.Instance.EnemiesDeathSound();
-            _enemyXP.DeathXpDrop();
-            LevelManager.Instance.Addkill();
+
+            ProcessDamage();
+
+
             if (_boss == null) Destroy(gameObject); // No destruimos al jefe.
             // Al no destruirlo, permitimos que el Update del componente Boss se ejecute, instanciando
             // la segunda fase y destruyendo la primera instantaneamente.
