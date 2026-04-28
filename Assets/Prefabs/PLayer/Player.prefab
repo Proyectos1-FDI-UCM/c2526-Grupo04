@@ -97,10 +97,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7652162536970584005}
   - component: {fileID: 8798383079225510465}
+  - component: {fileID: 8488072362049856130}
   - component: {fileID: 7926414153462157400}
   - component: {fileID: 1815295831481581564}
   - component: {fileID: -1724316360020513461}
-  - component: {fileID: 8488072362049856130}
   - component: {fileID: 7348126984490994177}
   - component: {fileID: 7713415307688923660}
   - component: {fileID: 2340312500981586997}
@@ -185,6 +185,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8488072362049856130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036905124635201462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78830020d4ed3548ab3df0266523ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  Dmg: 4
+  MaxMagic: 6
 --- !u!114 &7926414153462157400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,21 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocity: 5.5
---- !u!114 &8488072362049856130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036905124635201462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78830020d4ed3548ab3df0266523ff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 5
-  Dmg: 4
-  MaxMagic: 6
 --- !u!58 &7348126984490994177
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -440,7 +440,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 0
-  kill: {fileID: 0}
 --- !u!114 &-5471398437306984953
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject Spawner3;
     [SerializeField] private GameObject Spawner4;
     [SerializeField] private int Seed;
+    [SerializeField] private bool Seeded;
 
     // Documentar cada atributo que aparece aquí.
     // El convenio de nombres de Unity recomienda que los atributos
@@ -94,7 +95,7 @@ public class LevelManager : MonoBehaviour
         _fase1Done = false;
         _pausedGame = false;
         _nEnemies = 0;
-        UnityEngine.Random.InitState(Seed);
+        if(Seeded) UnityEngine.Random.InitState(Seed);
 
     }
 
