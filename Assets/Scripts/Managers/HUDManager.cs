@@ -25,8 +25,6 @@ public class HUDManager : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
-
-    [SerializeField] RectTransform CanvasTransform;
     
     [SerializeField] private TMPro.TextMeshProUGUI TimerGUI;
     [SerializeField] private TMPro.TextMeshProUGUI Level;
@@ -287,7 +285,7 @@ public class HUDManager : MonoBehaviour
         Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, elemList.listaPos[elemList.index].y, 0);
         Image HUDelem;
 
-        HUDelem = Image.Instantiate(HUDItem, CanvasTransform, false);
+        HUDelem = Image.Instantiate(HUDItem, transform, false);
 
         HUDelem.gameObject.AddComponent<RectTransform>();
 

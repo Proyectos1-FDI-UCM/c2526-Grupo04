@@ -67,6 +67,7 @@ public class Healing : MonoBehaviour
             _bossHealth = _boss.GetComponent<Health>();
             _maxHealth = _bossHealth.GetMaxHealth();
         }
+        AudioManager.Instance.PlayHealSound();
         
     }
 
@@ -81,6 +82,7 @@ public class Healing : MonoBehaviour
             {
                 if (LevelManager.Instance.PillarDestroyed() == 0 && !_Phase2Boss) //comprueba que es el último pilar y que el boss esté en la fase 1
                 {
+                    AudioManager.Instance.StopHealSound();
                     _bossHealth.LoseHealth(_maxHealth + 1);
                 }
             }
