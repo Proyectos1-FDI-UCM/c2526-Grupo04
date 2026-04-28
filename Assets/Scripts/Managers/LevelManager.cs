@@ -276,6 +276,11 @@ public class LevelManager : MonoBehaviour
     {
         return _nEnemies;
     }
+
+    public void SetTimer(float value)
+    {
+        _timer = value;
+    }
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----

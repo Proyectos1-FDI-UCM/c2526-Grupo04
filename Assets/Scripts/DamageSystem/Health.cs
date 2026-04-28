@@ -46,6 +46,8 @@ public class Health : MonoBehaviour
     private Healing _healing;
 
     private DamageSource _damageType = DamageSource.Other;
+
+    private bool _invulnerable = false; //Para el cheat de invulnerabilidad
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -94,6 +96,7 @@ public class Health : MonoBehaviour
     // Método público para ser llamado por Damage (u otros) (si el daño introducido es negativo, currentHealth aumenta)
     public void LoseHealth(float damage)
     {
+        if (_invulnerable && damage > 0) return;
         // Reproducimos el sonido de recibir daño del jugador
         if (_playerStats != null && damage > 0) AudioManager.Instance.PlayerDamageSound();
         _currentHealth -= damage;
@@ -138,6 +141,13 @@ public class Health : MonoBehaviour
             _enemyXP.DeathXpDrop();
             LevelManager.Instance.Addkill();
         }
+    }
+    /// <summary>
+    /// Alterna entre tener vida finita o infinita
+    /// </summary>
+    public void ToggleInvulnerability()
+    {
+        _invulnerable = !_invulnerable;
     }
     #endregion
 
