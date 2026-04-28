@@ -1,7 +1,8 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Script hecho para que los botones se asignen su función correspondiente desde el GameManager
+// de la escena.
+// Arturo Ramos Romero
+// MMDM (Meteorito Monstruos Duendes Matar)
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -14,7 +15,7 @@ using UnityEngine.UI;
 /// Antes de cada class, descripción de qué es y para qué sirve,
 /// usando todas las líneas que sean necesarias.
 /// </summary>
-public class ResumeButton : MonoBehaviour
+public class ButtonOnClick : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
@@ -23,9 +24,13 @@ public class ResumeButton : MonoBehaviour
     // públicos y de inspector se nombren en formato PascalCase
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
+ 
+    [SerializeField] private use SpecificUse;
+    [Header("Solo si SpecificUse es ChangeScene")]
+    [SerializeField] private int NextScene;
 
     #endregion
-
+    
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     // Documentar cada atributo que aparece aquí.
@@ -35,36 +40,44 @@ public class ResumeButton : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private Button _button;
-    #endregion
+    private enum use // Enumerado que hace referencia al uso específico del botón.
+    {
+        ChangeScene,
+        QuitGame,
+        Unpause
+    }
 
+    private Button _button; // Componente Button del GameObject.
+
+    #endregion
+    
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
+    
     // Por defecto están los típicos (Update y Start) pero:
     // - Hay que añadir todos los que sean necesarios
     // - Hay que borrar los que no se usen 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
-    /// </summary>
-    void Start()
+    
+    void Awake()
     {
-        _button = GetComponent<Button>();
-        if (_button == null) return;
-
-        _button.onClick.RemoveAllListeners();
-        _button.onClick.AddListener(OnClick);
+        _button = gameObject.GetComponent<Button>();
+        if (_button != null)
+        {
+            switch (SpecificUse) // En función del uso que se marque, se le asigna un método u otro.
+            {
+                case use.ChangeScene:
+                    _button.onClick.AddListener(() => GameManager.Instance.ChangeScene(NextScene));
+                    break;
+                case use.QuitGame:
+                    _button.onClick.AddListener(() => GameManager.Instance.QuitGame());
+                    break;
+                case use.Unpause:
+                    _button.onClick.AddListener(() => LevelManager.Instance.PauseGameButton());
+                    break;
+            }
+        }
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -76,7 +89,7 @@ public class ResumeButton : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     #endregion
-
+    
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
     // Documentar cada método que aparece aquí
@@ -84,12 +97,7 @@ public class ResumeButton : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private void OnClick()
-    {
-        AudioManager.Instance.ClickSound();
-        LevelManager.Instance.PauseGameButton();
-    }
     #endregion   
 
-} // class ResumeButton 
+} // class ButtonOnClick 
 // namespace

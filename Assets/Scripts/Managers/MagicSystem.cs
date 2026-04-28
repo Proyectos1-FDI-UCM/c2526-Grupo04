@@ -26,7 +26,7 @@ public class MagicSystem : MonoBehaviour
     private float CurrentReloadTime; //tiempo que tarda en recargar la magia en el momento actual
     private float MaxMagic;
 
-    
+    private bool _infiniteMagic = false; //Para el cheat de magia
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     void Start()
     {
@@ -69,10 +69,20 @@ public class MagicSystem : MonoBehaviour
 
     public bool UseMagic(float cost)
     {
+        if (_infiniteMagic) return true;
         bool canUseMagic = CurrentMagic >= cost;
         if (canUseMagic) CurrentMagic -= cost;
         return canUseMagic;
 
+    }
+
+    /// <summary>
+    /// Alterna entre tener magia finita o infinita y la restaura al máximo en caso de ser infinita
+    /// </summary>
+    public void ToggleInfiniteMagic()
+    {
+        _infiniteMagic = !_infiniteMagic;
+        if (_infiniteMagic) CurrentMagic = MaxMagic;
     }
 
     #endregion

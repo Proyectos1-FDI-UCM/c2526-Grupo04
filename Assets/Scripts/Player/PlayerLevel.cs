@@ -41,7 +41,7 @@ public class PlayerLevel : MonoBehaviour
     private int _level = 1;
     private float _currentLimit;
     private float _previousLimit;
-    private ItemSelectionManager _itemSelectionManager;
+    private ItemSelection _itemSelectionManager;
 
     #endregion
 
@@ -59,7 +59,7 @@ public class PlayerLevel : MonoBehaviour
     void Start()
     {
         _currentLimit = InitialLimit;
-        _itemSelectionManager = GetComponent<ItemSelectionManager>();
+        _itemSelectionManager = GetComponent<ItemSelection>();
         _itemSelectionManager.QueueUp();
     }
 

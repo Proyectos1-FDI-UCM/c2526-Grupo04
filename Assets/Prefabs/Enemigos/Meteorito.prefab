@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1000
+  Source: 1
 --- !u!50 &613066524502074687
 Rigidbody2D:
   serializedVersion: 5

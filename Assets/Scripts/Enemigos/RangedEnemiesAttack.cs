@@ -32,12 +32,12 @@ public class RangedEnemiesAttack : MonoBehaviour
 
    
 
-    [SerializeField] private Projectile Projectile;
+    [SerializeField] private Projectile Projectile; // Proyectil.
 
     [Tooltip("Tiempo entre cada ataque")]
-    [SerializeField] private float AttackSpeed;
+    [SerializeField] private float AttackSpeed; // Velocidad de ataque de la entidad.
 
-    [SerializeField] private float ProjectileDistance; //Distancia del enemigo al proyectil al disparar
+    [SerializeField] private float ProjectileDistance; //Distancia del enemigo al proyectil al disparar.
 
     [SerializeField] private RangedAtacks RangedAtacks;
     #endregion
@@ -51,8 +51,8 @@ public class RangedEnemiesAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private float _nextAttack = 0;
-    private Transform _playerTransform;
+    private float _nextAttack = 0; // Variable que usaremos para gestionar el tiempo entre disparos.
+    private Transform _playerTransform; // Transform del jugador.
 
     #endregion
 
@@ -69,7 +69,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _playerTransform = LevelManager.Instance.GetPlayer();
+        _playerTransform = LevelManager.Instance.GetPlayer(); // Obtenemos el transform del jugador.
     }
 
     /// <summary>
@@ -77,17 +77,21 @@ public class RangedEnemiesAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // Si no esta pausado el juego.
         if (!LevelManager.Instance.GetPause())
         {
+            // Obtenemos la dirección de disparo.
             Vector3 direction;
             if (_playerTransform != null) direction = (_playerTransform.position - transform.position).normalized;
             else direction = new Vector3(0, 0, 0);
 
-            //Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara
+            // Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara.
             if (Time.time > _nextAttack)
             {
-                AudioManager.Instance.PlayRangedAtack(RangedAtacks);
-                _nextAttack = Time.time + AttackSpeed;
+                AudioManager.Instance.PlayRangedAtack(RangedAtacks); // Reproducimos el sonido del disparo.
+                // Así, hasta que no haya pasado el tiempo de AttackSpeed, no se dispara.
+                _nextAttack = Time.time + AttackSpeed; 
+                // Instanciamos el proyectil.
                 GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
                 newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
             }

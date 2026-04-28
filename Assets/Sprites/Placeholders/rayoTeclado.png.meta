@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 811017d2a8bb82144bf877bf878006ba
+guid: 4009d92f9348d8746b864f28482f3fae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1398402435493464807
-    second: rayoTeclado_0
+      213: 8168531483660329062
+    second: RayoTeclado 2_0
+  - first:
+      213: -8334852569306663295
+    second: RayoTeclado 2_1
+  - first:
+      213: 7682971411304868411
+    second: RayoTeclado 2_2
+  - first:
+      213: -8229971170451103617
+    second: RayoTeclado 2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rayoTeclado_0
+      name: RayoTeclado 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 100
-        height: 100
+        y: 23
+        width: 62
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 915fe5bd460e79ce0800000000000000
-      internalID: -1398402435493464807
+      spriteID: 6602b2c0b147c5170800000000000000
+      internalID: 8168531483660329062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RayoTeclado 2_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18679378fb7a45c80800000000000000
+      internalID: -8334852569306663295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RayoTeclado 2_2
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 4
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3aee4edac56f9a60800000000000000
+      internalID: 7682971411304868411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RayoTeclado 2_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 4
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f706e8123d449cd80800000000000000
+      internalID: -8229971170451103617
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rayoTeclado_0: -1398402435493464807
+      RayoTeclado 2_0: 8168531483660329062
+      RayoTeclado 2_1: -8334852569306663295
+      RayoTeclado 2_2: 7682971411304868411
+      RayoTeclado 2_3: -8229971170451103617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

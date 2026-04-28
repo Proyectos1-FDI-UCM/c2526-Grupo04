@@ -7,6 +7,8 @@
 
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using UnityEngine.VFX;
 
 /// <summary>
@@ -83,7 +85,9 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance; // Instancia del AudioManager
     private AudioSource _musicAudioSource; // Componente AudioSource para la ost.
     private AudioSource _soundEffectsAudioSource; // Componente AudioSource para los efectos de sonido.
-    private int _numAudioSources = 2; // Número de AudioSources que maneja el Manager
+    private AudioSource _victoryAndDefeatAudioSource; // Componente AudioSource auxiliar para los sonidos de victoria y derrota.
+    private AudioSource _healAudioSource; // Componente AudioSource para el sonido de curación de los pilares.
+    private int _numAudioSources = 4; // Número de AudioSources que maneja el Manager
 
     #endregion
 
@@ -154,7 +158,8 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayerDefeatSound()
     {
-        if (DefeatSound != null) PlaySound(DefeatSound);
+        _musicAudioSource.Stop();
+        if (DefeatSound != null) _victoryAndDefeatAudioSource.PlayOneShot(DefeatSound, 1f); ;
     }
 
     /// <summary>
@@ -218,7 +223,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayDeathBossSound()
     {
-        if (DeathBossSound != null) PlaySound(DeathBossSound);
+        if (DeathBossSound != null) _victoryAndDefeatAudioSource.PlayOneShot(DeathBossSound, 1f); ;
     }
 
     /// <summary>
@@ -266,7 +271,25 @@ public class AudioManager : MonoBehaviour
     public void PlayVictorySound()
     {
         _musicAudioSource.Stop();
-        if (VictorySound != null) PlaySound(VictorySound);
+        if (VictorySound != null) _victoryAndDefeatAudioSource.PlayOneShot(VictorySound, 1f);
+    }
+
+    /// <summary>
+    /// Método al que llamaremos para cambiar reproducir el efecto de sonido correspondiente a la 
+    /// curación de los pilares.
+    /// </summary>
+    public void PlayHealSound()
+    {
+        _healAudioSource.clip = HealBossSound;
+        if (HealBossSound != null) _healAudioSource.Play();
+    }
+
+    /// <summary>
+    /// Método al que llamaremos cuando los pilares sean destruidos.
+    /// </summary>
+    public void StopHealSound()
+    {
+        _healAudioSource.Stop();
     }
 
     /// <summary>
@@ -314,10 +337,25 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Método al que llamaremos para cambiar el volumen del AudioSource encargado de la OST.
+    /// Método al que se llama cuando se pausa el juego para evitar que el AudioManager reproduzca
+    /// efectos de sonido.
     /// </summary>
-    public void SetOSTVolume(float newVolume)
+    public void PauseGame(float newVolume)
     {
+        _soundEffectsAudioSource.Pause();
+        _healAudioSource.Pause();
+        _musicAudioSource.volume = newVolume;
+    }
+
+
+    /// <summary>
+    /// Método al que se llama cuando se reanuda el juego para evitar que el AudioManager reproduzca
+    /// los efectos de sonido por el punto en el que se quedaron.
+    /// </summary>
+    public void UnpauseGame(float newVolume)
+    {
+        _soundEffectsAudioSource.UnPause();
+        _healAudioSource.UnPause();
         _musicAudioSource.volume = newVolume;
     }
 
@@ -354,12 +392,18 @@ public class AudioManager : MonoBehaviour
         // Asignamos los AudioSources con su respectiva utilidad.
         _musicAudioSource = _audioSources[0];
         _musicAudioSource.loop = true;
-        if (MenuMusic != null)
-        {
-            _musicAudioSource.clip = MenuMusic;
-            _musicAudioSource.Play();
-        }
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1 
+            && GameSceneMusic != null) _musicAudioSource.clip = GameSceneMusic;
+        else if (MenuMusic != null) _musicAudioSource.clip = MenuMusic;
+        
+        // Reproducimos la música de fondo.
+        if (_musicAudioSource.clip != null) _musicAudioSource.Play();
+
+        // Asignamos el resto de componentes AudioSource.
         _soundEffectsAudioSource = _audioSources[1];
+        _victoryAndDefeatAudioSource = _audioSources[2];
+        _healAudioSource = _audioSources[3];
+        _healAudioSource.loop = true;
     }
 
     /// <summary>

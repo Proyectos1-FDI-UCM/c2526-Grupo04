@@ -48,8 +48,17 @@ MonoBehaviour:
   WinMenu: {fileID: 0}
   Meteorite: {fileID: 2035953162811259743, guid: 270ab64a97d05b944982462ba4129ec5, type: 3}
   Boss: {fileID: 0}
-  Pillars: {fileID: 0}
+  Pillar: {fileID: 0}
+  PillarPos:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   Player: {fileID: 0}
   LimitX: 100
   LimitY: 100
   InitialTime: 0.1
+  Spawner1: {fileID: 0}
+  Spawner2: {fileID: 0}
+  Spawner3: {fileID: 0}
+  Spawner4: {fileID: 0}
+  Seed: 0

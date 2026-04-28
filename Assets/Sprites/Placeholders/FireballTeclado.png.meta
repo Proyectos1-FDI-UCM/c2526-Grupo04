@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 6f0bd2b50c754c94e91d2db52e9fba75
+guid: 315ce36c6b605924781f90a048111788
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6413846847208173478
-    second: WhatsApp Image 2026-03-25 at 20.17.24_0
+      213: 3091985994757888570
+    second: FireballTeclado 1_0
+  - first:
+      213: -850322067983488279
+    second: FireballTeclado 1_1
+  - first:
+      213: -95323813376559674
+    second: FireballTeclado 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhatsApp Image 2026-03-25 at 20.17.24_0
+      name: FireballTeclado 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 100
-        height: 100
+        y: 25
+        width: 64
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6af2a9bb9bf820950800000000000000
-      internalID: 6413846847208173478
+      spriteID: a3ad60451e0f8ea20800000000000000
+      internalID: 3091985994757888570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireballTeclado 1_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea2b29959c0334f0800000000000000
+      internalID: -850322067983488279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireballTeclado 1_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 4
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5fd0d2f775daef0800000000000000
+      internalID: -95323813376559674
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WhatsApp Image 2026-03-25 at 20.17.24_0: 6413846847208173478
+      FireballTeclado 1_0: 3091985994757888570
+      FireballTeclado 1_1: -850322067983488279
+      FireballTeclado 1_2: -95323813376559674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

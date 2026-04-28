@@ -8,6 +8,11 @@
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
+public enum DamageSource
+{
+    Other,
+    Meteorito
+}
 
 /// <summary>
 /// Antes de cada class, descripción de qué es y para qué sirve,
@@ -24,6 +29,7 @@ public class Damage : MonoBehaviour
     // Ejemplo: MaxHealthPoints
 
     [SerializeField] private float Multiplier = 1;
+    [SerializeField] private DamageSource Source = DamageSource.Other;
 
     #endregion
     
@@ -75,8 +81,12 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
-        if (health != null) health.LoseHealth(TotalDamage);
-    }
+        if (health != null) 
+        {
+            health.SetDamageSource(Source);
+            health.LoseHealth(TotalDamage);
+        }
+    }   
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos

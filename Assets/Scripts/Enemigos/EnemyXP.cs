@@ -53,16 +53,9 @@ public class EnemyXP : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _playerLevel = FindAnyObjectByType<PlayerLevel>();
+        _playerLevel = LevelManager.Instance.GetPlayer().gameObject.GetComponent<PlayerLevel>();
     }
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -76,7 +69,7 @@ public class EnemyXP : MonoBehaviour
     // Suma la experiencia correspondiente a la experiencia del jugador
     public void DeathXpDrop()
     {
-        _playerLevel.XpUpdate(XpDrop);
+        if (_playerLevel != null) _playerLevel.XpUpdate(XpDrop);
     }
 
     #endregion
