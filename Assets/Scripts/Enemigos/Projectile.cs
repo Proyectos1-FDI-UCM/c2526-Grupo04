@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float ProjectileDuration; //Duración del proyectil
 
     [SerializeField] private bool FollowsPlayer; //Si se marca, el proyectil sigue al jugador
+    [SerializeField] private float RotationSpeed = 1;
 
     [Header("Solo para las sombras de los meteoritos y los rayos del jefe")]
     [SerializeField] private bool Shadow; //Indica si el GameObject con el componente Projectile es la sombra de otro GameObject
@@ -83,7 +84,8 @@ public class Projectile : MonoBehaviour
             {
                 if (FollowsPlayer)
                 {
-                    _direction = (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized;
+                    _direction = Vector3.RotateTowards(_direction, (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized, RotationSpeed * Time.deltaTime, 0.0f);
+                    
                     float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
                     transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 }

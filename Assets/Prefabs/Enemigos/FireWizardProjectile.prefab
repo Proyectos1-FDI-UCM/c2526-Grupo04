@@ -106,6 +106,7 @@ MonoBehaviour:
   ProjectileSpeed: 2.8
   ProjectileDuration: 5
   FollowsPlayer: 1
+  RotationSpeed: 1
   Shadow: 0
   NonShadowObject: {fileID: 0}
 --- !u!60 &3449774514797940190
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
+  Source: 0
 --- !u!50 &477504954561022414
 Rigidbody2D:
   serializedVersion: 5
