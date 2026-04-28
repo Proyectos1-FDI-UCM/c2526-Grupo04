@@ -44,7 +44,7 @@ public class EnemyStateMachine : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private float minX, maxX, minY, maxY; // Límites del mapa.
-    protected enum State // Estado del enemigo (persecución o retroceso).
+    private enum State // Estado del enemigo (persecución o retroceso).
     {
         Chasing,
         Knockback
