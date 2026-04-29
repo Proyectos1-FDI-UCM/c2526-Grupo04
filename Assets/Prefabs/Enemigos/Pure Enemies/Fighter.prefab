@@ -231,7 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 10
-  levelManager: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
 --- !u!114 &5084647295468977431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
+  Source: 0
 --- !u!50 &8439281293455679385
 Rigidbody2D:
   serializedVersion: 5
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08836c7d1be19814ab49aedfc68f6af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XpDrop: 5
+  XpDrop: 6
 --- !u!114 &8284374111215930976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,8 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxDistance: 0
   Speed: 2
-  KnockbackSpeed: 4
-  KnockbackDuration: 0.6
+  KnockbackSpeed: 6
+  KnockbackDuration: 0.4
 --- !u!58 &2200818588066000849
 CircleCollider2D:
   m_ObjectHideFlags: 0

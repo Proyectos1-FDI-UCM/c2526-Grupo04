@@ -61,7 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 2.2
+  Multiplier: 1.3
+  Source: 0
 --- !u!114 &4296237826464953130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackFrecuency: 1
-  AttackDuration: 0.2
+  AttackDuration: 0.4
   Weapon: 0
 --- !u!212 &2884794129930726834
 SpriteRenderer:

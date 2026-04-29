@@ -61,7 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 1.7
+  Multiplier: 1
+  Source: 0
 --- !u!114 &4296237826464953130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653dc2f3a955e5b4db73731c08f6d4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackFrecuency: 2.5
+  AttackFrecuency: 2.2
   AttackDuration: 0.2
   Weapon: 1
 --- !u!212 &2884794129930726834
