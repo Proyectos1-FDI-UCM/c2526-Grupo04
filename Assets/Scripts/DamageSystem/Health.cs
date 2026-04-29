@@ -25,6 +25,8 @@ public class Health : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [Header("Relevante solo para enemigos")]
     [SerializeField] private int _maxHealth;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float deathAnimationTime;
 
     #endregion
 
@@ -37,8 +39,11 @@ public class Health : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
+
     private PlayerStats _playerStats;
     private float _currentHealth;
+    private float _deathTime;
+    private bool _deadExp;
 
     private EnemyXP _enemyXP;
     private Boss _boss;
@@ -67,9 +72,14 @@ public class Health : MonoBehaviour
         _enemyXP = gameObject.GetComponent<EnemyXP>();
         _healing = gameObject.GetComponent<Healing>();
         _boss = gameObject.GetComponent<Boss>();
+        
+        _deathTime = 0;
+        _deadExp = false;
+
         if (_playerStats != null)
             UpdateMaxHealth();
-        _currentHealth = _maxHealth;        
+
+        _currentHealth = _maxHealth;
     }
 
     /// <summary>
@@ -79,7 +89,11 @@ public class Health : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            if (IsDead()) Die();
+            if (IsDead())
+            {
+                Die();
+                
+            }
             // vuelve al inicio / pantalla de muerte 
         }
     }
@@ -134,11 +148,11 @@ public class Health : MonoBehaviour
         _damageType = source;
     }
 
-    public void ProcessDamage(DamageSource source)
+    public void ProcessDamage(DamageSource source, bool done)
     {
         if (source == DamageSource.Other)
         {
-            _enemyXP.DeathXpDrop();
+            _enemyXP.DeathXpDrop(done);
             LevelManager.Instance.Addkill();
         }
     }
@@ -164,15 +178,18 @@ public class Health : MonoBehaviour
         // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {
+            if (_deathTime == 0) _deathTime = Time.time;
             LevelManager.Instance.DestroyEnemy();
 
             // Reproducimos el sonido de muerte
             AudioManager.Instance.EnemiesDeathSound();
 
-            ProcessDamage(_damageType);
+            animator.SetBool("Dead", true);
 
+            ProcessDamage(_damageType, _deadExp);
+            _deadExp = true;
 
-            if (_boss == null) Destroy(gameObject); // No destruimos al jefe.
+            if (_boss == null && (Time.time -_deathTime) >= deathAnimationTime) Destroy(gameObject); // No destruimos al jefe, y tampoco al enemigo base si la animación de muerte no ha terminado.
             // Al no destruirlo, permitimos que el Update del componente Boss se ejecute, instanciando
             // la segunda fase y destruyendo la primera instantaneamente.
         }
