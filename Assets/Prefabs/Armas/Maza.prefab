@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2884794129930726834}
   - component: {fileID: -8345261863790632753}
   - component: {fileID: 489795973144606894}
+  - component: {fileID: -8991165647953765088}
   m_Layer: 9
   m_Name: Maza
   m_TagString: Untagged
@@ -62,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 2.5
+  Source: 0
 --- !u!114 &4296237826464953130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +79,7 @@ MonoBehaviour:
   AttackFrecuency: 0.6
   AttackDuration: 0.6
   Weapon: 2
+  animator: {fileID: -8991165647953765088}
 --- !u!212 &2884794129930726834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -232,3 +235,25 @@ PolygonCollider2D:
       - {x: 0.640625, y: 1.5546875}
       - {x: 0.984375, y: 1.6953125}
   m_UseDelaunayMesh: 0
+--- !u!95 &-8991165647953765088
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849566018043076284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 291ae2e6543369b4b882bf05493ec361, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2884794129930726834}
   - component: {fileID: -8345261863790632753}
   - component: {fileID: 489795973144606894}
+  - component: {fileID: -7242247510214943409}
   m_Layer: 9
   m_Name: Lanza
   m_TagString: Untagged
@@ -62,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1.7
+  Source: 0
 --- !u!114 &4296237826464953130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +79,7 @@ MonoBehaviour:
   AttackFrecuency: 2.5
   AttackDuration: 0.2
   Weapon: 1
+  animator: {fileID: -7242247510214943409}
 --- !u!212 &2884794129930726834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -210,3 +213,25 @@ PolygonCollider2D:
       - {x: -0.3929147, y: 7.04326}
       - {x: -0.4295177, y: 1.4659841}
   m_UseDelaunayMesh: 0
+--- !u!95 &-7242247510214943409
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849566018043076284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f05d88e8dd11df4297fb4556c654e2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

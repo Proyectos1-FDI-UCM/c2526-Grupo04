@@ -34,6 +34,8 @@ public class WeaponAttack : MonoBehaviour
 
     [SerializeField] private Weapon Weapon;
 
+    [SerializeField] private Animator animator;
+
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -92,6 +94,8 @@ public class WeaponAttack : MonoBehaviour
                 _debug.enabled = true;
                 _lastAttackTime = Time.time;
                 _aim.SetMovement(false);
+                animator.SetBool("Attack", _hitbox.enabled);
+
             }
             else if (_lastAttackTime + AttackDuration < Time.time)
             {
@@ -99,7 +103,13 @@ public class WeaponAttack : MonoBehaviour
                 _aim.SetMovement(true);
                 //Esto es temporal para que se distinga el ataque
                 _hitbox.enabled = false;
+                animator.SetBool("Attack", _hitbox.enabled);
             }
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+            _debug.enabled = false;
         }
 
     }
