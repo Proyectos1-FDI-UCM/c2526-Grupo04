@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08836c7d1be19814ab49aedfc68f6af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XpDrop: 12
+  XpDrop: 8
 --- !u!114 &2080656735773128375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,8 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxDistance: 0
   Speed: 2.3
-  KnockbackSpeed: 6
-  KnockbackDuration: 0.4
+  KnockbackSpeed: 4
+  KnockbackDuration: 0.6
 --- !u!58 &4577321693829766445
 CircleCollider2D:
   m_ObjectHideFlags: 0

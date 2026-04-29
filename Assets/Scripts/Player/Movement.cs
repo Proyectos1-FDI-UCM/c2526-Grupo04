@@ -36,8 +36,6 @@ public class Movement : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     private float minX, maxX, minY, maxY;
-
-    private Animator _animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -54,7 +52,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
-        _animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -76,9 +73,17 @@ public class Movement : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
             transform.position = pos;
-            _animator.SetFloat("Movement", movement.magnitude);
+
+            if (movement != Vector2.zero)
+            {
+                // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
+                //  (pues el triángulo apunta hacia arriba la punta)
+                float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
+
+                // Una vez tenemos el ángulo, rotamos el player a esa dirección
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
         }
-        
     }
     #endregion
 

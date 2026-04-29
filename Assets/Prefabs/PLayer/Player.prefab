@@ -1,111 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2757261501274663611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7952783843388636841}
-  - component: {fileID: 2363115562758409285}
-  - component: {fileID: 7509522031909083225}
-  m_Layer: 6
-  m_Name: Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7952783843388636841
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757261501274663611}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7652162536970584005}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2363115562758409285
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757261501274663611}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6a4ed8b1c0a6921419e1bdd6a18bbec9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1818360609 &7509522031909083225
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757261501274663611}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 0
-  m_IsLocked: 0
-  m_Sources: []
 --- !u!1 &3285825068119134565
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7652162536970584005}
+  - component: {fileID: 8798383079225510465}
   - component: {fileID: 8488072362049856130}
   - component: {fileID: 7926414153462157400}
   - component: {fileID: 1815295831481581564}
@@ -233,9 +128,63 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2065326538686801445}
-  - {fileID: 7952783843388636841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8798383079225510465
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036905124635201462}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!114 &8488072362049856130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,9 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78830020d4ed3548ab3df0266523ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 4
-  Dmg: 3
-  MaxMagic: 3
+  MaxHealth: 5
+  Dmg: 4
+  MaxMagic: 6
 --- !u!114 &7926414153462157400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,117 +214,117 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameCanvas: {fileID: 0}
   ItemList:
-  - rid: 3899020313545670720
-  - rid: 3899020313545670721
-  - rid: 3899020313545670722
-  - rid: 3899020313545670723
-  - rid: 3899020313545670724
-  - rid: 3899020313545670725
-  - rid: 3899020313545670726
-  - rid: 3899020313545670727
-  - rid: 3899020313545670728
-  - rid: 3899020313545670729
-  - rid: 3899020313545670730
-  - rid: 3899020313545670731
+  - rid: 1000
+  - rid: 1001
+  - rid: 1002
+  - rid: 1003
+  - rid: 1004
+  - rid: 1005
+  - rid: 1006
+  - rid: 1007
+  - rid: 1008
+  - rid: 1009
+  - rid: 1010
+  - rid: 1011
   references:
     version: 2
     RefIds:
-    - rid: 3899020313545670720
+    - rid: 1000
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Lanza
-        description: Arma rapida y alargada
-        sprite: {fileID: -2796400091282023116, guid: b02f1eeffd6d323498253723b88a75ba, type: 3}
-        prefab: {fileID: 5849566018043076284, guid: 238fa75347532b54580487759d2ae198, type: 3}
-    - rid: 3899020313545670721
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+    - rid: 1001
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Maza
-        description: Arma lenta y fuerte
-        sprite: {fileID: 8042340749556229780, guid: 34373379cd6e0c0409ccc37f36063841, type: 3}
-        prefab: {fileID: 5849566018043076284, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
-    - rid: 3899020313545670722
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+    - rid: 1002
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Espada
-        description: Arma corta en barrido
-        sprite: {fileID: -5937764268318024347, guid: c85f19c6b7c547845af23e0acaf49fd7, type: 3}
-        prefab: {fileID: 5849566018043076284, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
-    - rid: 3899020313545670723
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+    - rid: 1003
       type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
       data:
         name: Rayo
-        description: 'Habilidad que lanza una descarga electrica '
-        sprite: {fileID: 3093207718481668220, guid: 2ca696ba0c322a64392f1f9f89077024, type: 3}
-        prefab: {fileID: 2896242413348064248, guid: 31813bd05eaac2f4b8c469200f24aca6, type: 3}
-        KeyboardSprite: {fileID: 21300000, guid: 4009d92f9348d8746b864f28482f3fae, type: 3}
-        ControllerSprite: {fileID: 21300000, guid: 4a683a558555d654484c16c38010a826, type: 3}
-    - rid: 3899020313545670724
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
+    - rid: 1004
       type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
       data:
         name: Fireball
-        description: Habilidad que lanza una bola de fuego
-        sprite: {fileID: -6607481912129624618, guid: 59c85049c2583c642bdaf121fc3fd266, type: 3}
-        prefab: {fileID: 4537825390611009081, guid: e0e8ac48a596eab4e902528f00927476, type: 3}
-        KeyboardSprite: {fileID: 21300000, guid: 315ce36c6b605924781f90a048111788, type: 3}
-        ControllerSprite: {fileID: 21300000, guid: 9efe6434f9db51d48ae4e894fdb61410, type: 3}
-    - rid: 3899020313545670725
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
+    - rid: 1005
       type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
       data:
         name: Poison
-        description: Habilidad que genera una zona venenosa
-        sprite: {fileID: 7958147730908029603, guid: ca89f60c97fb91a44992f5cc27a7e595, type: 3}
-        prefab: {fileID: 5755108880737174360, guid: 89e14f5a979c11e43bd178efce2e3571, type: 3}
-        KeyboardSprite: {fileID: 21300000, guid: db6ec26a3e8389e4a8950dd64cc6c1db, type: 3}
-        ControllerSprite: {fileID: 21300000, guid: 0a5ddabcd58e8d54a98ef248b3941a39, type: 3}
-    - rid: 3899020313545670726
+        description: 
+        sprite: {fileID: 0}
+        prefab: {fileID: 0}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
+    - rid: 1006
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Casco
-        description: Vida++
-        sprite: {fileID: -2403621696057179548, guid: a4044238ff0461e40b3be9f0dedbc9fb, type: 3}
+        description: 
+        sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
-    - rid: 3899020313545670727
+    - rid: 1007
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pocima
-        description: Fuerza++
-        sprite: {fileID: 6823730998285495618, guid: 03b757dda53259740a59da965fe5e2cb, type: 3}
-        Powerup1: 1
-        Powerup2: 1
-    - rid: 3899020313545670728
+        description: 
+        sprite: {fileID: 0}
+        Powerup1: 0
+        Powerup2: 0
+    - rid: 1008
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Sello
-        description: Magia++
-        sprite: {fileID: -1553825453592760337, guid: 08f8c99a1cb054e4887693951de04556, type: 3}
-        Powerup1: 2
-        Powerup2: 2
-    - rid: 3899020313545670729
+        description: 
+        sprite: {fileID: 0}
+        Powerup1: 0
+        Powerup2: 0
+    - rid: 1009
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pesa
-        description: Vida+ Fuerza+
-        sprite: {fileID: 6462861437363646696, guid: 5e30ed37aa904eb49bfd63a021ab4664, type: 3}
+        description: 
+        sprite: {fileID: 0}
         Powerup1: 0
-        Powerup2: 1
-    - rid: 3899020313545670730
+        Powerup2: 0
+    - rid: 1010
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Tunica
-        description: Vida+ Magia+
-        sprite: {fileID: -720703876719934200, guid: e5e59b7eb0ca5764b85e23fbae24d175, type: 3}
+        description: 
+        sprite: {fileID: 0}
         Powerup1: 0
-        Powerup2: 2
-    - rid: 3899020313545670731
+        Powerup2: 0
+    - rid: 1011
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Orbe
-        description: Magia+ Fuerza+
-        sprite: {fileID: 3784010049462987352, guid: 785d326bf072c0c4fa5e6ac0f3e67d1c, type: 3}
-        Powerup1: 1
-        Powerup2: 2
+        description: 
+        sprite: {fileID: 0}
+        Powerup1: 0
+        Powerup2: 0
 --- !u!114 &1815295831481581564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789489742296e1342ab0ff927073e2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalReloadTime: 10
+  TotalReloadTime: 8
 --- !u!114 &-1724316360020513461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe0c12cef41f5a4bb0adc572a4d3666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 3.5
+  Velocity: 5.5
 --- !u!58 &7348126984490994177
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -477,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a866c3d3c14744b9fcf311eaa251f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegenTimePerUnit: 6
+  RegenTimePerUnit: 4
 --- !u!114 &-5922553066343986802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,8 +452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a78d386c71aa48b50a53e981c1b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialLimit: 40
-  Increment: 1.6
+  InitialLimit: 60
+  Increment: 1.7
 --- !u!114 &5651830946197662469
 MonoBehaviour:
   m_ObjectHideFlags: 0

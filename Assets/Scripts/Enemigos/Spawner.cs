@@ -104,7 +104,7 @@ public class Spawner : MonoBehaviour
 
             if (_realTime > 0) 
             {
-                if ((_realTime / _totalTime) < 0.25) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
+                if ((_realTime / _totalTime) > 0.25) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
                 {
                     //Se fija el tope como un porcentaje del tope total en proporción al tiempo de juego
                     _realEnemyCap = EnemyCap * (1 - (_realTime / _totalTime));

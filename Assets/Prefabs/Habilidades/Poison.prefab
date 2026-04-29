@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1ba10f3c6424b48a221845a7bff29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 4
+  Duration: 5
   AttackSpeed: 1
 --- !u!114 &4533521924617215962
 MonoBehaviour:
@@ -152,5 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 0.8
-  Source: 0
+  Multiplier: 2
