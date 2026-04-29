@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 6286224844203278341}
   - component: {fileID: -5694987294035228357}
   - component: {fileID: 2337889054986955097}
+  - component: {fileID: 4197961922091989068}
   m_Layer: 7
   m_Name: FireWizard
   m_TagString: Untagged
@@ -173,7 +174,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5019608, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -198,6 +199,7 @@ MonoBehaviour:
   Projectile: {fileID: 1478581992256342590, guid: cc79acb38f4ea1343975343778daca87, type: 3}
   AttackSpeed: 2.1
   ProjectileDistance: 0
+  RangedAtacks: 0
 --- !u!58 &2849509321579220326
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,7 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 15
-  levelManager: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+  animator: {fileID: 4197961922091989068}
+  deathAnimationTime: 0.4
 --- !u!50 &4029512634833485826
 Rigidbody2D:
   serializedVersion: 5
@@ -301,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplier: 1
+  Source: 0
 --- !u!114 &-5694987294035228357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,3 +357,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.6
+--- !u!95 &4197961922091989068
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586222516470173899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 619df0fdac39ed54ea65973aeac45399, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

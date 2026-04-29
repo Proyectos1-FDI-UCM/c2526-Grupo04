@@ -67,9 +67,9 @@ public class EnemyXP : MonoBehaviour
     // Ejemplo: GetPlayerController
 
     // Suma la experiencia correspondiente a la experiencia del jugador
-    public void DeathXpDrop()
+    public void DeathXpDrop(bool done)
     {
-        if (_playerLevel != null) _playerLevel.XpUpdate(XpDrop);
+        if (_playerLevel != null && !done) _playerLevel.XpUpdate(XpDrop);
     }
 
     #endregion
