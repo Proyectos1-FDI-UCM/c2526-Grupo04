@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectile: {fileID: -3675568828033557716, guid: e33792cef685a1f48879174f6a5f7d50, type: 3}
-  AttackSpeed: 1.75
+  AttackSpeed: 2.1
   ProjectileDistance: 0
   RangedAtacks: 0
 --- !u!58 &6467069275843345262
@@ -162,8 +162,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 5
+<<<<<<< HEAD
   animator: {fileID: 7530698783591201269}
   deathAnimationTime: 0.4
+=======
+>>>>>>> 1aaa63b2f3a9ae3760a2b625e8c3999fd43ce15b
 --- !u!50 &3507801469053700435
 Rigidbody2D:
   serializedVersion: 5
@@ -203,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08836c7d1be19814ab49aedfc68f6af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XpDrop: 7
+  XpDrop: 8
 --- !u!114 &229519763979392449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxDistance: 7
   Speed: 1.5
-  KnockbackSpeed: 4
-  KnockbackDuration: 0.6
+  KnockbackSpeed: 6
+  KnockbackDuration: 0.4
 --- !u!58 &152129325318190227
 CircleCollider2D:
   m_ObjectHideFlags: 0
