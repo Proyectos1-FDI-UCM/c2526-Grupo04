@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
     private float _currentHealth;
     private float _deathTime;
     private bool _deadExp;
+    private bool _deathSoundDone;
 
     private EnemyXP _enemyXP;
     private Boss _boss;
@@ -76,6 +77,7 @@ public class Health : MonoBehaviour
         
         _deathTime = 0;
         _deadExp = false;
+        _deathSoundDone = false;
 
         if (_playerStats != null)
             UpdateMaxHealth();
@@ -188,11 +190,14 @@ public class Health : MonoBehaviour
         // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {
+
+
             if (_deathTime == 0) _deathTime = Time.time;
             LevelManager.Instance.DestroyEnemy();
 
             // Reproducimos el sonido de muerte
-            AudioManager.Instance.EnemiesDeathSound();
+            AudioManager.Instance.EnemiesDeathSound(_deathSoundDone);
+            _deathSoundDone = true;
 
             animator.SetBool("Dead", true);
 

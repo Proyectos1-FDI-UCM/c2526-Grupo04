@@ -148,9 +148,9 @@ public class AudioManager : MonoBehaviour
     /// Método al que llamaremos cuando muera un enemigo.
     /// Selecciona uno de los posibles sonidos mp3 de muerte y después lo reproduce.
     /// </summary>
-    public void EnemiesDeathSound()
+    public void EnemiesDeathSound(bool done)
     {
-        if (DeathSound.Length > 0) PlaySound(DeathSound[Random.Range(0, DeathSound.Length)]);
+        if (DeathSound.Length > 0 && !done) PlaySound(DeathSound[Random.Range(0, DeathSound.Length)]);
     }
 
     /// <summary>
