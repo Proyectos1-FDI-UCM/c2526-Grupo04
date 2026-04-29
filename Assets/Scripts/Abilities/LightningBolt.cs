@@ -28,6 +28,7 @@ public class LightningBolt : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private float _spawnTime;
+    private Animator _animator;
 
     #endregion
 
@@ -48,6 +49,9 @@ public class LightningBolt : MonoBehaviour
 
         // Desplazamos el rayo en la dirección que apunta para que salga desde el borde del player
         transform.position += transform.up;
+        _animator = GetComponent<Animator>();
+        if (_animator != null)
+            _animator.Play("Rayo");
     }
 
     void Update()

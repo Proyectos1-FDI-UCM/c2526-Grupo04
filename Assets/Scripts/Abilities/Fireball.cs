@@ -47,6 +47,8 @@ public class Fireball : MonoBehaviour
     private CircleCollider2D _explosionHitbox;
     private float _spawnTime, _explosionHitboxStart;
     private bool attacking = false;
+    private Animator _animator;
+    private Animator _explosionAnimator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -68,6 +70,10 @@ public class Fireball : MonoBehaviour
         _spawnTime = Time.time;
         _hitbox = GetComponent<Collider2D>();
         _explosionHitbox = _explosion.GetComponent<CircleCollider2D>();
+        _animator = GetComponent<Animator>();
+        _explosionAnimator = _explosion.GetComponent<Animator>();
+        if (_animator != null)
+            _animator.Play("FireballThrown");
     }
 
     void Start()
@@ -139,6 +145,8 @@ public class Fireball : MonoBehaviour
             _hitbox.GetComponent<SpriteRenderer>().enabled = false;
             _explosion.SetActive(true);
             AudioManager.Instance.PlayFireballExplosionSound();
+            if (_explosionAnimator != null)
+                _explosionAnimator.Play("FireballExplosion");
 
             _explosionHitbox.enabled = true;
             _explosionHitboxStart = Time.time;

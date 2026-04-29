@@ -29,6 +29,7 @@ public class AbilityAttack : MonoBehaviour
     [SerializeField] private GameObject AbilityPrefab;
     [SerializeField] private Buttons Button;
     [SerializeField] private float SpawnOffset;
+    [SerializeField] private bool ApplyRotation;
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
@@ -79,7 +80,7 @@ public class AbilityAttack : MonoBehaviour
             if (pulsado && magicSystem.UseMagic(Cost))
             {
                 GameObject _ability = GameObject.Instantiate(AbilityPrefab);
-                _ability.transform.rotation = transform.rotation;
+                if (ApplyRotation) _ability.transform.rotation = transform.rotation;
                 _ability.transform.position = transform.position + transform.up * SpawnOffset;
             }
         }

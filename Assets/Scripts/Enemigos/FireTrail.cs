@@ -29,6 +29,7 @@ public class FireTrail : MonoBehaviour
     #region Atributos Privados (private fields)
 
     private float _spawnTime;
+    private Animator _animator;
 
     #endregion
 
@@ -38,6 +39,11 @@ public class FireTrail : MonoBehaviour
     private void Awake()
     {
         _spawnTime = Time.time;
+        _animator = GetComponent<Animator>();
+        if (_animator != null)
+        {
+            _animator.Play("FireTrail");
+        }
     }
 
     void Update()

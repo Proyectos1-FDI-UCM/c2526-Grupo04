@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: AbilityPrefab
       value: 
       objectReference: {fileID: 4922530823683114678, guid: 9f982453a8a53c94381bccbf5a40feba, type: 3}
+    - target: {fileID: 2219120055358969182, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
+      propertyPath: ApplyRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3486731238854334151, guid: a4e2b1519f8d6614292fa90b156fc776, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -37,10 +37,11 @@ public class PoisonArea : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private CircleCollider2D _hitbox;
+    private CapsuleCollider2D _hitbox;
     private float _spawnTime;
     private float _lastAttackTime;
     private SpriteRenderer _debug;
+    private Animator _animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -53,8 +54,12 @@ public class PoisonArea : MonoBehaviour
     {
         AudioManager.Instance.PlayPoisonSound();
         AudioManager.Instance.PlayPoisonedFloorSound();
-        _hitbox = GetComponent<CircleCollider2D>();
+        _hitbox = GetComponent<CapsuleCollider2D>();
         _debug = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        transform.rotation = Quaternion.identity;
+        if (_animator != null)
+            _animator.Play("Poison");
     }
     /// <summary>
     /// Start is called on the frame when a script is enabled just before 

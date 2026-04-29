@@ -49,7 +49,7 @@ public class Projectile : MonoBehaviour
 
     private Vector3 _direction; //Dirección del proyectil
     private float _actualDuration; //Variable auxiliar que se usa para gestionar la desaparición del proyectil
-
+    private Animator _animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -63,6 +63,12 @@ public class Projectile : MonoBehaviour
     {
         //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
         _actualDuration = ProjectileDuration + Time.time;
+        _animator = GetComponent<Animator>();
+        if (_animator != null)
+        {
+            if (FollowsPlayer) _animator.Play("FireballThrown");
+            else _animator.Play("Arrow");
+        }
     }
 
     /// <summary>
