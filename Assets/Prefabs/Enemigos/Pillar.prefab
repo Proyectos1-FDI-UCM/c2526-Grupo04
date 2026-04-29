@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 30
+  _healthBar: {fileID: 170905195107218714, guid: 74a33e707d458ab44a0a8654c8feaeac, type: 3}
 --- !u!61 &5110471363185637166
 BoxCollider2D:
   m_ObjectHideFlags: 0

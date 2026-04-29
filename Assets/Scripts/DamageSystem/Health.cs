@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
     // Ejemplo: MaxHealthPoints
     [Header("Relevante solo para enemigos")]
     [SerializeField] private int _maxHealth;
+    [SerializeField] private HealthBar _healthBar;
 
     #endregion
 
@@ -67,9 +68,17 @@ public class Health : MonoBehaviour
         _enemyXP = gameObject.GetComponent<EnemyXP>();
         _healing = gameObject.GetComponent<Healing>();
         _boss = gameObject.GetComponent<Boss>();
+
         if (_playerStats != null)
             UpdateMaxHealth();
-        _currentHealth = _maxHealth;        
+
+        _currentHealth = _maxHealth;
+
+        if (_healthBar != null)
+        {
+            _healthBar.SetTarget(transform);
+            _healthBar.SetFill(1f);
+        }
     }
 
     /// <summary>
@@ -106,6 +115,9 @@ public class Health : MonoBehaviour
             // Le enviamos el daño al LevelManager
             LevelManager.Instance.AddDamage(damage);
         }
+
+        if (_healthBar != null)
+            _healthBar.SetFill(_currentHealth / _maxHealth);
     }
 
     public void UpdateMaxHealth()
