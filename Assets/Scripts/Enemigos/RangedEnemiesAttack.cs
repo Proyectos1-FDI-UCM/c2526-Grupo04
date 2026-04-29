@@ -70,6 +70,7 @@ public class RangedEnemiesAttack : MonoBehaviour
     void Start()
     {
         _playerTransform = LevelManager.Instance.GetPlayer(); // Obtenemos el transform del jugador.
+        _nextAttack = Time.time + AttackSpeed;
     }
 
     /// <summary>
