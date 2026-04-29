@@ -75,7 +75,7 @@ public class Aim : MonoBehaviour
             // En ese caso, el gameObject es un arma y copia la rotación del jugador
             if (gameObject.GetComponent<WeaponAttack>() != null)
             {
-                if (InputManager.Instance.MovementVector != Vector2.zero) aim = SnapTo8Directions(InputManager.Instance.MovementVector);
+                if (InputManager.Instance.MovementVector != Vector2.zero) aim = InputManager.Instance.MovementVector;
                 if (movement) angle = Mathf.Atan2(aim.y, aim.x) * Mathf.Rad2Deg - 90f;
                 if (aim != Vector2.zero && movement)
                 {
@@ -122,22 +122,6 @@ public class Aim : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
 
-    private Vector2 SnapTo8Directions(Vector2 input)
-    {
-        if (input.magnitude < 0.1f) return Vector2.zero;
-
-        // Cálculo del ángulo en radianes y lo pasamos a grados
-        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
-
-        // Redondeamos al múltiplo de 45 más cercano (para las 8 direcciones)
-        angle = Mathf.Round(angle / 45f) * 45f;
-
-        // Lo pasamos de vuelta a radianes
-        float rad = angle * Mathf.Deg2Rad;
-
-        // Creamos un vector de dirección normalizado a partir del ángulo
-        return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-    }
 
     #endregion
 
