@@ -286,7 +286,7 @@ public class HUDManager : MonoBehaviour
         Image HUDelem;
 
         HUDelem = Image.Instantiate(HUDItem, transform, false);
-
+        HUDelem.transform.SetSiblingIndex(0);
         HUDelem.gameObject.AddComponent<RectTransform>();
 
         HUDelem.sprite = item.GetSprite();
