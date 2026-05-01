@@ -118,10 +118,11 @@ public class LevelManager : MonoBehaviour
             }
             else if (!_fase1Done)
             {
-                Instantiate(Cutscene);
 
-                Instantiate(Meteorite);
-       
+                Instantiate(Meteorite); 
+
+                Instantiate(Cutscene);
+     
                 _fase1Done = true;
             }
         }
