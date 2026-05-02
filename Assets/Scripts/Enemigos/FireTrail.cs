@@ -63,6 +63,9 @@ public class FireTrail : MonoBehaviour
     }
 
     #endregion
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
 } // class FireTrail
   // namespace

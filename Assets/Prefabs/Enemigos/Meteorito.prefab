@@ -106,6 +106,7 @@ MonoBehaviour:
   ProjectileSpeed: 0
   ProjectileDuration: 3
   FollowsPlayer: 0
+  RotationSpeed: 1
   Shadow: 0
   NonShadowObject: {fileID: 0}
 --- !u!114 &5890079327174536653
@@ -165,7 +166,7 @@ BoxCollider2D:
     m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1856
+    m_Bits: 1600
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
