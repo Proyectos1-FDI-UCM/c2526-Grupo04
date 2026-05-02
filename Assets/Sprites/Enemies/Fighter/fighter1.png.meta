@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c80d43efb0a69f943aadf12c5d3af68c
+guid: df40972074097864d9e43dd0035487e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9162431365755608266
-    second: vfxespada2_0
+      213: 779212053835688408
+    second: fighter1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.15}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vfxespada2_0
+      name: fighter1_0
       rect:
         serializedVersion: 2
-        x: 218
-        y: 78
-        width: 116
-        height: 144
+        x: 7
+        y: 0
+        width: 54
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6336d3da73188d080800000000000000
-      internalID: -9162431365755608266
+      spriteID: 8d924990c3150da00800000000000000
+      internalID: 779212053835688408
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vfxespada2_0: -9162431365755608266
+      fighter1_0: 779212053835688408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
