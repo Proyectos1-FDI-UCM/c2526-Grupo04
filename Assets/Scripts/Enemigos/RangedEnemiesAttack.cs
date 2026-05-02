@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Componente con el que se gestionan los ataques de los enemigos a distancia.
+// Arturo Ramos Romero
+// MMDM (Meteoritos Monstruos Duendes Matar)
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -96,33 +96,13 @@ public class RangedEnemiesAttack : MonoBehaviour
                 GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
                 newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
             }
-            
         }
         else
         {
             _nextAttack += Time.deltaTime;
         }
     }
-    #endregion
-
-    // ---- MÉTODOS PÚBLICOS ----
-    #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-
-    #endregion
-    
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
-    #endregion   
+    #endregion 
 
 } // class RangedEnemiesAttack 
 // namespace

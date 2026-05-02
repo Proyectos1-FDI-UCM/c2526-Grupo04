@@ -411,7 +411,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     /// <param name="clip">AudioClip que se va a reproducir</param>
     /// <param name="volume">Volumen al que se va a reproducir el AudioClip</param>
-    private void PlaySound(AudioClip clip, float volume = 1f)
+    private void PlaySound(AudioClip clip, float volume = 0.8f)
     {
         if (clip != null) _soundEffectsAudioSource.PlayOneShot(clip, volume);
     }
