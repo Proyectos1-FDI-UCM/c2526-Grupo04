@@ -25,9 +25,9 @@ public class ButtonOnClick : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
  
-    [SerializeField] private use SpecificUse;
+    [SerializeField] private use SpecificUse; // Uso específico del botón.
     [Header("Solo si SpecificUse es ChangeScene")]
-    [SerializeField] private int NextScene;
+    [SerializeField] private int NextScene; // Escena a la que se cambiará solo si el uso es de cambio de escena.
 
     #endregion
     
@@ -79,25 +79,6 @@ public class ButtonOnClick : MonoBehaviour
     }
 
     #endregion
-
-    // ---- MÉTODOS PÚBLICOS ----
-    #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-
-    #endregion
-    
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
-    #endregion   
 
 } // class ButtonOnClick 
 // namespace
