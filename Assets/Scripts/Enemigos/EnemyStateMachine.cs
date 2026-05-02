@@ -129,11 +129,6 @@ public class EnemyStateMachine : MonoBehaviour
                         else transform.position -= direction * KnockbackSpeed * Time.deltaTime;
                         break;
                 }
-
-                // Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                // Rotamos al jugador dicho ángulo respecto al eje z
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
     }

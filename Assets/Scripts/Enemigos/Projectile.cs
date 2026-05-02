@@ -120,7 +120,8 @@ public class Projectile : MonoBehaviour
     {
         //Obtenemos la dirección que debe seguir el proyectil
         _direction = direction;
-        
+        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     #endregion
