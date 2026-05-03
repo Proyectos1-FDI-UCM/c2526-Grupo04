@@ -25,6 +25,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float ProjectileSpeed; //Velocidad del proyectil
 
+    [SerializeField] private bool BossProjectile; //Indica si el proyectil pertenece al jefe
+
     [SerializeField] private float ProjectileDuration; //Duración del proyectil
 
     [SerializeField] private bool FollowsPlayer; //Si se marca, el proyectil sigue al jugador
@@ -50,6 +52,7 @@ public class Projectile : MonoBehaviour
     private Vector3 _direction; //Dirección del proyectil
     private float _actualDuration; //Variable auxiliar que se usa para gestionar la desaparición del proyectil
     private Animator _animator;
+    private Animator _bossAnimator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -64,6 +67,7 @@ public class Projectile : MonoBehaviour
         //Le damos a _actualDuration el valor en segundos que el Time.time deberá superar para destruir el proyectil
         _actualDuration = ProjectileDuration + Time.time;
         _animator = GetComponent<Animator>();
+
         if (_animator != null)
         {
             if (FollowsPlayer) _animator.Play("FireballThrown");
@@ -84,7 +88,9 @@ public class Projectile : MonoBehaviour
                 {
                     // Se instancia el proyectil real
                     GameObject realGameObject = Instantiate(NonShadowObject, transform.position, transform.rotation);
+                    realGameObject.GetComponent<Projectile>().SetAnimator(_bossAnimator); 
                 }
+                if (BossProjectile && _bossAnimator != null)_bossAnimator.SetBool("IsAttacking", false);
                 Destroy(gameObject);
             }
             else
@@ -124,6 +130,11 @@ public class Projectile : MonoBehaviour
         _direction = direction;
         float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+    public void SetAnimator(Animator animator)
+    {
+        _bossAnimator = animator;
     }
 
     #endregion 

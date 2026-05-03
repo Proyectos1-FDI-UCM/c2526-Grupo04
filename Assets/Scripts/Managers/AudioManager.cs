@@ -235,13 +235,13 @@ public class AudioManager : MonoBehaviour
         switch (weapon)
         {
             case Weapon.Sword: 
-                if (SwordSound != null) PlaySound(SwordSound); 
+                if (SwordSound != null) PlaySound(SwordSound, 0.8f); 
                 break;
             case Weapon.Spear: 
-                if (SpearSound != null) PlaySound(SpearSound); 
+                if (SpearSound != null) PlaySound(SpearSound, 0.8f); 
                 break;
             case Weapon.Hammer: 
-                if (HammerSound != null) PlaySound(HammerSound); 
+                if (HammerSound != null) PlaySound(HammerSound, 0.8f); 
                 break;
         }
     }

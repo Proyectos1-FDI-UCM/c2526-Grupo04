@@ -34,10 +34,14 @@ public class RangedEnemiesAttack : MonoBehaviour
 
     [SerializeField] private Projectile Projectile; // Proyectil.
 
+    [SerializeField] private bool IsBoss; // Indica si el proyectil pertenece al jefe.
+
     [Tooltip("Tiempo entre cada ataque")]
     [SerializeField] private float AttackSpeed; // Velocidad de ataque de la entidad.
 
     [SerializeField] private float ProjectileDistance; //Distancia del enemigo al proyectil al disparar.
+
+    [SerializeField] private Animator _animator;
 
     [SerializeField] private RangedAtacks RangedAtacks;
     #endregion
@@ -89,12 +93,14 @@ public class RangedEnemiesAttack : MonoBehaviour
             // Si no ha pasado la cantidad de tiempo definida en el editor, el tirador no dispara.
             if (Time.time > _nextAttack)
             {
+                if (IsBoss) _animator.SetBool("IsAttacking", true);
                 AudioManager.Instance.PlayRangedAtack(RangedAtacks); // Reproducimos el sonido del disparo.
                 // Así, hasta que no haya pasado el tiempo de AttackSpeed, no se dispara.
                 _nextAttack = Time.time + AttackSpeed; 
                 // Instanciamos el proyectil.
                 GameObject newProjectile = Instantiate(Projectile.gameObject, transform.position + transform.up * ProjectileDistance, transform.rotation);
-                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);
+                if (IsBoss) newProjectile.GetComponent<Projectile>().SetAnimator(_animator);
+                newProjectile.GetComponent<Projectile>().ProjectileDirection(direction);                
             }
         }
         else
@@ -103,6 +109,5 @@ public class RangedEnemiesAttack : MonoBehaviour
         }
     }
     #endregion 
-
 } // class RangedEnemiesAttack 
 // namespace
