@@ -133,7 +133,7 @@ public class LevelManager : MonoBehaviour
             spawner1 = true;
         }
             
-        if (_timer <= ((InitialTime * 60)*2)/3 && !spawner2)
+        if (_timer <= ((InitialTime * 60)*3)/4 && !spawner2)
         {
             CrearSpawners(Spawner2);
             spawner2 = true;

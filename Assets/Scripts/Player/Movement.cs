@@ -6,6 +6,7 @@
 //---------------------------------------------------------
 
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 /// <summary>
@@ -23,6 +24,10 @@ public class Movement : MonoBehaviour
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private float minX, maxX, minY, maxY;
+
+    private Vector3 _scale;
+
+    private Animator _animator;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -30,6 +35,9 @@ public class Movement : MonoBehaviour
     void Start()
     {
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY);
+
+        _animator = GetComponent<Animator>();
+        _scale = transform.localScale;
     }
 
     /// <summary>
@@ -41,10 +49,12 @@ public class Movement : MonoBehaviour
         if (!LevelManager.Instance.GetPause())
         {
             Vector2 movement = InputManager.Instance.MovementVector;
-            //movement = SnapTo8Directions(movement);
-            //_rb.linearVelocity = movement * Velocity;
+
+           
 
             transform.position += (Vector3)(movement * Velocity * Time.deltaTime);
+
+            _animator.SetFloat("Speed", movement.magnitude);
 
             Vector3 pos = transform.position;
 
@@ -53,14 +63,26 @@ public class Movement : MonoBehaviour
 
             transform.position = pos;
 
+            if (movement.x < 0 && transform.localScale.x != 1f)
+            {
+                _scale.x = 1f;
+                transform.localScale = _scale;
+            }
+            else if (movement.x > 0 && transform.localScale.x != -1f)
+            {
+                _scale.x = -1f;
+                transform.localScale = _scale;
+            }
+
             if (movement != Vector2.zero)
             {
                 // Calculamos el ángulo de rotación. Obtenemos el ángulo en radianes y lo convertimos a grados, y después le restamos 90
                 //  (pues el triángulo apunta hacia arriba la punta)
                 float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
 
-                // Una vez tenemos el ángulo, rotamos el player a esa dirección
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+                // Una vez tenemos el ángulo, rotamos el triangulo a esa dirección
+                transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
     }

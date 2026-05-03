@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDistance: 7
-  Speed: 1.5
-  KnockbackSpeed: 4
-  KnockbackDuration: 0.6
+  Speed: 2.1
+  KnockbackSpeed: 6
+  KnockbackDuration: 0.4
 --- !u!58 &152129325318190227
 CircleCollider2D:
   m_ObjectHideFlags: 0

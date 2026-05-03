@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 5849566018043076284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67, y: 2.98, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 1.7
+  Multiplier: 1
   Source: 0
 --- !u!114 &4296237826464953130
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653dc2f3a955e5b4db73731c08f6d4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackFrecuency: 2.5
+  AttackFrecuency: 2.2
   AttackDuration: 0.2
   Weapon: 1
   animator: {fileID: -7242247510214943409}
@@ -208,10 +208,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.34798008, y: 1.4804862}
-      - {x: 0.37764388, y: 7.07281}
-      - {x: -0.3929147, y: 7.04326}
-      - {x: -0.4295177, y: 1.4659841}
+    - - {x: 0.9107837, y: 1.122069}
+      - {x: 0.4105826, y: 5.544451}
+      - {x: -0.42585367, y: 5.541252}
+      - {x: -0.97477454, y: 1.1404959}
   m_UseDelaunayMesh: 0
 --- !u!95 &-7242247510214943409
 Animator:

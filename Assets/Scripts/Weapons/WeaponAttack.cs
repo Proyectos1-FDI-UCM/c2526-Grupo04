@@ -47,7 +47,7 @@ public class WeaponAttack : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
 
-    private PolygonCollider2D _hitbox;
+    private Collider2D _hitbox;
     private SpriteRenderer _debug;
     private float _lastAttackTime;
     private Aim _aim;
