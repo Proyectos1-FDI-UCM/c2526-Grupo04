@@ -8,13 +8,13 @@
 using UnityEngine;
 
 /// <summary>
-/// Proporciona cheats activables mediante teclas para facilitar
-/// el testeo del juego. Incluye invulnerabilidad, reducción del
-/// temporizador, carga de armas/habilidades y magia infinita.
-/// F1: Activar/desactivar invulnerabilidad
-/// F2: Reducir el tiempo restante a 10 segundos
-/// F3: Dar todas las armas y habilidades
-/// F4: Activar/desactivar magia infinita
+///Proporciona cheats activables mediante teclas para facilitar
+///el testeo del juego. Incluye invulnerabilidad, reducción del
+///temporizador, carga de armas/habilidades y magia infinita.
+///F1: Activar/desactivar invulnerabilidad
+///F2: Reducir el tiempo restante a 10 segundos
+///F3: Dar todas las armas y habilidades
+///F4: Activar/desactivar magia infinita
 /// </summary>
 public class CheatManager : MonoBehaviour
 {
@@ -86,7 +86,7 @@ public class CheatManager : MonoBehaviour
     #region Métodos Privados
 
     /// <summary>
-    /// Cambia el estado de invulnerabilidad del jugador
+    ///Cambia el estado de invulnerabilidad del jugador
     /// </summary>
     private void ToggleInvulnerability()
     {
@@ -94,14 +94,14 @@ public class CheatManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Establece el tiempo que queda para que aparezca el jefe
+    ///Establece el tiempo que queda para que aparezca el jefe
     /// </summary>
     private void ReduceTimer()
     {
         LevelManager.Instance.SetTimer(TimerCheatValue);
     }
     /// <summary>
-    /// Cambia el estado de infinidad de la magia
+    ///Cambia el estado de infinidad de la magia
     /// </summary>
     private void GiveMagic()
     {
@@ -112,7 +112,7 @@ public class CheatManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Te da todas las armas y habilidades, asegurandose de no duplicarlas
+    ///Te da todas las armas y habilidades, asegurandose de no duplicarlas
     /// </summary>
     private void GiveAllItems()
     {

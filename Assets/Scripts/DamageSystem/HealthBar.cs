@@ -46,7 +46,7 @@ public class HealthBar : MonoBehaviour
     // - Hay que borrar los que no se usen
     void LateUpdate()
     {
-        transform.position = _target.position + new Vector3(0, _target.localScale.y + _offset, 0);
+        transform.position = _target.position + new Vector3(0, (_target.localScale.y / 2f) + _offset, 0);
     }
     #endregion
 

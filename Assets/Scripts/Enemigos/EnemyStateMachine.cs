@@ -57,6 +57,8 @@ public class EnemyStateMachine : MonoBehaviour
 
     private Transform _playerTransform; // Transform del jugador.
 
+    private Vector3 scale; // Vector3 para la escala del GameObject y el flip.
+
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -78,6 +80,8 @@ public class EnemyStateMachine : MonoBehaviour
         LevelManager.Instance.GetMapLimits(out maxX, out minX, out maxY, out minY); 
 
         _playerTransform = LevelManager.Instance.GetPlayer(); // Recibe el transform del jugador.
+
+        scale = transform.localScale;
     }
 
     /// <summary>
@@ -96,6 +100,17 @@ public class EnemyStateMachine : MonoBehaviour
 
                 // Obtenemos la dirección que tiene que seguir
                 Vector3 direction = distance.normalized;
+
+                if (direction.x < 0 && transform.localScale.x != 1f)
+                {
+                    scale.x = 1f;
+                    transform.localScale = scale;
+                }
+                else if (direction.x > 0 && transform.localScale.x != -1f)
+                {
+                    scale.x = -1f;
+                    transform.localScale = scale;
+                }
 
                 switch (_currentState)
                 {
@@ -129,11 +144,6 @@ public class EnemyStateMachine : MonoBehaviour
                         else transform.position -= direction * KnockbackSpeed * Time.deltaTime;
                         break;
                 }
-
-                // Obtenemos el ángulo que el tirador debe girar para apuntar al jugador
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-                // Rotamos al jugador dicho ángulo respecto al eje z
-                transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
     }

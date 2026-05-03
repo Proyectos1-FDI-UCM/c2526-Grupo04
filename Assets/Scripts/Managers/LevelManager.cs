@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject Spawner2;
     [SerializeField] private GameObject Spawner3;
     [SerializeField] private GameObject Spawner4;
+    [SerializeField] private GameObject Cutscene;
     [SerializeField] private int Seed;
     [SerializeField] private bool Seeded;
 
@@ -117,7 +118,12 @@ public class LevelManager : MonoBehaviour
             }
             else if (!_fase1Done)
             {
-                OnTimeUp();
+
+                Instantiate(Meteorite); 
+
+                Instantiate(Cutscene);
+     
+                _fase1Done = true;
             }
         }
 
@@ -284,6 +290,24 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
+    public void OnTimeUp()
+    {
+
+        // Reproducimos la banda sonora correspondiente a la batalla contra el jefe final.
+        AudioManager.Instance.ChangeToBossFigthMusic();
+
+
+
+        Instantiate(Boss);
+        Instantiate(Pillar, PillarPos[0], Quaternion.identity);
+        Instantiate(Pillar, PillarPos[1], Quaternion.identity);
+        Instantiate(Pillar, PillarPos[2], Quaternion.identity);
+
+        if (_pillarNum == 0)
+        {
+            _pillarNum = FindObjectsByType<Healing>(FindObjectsSortMode.None).Length;
+        }
+    }
     // ---- MÉTODOS PRIVADOS ----
 
     #region Métodos Privados
@@ -296,23 +320,7 @@ public class LevelManager : MonoBehaviour
         // De momento no hay nada que inicializar
     }
 
-    private void OnTimeUp()
-    {
-        // Reproducimos la banda sonora correspondiente a la batalla contra el jefe final.
-        AudioManager.Instance.ChangeToBossFigthMusic(); 
-
-        Instantiate(Meteorite);
-        Instantiate(Boss);
-        Instantiate(Pillar, PillarPos[0], Quaternion.identity);
-        Instantiate(Pillar, PillarPos[1], Quaternion.identity);
-        Instantiate(Pillar, PillarPos[2], Quaternion.identity);
-
-        if (_pillarNum == 0)
-        {
-            _pillarNum = FindObjectsByType<Healing>(FindObjectsSortMode.None).Length;
-        }
-        _fase1Done = true;
-    }
+    
 
     private void CrearSpawners (GameObject spawner)
     {

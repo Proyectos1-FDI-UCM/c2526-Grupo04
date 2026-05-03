@@ -4934,6 +4934,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1710253825}
     - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
+      propertyPath: Cutscene
+      value: 
+      objectReference: {fileID: 5228694793973805064, guid: d571e3c83bfa7714da1dbae16564add3, type: 3}
+    - target: {fileID: 8290758750213688814, guid: e062def4f1ae7194295debc7b27796e3, type: 3}
       propertyPath: Spawner1
       value: 
       objectReference: {fileID: 314749218772637334, guid: ebd2fa71edc5891448c8e04d5122c178, type: 3}
@@ -5255,7 +5259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 791987819546160076, guid: 3f71f7c895ba4764e893d76d066c3ffd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.5000043
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 2436237452508866399, guid: 3f71f7c895ba4764e893d76d066c3ffd, type: 3}
       propertyPath: m_AnchorMax.x

@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Componente que genera entidades en un espacio determinado.
+// Arturo Ramos Romero
+// MMDM (Meteoritos Monstruos Duendes Matar)
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -50,6 +50,7 @@ public class Spawner : MonoBehaviour
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
     const int EnemyCap = 100;
+
     private float _realEnemyCap;
 
     private float _totalTime;
@@ -146,9 +147,7 @@ public class Spawner : MonoBehaviour
                         _spawnPosY = Random.Range(_cameraMinY - DistanceFromCamera, _cameraMaxY + DistanceFromCamera);
                     } while ((_spawnPosY < _minY || _spawnPosY > _maxY || _spawnPosX < _minX || _spawnPosX > _maxX)
                     || _spawnPosY > _cameraMinY && _spawnPosY < _cameraMaxY && _spawnPosX > _cameraMinX && _spawnPosX < _cameraMaxX);
-
                 }
-
                 else
                 {
                     do
@@ -171,25 +170,6 @@ public class Spawner : MonoBehaviour
         else _realSpawnInterval += Time.deltaTime;
     }
     #endregion
-
-    // ---- MÉTODOS PÚBLICOS ----
-    #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
-
-    #endregion
-    
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
-    #endregion   
 
 } // class Spawner 
 // namespace

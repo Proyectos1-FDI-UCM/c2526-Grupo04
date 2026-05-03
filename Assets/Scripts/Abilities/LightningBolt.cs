@@ -9,17 +9,19 @@
 using UnityEngine;
 
 /// <summary>
-/// Controla la habilidad de rayo: aparece una hitbox alargada desde el jugador
-/// en la dirección del ratón, hace daño inmediato a todo lo que toca
-/// y desaparece tras un tiempo determinado.
-/// El daño lo gestiona el componente Damage adjunto al mismo GameObject.
+///Controla la habilidad de rayo: aparece una hitbox alargada desde el jugador
+///en la dirección del ratón, hace daño inmediato a todo lo que toca
+///y desaparece tras un tiempo determinado.
+///El daño lo gestiona el componente Damage adjunto al mismo GameObject.
 /// </summary>
 public class LightningBolt : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    /// <summary> Tiempo en segundos que la hitbox permanece activa </summary>
+    /// <summary> 
+    ///Tiempo en segundos que la hitbox permanece activa 
+    /// </summary>
     [SerializeField] private float Duration;
 
     #endregion
@@ -47,8 +49,9 @@ public class LightningBolt : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
-        // Desplazamos el rayo en la dirección que apunta para que salga desde el borde del player
+        //Desplazamos el rayo en la dirección que apunta para que salga desde el borde del player
         transform.position += transform.up;
+
         _animator = GetComponent<Animator>();
         if (_animator != null)
             _animator.Play("Rayo");
@@ -67,10 +70,7 @@ public class LightningBolt : MonoBehaviour
         {
             Duration += Time.deltaTime;
         }
-
-            // Destruimos el rayo una vez ha pasado su duración
-
-        }
+    }
 
     #endregion
 

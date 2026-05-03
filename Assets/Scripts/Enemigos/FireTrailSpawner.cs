@@ -9,18 +9,22 @@
 using UnityEngine;
 
 /// <summary>
-/// Componente que instancia rastros de fuego periódicamente
-/// en la posición del enemigo mientras este se mueve.
+///Componente que instancia rastros de fuego periódicamente
+///en la posición del enemigo mientras este se mueve.
 /// </summary>
 public class FireTrailSpawner : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    /// <summary> Prefab del rastro de fuego a instanciar </summary>
+    /// <summary> 
+    ///Prefab del rastro de fuego a instanciar 
+    /// </summary>
     [SerializeField] private GameObject FireTrailPrefab;
 
-    /// <summary> Cada cuántos segundos se genera un nuevo rastro </summary>
+    /// <summary> 
+    ///Cada cuántos segundos se genera un nuevo rastro
+    /// </summary>
     [SerializeField] private float SpawnInterval;
 
     #endregion
@@ -42,7 +46,7 @@ public class FireTrailSpawner : MonoBehaviour
 
     void Update()
     {
-        // Instanciamos un rastro cada SpawnInterval segundos en la posición actual del enemigo
+        //Instanciamos un rastro cada SpawnInterval segundos en la posición actual del enemigo
         if (!LevelManager.Instance.GetPause())
         {
             if (Time.time > _lastSpawnTime + SpawnInterval)

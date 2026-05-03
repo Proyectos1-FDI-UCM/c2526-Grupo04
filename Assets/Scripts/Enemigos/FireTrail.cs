@@ -10,17 +10,19 @@
 using UnityEngine;
 
 /// <summary>
-/// Rastro de fuego instanciado por el Caminante Ardiente.
-/// Inflige daño al player mientras permanece activo y se destruye
-/// tras un tiempo configurable desde el editor.
-/// El daño lo gestiona el componente Damage adjunto al mismo GameObject.
+///Rastro de fuego instanciado por el Caminante Ardiente.
+///Inflige daño al player mientras permanece activo y se destruye
+///tras un tiempo configurable desde el editor.
+///El daño lo gestiona el componente Damage adjunto al mismo GameObject.
 /// </summary>
 public class FireTrail : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
 
-    /// <summary> Tiempo en segundos que el rastro permanece activo antes de desaparecer </summary>
+    /// <summary> 
+    ///Tiempo en segundos que el rastro permanece activo antes de desaparecer
+    /// </summary>
     [SerializeField] private float Duration;
 
     #endregion
@@ -63,6 +65,9 @@ public class FireTrail : MonoBehaviour
     }
 
     #endregion
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
 } // class FireTrail
   // namespace

@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Componente que gestiona el funcionamiento de los proyectiles.
+// Arturo Ramos Romero
+// MMDM (Meteorito Monstruos Duendes Matar)
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -80,21 +80,23 @@ public class Projectile : MonoBehaviour
         {
             if (Time.time > _actualDuration)
             {
-                if (Shadow)
+                if (Shadow) // Si es una sombra, es decir, se quiere instanciar el proyectil real tras su desaparición
                 {
+                    // Se instancia el proyectil real
                     GameObject realGameObject = Instantiate(NonShadowObject, transform.position, transform.rotation);
                 }
                 Destroy(gameObject);
             }
             else
             {
-                if (FollowsPlayer)
+                if (FollowsPlayer) // Si se ha marcado la opción de FollowsPlayer
                 {
                     _direction = Vector3.RotateTowards(_direction, (LevelManager.Instance.GetPlayer().transform.position - transform.position).normalized, RotationSpeed * Time.deltaTime, 0.0f);
                     
                     float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
                     transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 }
+                // Actualizamos su posición
                 transform.position += _direction * ProjectileSpeed * Time.deltaTime;
             }
         }
@@ -120,19 +122,11 @@ public class Projectile : MonoBehaviour
     {
         //Obtenemos la dirección que debe seguir el proyectil
         _direction = direction;
-        
+        float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - 90f;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-    #endregion
-    
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
-    #endregion   
+    #endregion 
 
 } // class Projectile 
 // namespace

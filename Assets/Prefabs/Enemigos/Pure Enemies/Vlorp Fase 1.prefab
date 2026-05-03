@@ -232,7 +232,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -276,6 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
+  _healthBar: {fileID: 0}
+  animator: {fileID: 0}
+  deathAnimationTime: 0
 --- !u!114 &9073102906687013084
 MonoBehaviour:
   m_ObjectHideFlags: 0
