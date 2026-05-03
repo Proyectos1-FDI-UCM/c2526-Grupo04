@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 8128886831723762597}
   - component: {fileID: 123761286522349000}
   - component: {fileID: 4835226226583288920}
+  - component: {fileID: 7074788707045198205}
   m_Layer: 10
   m_Name: Vlorp Fase 2
   m_TagString: Boss
@@ -123,7 +124,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9143576245860555351}
@@ -174,7 +175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0.5019608, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -259,9 +260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c017248095561634b995d963e80ce24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 545131121240906260, guid: 2b9ce117d96a4d340b77ac013defd6e7, type: 3}
+  Projectile: {fileID: 545131121240906260, guid: 11de5d008041aa94595bb3f403629a77, type: 3}
+  IsBoss: 1
   AttackSpeed: 5
   ProjectileDistance: 0
+  _animator: {fileID: 7074788707045198205}
   RangedAtacks: 1
 --- !u!114 &241851441803424710
 MonoBehaviour:
@@ -276,6 +279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 300
+  _healthBar: {fileID: 0}
+  animator: {fileID: 0}
+  deathAnimationTime: 0
 --- !u!114 &4999924409428340674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,3 +355,25 @@ MonoBehaviour:
   Speed: 1
   KnockbackSpeed: 0
   KnockbackDuration: 0
+--- !u!95 &7074788707045198205
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942378618628523076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6683c34f673c2fd49949c9d31bc748c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
