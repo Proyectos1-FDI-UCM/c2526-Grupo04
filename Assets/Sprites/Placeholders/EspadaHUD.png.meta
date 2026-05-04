@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 315ce36c6b605924781f90a048111788
+guid: 7b74865ae683f5c4caae41046d857427
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9060135404944807826
-    second: FireballTeclado_0
-  - first:
-      213: -5459670372533611990
-    second: FireballTeclado_1
-  - first:
-      213: -2551552202220243414
-    second: FireballTeclado_2
+      213: 2965248100428263977
+    second: EspadaHUD_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireballTeclado_0
+      name: EspadaHUD_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 297dcace5211cbd70800000000000000
-      internalID: 9060135404944807826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireballTeclado_1
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 1
-        width: 18
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a22d86609ba5b34b0800000000000000
-      internalID: -5459670372533611990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireballTeclado_2
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 4
-        width: 13
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a26fbc07ac0179cd0800000000000000
-      internalID: -2551552202220243414
+      spriteID: 922bde0df6da62920800000000000000
+      internalID: 2965248100428263977
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FireballTeclado_0: 9060135404944807826
-      FireballTeclado_1: -5459670372533611990
-      FireballTeclado_2: -2551552202220243414
+      EspadaHUD_0: 2965248100428263977
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

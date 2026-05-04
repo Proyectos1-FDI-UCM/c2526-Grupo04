@@ -3,17 +3,17 @@ guid: 4a683a558555d654484c16c38010a826
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3851039640659163468
-    second: RayoMando 2_0
+      213: -6748003480558009326
+    second: RayoMando_0
   - first:
-      213: 214689011594830017
-    second: RayoMando 2_1
+      213: 666361379780874895
+    second: RayoMando_1
   - first:
-      213: -1701447564520672609
-    second: RayoMando 2_2
+      213: 193870984038430623
+    second: RayoMando_2
   - first:
-      213: 5488485534231484995
-    second: RayoMando 2_3
+      213: -1762410395262126251
+    second: RayoMando_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,12 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RayoMando 2_0
+      name: RayoMando_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 18
-        width: 62
+        y: 23
+        width: 64
         height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,18 +124,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b6009ab9db5e8ac0800000000000000
-      internalID: -3851039640659163468
+      spriteID: 2148d3e36964a52a0800000000000000
+      internalID: -6748003480558009326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RayoMando 2_1
+      name: RayoMando_1
       rect:
         serializedVersion: 2
         x: 3
-        y: 0
+        y: 3
         width: 27
         height: 19
       alignment: 0
@@ -146,18 +146,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c02a41c48abaf200800000000000000
-      internalID: 214689011594830017
+      spriteID: f82d0e5f4246f3900800000000000000
+      internalID: 666361379780874895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RayoMando 2_2
+      name: RayoMando_2
       rect:
         serializedVersion: 2
         x: 31
-        y: 2
+        y: 5
         width: 14
         height: 15
       alignment: 0
@@ -168,18 +168,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f92bac8647e3368e0800000000000000
-      internalID: -1701447564520672609
+      spriteID: f97bddff1a4c0b200800000000000000
+      internalID: 193870984038430623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RayoMando 2_3
+      name: RayoMando_3
       rect:
         serializedVersion: 2
         x: 45
-        y: 2
+        y: 5
         width: 15
         height: 15
       alignment: 0
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34adcbe93840b2c40800000000000000
-      internalID: 5488485534231484995
+      spriteID: 557f1f94519aa87e0800000000000000
+      internalID: -1762410395262126251
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RayoMando 2_0: -3851039640659163468
-      RayoMando 2_1: 214689011594830017
-      RayoMando 2_2: -1701447564520672609
-      RayoMando 2_3: 5488485534231484995
+      RayoMando_0: -6748003480558009326
+      RayoMando_1: 666361379780874895
+      RayoMando_2: 193870984038430623
+      RayoMando_3: -1762410395262126251
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

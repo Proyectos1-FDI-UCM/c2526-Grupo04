@@ -3,14 +3,14 @@ guid: 9efe6434f9db51d48ae4e894fdb61410
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7754586933200909358
-    second: FireballMando 1_0
+      213: 6810141728472502547
+    second: FireballMando_0
   - first:
-      213: 8730309116494497661
-    second: FireballMando 1_1
+      213: 530272174673406233
+    second: FireballMando_1
   - first:
-      213: -1261967535174023095
-    second: FireballMando 1_2
+      213: 6983476889872253128
+    second: FireballMando_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireballMando 1_0
+      name: FireballMando_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2db8ca2154c226490800000000000000
-      internalID: -7754586933200909358
+      spriteID: 3111ba302db728e50800000000000000
+      internalID: 6810141728472502547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireballMando 1_1
+      name: FireballMando_1
       rect:
         serializedVersion: 2
         x: 5
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d774204e2e9482970800000000000000
-      internalID: 8730309116494497661
+      spriteID: 919aeadbbb7eb5700800000000000000
+      internalID: 530272174673406233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireballMando 1_2
+      name: FireballMando_2
       rect:
         serializedVersion: 2
         x: 41
@@ -165,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94880e386379c7ee0800000000000000
-      internalID: -1261967535174023095
+      spriteID: 8c04cf53b3b4ae060800000000000000
+      internalID: 6983476889872253128
       vertices: []
       indices: 
       edges: []
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FireballMando 1_0: -7754586933200909358
-      FireballMando 1_1: 8730309116494497661
-      FireballMando 1_2: -1261967535174023095
+      FireballMando_0: 6810141728472502547
+      FireballMando_1: 530272174673406233
+      FireballMando_2: 6983476889872253128
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -3,20 +3,20 @@ guid: db6ec26a3e8389e4a8950dd64cc6c1db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1788629791718166791
-    second: VenenoTeclado 2_0
+      213: -4945659025750469846
+    second: VenenoTeclado_0
   - first:
-      213: -5362547815470850966
-    second: VenenoTeclado 2_1
+      213: -4928568458505371978
+    second: VenenoTeclado_1
   - first:
-      213: 8399344276205012326
-    second: VenenoTeclado 2_2
+      213: -961582740619221785
+    second: VenenoTeclado_2
   - first:
-      213: 5961594232295322100
-    second: VenenoTeclado 2_3
+      213: -2134500750133479335
+    second: VenenoTeclado_3
   - first:
-      213: 6833825895997718911
-    second: VenenoTeclado 2_4
+      213: 1321680461360961818
+    second: VenenoTeclado_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,12 +112,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VenenoTeclado 2_0
+      name: VenenoTeclado_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 63
+        y: 23
+        width: 64
         height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -127,19 +127,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fe25f55ea28d27e0800000000000000
-      internalID: -1788629791718166791
+      spriteID: a2350fdb15d7d5bb0800000000000000
+      internalID: -4945659025750469846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VenenoTeclado 2_1
+      name: VenenoTeclado_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 27
+        x: 1
+        y: 4
+        width: 28
         height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -149,18 +149,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6c10df7c276495b0800000000000000
-      internalID: -5362547815470850966
+      spriteID: 6beb79389153a9bb0800000000000000
+      internalID: -4928568458505371978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VenenoTeclado 2_2
+      name: VenenoTeclado_2
       rect:
         serializedVersion: 2
         x: 30
-        y: 3
+        y: 7
         width: 11
         height: 12
       alignment: 0
@@ -171,19 +171,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66509691e17709470800000000000000
-      internalID: 8399344276205012326
+      spriteID: 7e4ae339795c7a2f0800000000000000
+      internalID: -961582740619221785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VenenoTeclado 2_3
+      name: VenenoTeclado_3
       rect:
         serializedVersion: 2
         x: 41
-        y: 3
-        width: 10
+        y: 7
+        width: 11
         height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -193,18 +193,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f1fafe4e56dbb250800000000000000
-      internalID: 5961594232295322100
+      spriteID: 9583d7770eab062e0800000000000000
+      internalID: -2134500750133479335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VenenoTeclado 2_4
+      name: VenenoTeclado_4
       rect:
         serializedVersion: 2
-        x: 51
-        y: 3
+        x: 52
+        y: 7
         width: 10
         height: 12
       alignment: 0
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f714fcbf170a6de50800000000000000
-      internalID: 6833825895997718911
+      spriteID: a199ef5806d875210800000000000000
+      internalID: 1321680461360961818
       vertices: []
       indices: 
       edges: []
@@ -235,11 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      VenenoTeclado 2_0: -1788629791718166791
-      VenenoTeclado 2_1: -5362547815470850966
-      VenenoTeclado 2_2: 8399344276205012326
-      VenenoTeclado 2_3: 5961594232295322100
-      VenenoTeclado 2_4: 6833825895997718911
+      VenenoTeclado_0: -4945659025750469846
+      VenenoTeclado_1: -4928568458505371978
+      VenenoTeclado_2: -961582740619221785
+      VenenoTeclado_3: -2134500750133479335
+      VenenoTeclado_4: 1321680461360961818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -309,6 +309,42 @@ PrefabInstance:
       propertyPath: GameCanvas
       value: 
       objectReference: {fileID: 356899434}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861893].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b02f1eeffd6d323498253723b88a75ba, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861894].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34373379cd6e0c0409ccc37f36063841, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861895].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c85f19c6b7c547845af23e0acaf49fd7, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861893].KeyboardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 12de860ae6b9c244388de8a1a87fab8f, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861894].KeyboardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 77b31b5eceb02fc40a16abf9af668e61, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861895].KeyboardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b74865ae683f5c4caae41046d857427, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861893].ControllerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 12de860ae6b9c244388de8a1a87fab8f, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861894].ControllerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 77b31b5eceb02fc40a16abf9af668e61, type: 3}
+    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: managedReferences[2978302160822861895].ControllerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b74865ae683f5c4caae41046d857427, type: 3}
     - target: {fileID: 8036905124635201462, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: m_Name
       value: Player
@@ -389,12 +425,12 @@ MonoBehaviour:
   HealthJar: {fileID: 904843275}
   HUDItem: {fileID: -6756708593566218431, guid: 7ca41d238a9430346857a35516b71c0e, type: 3}
   posList:
-  - {x: -210, y: -170}
   - {x: -125, y: -170}
-  - {x: -40, y: -170}
-  - {x: 40, y: -170}
+  - {x: -75, y: -170}
+  - {x: -25, y: -170}
+  - {x: 25, y: -170}
+  - {x: 75, y: -170}
   - {x: 125, y: -170}
-  - {x: 210, y: -170}
   buttonImages:
   - {fileID: 1559691467}
   - {fileID: 1736734086}
