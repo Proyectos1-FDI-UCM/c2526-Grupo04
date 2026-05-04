@@ -57,7 +57,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private Transform _playerTransform; // Transform del jugador.
 
-    private Vector3 scale; // Vector3 para la escala del GameObject y el flip.
+    private SpriteRenderer _sprite2D; // Sprite de la entidad.
 
     #endregion
 
@@ -81,7 +81,7 @@ public class EnemyStateMachine : MonoBehaviour
 
         _playerTransform = LevelManager.Instance.GetPlayer(); // Recibe el transform del jugador.
 
-        scale = transform.localScale;
+        _sprite2D = gameObject.GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -101,16 +101,7 @@ public class EnemyStateMachine : MonoBehaviour
                 // Obtenemos la dirección que tiene que seguir
                 Vector3 direction = distance.normalized;
 
-                if (direction.x < 0 && transform.localScale.x != 1f)
-                {
-                    scale.x = 1f;
-                    transform.localScale = scale;
-                }
-                else if (direction.x > 0 && transform.localScale.x != -1f)
-                {
-                    scale.x = -1f;
-                    transform.localScale = scale;
-                }
+                _sprite2D.flipX = direction.x > 0;
 
                 switch (_currentState)
                 {
