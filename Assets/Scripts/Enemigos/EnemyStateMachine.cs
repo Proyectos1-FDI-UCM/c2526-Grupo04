@@ -25,6 +25,8 @@ public class EnemyStateMachine : MonoBehaviour
 
     //Transform del jugador para que el enemigo pueda seguirlo
 
+    [SerializeField] SpriteRenderer spriteRenderer;
+
     [SerializeField] private float MaxDistance; //Distancia máxima a la que se puede acercar el tirador al jugador
 
     [SerializeField] private float Speed; //Velocidad a la que se mueve el enemigo
@@ -57,7 +59,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private Transform _playerTransform; // Transform del jugador.
 
-    private Vector3 scale; // Vector3 para la escala del GameObject y el flip.
+    private SpriteRenderer _sprite2D; // Sprite de la entidad.
 
     #endregion
 
@@ -81,7 +83,7 @@ public class EnemyStateMachine : MonoBehaviour
 
         _playerTransform = LevelManager.Instance.GetPlayer(); // Recibe el transform del jugador.
 
-        scale = transform.localScale;
+        _sprite2D = gameObject.GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -101,16 +103,7 @@ public class EnemyStateMachine : MonoBehaviour
                 // Obtenemos la dirección que tiene que seguir
                 Vector3 direction = distance.normalized;
 
-                if (direction.x < 0 && transform.localScale.x != 1f)
-                {
-                    scale.x = 1f;
-                    transform.localScale = scale;
-                }
-                else if (direction.x > 0 && transform.localScale.x != -1f)
-                {
-                    scale.x = -1f;
-                    transform.localScale = scale;
-                }
+                _sprite2D.flipX = direction.x > 0;
 
                 switch (_currentState)
                 {
@@ -139,6 +132,7 @@ public class EnemyStateMachine : MonoBehaviour
                         if (Time.time > _actualKnockbackDuration)
                         {
                             _currentState = State.Chasing;
+                            spriteRenderer.color = Color.white;
                         }
                         // Desplazamos al enemigo en la dirección contraria (le hacemos retroceder).
                         else transform.position -= direction * KnockbackSpeed * Time.deltaTime;

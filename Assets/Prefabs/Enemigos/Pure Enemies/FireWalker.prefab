@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 9153263497844655765}
   _maxHealth: 20
   _healthBar: {fileID: 0}
   animator: {fileID: 6095692791442418049}
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 9153263497844655765}
   MaxDistance: 0
   Speed: 2
   KnockbackSpeed: 6
