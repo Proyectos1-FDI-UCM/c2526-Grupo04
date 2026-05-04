@@ -144,8 +144,8 @@ public class HUDManager : MonoBehaviour
         _finishedGame = false;
 
         HUDlistIni(out elemList);
-        currentDamageItems.itemList = new DamageItem[3];
-        currentDamageItems.HUDlist = new Image[3];
+        currentDamageItems.itemList = new DamageItem[6];
+        currentDamageItems.HUDlist = new Image[6];
         currentDamageItems.ind = 0;
     }
 
