@@ -145,8 +145,8 @@ public class Fireball : MonoBehaviour
             _hitbox.GetComponent<SpriteRenderer>().enabled = false;
             _explosion.SetActive(true);
             AudioManager.Instance.PlayFireballExplosionSound();
-            if (_explosionAnimator != null)
-                _explosionAnimator.Play("FireballExplosion");
+            //if (_explosionAnimator != null)
+            //    _explosionAnimator.Play("FireballExplosion");
 
             _explosionHitbox.enabled = true;
             _explosionHitboxStart = Time.time;

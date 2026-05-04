@@ -40,7 +40,6 @@ public class CheatManager : MonoBehaviour
     private Health _playerHealth;
     private ItemSelection _itemSelection;
     private MagicSystem _magicSystem;
-    private bool _isInvulnerable = false;
 
     #endregion
 

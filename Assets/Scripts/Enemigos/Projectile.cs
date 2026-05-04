@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
         if (_animator != null)
         {
             if (FollowsPlayer) _animator.Play("FireballThrown");
-            else _animator.Play("Arrow");
+            //else _animator.Play("Arrow");
         }
     }
 
