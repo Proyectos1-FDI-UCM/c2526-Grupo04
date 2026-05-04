@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [Header("Relevante solo para enemigos")]
+    [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Animator animator;
@@ -131,6 +132,11 @@ public class Health : MonoBehaviour
 
         if (_healthBar != null)
             _healthBar.SetFill(_currentHealth / _maxHealth);
+
+        if (!IsDead())
+        {
+            _spriteRenderer.color = Color.red;
+        }
     }
 
     public void UpdateMaxHealth()

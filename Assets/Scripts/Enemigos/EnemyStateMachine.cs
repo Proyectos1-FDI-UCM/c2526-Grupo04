@@ -25,6 +25,8 @@ public class EnemyStateMachine : MonoBehaviour
 
     //Transform del jugador para que el enemigo pueda seguirlo
 
+    [SerializeField] SpriteRenderer spriteRenderer;
+
     [SerializeField] private float MaxDistance; //Distancia máxima a la que se puede acercar el tirador al jugador
 
     [SerializeField] private float Speed; //Velocidad a la que se mueve el enemigo
@@ -139,6 +141,7 @@ public class EnemyStateMachine : MonoBehaviour
                         if (Time.time > _actualKnockbackDuration)
                         {
                             _currentState = State.Chasing;
+                            spriteRenderer.color = Color.white;
                         }
                         // Desplazamos al enemigo en la dirección contraria (le hacemos retroceder).
                         else transform.position -= direction * KnockbackSpeed * Time.deltaTime;
