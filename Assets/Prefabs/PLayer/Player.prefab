@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2065326538686801445
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3285825068119134565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: -5922553066343986802}
   - component: {fileID: -5471398437306984953}
   - component: {fileID: 5651830946197662469}
+  - component: {fileID: 1201807711527676145}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -179,7 +180,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.57, y: 0.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -197,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78830020d4ed3548ab3df0266523ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 5
-  Dmg: 4
-  MaxMagic: 6
+  MaxHealth: 3
+  Dmg: 3
+  MaxMagic: 3
 --- !u!114 &7926414153462157400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,44 +215,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameCanvas: {fileID: 0}
   ItemList:
-  - rid: 1000
-  - rid: 1001
-  - rid: 1002
-  - rid: 1003
-  - rid: 1004
-  - rid: 1005
-  - rid: 1006
-  - rid: 1007
-  - rid: 1008
-  - rid: 1009
-  - rid: 1010
-  - rid: 1011
+  - rid: 2978302160822861893
+  - rid: 2978302160822861894
+  - rid: 2978302160822861895
+  - rid: 2978302160822861896
+  - rid: 2978302160822861897
+  - rid: 2978302160822861898
+  - rid: 2978302160822861899
+  - rid: 2978302160822861900
+  - rid: 2978302160822861901
+  - rid: 2978302160822861902
+  - rid: 2978302160822861903
+  - rid: 2978302160822861904
   references:
     version: 2
     RefIds:
-    - rid: 1000
+    - rid: 2978302160822861893
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Lanza
         description: 
         sprite: {fileID: 0}
         prefab: {fileID: 0}
-    - rid: 1001
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
+    - rid: 2978302160822861894
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Maza
         description: 
         sprite: {fileID: 0}
         prefab: {fileID: 0}
-    - rid: 1002
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
+    - rid: 2978302160822861895
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Espada
         description: 
         sprite: {fileID: 0}
         prefab: {fileID: 0}
-    - rid: 1003
-      type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
+        KeyboardSprite: {fileID: 0}
+        ControllerSprite: {fileID: 0}
+    - rid: 2978302160822861896
+      type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Rayo
         description: 
@@ -259,8 +266,8 @@ MonoBehaviour:
         prefab: {fileID: 0}
         KeyboardSprite: {fileID: 0}
         ControllerSprite: {fileID: 0}
-    - rid: 1004
-      type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
+    - rid: 2978302160822861897
+      type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Fireball
         description: 
@@ -268,8 +275,8 @@ MonoBehaviour:
         prefab: {fileID: 0}
         KeyboardSprite: {fileID: 0}
         ControllerSprite: {fileID: 0}
-    - rid: 1005
-      type: {class: AbilityItem, ns: , asm: Assembly-CSharp}
+    - rid: 2978302160822861898
+      type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Poison
         description: 
@@ -277,7 +284,7 @@ MonoBehaviour:
         prefab: {fileID: 0}
         KeyboardSprite: {fileID: 0}
         ControllerSprite: {fileID: 0}
-    - rid: 1006
+    - rid: 2978302160822861899
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Casco
@@ -285,7 +292,7 @@ MonoBehaviour:
         sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
-    - rid: 1007
+    - rid: 2978302160822861900
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pocima
@@ -293,7 +300,7 @@ MonoBehaviour:
         sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
-    - rid: 1008
+    - rid: 2978302160822861901
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Sello
@@ -301,7 +308,7 @@ MonoBehaviour:
         sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
-    - rid: 1009
+    - rid: 2978302160822861902
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pesa
@@ -309,7 +316,7 @@ MonoBehaviour:
         sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
-    - rid: 1010
+    - rid: 2978302160822861903
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Tunica
@@ -317,7 +324,7 @@ MonoBehaviour:
         sprite: {fileID: 0}
         Powerup1: 0
         Powerup2: 0
-    - rid: 1011
+    - rid: 2978302160822861904
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Orbe
@@ -337,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789489742296e1342ab0ff927073e2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalReloadTime: 8
+  TotalReloadTime: 9
 --- !u!114 &-1724316360020513461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe0c12cef41f5a4bb0adc572a4d3666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 5.5
+  Velocity: 3.5
 --- !u!58 &7348126984490994177
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -385,8 +392,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Offset: {x: 0.089763254, y: -0.062833935}
+  m_Radius: 0.34614238
 --- !u!50 &7713415307688923660
 Rigidbody2D:
   serializedVersion: 5
@@ -440,6 +447,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 0
+  _healthBar: {fileID: 0}
+  animator: {fileID: 0}
+  deathAnimationTime: 0
 --- !u!114 &-5471398437306984953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,8 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a78d386c71aa48b50a53e981c1b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialLimit: 60
-  Increment: 1.7
+  InitialLimit: 30
+  Increment: 1.6
 --- !u!114 &5651830946197662469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,3 +476,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34370613f8727394aad01c90f600825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1201807711527676145
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036905124635201462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 434416c5ee8cd044db566f6c72198296, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

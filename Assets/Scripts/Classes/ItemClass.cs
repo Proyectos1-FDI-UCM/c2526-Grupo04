@@ -1,6 +1,7 @@
-using UnityEngine;
 using System;
 using System.Runtime.CompilerServices;
+using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 [Serializable]
 public class Item
@@ -57,12 +58,27 @@ public class Item
 /// Clase hija de Item (Armas y Habiliades)
 /// </summary>
 [Serializable]
+
+[MovedFrom(false, sourceClassName: "AbilityItems")]
 public class DamageItem : Item
 {
     /// <summary>
     /// Prefab del arma/activador
     /// </summary>
     [SerializeField] private GameObject prefab;
+    [SerializeField] private Sprite KeyboardSprite;
+    [SerializeField] private Sprite ControllerSprite;
+
+
+    public Sprite GetKeyboardSprite()
+    {
+        return KeyboardSprite;
+    }
+
+    public Sprite GetControllerSprite()
+    {
+        return ControllerSprite;
+    }
 
     public DamageItem(string name) : base(name) //Constructora por nombre
     {
@@ -84,26 +100,6 @@ public class DamageItem : Item
 /// </summary>
 [Serializable]
 
-public class AbilityItem : DamageItem
-{
-    [SerializeField] private Sprite KeyboardSprite;
-    [SerializeField] private Sprite ControllerSprite;
-
-    public AbilityItem(string name) : base(name) //Constructora por nombre
-    {
-    }
-
-    public Sprite GetKeyboardSprite()
-    {
-        return KeyboardSprite;
-    }
-
-    public Sprite GetControllerSprite()
-    {
-        return ControllerSprite;
-    }
-
-}
 public class PowerUpItem : Item
 {
     [SerializeField] private PowerUp Powerup1; //Primera estad�stica que sube

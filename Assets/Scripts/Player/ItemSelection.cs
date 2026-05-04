@@ -33,9 +33,9 @@ public class ItemSelection : MonoBehaviour
         new DamageItem("Lanza"),
         new DamageItem("Maza"),
         new DamageItem("Espada"),
-        new AbilityItem("Rayo"),
-        new AbilityItem("Fireball"),
-        new AbilityItem("Poison"),
+        new DamageItem("Rayo"),
+        new DamageItem("Fireball"),
+        new DamageItem("Poison"),
         new PowerUpItem("Casco"),
         new PowerUpItem("Pocima"),
         new PowerUpItem("Sello"),
@@ -237,21 +237,36 @@ public class ItemSelection : MonoBehaviour
         // Si se trata de la primera selección de la partida, solo se podrá elegir entre las 3 armas del juego
         do
         {
-            if (FirstTime) item1 = ItemList[0];
+            if (FirstTime)  do
+                {
+                    item1 = ItemList[_random[_elec]];
+                    _elec++;
+                } while (item1 as PowerUpItem != null);
+            
             else item1 = ItemList[_random[_elec]]; _elec++;
         } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
         HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
         do
         {
-            if (FirstTime) item2 = ItemList[1];
+            if (FirstTime) do
+                {
+                    item2 = ItemList[_random[_elec]];
+                    _elec++;
+                } while (item2 as PowerUpItem != null);
+
             else item2 = ItemList[_random[_elec]]; _elec++;
         } while (item1 == item2 || item2.WasUsed() == true); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
         HUDManager.Instance.UpdateSelectionGUI(item2, 2);
 
         do
         {
-            if (FirstTime) item3 = ItemList[2];
+            if (FirstTime) do
+                {
+                    item3 = ItemList[_random[_elec]];
+                    _elec++;
+                } while (item3 as PowerUpItem != null);
+
             else item3 = ItemList[_random[_elec]]; _elec++;
         } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
         HUDManager.Instance.UpdateSelectionGUI(item3, 3);

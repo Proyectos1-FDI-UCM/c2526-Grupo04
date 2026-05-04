@@ -79,12 +79,12 @@ public class HUDManager : MonoBehaviour
     
     private struct AbItems
     {
-        public AbilityItem[] itemList;
+        public DamageItem[] itemList;
         public Image[] HUDlist;
         public int ind;
     }
 
-    AbItems currentAbItems;
+    AbItems currentDamageItems;
     
     private struct HUDlist
     {
@@ -144,9 +144,9 @@ public class HUDManager : MonoBehaviour
         _finishedGame = false;
 
         HUDlistIni(out elemList);
-        currentAbItems.itemList = new AbilityItem[3];
-        currentAbItems.HUDlist = new Image[3];
-        currentAbItems.ind = 0;
+        currentDamageItems.itemList = new DamageItem[3];
+        currentDamageItems.HUDlist = new Image[3];
+        currentDamageItems.ind = 0;
     }
 
     /// <summary>
@@ -280,7 +280,7 @@ public class HUDManager : MonoBehaviour
 
     public void DmgItemsHUDEnable(Item item)
     {
-        AbilityItem abItem = item as AbilityItem;
+        DamageItem dmgItem = item as DamageItem;
         
         Vector3 pos = new Vector3(elemList.listaPos[elemList.index].x, elemList.listaPos[elemList.index].y, 0);
         Image HUDelem;
@@ -296,11 +296,11 @@ public class HUDManager : MonoBehaviour
         rectTrans.anchoredPosition = pos;
         elemList.index++;
         
-        if (abItem != null)
+        if (dmgItem != null)
         {
-            currentAbItems.itemList[currentAbItems.ind] = abItem;
-            currentAbItems.HUDlist[currentAbItems.ind] = HUDelem;
-            currentAbItems.ind++;
+            currentDamageItems.itemList[currentDamageItems.ind] = dmgItem;
+            currentDamageItems.HUDlist[currentDamageItems.ind] = HUDelem;
+            currentDamageItems.ind++;
         }
         ChangeActiveMap(InputManager.Instance.GetInputMap());
         
@@ -310,16 +310,16 @@ public class HUDManager : MonoBehaviour
     {
         if (mapa == CurrentMap.Controller)
         {
-            for (int i = 0; i < currentAbItems.ind; i++)
+            for (int i = 0; i < currentDamageItems.ind; i++)
             {
-                currentAbItems.HUDlist[i].sprite = currentAbItems.itemList[i].GetControllerSprite();
+                currentDamageItems.HUDlist[i].sprite = currentDamageItems.itemList[i].GetControllerSprite();
             }
         }
         else
         {
-            for (int i = 0; i < currentAbItems.ind; i++)
+            for (int i = 0; i < currentDamageItems.ind; i++)
             {
-                currentAbItems.HUDlist[i].sprite = currentAbItems.itemList[i].GetKeyboardSprite();
+                currentDamageItems.HUDlist[i].sprite = currentDamageItems.itemList[i].GetKeyboardSprite();
             }
         }
     }
