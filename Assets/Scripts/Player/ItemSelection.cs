@@ -237,36 +237,30 @@ public class ItemSelection : MonoBehaviour
         // Si se trata de la primera selección de la partida, solo se podrá elegir entre las 3 armas del juego
         do
         {
-            if (FirstTime)  do
-                {
-                    item1 = ItemList[_random[_elec]];
-                    _elec++;
-                } while (item1 as PowerUpItem != null);
-            
+            if (FirstTime) 
+            {
+                    item1 = ItemList[0];
+            }
             else item1 = ItemList[_random[_elec]]; _elec++;
         } while (item1.WasUsed() == true); //nos aseguramos de que no se haya elegido antes
         HUDManager.Instance.UpdateSelectionGUI(item1, 1);
 
         do
         {
-            if (FirstTime) do
-                {
-                    item2 = ItemList[_random[_elec]];
-                    _elec++;
-                } while (item2 as PowerUpItem != null);
-
+            if (FirstTime)
+            {
+                    item2 = ItemList[1];
+            }
             else item2 = ItemList[_random[_elec]]; _elec++;
         } while (item1 == item2 || item2.WasUsed() == true); //ademas en las siguientes nos aseguramos de que no sean igual que las anteriores
         HUDManager.Instance.UpdateSelectionGUI(item2, 2);
 
         do
         {
-            if (FirstTime) do
-                {
-                    item3 = ItemList[_random[_elec]];
-                    _elec++;
-                } while (item3 as PowerUpItem != null);
-
+            if (FirstTime)
+            {
+                    item3 = ItemList[2];
+            }
             else item3 = ItemList[_random[_elec]]; _elec++;
         } while (item3 == item1 || item3 == item2 || item3.WasUsed() == true); //aqui igual
         HUDManager.Instance.UpdateSelectionGUI(item3, 3);

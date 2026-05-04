@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -5109442130159105058, guid: 58ddaf616951f2544a3e459d4adce623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -234,104 +234,104 @@ MonoBehaviour:
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Lanza
-        description: 
-        sprite: {fileID: 0}
-        prefab: {fileID: 0}
+        description: Arma rapida y alargada
+        sprite: {fileID: -2796400091282023116, guid: b02f1eeffd6d323498253723b88a75ba, type: 3}
+        prefab: {fileID: 5849566018043076284, guid: 238fa75347532b54580487759d2ae198, type: 3}
         KeyboardSprite: {fileID: 0}
         ControllerSprite: {fileID: 0}
     - rid: 2978302160822861894
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Maza
-        description: 
-        sprite: {fileID: 0}
-        prefab: {fileID: 0}
+        description: Arma lenta y fuerte
+        sprite: {fileID: 8042340749556229780, guid: 34373379cd6e0c0409ccc37f36063841, type: 3}
+        prefab: {fileID: 5849566018043076284, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
         KeyboardSprite: {fileID: 0}
         ControllerSprite: {fileID: 0}
     - rid: 2978302160822861895
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Espada
-        description: 
-        sprite: {fileID: 0}
-        prefab: {fileID: 0}
+        description: Arma corta en barrido
+        sprite: {fileID: -5937764268318024347, guid: c85f19c6b7c547845af23e0acaf49fd7, type: 3}
+        prefab: {fileID: 5849566018043076284, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
         KeyboardSprite: {fileID: 0}
         ControllerSprite: {fileID: 0}
     - rid: 2978302160822861896
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Rayo
-        description: 
-        sprite: {fileID: 0}
-        prefab: {fileID: 0}
-        KeyboardSprite: {fileID: 0}
-        ControllerSprite: {fileID: 0}
+        description: Habilidad que lanza una descarga electrica
+        sprite: {fileID: 3093207718481668220, guid: 2ca696ba0c322a64392f1f9f89077024, type: 3}
+        prefab: {fileID: 2896242413348064248, guid: 31813bd05eaac2f4b8c469200f24aca6, type: 3}
+        KeyboardSprite: {fileID: 21300000, guid: 4009d92f9348d8746b864f28482f3fae, type: 3}
+        ControllerSprite: {fileID: 21300000, guid: 4a683a558555d654484c16c38010a826, type: 3}
     - rid: 2978302160822861897
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Fireball
-        description: 
-        sprite: {fileID: 0}
-        prefab: {fileID: 0}
-        KeyboardSprite: {fileID: 0}
-        ControllerSprite: {fileID: 0}
+        description: Habilidad que lanza una bola de fuego
+        sprite: {fileID: -6607481912129624618, guid: 59c85049c2583c642bdaf121fc3fd266, type: 3}
+        prefab: {fileID: 4537825390611009081, guid: e0e8ac48a596eab4e902528f00927476, type: 3}
+        KeyboardSprite: {fileID: 21300000, guid: 315ce36c6b605924781f90a048111788, type: 3}
+        ControllerSprite: {fileID: 21300000, guid: 9efe6434f9db51d48ae4e894fdb61410, type: 3}
     - rid: 2978302160822861898
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Poison
-        description: 
-        sprite: {fileID: 0}
-        prefab: {fileID: 0}
-        KeyboardSprite: {fileID: 0}
-        ControllerSprite: {fileID: 0}
+        description: Habilidad que genera una zona de veneno
+        sprite: {fileID: 7958147730908029603, guid: ca89f60c97fb91a44992f5cc27a7e595, type: 3}
+        prefab: {fileID: 5755108880737174360, guid: 89e14f5a979c11e43bd178efce2e3571, type: 3}
+        KeyboardSprite: {fileID: 21300000, guid: db6ec26a3e8389e4a8950dd64cc6c1db, type: 3}
+        ControllerSprite: {fileID: 21300000, guid: 0a5ddabcd58e8d54a98ef248b3941a39, type: 3}
     - rid: 2978302160822861899
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Casco
-        description: 
-        sprite: {fileID: 0}
+        description: Vida++
+        sprite: {fileID: -2403621696057179548, guid: a4044238ff0461e40b3be9f0dedbc9fb, type: 3}
         Powerup1: 0
         Powerup2: 0
     - rid: 2978302160822861900
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pocima
-        description: 
-        sprite: {fileID: 0}
-        Powerup1: 0
-        Powerup2: 0
+        description: Fuerza++
+        sprite: {fileID: 6823730998285495618, guid: 03b757dda53259740a59da965fe5e2cb, type: 3}
+        Powerup1: 1
+        Powerup2: 1
     - rid: 2978302160822861901
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Sello
-        description: 
-        sprite: {fileID: 0}
-        Powerup1: 0
-        Powerup2: 0
+        description: Magia++
+        sprite: {fileID: -1553825453592760337, guid: 08f8c99a1cb054e4887693951de04556, type: 3}
+        Powerup1: 2
+        Powerup2: 2
     - rid: 2978302160822861902
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Pesa
-        description: 
-        sprite: {fileID: 0}
+        description: Vida+ Fuerza+
+        sprite: {fileID: 6462861437363646696, guid: 5e30ed37aa904eb49bfd63a021ab4664, type: 3}
         Powerup1: 0
-        Powerup2: 0
+        Powerup2: 1
     - rid: 2978302160822861903
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Tunica
-        description: 
-        sprite: {fileID: 0}
+        description: Vida+ Magia+
+        sprite: {fileID: -720703876719934200, guid: e5e59b7eb0ca5764b85e23fbae24d175, type: 3}
         Powerup1: 0
-        Powerup2: 0
+        Powerup2: 2
     - rid: 2978302160822861904
       type: {class: PowerUpItem, ns: , asm: Assembly-CSharp}
       data:
         name: Orbe
-        description: 
-        sprite: {fileID: 0}
-        Powerup1: 0
-        Powerup2: 0
+        description: Fuerza+ Magia+
+        sprite: {fileID: 3784010049462987352, guid: 785d326bf072c0c4fa5e6ac0f3e67d1c, type: 3}
+        Powerup1: 1
+        Powerup2: 2
 --- !u!114 &1815295831481581564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
   _maxHealth: 0
   _healthBar: {fileID: 0}
   animator: {fileID: 0}

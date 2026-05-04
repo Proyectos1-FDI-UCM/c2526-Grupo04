@@ -5,9 +5,11 @@
 // Proyectos 1 - Curso 2024-25
 //---------------------------------------------------------
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -197,6 +199,11 @@ public class InputManager : MonoBehaviour
             _activeMap = _theController.PlayerController.Get();
             map = CurrentMap.Controller;
             Init();
+            Cursor.visible = false;
+            Button button = null;
+            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
+            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+
         }
     }
 
@@ -212,6 +219,8 @@ public class InputManager : MonoBehaviour
             _activeMap = _theController.PlayerKeyboard.Get();
             map = CurrentMap.Keyboard;
             Init();
+            Cursor.visible = true;
+            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 

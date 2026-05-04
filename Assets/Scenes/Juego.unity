@@ -257,6 +257,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5922553066343986802, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1427719468}
+    - target: {fileID: 2340312500981586997, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: RegenTimePerUnit
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7652162536970584005, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12187195
@@ -301,182 +309,6 @@ PrefabInstance:
       propertyPath: GameCanvas
       value: 
       objectReference: {fileID: 356899434}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861893].prefab
-      value: 
-      objectReference: {fileID: 5849566018043076284, guid: 238fa75347532b54580487759d2ae198, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861893].sprite
-      value: 
-      objectReference: {fileID: -2796400091282023116, guid: b02f1eeffd6d323498253723b88a75ba, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861894].prefab
-      value: 
-      objectReference: {fileID: 5849566018043076284, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861894].sprite
-      value: 
-      objectReference: {fileID: 8042340749556229780, guid: 34373379cd6e0c0409ccc37f36063841, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861895].prefab
-      value: 
-      objectReference: {fileID: 5849566018043076284, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861895].sprite
-      value: 
-      objectReference: {fileID: -5937764268318024347, guid: c85f19c6b7c547845af23e0acaf49fd7, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861896].prefab
-      value: 
-      objectReference: {fileID: 2896242413348064248, guid: 31813bd05eaac2f4b8c469200f24aca6, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861896].sprite
-      value: 
-      objectReference: {fileID: 3093207718481668220, guid: 2ca696ba0c322a64392f1f9f89077024, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861897].prefab
-      value: 
-      objectReference: {fileID: 4537825390611009081, guid: e0e8ac48a596eab4e902528f00927476, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861897].sprite
-      value: 
-      objectReference: {fileID: -6607481912129624618, guid: 59c85049c2583c642bdaf121fc3fd266, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861898].prefab
-      value: 
-      objectReference: {fileID: 5755108880737174360, guid: 89e14f5a979c11e43bd178efce2e3571, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861898].sprite
-      value: 
-      objectReference: {fileID: 7958147730908029603, guid: ca89f60c97fb91a44992f5cc27a7e595, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861899].sprite
-      value: 
-      objectReference: {fileID: -2403621696057179548, guid: a4044238ff0461e40b3be9f0dedbc9fb, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861900].sprite
-      value: 
-      objectReference: {fileID: 6823730998285495618, guid: 03b757dda53259740a59da965fe5e2cb, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861901].sprite
-      value: 
-      objectReference: {fileID: -1553825453592760337, guid: 08f8c99a1cb054e4887693951de04556, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861902].sprite
-      value: 
-      objectReference: {fileID: 6462861437363646696, guid: 5e30ed37aa904eb49bfd63a021ab4664, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861903].sprite
-      value: 
-      objectReference: {fileID: -720703876719934200, guid: e5e59b7eb0ca5764b85e23fbae24d175, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861904].sprite
-      value: 
-      objectReference: {fileID: 3784010049462987352, guid: 785d326bf072c0c4fa5e6ac0f3e67d1c, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861900].Powerup1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861900].Powerup2
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861901].Powerup1
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861901].Powerup2
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861902].Powerup2
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861903].Powerup2
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861904].Powerup1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861904].Powerup2
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861893].description
-      value: Arma rapida y alargada
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861894].description
-      value: Arma lenta y fuerte
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861895].description
-      value: Arma corta en barrido
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861896].description
-      value: Habilidad que lanza una descarga electrica
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861897].description
-      value: Habilidad que lanza una bola de fuego
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861898].description
-      value: Habilidad que genera una zona de veneno
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861899].description
-      value: Vida++
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861900].description
-      value: Fuerza++
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861901].description
-      value: Magia++
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861902].description
-      value: Vida+ Fuerza+
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861903].description
-      value: Vida+ Magia+
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861904].description
-      value: Fuerza+ Magia+
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861896].KeyboardSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4009d92f9348d8746b864f28482f3fae, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861897].KeyboardSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 315ce36c6b605924781f90a048111788, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861898].KeyboardSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: db6ec26a3e8389e4a8950dd64cc6c1db, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861896].ControllerSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4a683a558555d654484c16c38010a826, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861897].ControllerSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9efe6434f9db51d48ae4e894fdb61410, type: 3}
-    - target: {fileID: 7926414153462157400, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
-      propertyPath: managedReferences[2978302160822861898].ControllerSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0a5ddabcd58e8d54a98ef248b3941a39, type: 3}
     - target: {fileID: 8036905124635201462, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: m_Name
       value: Player
@@ -813,6 +645,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78830020d4ed3548ab3df0266523ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1427719468 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8798383079225510465, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+  m_PrefabInstance: {fileID: 405719745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1437319172
 PrefabInstance:
   m_ObjectHideFlags: 0
