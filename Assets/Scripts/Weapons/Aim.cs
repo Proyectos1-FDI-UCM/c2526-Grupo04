@@ -60,6 +60,7 @@ public class Aim : MonoBehaviour
     {
         _playerTransform = LevelManager.Instance.GetPlayer();
         movement = true;
+        transform.position = _playerTransform.position;
     }
 
     /// <summary>

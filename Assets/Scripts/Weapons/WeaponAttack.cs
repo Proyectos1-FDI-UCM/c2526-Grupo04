@@ -66,7 +66,7 @@ public class WeaponAttack : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        _hitbox = GetComponent<PolygonCollider2D>();
+        _hitbox = GetComponent<Collider2D>();
         _debug = GetComponent<SpriteRenderer>();
         _aim = GetComponent<Aim>();
     }

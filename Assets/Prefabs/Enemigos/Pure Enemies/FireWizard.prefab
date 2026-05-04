@@ -109,8 +109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectile: {fileID: 1478581992256342590, guid: cc79acb38f4ea1343975343778daca87, type: 3}
+  IsBoss: 0
   AttackSpeed: 2.1
   ProjectileDistance: 0
+  _animator: {fileID: 0}
   RangedAtacks: 0
 --- !u!58 &2849509321579220326
 CircleCollider2D:

@@ -104,10 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4484d9571bb44e349b15b5293eecd14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileSpeed: 2.8
+  ProjectileSpeed: 2.1
+  BossProjectile: 0
   ProjectileDuration: 5
   FollowsPlayer: 1
-  RotationSpeed: 1
+  RotationSpeed: 0.9
   Shadow: 0
   NonShadowObject: {fileID: 0}
 --- !u!114 &1071389486133467024

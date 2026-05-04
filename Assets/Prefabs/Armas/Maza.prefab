@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4296237826464953130}
   - component: {fileID: 2884794129930726834}
   - component: {fileID: -8345261863790632753}
-  - component: {fileID: 489795973144606894}
   - component: {fileID: -8991165647953765088}
+  - component: {fileID: 3239000141521337031}
   m_Layer: 9
   m_Name: Maza
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.32, y: 1.32, z: 1.32}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287f6fb2d6019049a488e02e6156e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 2.6
+  Multiplier: 2.2
   Source: 0
 --- !u!114 &4296237826464953130
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653dc2f3a955e5b4db73731c08f6d4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackFrecuency: 0.6
+  AttackFrecuency: 0.7
   AttackDuration: 0.6
   Weapon: 2
   animator: {fileID: -8991165647953765088}
@@ -162,8 +162,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &489795973144606894
-PolygonCollider2D:
+--- !u!95 &-8991165647953765088
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5849566018043076284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 291ae2e6543369b4b882bf05493ec361, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &3239000141521337031
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -196,64 +218,5 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: -0.5}
-    oldSize: {x: 3.375, y: 2.984375}
-    newSize: {x: 2.56, y: 1.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.21875, y: 1.8203125}
-      - {x: 1.640625, y: 2.1953125}
-      - {x: 1.65625, y: 2.2421875}
-      - {x: 1.65625, y: 3.4921875}
-      - {x: 1.578125, y: 3.6953125}
-      - {x: 1.40625, y: 3.9140625}
-      - {x: 1.109375, y: 4.2890625}
-      - {x: 0.875, y: 4.3984375}
-      - {x: 0.546875, y: 4.4765625}
-      - {x: -0.140625, y: 4.4765625}
-      - {x: -0.375, y: 4.4453125}
-      - {x: -0.75, y: 4.3046875}
-      - {x: -1.046875, y: 4.1328125}
-      - {x: -1.5625, y: 3.8828125}
-      - {x: -1.6875, y: 3.7421875}
-      - {x: -1.6875, y: 3.5859375}
-      - {x: -1.65625, y: 3.3515625}
-      - {x: -1.640625, y: 2.9921875}
-      - {x: -1.640625, y: 2.1171875}
-      - {x: -1.53125, y: 1.9609375}
-      - {x: -0.984375, y: 1.5078125}
-      - {x: -0.9375, y: 1.4921875}
-      - {x: -0.015625, y: 1.4921875}
-      - {x: 0.21875, y: 1.5390625}
-      - {x: 0.640625, y: 1.5546875}
-      - {x: 0.984375, y: 1.6953125}
-  m_UseDelaunayMesh: 0
---- !u!95 &-8991165647953765088
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5849566018043076284}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 291ae2e6543369b4b882bf05493ec361, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Offset: {x: 0, y: 2.56}
+  m_Radius: 1.6

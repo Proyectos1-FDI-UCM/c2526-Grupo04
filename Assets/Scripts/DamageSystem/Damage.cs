@@ -75,9 +75,17 @@ public class Damage : MonoBehaviour
         else TotalDamage = Multiplier;
     }
 
+    private void Update()
+    {
+        if (gameObject.layer == 9)
+        {
+            TotalDamage = Multiplier * playerStats.GetDmg();
+        }
+    }
+
     #endregion
 
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
@@ -95,11 +103,6 @@ public class Damage : MonoBehaviour
     // se nombren en formato PascalCase (palabras con primera letra
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
-
-    public void ChangeDamage(int damage)
-    {
-        TotalDamage = damage * Multiplier;
-    }
 
     #endregion
 

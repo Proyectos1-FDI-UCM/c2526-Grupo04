@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireTrailPrefab: {fileID: 3058660825821453314, guid: 8b6f217337091c148a4465572d0e24dd, type: 3}
-  SpawnInterval: 0.3
+  SpawnInterval: 0.5
 --- !u!114 &2733301430666678101
 MonoBehaviour:
   m_ObjectHideFlags: 0
