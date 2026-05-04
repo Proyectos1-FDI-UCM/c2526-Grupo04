@@ -24,7 +24,6 @@ public class Health : MonoBehaviour
     // (palabras con primera letra mayúscula, incluida la primera letra)
     // Ejemplo: MaxHealthPoints
     [Header("Relevante solo para enemigos")]
-    [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private Animator animator;
@@ -52,6 +51,8 @@ public class Health : MonoBehaviour
     private Boss _boss;
 
     private Healing _healing;
+
+    private SpriteRenderer _spriteRenderer;
 
     private DamageSource _damageType = DamageSource.Other;
 
@@ -81,7 +82,10 @@ public class Health : MonoBehaviour
         _deathSoundDone = false;
 
         if (_playerStats != null)
+        {
             UpdateMaxHealth();
+        }
+            
 
         _currentHealth = _maxHealth;
 
@@ -90,6 +94,8 @@ public class Health : MonoBehaviour
             _healthBar.SetTarget(transform);
             _healthBar.SetFill(1f);
         }
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -135,7 +141,7 @@ public class Health : MonoBehaviour
 
         if (!IsDead())
         {
-            _spriteRenderer.color = Color.red;
+            _spriteRenderer.color = new Color(1f, 0.5f, 0.18f, 1);
         }
     }
 
@@ -192,6 +198,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        _spriteRenderer.color = Color.white;
         // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {
