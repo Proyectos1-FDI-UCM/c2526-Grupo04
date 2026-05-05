@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -4488852284712128451, guid: b5622967f104fc145acbf2df1e2a8f12, type: 3}
-  m_Color: {r: 0.81943035, g: 0.8453018, b: 0.85660374, a: 0.9843137}
+  m_Color: {r: 0.7946814, g: 0.87223417, b: 0.90188676, a: 0.8980392}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1219,8 +1219,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
       propertyPath: orthographic size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.6679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.6679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295870149165920292, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.6679245
       objectReference: {fileID: 0}
     - target: {fileID: 8968511200661427113, guid: 5a700a6defe8dfa46b1e3f55317b28c2, type: 3}
       propertyPath: m_Name
@@ -1851,6 +1867,10 @@ PrefabInstance:
     - target: {fileID: 6954054349017461337, guid: 1cf8b7e3c485e034f943c8590b471a1f, type: 3}
       propertyPath: m_Name
       value: SelectionMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954054349017461337, guid: 1cf8b7e3c485e034f943c8590b471a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
