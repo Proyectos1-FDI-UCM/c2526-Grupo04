@@ -40,8 +40,7 @@ public class PlayerStats : MonoBehaviour
     private Health _health;
     private Damage _damage;
     private MagicSystem _magicSystem;
-    private SpriteRenderer _spriteRenderer;
-    
+
     #endregion
     
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
@@ -60,7 +59,6 @@ public class PlayerStats : MonoBehaviour
         _health = gameObject.GetComponent<Health>();  
         _damage = gameObject.GetComponent<Damage>();
         _magicSystem = gameObject.GetComponent<MagicSystem>();
-        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -68,7 +66,7 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     void Update()
     {
-        _spriteRenderer.color = Color.white;
+
     }
     #endregion
 
