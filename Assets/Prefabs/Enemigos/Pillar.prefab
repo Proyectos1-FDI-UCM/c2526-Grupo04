@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4180334ae0b16234d8e26daf86955101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealingTimePerUnit: 0.5
+  HealingTimePerUnit: 0.1
 --- !u!114 &3134202240854128255
 MonoBehaviour:
   m_ObjectHideFlags: 0

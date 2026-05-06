@@ -56,7 +56,6 @@ MonoBehaviour:
   RotationSpeed: 1
   Shadow: 0
   NonShadowObject: {fileID: 0}
-  _animatorBoss: {fileID: 0}
 --- !u!114 &6987220314367386757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +224,8 @@ Transform:
   m_GameObject: {fileID: 8641550204479882127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0099, y: 6.0053, z: 0}
-  m_LocalScale: {x: 3.2565784, y: 1.5658525, z: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalScale: {x: 2.8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8252133856279460050}
