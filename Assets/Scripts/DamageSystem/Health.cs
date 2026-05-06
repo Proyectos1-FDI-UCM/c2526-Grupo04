@@ -46,6 +46,7 @@ public class Health : MonoBehaviour
     private float _deathTime;
     private bool _deadExp;
     private bool _deathSoundDone;
+    private bool _destroy = false;
 
     private EnemyXP _enemyXP;
     private Boss _boss;
@@ -203,7 +204,9 @@ public class Health : MonoBehaviour
         if (_enemyXP != null)
         {
             if (_deathTime == 0) _deathTime = Time.time;
-            LevelManager.Instance.DestroyEnemy();
+
+            if(!_destroy) LevelManager.Instance.DestroyEnemy();
+            _destroy = true;
 
             // Reproducimos el sonido de muerte
             AudioManager.Instance.EnemiesDeathSound(_deathSoundDone);
@@ -214,7 +217,7 @@ public class Health : MonoBehaviour
             ProcessDamage(_damageType, _deadExp);
             _deadExp = true;
 
-            if (_boss == null && (Time.time -_deathTime) >= deathAnimationTime) Destroy(gameObject); // No destruimos al jefe, y tampoco al enemigo base si la animación de muerte no ha terminado.
+            if (_boss == null && (Time.time -_deathTime) >= deathAnimationTime)  Destroy(gameObject); // No destruimos al jefe, y tampoco al enemigo base si la animación de muerte no ha terminado.
             // Al no destruirlo, permitimos que el Update del componente Boss se ejecute, instanciando
             // la segunda fase y destruyendo la primera instantaneamente.
         }

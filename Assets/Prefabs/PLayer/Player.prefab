@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 3
-  Dmg: 3
+  Dmg: 2
   MaxMagic: 3
 --- !u!114 &7926414153462157400
 MonoBehaviour:
@@ -235,28 +235,28 @@ MonoBehaviour:
       data:
         name: Lanza
         description: Arma rapida y alargada
-        sprite: {fileID: -2796400091282023116, guid: b02f1eeffd6d323498253723b88a75ba, type: 3}
+        sprite: {fileID: 21300000, guid: b02f1eeffd6d323498253723b88a75ba, type: 3}
         prefab: {fileID: 5849566018043076284, guid: 238fa75347532b54580487759d2ae198, type: 3}
-        KeyboardSprite: {fileID: 0}
-        ControllerSprite: {fileID: 0}
+        KeyboardSprite: {fileID: 21300000, guid: 12de860ae6b9c244388de8a1a87fab8f, type: 3}
+        ControllerSprite: {fileID: 21300000, guid: 12de860ae6b9c244388de8a1a87fab8f, type: 3}
     - rid: 2978302160822861894
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Maza
         description: Arma lenta y fuerte
-        sprite: {fileID: 8042340749556229780, guid: 34373379cd6e0c0409ccc37f36063841, type: 3}
+        sprite: {fileID: 21300000, guid: 34373379cd6e0c0409ccc37f36063841, type: 3}
         prefab: {fileID: 5849566018043076284, guid: 0c8cb1b561625944d9c015e595954658, type: 3}
-        KeyboardSprite: {fileID: 0}
-        ControllerSprite: {fileID: 0}
+        KeyboardSprite: {fileID: 21300000, guid: 77b31b5eceb02fc40a16abf9af668e61, type: 3}
+        ControllerSprite: {fileID: 21300000, guid: 77b31b5eceb02fc40a16abf9af668e61, type: 3}
     - rid: 2978302160822861895
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
         name: Espada
         description: Arma corta en barrido
-        sprite: {fileID: -5937764268318024347, guid: c85f19c6b7c547845af23e0acaf49fd7, type: 3}
+        sprite: {fileID: 21300000, guid: c85f19c6b7c547845af23e0acaf49fd7, type: 3}
         prefab: {fileID: 5849566018043076284, guid: 7ba73b5ce887d8a4babf3b14992cfb01, type: 3}
-        KeyboardSprite: {fileID: 0}
-        ControllerSprite: {fileID: 0}
+        KeyboardSprite: {fileID: 21300000, guid: 7b74865ae683f5c4caae41046d857427, type: 3}
+        ControllerSprite: {fileID: 21300000, guid: 7b74865ae683f5c4caae41046d857427, type: 3}
     - rid: 2978302160822861896
       type: {class: DamageItem, ns: , asm: Assembly-CSharp}
       data:
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a866c3d3c14744b9fcf311eaa251f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RegenTimePerUnit: 4
+  RegenTimePerUnit: 5.5
 --- !u!114 &-5922553066343986802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 0}
   _maxHealth: 0
   _healthBar: {fileID: 0}
   animator: {fileID: 0}
@@ -463,8 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a78d386c71aa48b50a53e981c1b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialLimit: 30
-  Increment: 1.6
+  InitialLimit: 50
+  Increment: 1.5
 --- !u!114 &5651830946197662469
 MonoBehaviour:
   m_ObjectHideFlags: 0

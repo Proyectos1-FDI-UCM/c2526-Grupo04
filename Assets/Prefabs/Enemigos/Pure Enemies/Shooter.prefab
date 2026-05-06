@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 8505703863331564463}
   _maxHealth: 6
   _healthBar: {fileID: 0}
   animator: {fileID: 7530698783591201269}
@@ -206,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08836c7d1be19814ab49aedfc68f6af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XpDrop: 7
+  XpDrop: 6
 --- !u!114 &229519763979392449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677d0458bf1e92242b9b1aaaa06fe138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 8505703863331564463}
   MaxDistance: 7
   Speed: 2.1
   KnockbackSpeed: 6

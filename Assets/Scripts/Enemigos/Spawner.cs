@@ -49,7 +49,9 @@ public class Spawner : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    const int EnemyCap = 100;
+    const int EnemyCap = 120;
+    const float InitialCapPercentile = 0.25f;
+    const float BossCapPercentile = 0.6f;
 
     private float _realEnemyCap;
 
@@ -105,18 +107,20 @@ public class Spawner : MonoBehaviour
 
             if (_realTime > 0)
             {
-                if ((_realTime / _totalTime) < 0.25) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
+                if ((_realTime / _totalTime) <= InitialCapPercentile) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
                 {
                     //Se fija el tope como un porcentaje del tope total en proporción al tiempo de juego
                     _realEnemyCap = EnemyCap * (1 - (_realTime / _totalTime));
+                    
                 }
                 else
                 {
                     // Se fija el tope a un porcentaje determinado
-                    _realEnemyCap = EnemyCap * 0.25f;
+                    _realEnemyCap = EnemyCap * InitialCapPercentile;
                 }
+                Debug.Log(LevelManager.Instance.NumOfEnemies());
             }
-            else _realEnemyCap = EnemyCap * 0.8f;
+            else _realEnemyCap = EnemyCap * BossCapPercentile;
 
             if (LevelManager.Instance.NumOfEnemies() > _realEnemyCap / 3) //Se aplica la ralentización cuando el número de enemigos alcanza un porcentaje del tope
             {

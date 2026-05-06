@@ -240,23 +240,33 @@ public class HUDManager : MonoBehaviour
         if (!_finishedGame)
         {
             PauseMenu.SetActive(pausedGame);
-            EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
         }
+        EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
     }
 
     public void DefeatMenuHUD()
     {
         _finishedGame = true;
         DefeatMenu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(DefeatMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
+        if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
+        {
+            Button button = null;
+            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
+            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+        }
     }
 
     public void LevelUpMenuHUD(bool levelUp)
     {
         SelectionMenu.SetActive(levelUp);
-        EventSystem.current.SetSelectedGameObject(SelectionMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
+        if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
+        {
+            Button button = null;
+            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
+            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+        }
     }
 
     public bool IsInLevelUp()
@@ -268,8 +278,13 @@ public class HUDManager : MonoBehaviour
     {
         _finishedGame = true;
         WinMenu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(WinMenu.GetComponentInChildren<Button>().gameObject);
         LevelManager.Instance.PauseGame();
+        if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
+        {
+            Button button = null;
+            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
+            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+        }
     }
 
     public void LevelUpTextScreenHUD(bool active)

@@ -155,6 +155,7 @@ public class InputManager : MonoBehaviour
         } // if somos la instancia principal
     } // OnDestroy
 
+
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -480,9 +481,12 @@ public class InputManager : MonoBehaviour
     {
         if (device == null) return;
 
+
         // Si el dispositivo que generó el evento es un mando, usamos el mapa de mando
         if (device is Gamepad)
         {
+            Cursor.visible = false;
+
             // Solo cambiar si es distinto para evitar re-inicializaciones innecesarias
             if (_activeMap != _theController.PlayerController.Get())
             {

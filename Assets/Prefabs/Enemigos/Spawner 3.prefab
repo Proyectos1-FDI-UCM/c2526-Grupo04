@@ -47,4 +47,4 @@ MonoBehaviour:
   SpawnInterval: 10000
   Enemy: {fileID: 7586222516470173899, guid: ab2ed98145de8894698eacb96565fd98, type: 3}
   DistanceFromBoss: 0
-  DistanceFromCamera: 2
+  DistanceFromCamera: 1
