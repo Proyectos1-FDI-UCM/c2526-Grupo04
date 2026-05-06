@@ -210,6 +210,11 @@ public class LevelManager : MonoBehaviour
         return _timer;
     }
 
+    public float GetInitialTime()
+    {
+        return InitialTime*60;
+    }
+
     public bool TimeUp()
     {
         return _timer <= 0;

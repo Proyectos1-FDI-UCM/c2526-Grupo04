@@ -241,7 +241,8 @@ public class HUDManager : MonoBehaviour
         {
             PauseMenu.SetActive(pausedGame);
         }
-        EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
+        if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
+            EventSystem.current.SetSelectedGameObject(PauseMenu.GetComponentInChildren<Button>().gameObject);
     }
 
     public void DefeatMenuHUD()
@@ -251,9 +252,7 @@ public class HUDManager : MonoBehaviour
         LevelManager.Instance.PauseGame();
         if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
         {
-            Button button = null;
-            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
-            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+            EventSystem.current.SetSelectedGameObject(DefeatMenu.GetComponentInChildren<Button>().gameObject);
         }
     }
 
@@ -263,9 +262,7 @@ public class HUDManager : MonoBehaviour
         LevelManager.Instance.PauseGame();
         if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
         {
-            Button button = null;
-            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
-            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+            EventSystem.current.SetSelectedGameObject(SelectionMenu.GetComponentInChildren<Button>().gameObject);
         }
     }
 
@@ -281,9 +278,7 @@ public class HUDManager : MonoBehaviour
         LevelManager.Instance.PauseGame();
         if (InputManager.Instance.GetInputMap() == CurrentMap.Controller)
         {
-            Button button = null;
-            if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
-            if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
+            EventSystem.current.SetSelectedGameObject(WinMenu.GetComponentInChildren<Button>().gameObject);
         }
     }
 

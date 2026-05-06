@@ -108,7 +108,7 @@ MonoBehaviour:
   BossProjectile: 0
   ProjectileDuration: 5
   FollowsPlayer: 1
-  RotationSpeed: 0.9
+  RotationSpeed: 1.1
   Shadow: 0
   NonShadowObject: {fileID: 0}
 --- !u!114 &1071389486133467024

@@ -201,6 +201,7 @@ public class InputManager : MonoBehaviour
             map = CurrentMap.Controller;
             Init();
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Button button = null;
             if (EventSystem.current.currentSelectedGameObject == null) button = FindAnyObjectByType<Button>();
             if (button != null) EventSystem.current.SetSelectedGameObject(button.gameObject);
@@ -221,6 +222,7 @@ public class InputManager : MonoBehaviour
             map = CurrentMap.Keyboard;
             Init();
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             EventSystem.current.SetSelectedGameObject(null);
         }
     }

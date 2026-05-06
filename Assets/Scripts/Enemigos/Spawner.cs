@@ -49,9 +49,10 @@ public class Spawner : MonoBehaviour
     // primera palabra en minúsculas y el resto con la 
     // primera letra en mayúsculas)
     // Ejemplo: _maxHealthPoints
-    const int EnemyCap = 120;
-    const float InitialCapPercentile = 0.25f;
+    const int EnemyCap = 90;
+    const float InitialCapPercentile = 0.3f;
     const float BossCapPercentile = 0.6f;
+    const float SpawnRateSlowPercentile = 0.4f;
 
     private float _realEnemyCap;
 
@@ -81,7 +82,7 @@ public class Spawner : MonoBehaviour
     /// </summary>
     void Start()
     {
-        _totalTime = LevelManager.Instance.GetTimer();
+        _totalTime = LevelManager.Instance.GetInitialTime();
 
         //Obtenemos los límites del mapa llamando al método GetMapLimits del Level Manager
         LevelManager.Instance.GetMapLimits(out _maxX, out _minX, out _maxY, out _minY);
@@ -107,7 +108,7 @@ public class Spawner : MonoBehaviour
 
             if (_realTime > 0)
             {
-                if ((_realTime / _totalTime) <= InitialCapPercentile) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
+                if (EnemyCap * (1 - (_realTime / _totalTime)) > EnemyCap * InitialCapPercentile) //Se empieza a aumentar el tope a partir de un cierto porcentaje del tope configurado para el final
                 {
                     //Se fija el tope como un porcentaje del tope total en proporción al tiempo de juego
                     _realEnemyCap = EnemyCap * (1 - (_realTime / _totalTime));
@@ -118,11 +119,10 @@ public class Spawner : MonoBehaviour
                     // Se fija el tope a un porcentaje determinado
                     _realEnemyCap = EnemyCap * InitialCapPercentile;
                 }
-                Debug.Log(LevelManager.Instance.NumOfEnemies());
             }
             else _realEnemyCap = EnemyCap * BossCapPercentile;
 
-            if (LevelManager.Instance.NumOfEnemies() > _realEnemyCap / 3) //Se aplica la ralentización cuando el número de enemigos alcanza un porcentaje del tope
+            if (LevelManager.Instance.NumOfEnemies() > _realEnemyCap * SpawnRateSlowPercentile) //Se aplica la ralentización cuando el número de enemigos alcanza un porcentaje del tope
             {
                 //Se suma una fracción del delta time al intervalo de aparición en función de los numeros de enemigos que hay en pantalla respecto al tope
                 _realSpawnInterval += Time.deltaTime * ((float)LevelManager.Instance.NumOfEnemies() / (float)_realEnemyCap);
