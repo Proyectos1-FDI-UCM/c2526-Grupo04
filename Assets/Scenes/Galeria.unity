@@ -577,7 +577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: ca711dd8647f52448bdf6ce5711320f5, type: 3}
   nombre: Duende jorobado
-  descripcion: EEEEEEE
+  descripcion: Tiene una espalda tan grande como su corazon. Hemos insistido pero
+    no se ha atrevido a aparecer en el juego porque no esta a favor de la guerra.
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &403312456
@@ -1966,7 +1967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: -1340070296733551782, guid: 6555d205fae38fc479c322c177fd5db3, type: 3}
   nombre: Duende tirador
-  descripcion: EEEEE
+  descripcion: Fue nombrado el mejor arquero de su aldea. Suerte que no se ha disparado
+    en un ojo.
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &854431364
@@ -3081,7 +3083,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 442d20d068e15bd46aaa70ecf343b35a, type: 3}
   nombre: Duende ardiente
-  descripcion: EEEEEEE
+  descripcion: Nadie sabe como ha acabado asi y al parecer el tampoco. Por lo menos
+    es simpatico.
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &1132691595
@@ -3369,8 +3372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: df40972074097864d9e43dd0035487e7, type: 3}
   nombre: Duende luchador
-  descripcion: "Duende simple al que le gusta pelear a pu\xF1o limpio. No puede estar
-    m\xE1s de 3 minutos sin presumir sus m\xFAsculos."
+  descripcion: "Le gusta pelear a pu\xF1o limpio. No puede estar mas de 3 minutos
+    sin presumir de sus musculos."
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &1219758648
@@ -4244,7 +4247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 5267167654168041120, guid: 77b76e6e083b1634fa4a11310a8a4524, type: 3}
   nombre: Duende mago
-  descripcion: EEEEEEE
+  descripcion: Igual tiene algo de culpa con lo del duende ardiente. No ha dado declaraciones
+    porque nunca sale de su choza a menos que sea completamente necesario.
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &1752987902
@@ -4688,7 +4692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: ddb9ab70f41677f4ea9f960974bdab42, type: 3}
   nombre: Vlorp
-  descripcion: EEEEEEE
+  descripcion: Burp vlad vid sep tus vois vert vobip vais bers nuvertorb.
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &1880659263
@@ -4916,8 +4920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: -5109442130159105058, guid: 58ddaf616951f2544a3e459d4adce623, type: 3}
-  nombre: Nova
-  descripcion: EEEEEEE
+  nombre: Chaval del pijama de estrellas
+  descripcion: "No hay \xF1 en la fuente asi que hemos tenido que ponernos creativos
+    con el nombre."
   HoverScale: 1.1
   panel: {fileID: 672033668}
 --- !u!114 &2096668354

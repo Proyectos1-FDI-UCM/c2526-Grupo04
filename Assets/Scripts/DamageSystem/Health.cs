@@ -53,8 +53,6 @@ public class Health : MonoBehaviour
 
     private Healing _healing;
 
-    private SpriteRenderer _spriteRenderer;
-
     private DamageSource _damageType = DamageSource.Other;
 
     private bool _invulnerable = false; //Para el cheat de invulnerabilidad
@@ -96,7 +94,6 @@ public class Health : MonoBehaviour
             _healthBar.SetFill(1f);
         }
 
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -139,11 +136,6 @@ public class Health : MonoBehaviour
 
         if (_healthBar != null)
             _healthBar.SetFill(_currentHealth / _maxHealth);
-
-        if (!IsDead())
-        {
-            _spriteRenderer.color = new Color(1f, 0.5f, 0.18f, 1);
-        }
     }
 
     public void UpdateMaxHealth()
@@ -199,7 +191,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        _spriteRenderer.color = Color.white;
         // Si es enemigo llama al sistema de experiencia del enemigo
         if (_enemyXP != null)
         {

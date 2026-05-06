@@ -131,7 +131,6 @@ public class EnemyStateMachine : MonoBehaviour
                         if (Time.time > _actualKnockbackDuration)
                         {
                             _currentState = State.Chasing;
-                            _sprite2D.color = Color.white;
                         }
                         // Desplazamos al enemigo en la dirección contraria (le hacemos retroceder).
                         else transform.position -= direction * KnockbackSpeed * Time.deltaTime;

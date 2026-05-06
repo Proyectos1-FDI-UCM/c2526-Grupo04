@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -4488852284712128451, guid: b5622967f104fc145acbf2df1e2a8f12, type: 3}
-  m_Color: {r: 0.7946814, g: 0.87223417, b: 0.90188676, a: 0.8980392}
+  m_Color: {r: 0.7946814, g: 0.87223417, b: 0.90188676, a: 0.99607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -299,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 8036905124635201462, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798383079225510465, guid: 4c4fc3eb97f4e3346bd4a69b3c0c1f87, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1003,6 +1007,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1985525198
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059621915664749565, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942378618628523076, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
+      propertyPath: m_Name
+      value: Vlorp Fase 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 425d3f97078609c40bc3ea025a2acf29, type: 3}
 --- !u!1 &2003020966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5654271370570070502, guid: e5e3582bf366a3a499af9ce7c7655912, type: 3}
@@ -2227,3 +2288,4 @@ SceneRoots:
   - {fileID: 6187392381205521155}
   - {fileID: 4157470167961662039}
   - {fileID: 1648852040}
+  - {fileID: 1985525198}
