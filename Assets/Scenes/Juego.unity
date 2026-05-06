@@ -1478,6 +1478,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 723501655622594152, guid: efc870c25ce306545be915dee6adea5a, type: 3}
+      propertyPath: NextScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1239144412291434699, guid: efc870c25ce306545be915dee6adea5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1594,6 +1598,10 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 978504253}
+    - target: {fileID: 7651955292564808710, guid: efc870c25ce306545be915dee6adea5a, type: 3}
+      propertyPath: NextScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7686921144180283222, guid: efc870c25ce306545be915dee6adea5a, type: 3}
       propertyPath: m_Name
       value: WinMenu
