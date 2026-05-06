@@ -101,7 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSpeed: 0
+  BossProjectile: 0
   ProjectileDuration: 2
   FollowsPlayer: 0
+  RotationSpeed: 1
   Shadow: 1
-  NonShadowObject: {fileID: 7136410596411635929, guid: a7860d7edf9e0124198ba8d35ecb956c, type: 3}
+  NonShadowObject: {fileID: 8360479334275494293, guid: 820c016f0189fad43a10b4a3e145d2f8, type: 3}
