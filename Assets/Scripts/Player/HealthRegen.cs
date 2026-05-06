@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
+// Adrián Montiel Martínez
 // Nombre del juego
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
@@ -67,11 +67,11 @@ public class HealthRegen : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            regen = Time.deltaTime / RegenTimePerUnit;
-            _currentHealth = _health.GetCurrentHealth();
-            _maxHealth = _health.GetMaxHealth();
-            RegenHealth(regen);
-            HUDManager.Instance.UpdateHealthGUI(_maxHealth, _currentHealth);
+            regen = Time.deltaTime / RegenTimePerUnit; // Calculamos la cantidad de vida a regenerar en este frame
+            _currentHealth = _health.GetCurrentHealth(); // Obtenemos la vida actual del jugador
+            _maxHealth = _health.GetMaxHealth(); // Obtenemos la vida máxima del jugador
+            RegenHealth(regen); // Regeneramos la vida del jugador
+            HUDManager.Instance.UpdateHealthGUI(_maxHealth, _currentHealth); // Actualizamos la barra de vida del jugador
         }
     }
     #endregion
@@ -95,8 +95,7 @@ public class HealthRegen : MonoBehaviour
 
     public void RegenHealth(float regen)
     {
-        if (_currentHealth < _maxHealth) _health.LoseHealth(-regen);
-        else _health.LoseHealth(_currentHealth - _maxHealth);
+        if (_currentHealth < _maxHealth) _health.LoseHealth(-regen); // Si el jugador no tiene la vida al máximo, regeneramos la vida calculada
     }
 
     #endregion

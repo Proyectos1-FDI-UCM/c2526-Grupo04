@@ -1,6 +1,6 @@
 //---------------------------------------------------------
 // Contiene el script para la gestión de la magia (prototipo)
-// Responsable de la creación de este archivo
+// Adrián Montiel Martínez
 // Nombre del juego
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
@@ -41,8 +41,8 @@ public class MagicSystem : MonoBehaviour
     {
         if (!LevelManager.Instance.GetPause())
         {
-            if (CurrentMagic < MaxMagic) //aumento progresivo de la magia actual, cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
-            {
+            if (CurrentMagic < MaxMagic) //aumento progresivo de la magia actual
+            {  //cálculo del tiempo de recarga en función del parámetro del tiempo total de recarga y de los valores de magia actual y máxima
                 CurrentReloadTime = (MaxMagic - CurrentMagic) * TotalReloadTime / MaxMagic;
                 CurrentMagic += (Time.deltaTime * (MaxMagic - CurrentMagic)) / CurrentReloadTime;
                 CurrentMagic = Mathf.Clamp(CurrentMagic, 0, MaxMagic);
@@ -62,7 +62,7 @@ public class MagicSystem : MonoBehaviour
     // mayúscula, incluida la primera letra)
     // Ejemplo: GetPlayerController
 
-    public void UpdateMaxMagic()
+    public void UpdateMaxMagic()  //actualiza el valor de magia máxima en caso de que se haya aumentado
     {
         MaxMagic = _playerStats.GetMaxMagic();
     }
