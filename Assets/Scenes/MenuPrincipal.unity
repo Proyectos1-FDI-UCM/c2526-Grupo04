@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpecificUse: 0
-  NextScene: 5
+  NextScene: 4
 --- !u!114 &1575564857
 MonoBehaviour:
   m_ObjectHideFlags: 0
