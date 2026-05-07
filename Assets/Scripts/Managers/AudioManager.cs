@@ -359,6 +359,26 @@ public class AudioManager : MonoBehaviour
         _musicAudioSource.volume = newVolume;
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        _musicAudioSource.volume = volume;
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        _soundEffectsAudioSource.volume = volume;
+    }
+
+    public float GetMusicVolume()
+    {
+        return _musicAudioSource.volume;
+    }
+
+    public float GetSFXVolume()
+    {
+        return _soundEffectsAudioSource.volume;
+    }
+
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
