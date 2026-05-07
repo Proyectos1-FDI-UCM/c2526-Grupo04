@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26980dc05f43c07479e5cd5b7a15f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 300
+  _maxHealth: 500
   _healthBar: {fileID: 0}
   animator: {fileID: 7074788707045198205}
   deathAnimationTime: 0
@@ -247,9 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa3ee128400538448c2fd9c431ec808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnInterval: 4
+  SpawnInterval: 2
   Enemy: {fileID: 4163877867695462335, guid: c371f37fd19917042ba2217d588d6018, type: 3}
-  DistanceFromBoss: 10
+  DistanceFromBoss: 15
   DistanceFromCamera: 0
 --- !u!114 &4835226226583288920
 MonoBehaviour:
