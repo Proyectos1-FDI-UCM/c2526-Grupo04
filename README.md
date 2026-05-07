@@ -3,15 +3,17 @@ MMDM, es un survivor roguelike de acción 2D con vista top down, en el cual cont
 
 El jugador podrá elegir entre una pequeña variedad de armas, objetos que potencian las estadisticas y además de una serie de habilidades únicas, todo esto mientras no paran de llegar las interminables hordas que lo quieren matar, las cuales van aumentando su tamaño y dificultad a medida que avanzas y transcurre el tiempo, Nova deberá  matar a todos los enemigos posibles y evitar morir en el intento.
 
-# Controles
+## | Controles
 <img width="1592" height="887" alt="image" src="https://github.com/user-attachments/assets/28165da5-3fed-47b4-9bcf-96313f6b07ed" />
 <img width="1597" height="891" alt="image" src="https://github.com/user-attachments/assets/2aeff8c8-03d3-4ce3-a1b0-9a600cae871f" />
 
-# Known Issues
+## | Known Issues
 Los meteoritos que caen te hacen daño antes de impactar 
 
-# Equipo de desarrollo:
+## | Equipo de desarrollo:
 Arturo Ramos Romero 
+
+y sus duendes:
 
 Adrián Montiel Martínez
 
@@ -24,3 +26,5 @@ Nicolás Jiménez Hernández
 Jesús Maldonado Becerra 
 
 Javier Hoyos Giunta
+
+
