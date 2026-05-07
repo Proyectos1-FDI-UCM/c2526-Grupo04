@@ -27,4 +27,4 @@ Jesús Maldonado Becerra
 
 Javier Hoyos Giunta
 
-
+<img width="1024" height="1024" alt="LogoArturoYSusDuendes" src="https://github.com/user-attachments/assets/e1f6dee8-e3bf-4747-9165-b44aa52fc654" />
