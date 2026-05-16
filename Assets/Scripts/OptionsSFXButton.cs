@@ -1,28 +1,21 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Contiene el método para que suene el efecto de sonido
+// del menú de opciones
+// Rodrigo Ceña Álvarez
+// MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
 using UnityEngine;
 // Añadir aquí el resto de directivas using
 
-
-/// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
-/// </summary>
 public class OptionsSFXButton : MonoBehaviour
 {
-
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+    /// <summary>
+    ///Pone el sonido
+    /// </summary>
     public void PlayTestSound()
     {
         AudioManager.Instance.PlayPoisonSound();

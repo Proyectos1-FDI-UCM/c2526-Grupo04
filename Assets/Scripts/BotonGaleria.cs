@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Breve descripción del contenido del archivo
-// Responsable de la creación de este archivo
-// Nombre del juego
+// Gestiona los botones de los personajes de la galería
+// Rodrigo Ceña Álvarez
+// MMDM
 // Proyectos 1 - Curso 2025-26
 //---------------------------------------------------------
 
@@ -10,10 +10,6 @@ using UnityEngine.EventSystems;
 // Añadir aquí el resto de directivas using
 
 
-/// <summary>
-/// Antes de cada class, descripción de qué es y para qué sirve,
-/// usando todas las líneas que sean necesarias.
-/// </summary>
 public class BotonGaleria : MonoBehaviour
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
@@ -33,61 +29,50 @@ public class BotonGaleria : MonoBehaviour
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
-    // Documentar cada atributo que aparece aquí.
-    // El convenio de nombres de Unity recomienda que los atributos
-    // privados se nombren en formato _camelCase (comienza con _, 
-    // primera palabra en minúsculas y el resto con la 
-    // primera letra en mayúsculas)
-    // Ejemplo: _maxHealthPoints
     private Vector3 _originalScale;
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
 
-    // Por defecto están los típicos (Update y Start) pero:
-    // - Hay que añadir todos los que sean necesarios
-    // - Hay que borrar los que no se usen 
-
     /// <summary>
-    /// Start is called on the frame when a script is enabled just before 
-    /// any of the Update methods are called the first time.
+    ///Guarda el tamaño original del botón
     /// </summary>
     void Start()
     {
         _originalScale = transform.localScale;
     }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        
-    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
-    // Documentar cada método que aparece aquí con ///<summary>
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-    // Ejemplo: GetPlayerController
+    /// <summary>
+    ///Muestra la info del personaje
+    /// </summary>
     public void OnClickGalleryButton()
     {
         panel.MostrarDuende(sprite, nombre, descripcion);
     }
 
+    /// <summary>
+    ///Cierra el panel de info
+    /// </summary>
     public void ClosePanel()
     {
         panel.Cerrar();
     }
+
+    /// <summary>
+    ///Amplía el tamaño al hacer hover
+    /// </summary>
     public void OnPointerEnter()
     {
         transform.localScale = _originalScale * HoverScale;
     }
 
+    /// <summary>
+    ///Restaura el tamaño al salir del hover
+    /// </summary>
     public void OnPointerExit()
     {
         transform.localScale = _originalScale;
@@ -95,14 +80,6 @@ public class BotonGaleria : MonoBehaviour
 
     #endregion
 
-    // ---- MÉTODOS PRIVADOS ----
-    #region Métodos Privados
-    // Documentar cada método que aparece aquí
-    // El convenio de nombres de Unity recomienda que estos métodos
-    // se nombren en formato PascalCase (palabras con primera letra
-    // mayúscula, incluida la primera letra)
-
-    #endregion
 
 } // class BotonGaleria 
 // namespace
